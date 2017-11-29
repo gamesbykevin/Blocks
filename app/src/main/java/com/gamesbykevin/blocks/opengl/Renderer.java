@@ -1,6 +1,7 @@
 package com.gamesbykevin.blocks.opengl;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -8,12 +9,13 @@ import com.gamesbykevin.blocks.R;
 
 import org.rajawali3d.Object3D;
 import org.rajawali3d.cameras.ArcballCamera;
-import org.rajawali3d.lights.DirectionalLight;
 import org.rajawali3d.materials.Material;
 import org.rajawali3d.materials.methods.DiffuseMethod;
 import org.rajawali3d.materials.textures.Texture;
 import org.rajawali3d.math.vector.Vector3;
 import org.rajawali3d.primitives.RectangularPrism;
+
+import java.util.Random;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -30,11 +32,20 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
     private int index = 0;
 
-    private boolean down = true;
+    //is the block standing up?
+    private boolean standing = false;
+
+    //are we rotating vertically?
+    private boolean vertical = false;
 
     public enum Direction {
         North, East, South, West
     }
+
+    //current direction we are heading
+    private Direction current = Direction.values()[index];
+
+    private boolean goal = false;
 
     public Renderer(Context context, View view) {
         super(context);
@@ -45,10 +56,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
     @Override
     public void initScene() {
 
-        DirectionalLight directionalLight = new DirectionalLight(0, 10f, 2);
-        directionalLight.setColor(1.0f, 1.0f, 1.0f);
-        directionalLight.setPower(1f);
-        //getCurrentScene().addLight(directionalLight);
+        getCurrentScene().clearChildren();
 
         Material materialBlock = new Material();
         Material materialFloor = new Material();
@@ -69,8 +77,6 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
             e.printStackTrace();
         }
 
-        Object3D target = null;
-
         try {
 
             for (int row = 0; row <  10; row++) {
@@ -83,9 +89,6 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
                     floor.setMaterial(materialFloor);
                     floor.setPosition(col,row,0);
                     getCurrentScene().addChild(floor);
-
-                    if (row == 4 && col == 5)
-                        target = floor;
                 }
             }
 
@@ -98,23 +101,30 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
             e.printStackTrace();
         }
 
+        Object3D target = new Object3D();
+        target.setPosition(4, -2, 0);
+
+        //getCurrentCamera().setLookAt(target.getPosition());
+        getCurrentCamera().setPosition(target.getX(), target.getY(), target.getZ() + 10);
+        getCurrentCamera().rotate(Vector3.Axis.X, -30);
+
+        /*
         ArcballCamera camera = new ArcballCamera(getContext(), view, target);
+        camera.setLookAt(target.getPosition());
         //ArcballCamera camera = new ArcballCamera(getContext(), view);//, prism);
 
-        camera.setPosition(15, 15, 10);
-        //camera.setRotZ(60);
+        camera.setPosition(target.getX(), target.getY(), target.getZ() + 10);
+        //camera.rotate(Vector3.Axis.Z, 15);
+        camera.rotate(Vector3.Axis.X, -30);
+        //camera.rotate(Vector3.Axis.Y, -15);
 
-        //camera.rotate(Vector3.Axis.X, 10);
-        //camera.rotate(Vector3.Axis.Y, 10);
-        //camera.rotate(Vector3.Axis.X, 15);
         getCurrentScene().replaceAndSwitchCamera(getCurrentCamera(), camera);
-
-        //getCurrentCamera().rotate(Vector3.Axis.Z, 10);
+        */
     }
 
     @Override
     public void onTouchEvent(MotionEvent event) {
-
+        Log.d("gamesbykevin" , "Touch event");
     }
 
     @Override
@@ -140,14 +150,21 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
         if (prism != null) {
 
+            if (goal) {
+
+                prism.setPosition(prism.getX(), prism.getY(), prism.getZ() - .05);
+                return;
+            }
+
             int singleRotation = 90;
 
-            if (count < singleRotation * 8) {
+            if (count < singleRotation) {
 
-                float speed = 5;
+                float speed = 10f;
 
                 float xVel = 0;
                 float yVel = 0;
+                float zVel = 0;
                 float rotate = 0;
                 Vector3.Axis axis = null;
 
@@ -155,57 +172,188 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
                     case North:
                         rotate = speed;
-                        yVel = (rotate / 90f);
                         axis = Vector3.Axis.X;
+
+                        if (vertical) {
+
+                            yVel = (rotate / 60f);
+
+                            if (!standing) {
+                                zVel = (.5f / singleRotation) * speed;
+
+                                if (prism.getZ() + zVel > 1.25)
+                                    zVel = 1.25f - (float) prism.getZ();
+                            } else {
+                                zVel = -(.5f / singleRotation) * speed;
+
+                                if (prism.getZ() + zVel < .75)
+                                    zVel = .75f - (float) prism.getZ();
+                            }
+                        } else {
+                            yVel = (rotate / 90f);
+                        }
                         break;
 
                     case South:
                         rotate = -speed;
-                        yVel = (rotate / 90f);
                         axis = Vector3.Axis.X;
+
+                        if (vertical) {
+
+                            yVel = (rotate / 60f);
+
+                            if (!standing) {
+                                zVel = (.5f / singleRotation) * speed;
+
+                                if (prism.getZ() + zVel > 1.25)
+                                    zVel = 1.25f - (float) prism.getZ();
+                            } else {
+                                zVel = -(.5f / singleRotation) * speed;
+
+                                if (prism.getZ() + zVel < .75)
+                                    zVel = .75f - (float) prism.getZ();
+                            }
+                        } else {
+                            yVel = (rotate / 90f);
+                        }
                         break;
 
                     case East:
                         rotate = -speed;
-                        xVel = -(rotate / 180f);
                         axis = Vector3.Axis.Y;
+
+                        if (vertical) {
+
+                            xVel = -(rotate / 60f);
+
+                            if (!standing) {
+                                zVel = (.5f / singleRotation) * speed;
+
+                                if (prism.getZ() + zVel > 1.25)
+                                    zVel = 1.25f - (float) prism.getZ();
+                            } else {
+                                zVel = -(.5f / singleRotation) * speed;
+
+                                if (prism.getZ() + zVel < .75)
+                                    zVel = .75f - (float) prism.getZ();
+                            }
+                        } else {
+                            xVel = -(rotate / 90f);
+                        }
                         break;
 
                     case West:
+
                         rotate = speed;
-                        xVel = -(rotate / 180f);
                         axis = Vector3.Axis.Y;
+
+                        if (vertical) {
+
+                            xVel = -(rotate / 60f);
+
+                            if (!standing) {
+                                zVel = (.5f / singleRotation) * speed;
+
+                                if (prism.getZ() + zVel > 1.25)
+                                    zVel = 1.25f - (float) prism.getZ();
+                            } else {
+                                zVel = -(.5f / singleRotation) * speed;
+
+                                if (prism.getZ() + zVel < .75)
+                                    zVel = .75f - (float) prism.getZ();
+                            }
+                        } else {
+                            xVel = -(rotate / 90f);
+                        }
                         break;
                 }
 
+                //rotate accordingly
                 prism.rotate(axis, rotate);
-                prism.setPosition(prism.getPosition().x + xVel, prism.getPosition().y + yVel, prism.getPosition().z);
 
+                //update the location
+                prism.setPosition(prism.getX() + xVel, prism.getY() + yVel, prism.getZ() + zVel);
+
+                //keep track of were we are at with our rotation
                 count += Math.abs(rotate);
 
             } else {
 
-                index++;
+                //if we are rotated vertical switch between standing and non-standing
+                if (vertical)
+                    standing = !standing;
 
-                if (index >= Direction.values().length)
+                //if standing check if we met the goal
+                if (standing) {
+
+                    if ((int)prism.getX() == 5 && (int)prism.getY() == 5) {
+                        goal = true;
+                        return;
+                    }
+                }
+
+
+                Random random = new Random();
+
+                //pick new random direction
+                index = random.nextInt(Direction.values().length);
+
+                //east
+                if (prism.getX() < 3)
+                    index = 1;
+
+                //west
+                if (prism.getX() > 6)
+                    index = 3;
+
+                //north
+                if (prism.getY() < 3)
                     index = 0;
 
-                switch(Direction.values()[index]) {
+                //south
+                if (prism.getY() > 6)
+                    index = 2;
 
-                    case North:
-                    case South:
-                        prism.setPosition(prism.getPosition().x, prism.getPosition().y, .75);
-                        break;
+                //check if we are making a shift in direction
+                switch (current) {
 
                     case East:
                     case West:
-                        prism.setPosition(prism.getPosition().x, prism.getPosition().y, 1.25);
+
+                        switch(Direction.values()[index]) {
+                            case North:
+                            case South:
+
+                                vertical = !vertical;
+
+                                if (standing)
+                                    vertical = true;
+                                break;
+                        }
+                        break;
+
+                    case North:
+                    case South:
+
+                        switch(Direction.values()[index]) {
+                            case East:
+                            case West:
+
+                                vertical = !vertical;
+
+                                if (standing)
+                                    vertical = true;
+                                break;
+                        }
                         break;
                 }
 
+                //reset our count back to 0
                 count = 0;
+
+                //assign current direction
+                current = Direction.values()[index];
             }
         }
-
     }
 }
