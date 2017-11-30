@@ -1,23 +1,24 @@
 package com.gamesbykevin.blocks.opengl;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.gamesbykevin.blocks.R;
+import com.gamesbykevin.blocks.activity.MainActivity;
+import com.gamesbykevin.blocks.block.Block;
 
-import org.rajawali3d.Object3D;
-import org.rajawali3d.cameras.ArcballCamera;
 import org.rajawali3d.materials.Material;
 import org.rajawali3d.materials.methods.DiffuseMethod;
 import org.rajawali3d.materials.textures.Texture;
 import org.rajawali3d.math.vector.Vector3;
 import org.rajawali3d.primitives.RectangularPrism;
 
-import java.util.Random;
-
 import javax.microedition.khronos.opengles.GL10;
+
+import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
 
 /**
  * Created by Kevin on 11/26/2017.
@@ -26,100 +27,120 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
     private final View view;
 
-    private RectangularPrism prism;
-
-    private int count = 0;
-
-    private int index = 0;
-
-    //is the block standing up?
-    private boolean standing = false;
-
-    //are we rotating vertically?
-    private boolean vertical = false;
-
-    public enum Direction {
-        North, East, South, West
-    }
-
-    //current direction we are heading
-    private Direction current = Direction.values()[index];
-
-    private boolean goal = false;
-
     public Renderer(Context context, View view) {
+
+        //call parent
         super(context);
-        setFrameRate(60);
+
+        //store view reference
         this.view = view;
+
+        //assign speed
+        setFrameRate(MainActivity.FPS);
     }
 
     @Override
     public void initScene() {
 
+        Log.d(TAG, "initScene");
+
+        //remove all children, if exist
         getCurrentScene().clearChildren();
 
+        //create our game block
+        createBlock();
+
+        //create the floor for the level
+        createFloor();
+
+        //position our camera accordingly
+        setupCamera();
+    }
+
+    private void setupCamera() {
+
+        //where we want our camera located at
+        Vector3 position = new Vector3(4, -10, 0);
+
+        //getCurrentCamera().setLookAt(target.getPosition());
+        getCurrentCamera().setPosition(position.x, position.y, position.z + 15);
+        getCurrentCamera().rotate(Vector3.Axis.X, -45);
+    }
+
+    /**
+     * Create the 3d object representing the game block
+     */
+    private void createBlock() {
+
         Material materialBlock = new Material();
-        Material materialFloor = new Material();
+        materialBlock.enableLighting(true);
+        materialBlock.setDiffuseMethod(new DiffuseMethod.Lambert());
+        materialBlock.setColorInfluence(0f);
 
         try {
 
-            materialBlock.enableLighting(true);
-            materialBlock.setDiffuseMethod(new DiffuseMethod.Lambert());
-            materialBlock.setColorInfluence(0f);
+            //load and add texture to material
             materialBlock.addTexture(new Texture("Block", R.drawable.block));
 
-            materialFloor.enableLighting(true);
-            materialFloor.setDiffuseMethod(new DiffuseMethod.Lambert());
-            materialFloor.setColorInfluence(0f);
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            //color material if we couldn't load a texture
+            materialBlock.setColor(Color.CYAN);
+        }
+
+        //create our rectangle block
+        RectangularPrism prism = new RectangularPrism(2, 1, 1);
+
+        //add texture
+        prism.setMaterial(materialBlock);
+
+        //start at origin (for now)
+        prism.setPosition(.5,0,.75);
+
+        //add it to the scene so we can see it
+        getCurrentScene().addChild(prism);
+
+        //if the block exists just update the 3d model, else create the block
+        if (MainActivity.getGame().getBlock() != null) {
+            MainActivity.getGame().getBlock().setPrism(prism);
+        } else {
+            MainActivity.getGame().createBlock(new Block(prism));
+        }
+    }
+
+    /**
+     * Create the floor for the level
+     */
+    private void createFloor() {
+
+        Material materialFloor = new Material();
+        materialFloor.enableLighting(true);
+        materialFloor.setDiffuseMethod(new DiffuseMethod.Lambert());
+        materialFloor.setColorInfluence(0f);
+
+        try {
+
             materialFloor.addTexture(new Texture("Floor", R.drawable.floor));
 
         } catch (Exception e) {
             e.printStackTrace();
+
+            //color material if we couldn't load a texture
+            materialFloor.setColor(Color.RED);
         }
 
-        try {
 
-            for (int row = 0; row <  10; row++) {
-                for (int col = 0; col < 10; col++) {
+        RectangularPrism floor = new RectangularPrism(1f, 1f, .5f);
+        floor.setMaterial(materialFloor);
 
-                    if (row == 5 && col == 5)
-                        continue;
-
-                    RectangularPrism floor = new RectangularPrism(1f, 1f, .5f);
-                    floor.setMaterial(materialFloor);
-                    floor.setPosition(col,row,0);
-                    getCurrentScene().addChild(floor);
-                }
-            }
-
-            prism = new RectangularPrism(2, 1, 1);
-            prism.setMaterial(materialBlock);
-            prism.setPosition(.5,0,.75);
-            getCurrentScene().addChild(prism);
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        //if the block exists just update the 3d model, else create the block
+        if (MainActivity.getGame().getBoard() != null) {
+            MainActivity.getGame().getBoard().populate(this, floor);
+        } else {
+            MainActivity.getGame().createBoard(this, floor, 10, 6);
         }
-
-        Object3D target = new Object3D();
-        target.setPosition(4, -2, 0);
-
-        //getCurrentCamera().setLookAt(target.getPosition());
-        getCurrentCamera().setPosition(target.getX(), target.getY(), target.getZ() + 10);
-        getCurrentCamera().rotate(Vector3.Axis.X, -30);
-
-        /*
-        ArcballCamera camera = new ArcballCamera(getContext(), view, target);
-        camera.setLookAt(target.getPosition());
-        //ArcballCamera camera = new ArcballCamera(getContext(), view);//, prism);
-
-        camera.setPosition(target.getX(), target.getY(), target.getZ() + 10);
-        //camera.rotate(Vector3.Axis.Z, 15);
-        camera.rotate(Vector3.Axis.X, -30);
-        //camera.rotate(Vector3.Axis.Y, -15);
-
-        getCurrentScene().replaceAndSwitchCamera(getCurrentCamera(), camera);
-        */
     }
 
     @Override
@@ -148,212 +169,8 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         //call parent to render objects
         super.onRender(elapsedTime, deltaTime);
 
-        if (prism != null) {
-
-            if (goal) {
-
-                prism.setPosition(prism.getX(), prism.getY(), prism.getZ() - .05);
-                return;
-            }
-
-            int singleRotation = 90;
-
-            if (count < singleRotation) {
-
-                float speed = 10f;
-
-                float xVel = 0;
-                float yVel = 0;
-                float zVel = 0;
-                float rotate = 0;
-                Vector3.Axis axis = null;
-
-                switch(Direction.values()[index]) {
-
-                    case North:
-                        rotate = speed;
-                        axis = Vector3.Axis.X;
-
-                        if (vertical) {
-
-                            yVel = (rotate / 60f);
-
-                            if (!standing) {
-                                zVel = (.5f / singleRotation) * speed;
-
-                                if (prism.getZ() + zVel > 1.25)
-                                    zVel = 1.25f - (float) prism.getZ();
-                            } else {
-                                zVel = -(.5f / singleRotation) * speed;
-
-                                if (prism.getZ() + zVel < .75)
-                                    zVel = .75f - (float) prism.getZ();
-                            }
-                        } else {
-                            yVel = (rotate / 90f);
-                        }
-                        break;
-
-                    case South:
-                        rotate = -speed;
-                        axis = Vector3.Axis.X;
-
-                        if (vertical) {
-
-                            yVel = (rotate / 60f);
-
-                            if (!standing) {
-                                zVel = (.5f / singleRotation) * speed;
-
-                                if (prism.getZ() + zVel > 1.25)
-                                    zVel = 1.25f - (float) prism.getZ();
-                            } else {
-                                zVel = -(.5f / singleRotation) * speed;
-
-                                if (prism.getZ() + zVel < .75)
-                                    zVel = .75f - (float) prism.getZ();
-                            }
-                        } else {
-                            yVel = (rotate / 90f);
-                        }
-                        break;
-
-                    case East:
-                        rotate = -speed;
-                        axis = Vector3.Axis.Y;
-
-                        if (vertical) {
-
-                            xVel = -(rotate / 60f);
-
-                            if (!standing) {
-                                zVel = (.5f / singleRotation) * speed;
-
-                                if (prism.getZ() + zVel > 1.25)
-                                    zVel = 1.25f - (float) prism.getZ();
-                            } else {
-                                zVel = -(.5f / singleRotation) * speed;
-
-                                if (prism.getZ() + zVel < .75)
-                                    zVel = .75f - (float) prism.getZ();
-                            }
-                        } else {
-                            xVel = -(rotate / 90f);
-                        }
-                        break;
-
-                    case West:
-
-                        rotate = speed;
-                        axis = Vector3.Axis.Y;
-
-                        if (vertical) {
-
-                            xVel = -(rotate / 60f);
-
-                            if (!standing) {
-                                zVel = (.5f / singleRotation) * speed;
-
-                                if (prism.getZ() + zVel > 1.25)
-                                    zVel = 1.25f - (float) prism.getZ();
-                            } else {
-                                zVel = -(.5f / singleRotation) * speed;
-
-                                if (prism.getZ() + zVel < .75)
-                                    zVel = .75f - (float) prism.getZ();
-                            }
-                        } else {
-                            xVel = -(rotate / 90f);
-                        }
-                        break;
-                }
-
-                //rotate accordingly
-                prism.rotate(axis, rotate);
-
-                //update the location
-                prism.setPosition(prism.getX() + xVel, prism.getY() + yVel, prism.getZ() + zVel);
-
-                //keep track of were we are at with our rotation
-                count += Math.abs(rotate);
-
-            } else {
-
-                //if we are rotated vertical switch between standing and non-standing
-                if (vertical)
-                    standing = !standing;
-
-                //if standing check if we met the goal
-                if (standing) {
-
-                    if ((int)prism.getX() == 5 && (int)prism.getY() == 5) {
-                        goal = true;
-                        return;
-                    }
-                }
-
-
-                Random random = new Random();
-
-                //pick new random direction
-                index = random.nextInt(Direction.values().length);
-
-                //east
-                if (prism.getX() < 3)
-                    index = 1;
-
-                //west
-                if (prism.getX() > 6)
-                    index = 3;
-
-                //north
-                if (prism.getY() < 3)
-                    index = 0;
-
-                //south
-                if (prism.getY() > 6)
-                    index = 2;
-
-                //check if we are making a shift in direction
-                switch (current) {
-
-                    case East:
-                    case West:
-
-                        switch(Direction.values()[index]) {
-                            case North:
-                            case South:
-
-                                vertical = !vertical;
-
-                                if (standing)
-                                    vertical = true;
-                                break;
-                        }
-                        break;
-
-                    case North:
-                    case South:
-
-                        switch(Direction.values()[index]) {
-                            case East:
-                            case West:
-
-                                vertical = !vertical;
-
-                                if (standing)
-                                    vertical = true;
-                                break;
-                        }
-                        break;
-                }
-
-                //reset our count back to 0
-                count = 0;
-
-                //assign current direction
-                current = Direction.values()[index];
-            }
-        }
+        //update the block animation (if exists)
+        if (MainActivity.getGame() != null && MainActivity.getGame().getBlock() != null)
+            MainActivity.getGame().getBlock().rotate();
     }
 }
