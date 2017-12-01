@@ -29,10 +29,17 @@ public class Game implements ICommon {
         return this.activity;
     }
 
+    @Override
+    public void reset() {
+
+        if (getBlock() != null)
+            getBlock().reset();
+    }
+
     public void createBoard(final Renderer renderer, final Object3D object3D, final int cols, final int rows) {
         this.board = new Board(cols, rows);
-        this.board.populate(renderer, object3D);
         this.board.setGoal(7, 4);
+        this.board.populate(renderer, object3D);
     }
 
     public Board getBoard() {

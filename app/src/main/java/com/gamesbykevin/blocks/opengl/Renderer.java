@@ -60,10 +60,10 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
     private void setupCamera() {
 
         //where we want our camera located at
-        Vector3 position = new Vector3(4, -10, 0);
+        Vector3 position = new Vector3(4, -5, 0);
 
         //getCurrentCamera().setLookAt(target.getPosition());
-        getCurrentCamera().setPosition(position.x, position.y, position.z + 15);
+        getCurrentCamera().setPosition(position.x, position.y, position.z + 8);
         getCurrentCamera().rotate(Vector3.Axis.X, -45);
     }
 
@@ -133,6 +133,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
 
         RectangularPrism floor = new RectangularPrism(1f, 1f, .5f);
+        floor.setPosition(0,0,0);
         floor.setMaterial(materialFloor);
 
         //if the block exists just update the 3d model, else create the block

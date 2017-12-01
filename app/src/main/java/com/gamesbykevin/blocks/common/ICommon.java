@@ -10,4 +10,9 @@ public interface ICommon {
      * Logic to update object
      */
     void update();
+
+    /**
+     * Logic to reset the object
+     */
+    void reset();
 }

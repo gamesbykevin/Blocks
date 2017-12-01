@@ -54,7 +54,7 @@ public class MainActivity extends Activity implements Runnable {
         //create new game
         this.game = new Game(this);
 
-        //create our surface view and assign the framerate
+        //create our surface view and assign the frame rate
         SurfaceView surfaceView = findViewById(R.id.surfaceView);
         surfaceView.setFrameRate(FPS);
         surfaceView.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
@@ -70,14 +70,10 @@ public class MainActivity extends Activity implements Runnable {
 
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 
-                    Log.d(TAG, "MotionEvent Action Down");
-
                     if (getGame() != null && getGame().getBlock() != null)
                         getGame().getBlock().setWest(true);
 
                 } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-
-                    Log.d(TAG, "MotionEvent Action Up");
 
                     if (getGame() != null && getGame().getBlock() != null)
                         getGame().getBlock().setWest(false);
@@ -93,14 +89,10 @@ public class MainActivity extends Activity implements Runnable {
 
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 
-                    Log.d(TAG, "MotionEvent Action Down");
-
                     if (getGame() != null && getGame().getBlock() != null)
                         getGame().getBlock().setEast(true);
 
                 } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-
-                    Log.d(TAG, "MotionEvent Action Up");
 
                     if (getGame() != null && getGame().getBlock() != null)
                         getGame().getBlock().setEast(false);
@@ -116,14 +108,10 @@ public class MainActivity extends Activity implements Runnable {
 
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 
-                    Log.d(TAG, "MotionEvent Action Down");
-
                     if (getGame() != null && getGame().getBlock() != null)
                         getGame().getBlock().setSouth(true);
 
                 } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-
-                    Log.d(TAG, "MotionEvent Action Up");
 
                     if (getGame() != null && getGame().getBlock() != null)
                         getGame().getBlock().setSouth(false);
@@ -139,14 +127,10 @@ public class MainActivity extends Activity implements Runnable {
 
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 
-                    Log.d(TAG, "MotionEvent Action Down");
-
                     if (getGame() != null && getGame().getBlock() != null)
                         getGame().getBlock().setNorth(true);
 
                 } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-
-                    Log.d(TAG, "MotionEvent Action Up");
 
                     if (getGame() != null && getGame().getBlock() != null)
                         getGame().getBlock().setNorth(false);
