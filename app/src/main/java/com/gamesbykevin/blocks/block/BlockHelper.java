@@ -1,18 +1,14 @@
 package com.gamesbykevin.blocks.block;
 
-import android.util.Log;
-
 import com.gamesbykevin.blocks.activity.MainActivity;
 
 import org.rajawali3d.math.vector.Vector3;
 
-import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
 import static com.gamesbykevin.blocks.activity.MainActivity.getGame;
 
 /**
  * Created by Kevin on 11/30/2017.
  */
-
 public class BlockHelper {
 
     /**
@@ -102,6 +98,12 @@ public class BlockHelper {
 
                 //make the block fall
                 block.getPrism().setZ(block.getPrism().getZ() - block.getGravity());
+
+                //if the block fell enough, we can hide it
+                if (block.getPrism().getZ() <= -2)
+                    block.getPrism().setVisible(false);
+
+                //no need to continue
                 return;
             }
         }
@@ -255,8 +257,76 @@ public class BlockHelper {
                 //if falling reset rotation count
                 block.setRotationCount(0);
             }
+        }
+    }
 
-            Log.d(TAG, "x=" + block.getPrism().getX() + ", y=" + block.getPrism().getY() + ", z=" + block.getPrism().getZ() + " : gravity=" + block.getGravity());
+    protected static void updateLocation(Block block) {
+
+        if (block.isVertical()) {
+
+            if (block.isStanding()) {
+
+                switch (block.getCurrent()) {
+
+                    case East:
+                        block.setCol(block.getCol() + 1);
+                        break;
+
+                    case West:
+                        block.setCol(block.getCol() - 2);
+                        break;
+
+                    case North:
+                        block.setRow(block.getRow() + 1);
+                        break;
+
+                    case South:
+                        block.setRow(block.getRow() - 2);
+                        break;
+                }
+
+            } else {
+
+                switch (block.getCurrent()) {
+
+                    case East:
+                        block.setCol(block.getCol() + 2);
+                        break;
+
+                    case West:
+                        block.setCol(block.getCol() - 1);
+                        break;
+
+                    case North:
+                        block.setRow(block.getRow() + 2);
+                        break;
+
+                    case South:
+                        block.setRow(block.getRow() - 1);
+                        break;
+                }
+            }
+
+        } else {
+
+            switch (block.getCurrent()) {
+
+                case East:
+                    block.setCol(block.getCol() + 1);
+                    break;
+
+                case West:
+                    block.setCol(block.getCol() - 1);
+                    break;
+
+                case North:
+                    block.setRow(block.getRow() + 1);
+                    break;
+
+                case South:
+                    block.setRow(block.getRow() - 1);
+                    break;
+            }
         }
     }
 }

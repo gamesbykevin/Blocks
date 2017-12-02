@@ -1,12 +1,11 @@
 package com.gamesbykevin.blocks.block;
 
-import com.gamesbykevin.blocks.activity.MainActivity;
 import com.gamesbykevin.blocks.common.ICommon;
 
-import org.rajawali3d.math.vector.Vector3;
 import org.rajawali3d.primitives.RectangularPrism;
 
 import static com.gamesbykevin.blocks.block.BlockHelper.ROTATION;
+import static com.gamesbykevin.blocks.block.BlockHelper.updateLocation;
 
 /**
  * Created by Kevin on 11/29/2017.
@@ -33,7 +32,7 @@ public class Block implements ICommon {
     private boolean west = false, north = false, south = false, east = false;
 
     //current direction we are heading
-    private Direction current = Direction.East;
+    private Direction current;
 
     //how fast are we currently falling
     private float gravity = 0f;
@@ -221,5 +220,8 @@ public class Block implements ICommon {
 
         //assign current direction
         setCurrent(next);
+
+        //now lets update the blocks location since we know which direction we are heading
+        updateLocation(this);
     }
 }

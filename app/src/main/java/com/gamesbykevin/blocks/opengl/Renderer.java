@@ -60,10 +60,10 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
     private void setupCamera() {
 
         //where we want our camera located at
-        Vector3 position = new Vector3(4, -5, 0);
+        Vector3 position = new Vector3(4, -4, 0);
 
         //getCurrentCamera().setLookAt(target.getPosition());
-        getCurrentCamera().setPosition(position.x, position.y, position.z + 8);
+        getCurrentCamera().setPosition(position.x, position.y, position.z + 7);
         getCurrentCamera().rotate(Vector3.Axis.X, -45);
     }
 
