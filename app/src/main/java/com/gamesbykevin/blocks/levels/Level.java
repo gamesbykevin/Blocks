@@ -1,15 +1,34 @@
 package com.gamesbykevin.blocks.levels;
 
+import android.util.Log;
+
 import com.gamesbykevin.blocks.board.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
 
 /**
  * Created by Kevin on 12/2/2017.
  */
 
 public class Level {
+
+    /**
+     * This is the end of the source coordinate
+     */
+    private static final String CONNECTOR_SOURCE_END = "=";
+
+    /**
+     * This is what separates the col / row
+     */
+    private static final String COORDINATE_SEPARATOR = ",";
+
+    /**
+     * This separates each coordinates from connecting to the source
+     */
+    private static final String CONNECTOR_SEPARATOR = ":";
 
     //key holds the list of tiles in this level
     private List<String> key;
@@ -57,6 +76,36 @@ public class Level {
 
     public List<Connector> getConnectors() {
         return this.connectors;
+    }
+
+    public void addConnector(final String desc) {
+
+        //find where the source coordinates are
+        int index = desc.indexOf(CONNECTOR_SOURCE_END);
+
+        //obtain our source coordinates
+        final int sourceCol = Integer.parseInt(desc.substring(1, index).split(COORDINATE_SEPARATOR)[0]);
+        final int sourceRow = Integer.parseInt(desc.substring(1, index).split(COORDINATE_SEPARATOR)[1]);
+
+        //create a new connector
+        Connector connector = new Connector(sourceCol, sourceRow);
+
+        //split each (col,row) into an array
+        String[] misc = desc.substring(index + 1).split(CONNECTOR_SEPARATOR);
+
+        //add each connection that is part of the connector
+        for (int i = 0; i < misc.length; i++) {
+
+            //now we can split each coordinate
+            final int col = Integer.parseInt(misc[i].split(COORDINATE_SEPARATOR)[0]);
+            final int row = Integer.parseInt(misc[i].split(COORDINATE_SEPARATOR)[1]);
+
+            //add location to array list
+            connector.connections.add(new Cell(col, row));
+        }
+
+        //add to our list
+        getConnectors().add(connector);
     }
 
     public List<String> getKey() {
@@ -108,18 +157,28 @@ public class Level {
     /**
      * A connector is a source location is linked to other locations (example hit switch, change other blocks)
      */
-    private class Connector {
+    public class Connector {
 
         //source of the connector
-        private final int sourceCol, sourceRow;
+        public final int sourceCol, sourceRow;
 
         //list of locations connected to the connector source
-        private final int[] connections;
+        public List<Cell> connections;
 
-        private Connector(final int col, final int row, final int[] connections) {
+        private Connector(final int col, final int row) {
             this.sourceCol = col;
             this.sourceRow = row;
-            this.connections = connections;
+            this.connections = new ArrayList<>();
+        }
+    }
+
+    public class Cell {
+
+        public int col, row;
+
+        private Cell(int col, int row) {
+            this.col = col;
+            this.row = row;
         }
     }
 }

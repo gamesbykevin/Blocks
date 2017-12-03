@@ -1,9 +1,12 @@
 package com.gamesbykevin.blocks.block;
 
+import android.util.Log;
+
 import com.gamesbykevin.blocks.activity.MainActivity;
 
 import org.rajawali3d.math.vector.Vector3;
 
+import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
 import static com.gamesbykevin.blocks.activity.MainActivity.getGame;
 
 /**
@@ -240,19 +243,28 @@ public class BlockHelper {
             //correct the z height as long as we haven't fallen
             if (!block.isFalling()) {
 
+                //correct the height
                 block.getPrism().setZ(block.isStanding() ? HEIGHT_Z_VERTICAL : HEIGHT_Z);
 
-                //if we aren't falling, and we are not on the goal
-                if (!getGame().getBoard().hasFloor(block) && !getGame().getBoard().hasGoal(block)) {
+                if (getGame().getBoard().hasFloor(block)) {
 
-                    //flag falling true
-                    block.setFalling(true);
+                    //check the floor to see if anything needs to be changed
+                    getGame().getBoard().checkMisc(block);
 
-                    //determine where to rotate while we fall
-                    block.setCurrent(getGame().getBoard().getDirectionFall(block));
+                } else {
 
-                    //if falling reset rotation count automatically
-                    block.setRotationCount(0);
+                    //if we aren't falling, and we are not on the goal then we need to start falling
+                    if (!getGame().getBoard().hasGoal(block)) {
+
+                        //flag falling true
+                        block.setFalling(true);
+
+                        //determine where to rotate while we fall
+                        block.setCurrent(getGame().getBoard().getDirectionFall(block));
+
+                        //if falling reset rotation count automatically
+                        block.setRotationCount(0);
+                    }
                 }
 
             } else {
@@ -331,5 +343,7 @@ public class BlockHelper {
                     break;
             }
         }
+
+        Log.d(TAG, "new location (" + block.getCol() + "," + block.getRow() + ")");
     }
 }

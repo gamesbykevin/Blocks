@@ -11,7 +11,6 @@ import com.gamesbykevin.blocks.activity.MainActivity;
 import com.gamesbykevin.blocks.block.Block;
 
 import org.rajawali3d.Object3D;
-import org.rajawali3d.loader.LoaderOBJ;
 import org.rajawali3d.loader.LoaderSTL;
 import org.rajawali3d.materials.Material;
 import org.rajawali3d.materials.methods.DiffuseMethod;
@@ -29,6 +28,10 @@ import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
 public class Renderer extends org.rajawali3d.renderer.Renderer {
 
     private final View view;
+
+    private RectangularPrism block, floor;
+
+    private Object3D switch1, switch2;
 
     public Renderer(Context context, View view) {
 
@@ -56,17 +59,29 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         //create our game block
         createBlock();
 
+        //create the misc objects
+        createMisc();
+
+        //add the floor and block, etc... to our game
+        MainActivity.getGame().create(this, block, floor, switch1, switch2);
+
         //position our camera accordingly
         setupCamera();
     }
 
     private void setupCamera() {
 
+        /*
         //where we want our camera located at
         Vector3 position = new Vector3(4, -4, 0);
 
         //getCurrentCamera().setLookAt(target.getPosition());
         getCurrentCamera().setPosition(position.x, position.y, position.z + 7);
+        */
+
+        Vector3 position = new Vector3(8, -10, 0);
+        getCurrentCamera().setPosition(position.x, position.y, position.z + 10);
+
         getCurrentCamera().rotate(Vector3.Axis.X, -45);
     }
 
@@ -94,22 +109,38 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         }
 
         //create our rectangle block
-        RectangularPrism prism = new RectangularPrism(2, 1, 1);
+        this.block = new RectangularPrism(2, 1, 1);
 
         //add texture
-        prism.setMaterial(materialBlock);
+        this.block.setMaterial(materialBlock);
+    }
 
-        //start at origin (for now)
-        prism.setPosition(.5,0,.75);
+    /**
+     * Create the miscellaneous objects in the game (light switch, heavy switch, etc...)
+     */
+    private void createMisc() {
 
-        //add it to the scene so we can see it
-        getCurrentScene().addChild(prism);
+        Material material = new Material();
+        material.setColor(Color.BLUE);
 
-        //if the block exists just update the 3d model, else create the block
-        if (MainActivity.getGame().getBlock() != null) {
-            MainActivity.getGame().getBlock().setPrism(prism);
-        } else {
-            MainActivity.getGame().createBlock(new Block(prism));
+        try {
+
+            LoaderSTL loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_1_stl);
+            loaderSTL.parse();
+            this.switch1 = loaderSTL.getParsedObject();
+            this.switch1.setPosition(0,0,.75);
+            this.switch1.setMaterial(material);
+            this.switch1.setScale(.02);
+
+            loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_2_stl);
+            loaderSTL.parse();
+            this.switch2 = loaderSTL.getParsedObject();
+            this.switch2.setPosition(1,0,.75);
+            this.switch2.setMaterial(material);
+            this.switch2.setScale(.04);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -134,40 +165,9 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
             materialFloor.setColor(Color.GRAY);
         }
 
-        Object3D triangle = null, circle = null;
-
-        try {
-
-            //LoaderSTL loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.triangle_stl);
-            LoaderSTL loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_1_stl);
-            loaderSTL.parse();
-            triangle = loaderSTL.getParsedObject();
-            triangle.setPosition(0,0,.75);
-            triangle.setMaterial(materialFloor);
-            triangle.setScale(.02);
-
-            loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_2_stl);
-            loaderSTL.parse();
-            circle = loaderSTL.getParsedObject();
-            circle.setPosition(1,0,.75);
-            circle.setMaterial(materialFloor);
-            circle.setScale(.04);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-        RectangularPrism floor = new RectangularPrism(1f, 1f, .5f);
-        floor.setPosition(0,0,0);
-        floor.setMaterial(materialFloor);
-
-        //if the block exists just update the 3d model, else create the block
-        if (MainActivity.getGame().getBoard() != null) {
-            MainActivity.getGame().getBoard().populate(this, floor, triangle, circle);
-        } else {
-            MainActivity.getGame().createBoard(this, floor, triangle, circle, 10, 6);
-        }
+        this.floor = new RectangularPrism(1f, 1f, .5f);
+        this.floor.setPosition(0,0,0);
+        this.floor.setMaterial(materialFloor);
     }
 
     @Override

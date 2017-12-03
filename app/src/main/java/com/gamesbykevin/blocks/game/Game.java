@@ -8,6 +8,7 @@ import com.gamesbykevin.blocks.levels.Levels;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
 import org.rajawali3d.Object3D;
+import org.rajawali3d.primitives.RectangularPrism;
 
 /**
  * Created by Kevin on 11/29/2017.
@@ -45,22 +46,28 @@ public class Game implements ICommon {
             getBlock().reset();
     }
 
-    public void createBoard(final Renderer renderer, final Object3D object3D, final Object3D triangle, final Object3D circle, final int cols, final int rows) {
+    public void create(final Renderer renderer, final RectangularPrism prism, final Object3D object3D, final Object3D switch1, final Object3D switch2) {
 
+        //assign our block reference
+        this.block = new Block(prism);
+
+        //add it to the 3d scene
+        renderer.getCurrentScene().addChild(prism);
+
+        this.block.getPrism().setX(this.levels.getLevel().getStartCol() + .5);
+        this.block.getPrism().setY(this.levels.getLevel().getStartRow());
+        this.block.setCol(this.levels.getLevel().getStartCol());
+        this.block.setRow(this.levels.getLevel().getStartRow());
 
         //create new board based on the current level
         this.board = new Board(this.levels.getLevel());
 
         //add 3d models to our board
-        this.board.populate(renderer, object3D, triangle, circle);
+        this.board.populate(renderer, object3D, switch1, switch2);
     }
 
     public Board getBoard() {
         return this.board;
-    }
-
-    public void createBlock(final Block block) {
-        this.block = block;
     }
 
     public Block getBlock() {

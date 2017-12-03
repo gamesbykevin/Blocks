@@ -34,7 +34,7 @@ public class Levels {
     private List<Level> levelList;
 
     //the location of the current level
-    private int index = 0;
+    private int index = 1;
 
     public Levels(Context context) throws Exception {
 
@@ -65,7 +65,7 @@ public class Levels {
                 this.levelList.add(level);
                 dirty = true;
             } else if (line.startsWith(LEVEL_CONNECTOR)) {
-
+                level.addConnector(line);
             } else if (line.trim().length() > 0) {
                 level.getKey().add(line);
             }

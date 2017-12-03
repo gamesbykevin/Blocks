@@ -5,3 +5,12 @@ _SSSSSSSSS
 _____SSGSS
 ______SSS_
 ################
+______SSSS__SSS
+SSSS__SSBS__SGS
+SSLS__SSSS__SSS
+SSSS__SSSS__SSS
+SOSSHHSSSSHHSSS
+SSSS__SSSS_____
+@2,2=4,4:5,4
+@8,1=10,4:11,4
+###############
