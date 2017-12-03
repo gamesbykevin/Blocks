@@ -17,6 +17,11 @@ public class BlockHelper {
     private static final float HEIGHT_Z = .75f;
 
     /**
+     * Hide the block if it falls below this
+     */
+    private static final float HEIGHT_Z_HIDE = -2f;
+
+    /**
      * Place the block slightly above the floor to prevent texture bleeding
      */
     private static final float HEIGHT_Z_ADJUST = .08f;
@@ -93,14 +98,12 @@ public class BlockHelper {
             //if we are at the goal, we just fall through the floor
             if (MainActivity.getGame().getBoard().hasGoal(block)) {
 
-                //increase the rate at which we fall
-                block.setGravity(block.getGravity() + VELOCITY_Z_FALL);
-
                 //make the block fall
-                block.getPrism().setZ(block.getPrism().getZ() - block.getGravity());
+                if (block.getPrism().getZ() > HEIGHT_Z_HIDE)
+                    block.getPrism().setZ(block.getPrism().getZ() - VELOCITY_Z_FALL);
 
-                //if the block fell enough, we can hide it
-                if (block.getPrism().getZ() <= -2)
+                //if it fell enough, let's hide it
+                if (block.getPrism().getZ() <= HEIGHT_Z_HIDE)
                     block.getPrism().setVisible(false);
 
                 //no need to continue

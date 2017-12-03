@@ -10,6 +10,9 @@ import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.activity.MainActivity;
 import com.gamesbykevin.blocks.block.Block;
 
+import org.rajawali3d.Object3D;
+import org.rajawali3d.loader.LoaderOBJ;
+import org.rajawali3d.loader.LoaderSTL;
 import org.rajawali3d.materials.Material;
 import org.rajawali3d.materials.methods.DiffuseMethod;
 import org.rajawali3d.materials.textures.Texture;
@@ -47,11 +50,11 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         //remove all children, if exist
         getCurrentScene().clearChildren();
 
-        //create our game block
-        createBlock();
-
         //create the floor for the level
         createFloor();
+
+        //create our game block
+        createBlock();
 
         //position our camera accordingly
         setupCamera();
@@ -128,7 +131,30 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
             e.printStackTrace();
 
             //color material if we couldn't load a texture
-            materialFloor.setColor(Color.RED);
+            materialFloor.setColor(Color.GRAY);
+        }
+
+        Object3D triangle = null, circle = null;
+
+        try {
+
+            //LoaderSTL loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.triangle_stl);
+            LoaderSTL loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_1_stl);
+            loaderSTL.parse();
+            triangle = loaderSTL.getParsedObject();
+            triangle.setPosition(0,0,.75);
+            triangle.setMaterial(materialFloor);
+            triangle.setScale(.02);
+
+            loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_2_stl);
+            loaderSTL.parse();
+            circle = loaderSTL.getParsedObject();
+            circle.setPosition(1,0,.75);
+            circle.setMaterial(materialFloor);
+            circle.setScale(.04);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
 
@@ -138,9 +164,9 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
         //if the block exists just update the 3d model, else create the block
         if (MainActivity.getGame().getBoard() != null) {
-            MainActivity.getGame().getBoard().populate(this, floor);
+            MainActivity.getGame().getBoard().populate(this, floor, triangle, circle);
         } else {
-            MainActivity.getGame().createBoard(this, floor, 10, 6);
+            MainActivity.getGame().createBoard(this, floor, triangle, circle, 10, 6);
         }
     }
 

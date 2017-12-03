@@ -51,8 +51,12 @@ public class MainActivity extends Activity implements Runnable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //create new game
-        this.game = new Game(this);
+        try {
+            //create new game
+            this.game = new Game(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //create our surface view and assign the frame rate
         SurfaceView surfaceView = findViewById(R.id.surfaceView);
@@ -144,9 +148,14 @@ public class MainActivity extends Activity implements Runnable {
     @Override
     public void onResume() {
 
-        //if null, create a new game
-        if (getGame() == null)
-            this.game = new Game(this);
+
+        try {
+            //if null, create a new game
+            if (getGame() == null)
+                this.game = new Game(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //call parent
         super.onResume();

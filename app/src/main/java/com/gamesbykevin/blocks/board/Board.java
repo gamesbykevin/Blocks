@@ -2,26 +2,56 @@ package com.gamesbykevin.blocks.board;
 
 import com.gamesbykevin.blocks.block.Block;
 import com.gamesbykevin.blocks.common.ICommon;
+import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
 import org.rajawali3d.Object3D;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 /**
  * Created by Kevin on 11/27/2017.
  */
 public class Board implements ICommon {
 
-    private Object3D[][] floor;
+    //list of tiles that makes up the board
+    private Tile[][] tiles;
 
+    //the goal of the level
     private int goalCol, goalRow;
 
-    public Board(final int cols, final int rows) {
-        this.floor = new Object3D[rows][cols];
-    }
+    //the starting point of our game
+    private int startCol, startRow;
 
-    public void setGoal(int col, int row) {
-        this.goalCol = col;
-        this.goalRow = row;
+    public Board(final Level level) {
+        this.tiles = new Tile[level.getRows()][level.getCols()];
+
+        //check every line in our level key
+        for (int row = 0; row < level.getKey().size(); row++) {
+
+            //check every string character in the current line key
+            for (int col = 0; col < level.getKey().get(row).length(); col++) {
+
+                //get the current key
+                final String key = level.getKey().get(row).substring(col, col + 1);
+
+                if (key.equalsIgnoreCase(Tile.Type.Goal.key)) {
+                    this.goalCol = col;
+                    this.goalRow = row;
+                } else if (key.equalsIgnoreCase(Tile.Type.Start.key)) {
+                    this.startCol = col;
+                    this.startRow = row;
+                }
+
+                for (int i = 0; i < Tile.Type.values().length; i++) {
+                    if (key.equalsIgnoreCase(Tile.Type.values()[i].key)) {
+                        getTiles()[row][col] = new Tile(Tile.Type.values()[i]);
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     public boolean hasGoal(Block block) {
@@ -82,11 +112,11 @@ public class Board implements ICommon {
         //if out of bounds, return false
         if (col < 0 || row < 0)
             return false;
-        if (col >= floor[0].length || row >= floor.length)
+        if (col >= getTiles()[0].length || row >= getTiles().length)
             return false;
 
         //if not null and visible, there is a floor here
-        return (floor[row][col] != null && floor[row][col].isVisible());
+        return (getTiles()[row][col] != null && getTiles()[row][col].getObject3D() != null && getTiles()[row][col].getObject3D().isVisible());
     }
 
     public Block.Direction getDirectionFall(Block block) {
@@ -119,50 +149,32 @@ public class Board implements ICommon {
         return block.getCurrent();
     }
 
-    public void populate(Renderer renderer, Object3D object3D) {
+    public void populate(Renderer renderer, Object3D object3D, Object3D triangle, Object3D circle) {
 
-        for (int row = 0; row < floor.length; row++) {
-            for (int col = 0; col < floor[0].length; col++) {
+        //renderer.getCurrentScene().addChild(triangle);
+        //renderer.getCurrentScene().addChild(circle);
 
-                //skip these areas of blocks
-                if (row == 0) {
-                    if (col > 2)
-                        continue;
-                } else if (row == 1) {
-                    if (col > 5)
-                        continue;
-                } else if (row == 2) {
-                    if (col > 8)
-                        continue;
-                } else if (row == 3) {
-                    if (col < 1)
-                        continue;
-                    if (col > 9)
-                        continue;
-                } else if (row == 4) {
-                    if (col < 5)
-                        continue;
-                    if (col > 9)
-                        continue;
-                    if (col == 7)
-                        continue;
-                } else if (row == 5) {
-                    if (col < 6)
-                        continue;
-                    if (col > 8)
-                        continue;
-                }
+        for (int row = 0; row < getTiles().length; row++) {
+            for (int col = 0; col < getTiles()[0].length; col++) {
 
-                //don't add a block to the goal
-                if (hasGoal(col, row))
+                if (getTiles()[row][col] == null)
                     continue;
 
+                if (!hasGoal(col, row)) {
+                    getTiles()[row][col].setObject3D(object3D.clone());
 
-                floor[row][col] = object3D.clone();
-                floor[row][col].setPosition(col, row, 0);
-                renderer.getCurrentScene().addChild(floor[row][col]);
+                    //assign the position
+                    getTiles()[row][col].getObject3D().setPosition(col, row, 0);
+
+                    //add it to the render scene so we can view it
+                    renderer.getCurrentScene().addChild(getTiles()[row][col].getObject3D());
+                }
             }
         }
+    }
+
+    public Tile[][] getTiles() {
+        return this.tiles;
     }
 
     @Override
