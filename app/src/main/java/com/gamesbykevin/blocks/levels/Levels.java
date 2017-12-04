@@ -2,8 +2,6 @@ package com.gamesbykevin.blocks.levels;
 
 import android.content.Context;
 
-import com.gamesbykevin.blocks.activity.MainActivity;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -12,11 +10,20 @@ import java.util.List;
 /**
  * Created by Kevin on 12/2/2017.
  */
-
 public class Levels {
 
     /**
-     * indicates what locations are connected to others
+     * Indicates the camera position when viewing the level
+     */
+    private static final String LEVEL_CAMERA = "!";
+
+    /**
+     * Indicates splitting up the block into 2 smaller blocks
+     */
+    private static final String LEVEL_TELEPORT = "%";
+
+    /**
+     * Indicates what locations are connected to others
      */
     private static final String LEVEL_CONNECTOR = "@";
 
@@ -34,7 +41,7 @@ public class Levels {
     private List<Level> levelList;
 
     //the location of the current level
-    private int index = 1;
+    private int index = 7;
 
     public Levels(Context context) throws Exception {
 
@@ -62,18 +69,22 @@ public class Levels {
             }
 
             if (line.contains(LEVEL_END)) {
-                this.levelList.add(level);
+                getLevelList().add(level);
                 dirty = true;
             } else if (line.startsWith(LEVEL_CONNECTOR)) {
-                level.addConnector(line);
+                level.addSwitch(line);
+            } else if (line.startsWith(LEVEL_CAMERA)) {
+                level.setCamera(line);
+            } else if (line.startsWith(LEVEL_TELEPORT)) {
+                level.addTeleport(line);
             } else if (line.trim().length() > 0) {
                 level.getKey().add(line);
             }
         }
 
         //analyze all the levels so we know the start, finish, size, etc...
-        for (int i = 0; i < levelList.size(); i++) {
-            levelList.get(i).analyze();
+        for (int i = 0; i < getLevelList().size(); i++) {
+            getLevelList().get(i).analyze();
         }
     }
 
@@ -86,6 +97,10 @@ public class Levels {
     }
 
     public Level getLevel() {
-        return this.levelList.get(getIndex());
+        return getLevelList().get(getIndex());
+    }
+
+    public List<Level> getLevelList() {
+        return this.levelList;
     }
 }

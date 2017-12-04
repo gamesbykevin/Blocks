@@ -12,8 +12,14 @@ public class Tile {
 
     public enum Type {
 
-        //where the game will start
+        //where the game will start laying down
         Start("O"),
+
+        //landing here will split and transfer the blocks
+        Teleport("P"),
+
+        //where the game will start standing
+        StartStanding("T"),
 
         //standard floor tile
         Standard("S"),
@@ -24,11 +30,17 @@ public class Tile {
         //this switch needs a lot of pressure and only works when standing
         SwitchHeavy("B"),
 
+        //this switch only works when standing on it, and it only hides blocks
+        SwitchHeavyOnlyHidden("A"),
+
         //this switch you just need to lay on it
         SwitchLight("L"),
 
-        //this switch is hidden and can't be seen
+        //this block is hidden and can't be seen until the switch is hit
         Hidden("H"),
+
+        //this block is displayed, but will be hidden if a switch is hit
+        HiddenDisplay("D"),
 
         //this is the goal to complete a level
         Goal("G");

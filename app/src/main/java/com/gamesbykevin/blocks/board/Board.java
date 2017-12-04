@@ -1,13 +1,20 @@
 package com.gamesbykevin.blocks.board;
 
+import android.util.Log;
+
 import com.gamesbykevin.blocks.block.Block;
+import com.gamesbykevin.blocks.block.BlockHelper;
 import com.gamesbykevin.blocks.common.ICommon;
 import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
 import org.rajawali3d.Object3D;
+import org.rajawali3d.primitives.RectangularPrism;
 
 import java.util.List;
+
+import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
+import static com.gamesbykevin.blocks.opengl.Renderer.FLOOR_DEPTH;
 
 /**
  * Created by Kevin on 11/27/2017.
@@ -24,10 +31,10 @@ public class Board implements ICommon {
     private int startCol, startRow;
 
     //how high are the switches on the board
-    private static final float HEIGHT_Z_SWITCH = .25f;
+    private static final float HEIGHT_Z_SWITCH = FLOOR_DEPTH / 2;
 
     //list of all connectors on this board
-    private final List<Level.Connector> connectorList;
+    private final List<Level.Connector> switchesList, teleportersList;
 
     public Board(final Level level) {
 
@@ -35,7 +42,8 @@ public class Board implements ICommon {
         this.tiles = new Tile[level.getRows()][level.getCols()];
 
         //get our list of connectors
-        this.connectorList = level.getConnectors();
+        this.switchesList = level.getSwitches();
+        this.teleportersList = level.getTeleporters();
 
         //assign the goal
         this.goalCol = level.getGoalCol();
@@ -72,8 +80,102 @@ public class Board implements ICommon {
         //we the base tile
         tile1 = getTile(block.getCol(), block.getRow());
 
+        //no tile beneath
         if (tile1 == null)
             return;
+
+        //handle the tile type
+        switch (tile1.getType()) {
+
+            case Goal:
+
+                //if we are standing on the goal, let's hide it
+                if (block.isStanding())
+                    getTile(block.getCol(), block.getRow()).getObject3D().setVisible(false);
+                break;
+
+            case Teleport:
+
+                //can only be activated if we are standing
+                if (block.isStanding()) {
+
+                    for (int i = 0; i < teleportersList.size(); i++) {
+                        if (block.getCol() == teleportersList.get(i).sourceCol && block.getRow() == teleportersList.get(i).sourceRow) {
+
+                            //split up our block into 2 smaller blocks at these locations
+                            for (int x = 0; x < teleportersList.get(i).connections.size(); x++) {
+                                Tile tmp = getTile(teleportersList.get(i).connections.get(x).col, teleportersList.get(i).connections.get(x).row);
+                                tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
+                            }
+                            break;
+                        }
+                    }
+                }
+                break;
+
+            case Weak:
+
+                //if standing on a weak block we need to fall through the floor
+                if (block.isStanding()) {
+
+                    //setup block to fall
+                    BlockHelper.setupBlockFall(block, null);
+
+                    //hide the tile
+                    tile1.getObject3D().setVisible(false);
+                }
+                break;
+
+            case SwitchLight:
+
+                for (int i = 0; i < switchesList.size(); i++) {
+                    if (block.getCol() == switchesList.get(i).sourceCol && block.getRow() == switchesList.get(i).sourceRow) {
+
+                        for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
+                            Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
+                            tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
+                        }
+                        break;
+                    }
+                }
+                break;
+
+            case SwitchHeavy:
+
+                //we are required to stand on this switch
+                if (block.isStanding()) {
+
+                    for (int i = 0; i < switchesList.size(); i++) {
+                        if (block.getCol() == switchesList.get(i).sourceCol && block.getRow() == switchesList.get(i).sourceRow) {
+
+                            for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
+                                Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
+                                tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
+                            }
+                            break;
+                        }
+                    }
+                }
+                break;
+
+            case SwitchHeavyOnlyHidden:
+
+                //we are required to stand on this switch
+                if (block.isStanding()) {
+
+                    for (int i = 0; i < switchesList.size(); i++) {
+                        if (block.getCol() == switchesList.get(i).sourceCol && block.getRow() == switchesList.get(i).sourceRow) {
+
+                            for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
+                                Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
+                                tmp.getObject3D().setVisible(false);
+                            }
+                            break;
+                        }
+                    }
+                }
+        }
+
 
         int col2 = -1, row2 = -1;
 
@@ -107,54 +209,21 @@ public class Board implements ICommon {
             }
         }
 
+        //get the tile reference
         tile2 = getTile(col2, row2);
 
-        switch (tile1.getType()) {
-
-            case SwitchLight:
-
-                for (int i = 0; i < connectorList.size(); i++) {
-                    if (block.getCol() == connectorList.get(i).sourceCol && block.getRow() == connectorList.get(i).sourceRow) {
-
-                        for (int x = 0; x < connectorList.get(i).connections.size(); x++) {
-                            Tile tmp = getTile(connectorList.get(i).connections.get(x).col, connectorList.get(i).connections.get(x).row);
-                            tmp.getObject3D().setVisible(true);
-                        }
-                        break;
-                    }
-                }
-                break;
-
-            case SwitchHeavy:
-
-                //we are required to stand on this switch
-                if (block.isStanding()) {
-
-                    for (int i = 0; i < connectorList.size(); i++) {
-                        if (block.getCol() == connectorList.get(i).sourceCol && block.getRow() == connectorList.get(i).sourceRow) {
-
-                            for (int x = 0; x < connectorList.get(i).connections.size(); x++) {
-                                Tile tmp = getTile(connectorList.get(i).connections.get(x).col, connectorList.get(i).connections.get(x).row);
-                                tmp.getObject3D().setVisible(true);
-                            }
-                            break;
-                        }
-                    }
-                }
-                break;
-        }
-
+        //if the tile exists, check it
         if (tile2 != null) {
 
             switch (tile2.getType()) {
                 case SwitchLight:
 
-                    for (int i = 0; i < connectorList.size(); i++) {
-                        if (col2 == connectorList.get(i).sourceCol && row2 == connectorList.get(i).sourceRow) {
+                    for (int i = 0; i < switchesList.size(); i++) {
+                        if (col2 == switchesList.get(i).sourceCol && row2 == switchesList.get(i).sourceRow) {
 
-                            for (int x = 0; x < connectorList.get(i).connections.size(); x++) {
-                                Tile tmp = getTile(connectorList.get(i).connections.get(x).col, connectorList.get(i).connections.get(x).row);
-                                tmp.getObject3D().setVisible(true);
+                            for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
+                                Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
+                                tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
                             }
                             break;
                         }
@@ -165,6 +234,11 @@ public class Board implements ICommon {
     }
 
     public boolean hasGoal(Block block) {
+
+        //we have to be standing on the goal
+        if (!block.isStanding())
+            return false;
+
         return (hasGoal(block.getCol(), block.getRow()));
     }
 
@@ -174,7 +248,7 @@ public class Board implements ICommon {
 
     public boolean hasFloor(Block block) {
 
-        //if we don't have a floor at the current location and it isn't the goal
+        //if we don't have a floor at the current location
         if (!hasFloor(block.getCol(), block.getRow()) && !hasGoal(block.getCol(), block.getRow()))
             return false;
 
@@ -262,7 +336,7 @@ public class Board implements ICommon {
         return block.getCurrent();
     }
 
-    public void populate(Renderer renderer, Object3D object3D, Object3D switch1, Object3D switch2) {
+    public void populate(Renderer renderer, final RectangularPrism[] blocks, final Object3D[] misc) {
 
         for (int row = 0; row < getTiles().length; row++) {
             for (int col = 0; col < getTiles()[0].length; col++) {
@@ -272,17 +346,43 @@ public class Board implements ICommon {
                     continue;
 
                 //if this is a goal, we don't need to add a model here
-                if (hasGoal(col, row))
-                    continue;
+                //if (hasGoal(col, row))
+                //    continue;
 
-                //assign the 3d model reference
-                getTile(col, row).setObject3D(object3D.clone());
+                if (blocks != null) {
+
+                    //assign the 3d model floor reference accordingly
+                    switch (getTile(col, row).getType()) {
+
+                        case Goal:
+                            getTile(col, row).setObject3D(blocks[Renderer.PRISM_FLOOR_GOAL].clone());
+                            break;
+
+                        case Weak:
+                            getTile(col, row).setObject3D(blocks[Renderer.PRISM_FLOOR_WEAK].clone());
+                            break;
+
+                        case Hidden:
+                        case HiddenDisplay:
+                            getTile(col, row).setObject3D(blocks[Renderer.PRISM_FLOOR_HIDDEN].clone());
+                            break;
+
+                        default:
+                            getTile(col, row).setObject3D(blocks[Renderer.PRISM_FLOOR_STANDARD].clone());
+                            break;
+                    }
+
+                }
 
                 //assign the position where the 3d model is displayed
                 getTile(col, row).getObject3D().setPosition(col, row, 0);
 
+                //make everything visible (for now)
+                getTiles()[row][col].getObject3D().setVisible(true);
+
                 //add it to the render scene so we can view it
-                renderer.getCurrentScene().addChild(getTile(col, row).getObject3D());
+                if (renderer != null)
+                    renderer.getCurrentScene().addChild(getTile(col, row).getObject3D());
 
                 switch (getTile(col, row).getType()) {
 
@@ -291,15 +391,32 @@ public class Board implements ICommon {
                         break;
 
                     case SwitchLight:
-                        Object3D circle = switch1.clone();
-                        circle.setPosition(col, row, HEIGHT_Z_SWITCH);
-                        renderer.getCurrentScene().addChild(circle);
+
+                        if (misc != null && renderer != null) {
+                            Object3D circle = misc[Renderer.OBJECT3D_SWITCH_1].clone();
+                            circle.setPosition(col, row, HEIGHT_Z_SWITCH);
+                            renderer.getCurrentScene().addChild(circle);
+                        }
                         break;
 
+
+                    case SwitchHeavyOnlyHidden:
                     case SwitchHeavy:
-                        Object3D x = switch2.clone();
-                        x.setPosition(col, row, HEIGHT_Z_SWITCH);
-                        renderer.getCurrentScene().addChild(x);
+
+                        if (misc != null && renderer != null) {
+                            Object3D x = misc[Renderer.OBJECT3D_SWITCH_2].clone();
+                            x.setPosition(col, row, HEIGHT_Z_SWITCH);
+                            renderer.getCurrentScene().addChild(x);
+                        }
+                        break;
+
+                    case Teleport:
+
+                        if (misc != null && renderer != null) {
+                            Object3D teleport = misc[Renderer.OBJECT3D_SWITCH_3].clone();
+                            teleport.setPosition(col, row, HEIGHT_Z_SWITCH);
+                            renderer.getCurrentScene().addChild(teleport);
+                        }
                         break;
                 }
             }
@@ -312,7 +429,7 @@ public class Board implements ICommon {
 
     @Override
     public void reset() {
-        //add logic here
+        populate(null, null, null);
     }
 
     @Override

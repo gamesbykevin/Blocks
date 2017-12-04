@@ -2,8 +2,11 @@ package com.gamesbykevin.blocks.block;
 
 import com.gamesbykevin.blocks.common.ICommon;
 
+import org.rajawali3d.math.vector.Vector3;
 import org.rajawali3d.primitives.RectangularPrism;
 
+import static com.gamesbykevin.blocks.block.BlockHelper.HEIGHT_Z_LIMIT_FALL;
+import static com.gamesbykevin.blocks.block.BlockHelper.HEIGHT_Z_VERTICAL;
 import static com.gamesbykevin.blocks.block.BlockHelper.ROTATION;
 import static com.gamesbykevin.blocks.block.BlockHelper.updateLocation;
 
@@ -23,6 +26,9 @@ public class Block implements ICommon {
 
     //if we are falling, that means we lost
     private boolean falling = false;
+
+    //have we reached the goal
+    private boolean goal = false;
 
     public enum Direction {
         North, East, South, West
@@ -48,6 +54,14 @@ public class Block implements ICommon {
         reset();
     }
 
+    public void setGoal(boolean goal) {
+        this.goal = goal;
+    }
+
+    public boolean hasGoal() {
+        return this.goal;
+    }
+
     public void setCol(int col) {
         this.col = col;
     }
@@ -67,6 +81,26 @@ public class Block implements ICommon {
     @Override
     public void reset() {
         BlockHelper.reset(this);
+    }
+
+    /**
+     * Stand up the piece at the current location (if not already standing
+     */
+    public void stand() {
+
+        //don't continue if we are standing
+        if (isStanding())
+            return;
+
+        getPrism().setX(getPrism().getX() - .5);
+        getPrism().setZ(HEIGHT_Z_VERTICAL);
+
+        //flag that we are standing and moving vertically
+        setStanding(true);
+        setVertical(true);
+
+        //rotate piece 90 degrees
+        getPrism().rotate(Vector3.Axis.Y, 90);
     }
 
     public void setCurrent(Direction current) {
@@ -149,14 +183,22 @@ public class Block implements ICommon {
         BlockHelper.rotate(this);
     }
 
+    public boolean isDead() {
+        return (isFalling() && getPrism().getZ() <= HEIGHT_Z_LIMIT_FALL);
+    }
+
     @Override
     public void update() {
 
         if (getPrism() == null)
             return;
 
-        //if the block is falling ignore everything else
-        if (isFalling())
+        //if the block is falling or dead ignore everything else
+        if (isFalling() || isDead())
+            return;
+
+        //don't continue if we reached the goal
+        if (hasGoal())
             return;
 
         //if not done rotating don't continue

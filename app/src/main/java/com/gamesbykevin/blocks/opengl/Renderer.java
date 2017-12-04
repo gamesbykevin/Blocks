@@ -8,7 +8,6 @@ import android.view.View;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.activity.MainActivity;
-import com.gamesbykevin.blocks.block.Block;
 
 import org.rajawali3d.Object3D;
 import org.rajawali3d.loader.LoaderSTL;
@@ -29,9 +28,35 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
     private final View view;
 
-    private RectangularPrism block, floor;
+    /**
+     * How we know to reference the blocks array
+     */
+    public static final int PRISM_BLOCK = 0;
+    public static final int PRISM_FLOOR_STANDARD = 1;
+    public static final int PRISM_FLOOR_WEAK = 2;
+    public static final int PRISM_FLOOR_HIDDEN = 3;
+    public static final int PRISM_FLOOR_GOAL = 4;
 
-    private Object3D switch1, switch2;
+    private RectangularPrism[] blocks;// block, floor, floorWeak;
+
+    /**
+     * How we know to reference the misc array
+     */
+    public static final int OBJECT3D_SWITCH_1 = 0;
+    public static final int OBJECT3D_SWITCH_2 = 1;
+    public static final int OBJECT3D_SWITCH_3 = 2;
+
+    private Object3D[] misc;// switch1, switch2;
+
+    /**
+     * The top height of the floor
+     */
+    public static final float FLOOR_DEPTH = 1;
+
+    /**
+     * The top height of the switches etc...
+     */
+    public static final double MISC_HEIGHT_Z = FLOOR_DEPTH + .25;
 
     public Renderer(Context context, View view) {
 
@@ -43,6 +68,12 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
         //assign speed
         setFrameRate(MainActivity.FPS);
+
+        //create new array for the blocks in the game
+        this.blocks = new RectangularPrism[5];
+
+        //create new array for our switches etc...
+        this.misc = new Object3D[3];
     }
 
     @Override
@@ -53,8 +84,8 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         //remove all children, if exist
         getCurrentScene().clearChildren();
 
-        //create the floor for the level
-        createFloor();
+        //create the floors for the level
+        createFloors();
 
         //create our game block
         createBlock();
@@ -63,25 +94,15 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         createMisc();
 
         //add the floor and block, etc... to our game
-        MainActivity.getGame().create(this, block, floor, switch1, switch2);
-
-        //position our camera accordingly
-        setupCamera();
+        MainActivity.getGame().create(this, blocks, misc);
     }
 
-    private void setupCamera() {
+    public void updateCamera(Vector3 position) {
 
-        /*
-        //where we want our camera located at
-        Vector3 position = new Vector3(4, -4, 0);
+        //position the camera accordingly
+        getCurrentCamera().setPosition(position);
 
-        //getCurrentCamera().setLookAt(target.getPosition());
-        getCurrentCamera().setPosition(position.x, position.y, position.z + 7);
-        */
-
-        Vector3 position = new Vector3(8, -10, 0);
-        getCurrentCamera().setPosition(position.x, position.y, position.z + 10);
-
+        //rotate so we are viewing from an angle
         getCurrentCamera().rotate(Vector3.Axis.X, -45);
     }
 
@@ -109,10 +130,10 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         }
 
         //create our rectangle block
-        this.block = new RectangularPrism(2, 1, 1);
+        this.blocks[PRISM_BLOCK] = new RectangularPrism(2, 1, 1);
 
         //add texture
-        this.block.setMaterial(materialBlock);
+        this.blocks[PRISM_BLOCK].setMaterial(materialBlock);
     }
 
     /**
@@ -127,17 +148,24 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
             LoaderSTL loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_1_stl);
             loaderSTL.parse();
-            this.switch1 = loaderSTL.getParsedObject();
-            this.switch1.setPosition(0,0,.75);
-            this.switch1.setMaterial(material);
-            this.switch1.setScale(.02);
+            this.misc[OBJECT3D_SWITCH_1] = loaderSTL.getParsedObject();
+            this.misc[OBJECT3D_SWITCH_1].setPosition(0,0, MISC_HEIGHT_Z);
+            this.misc[OBJECT3D_SWITCH_1].setMaterial(material);
+            this.misc[OBJECT3D_SWITCH_1].setScale(.02);
 
             loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_2_stl);
             loaderSTL.parse();
-            this.switch2 = loaderSTL.getParsedObject();
-            this.switch2.setPosition(1,0,.75);
-            this.switch2.setMaterial(material);
-            this.switch2.setScale(.04);
+            this.misc[OBJECT3D_SWITCH_2] = loaderSTL.getParsedObject();
+            this.misc[OBJECT3D_SWITCH_2].setPosition(1,0, MISC_HEIGHT_Z);
+            this.misc[OBJECT3D_SWITCH_2].setMaterial(material);
+            this.misc[OBJECT3D_SWITCH_2].setScale(.04);
+
+            loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_3_stl);
+            loaderSTL.parse();
+            this.misc[OBJECT3D_SWITCH_3] = loaderSTL.getParsedObject();
+            this.misc[OBJECT3D_SWITCH_3].setPosition(1,0,MISC_HEIGHT_Z);
+            this.misc[OBJECT3D_SWITCH_3].setMaterial(material);
+            this.misc[OBJECT3D_SWITCH_3].setScale(.0115);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -147,27 +175,61 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
     /**
      * Create the floor for the level
      */
-    private void createFloor() {
+    private void createFloors() {
 
         Material materialFloor = new Material();
         materialFloor.enableLighting(true);
         materialFloor.setDiffuseMethod(new DiffuseMethod.Lambert());
         materialFloor.setColorInfluence(0f);
 
+        Material materialFloorWeak = new Material();
+        materialFloorWeak.enableLighting(true);
+        materialFloorWeak.setDiffuseMethod(new DiffuseMethod.Lambert());
+        materialFloorWeak.setColorInfluence(0f);
+
+        Material materialFloorHidden = new Material();
+        materialFloorHidden.enableLighting(true);
+        materialFloorHidden.setDiffuseMethod(new DiffuseMethod.Lambert());
+        materialFloorHidden.setColorInfluence(0f);
+
+        Material materialFloorGoal = new Material();
+        materialFloorGoal.enableLighting(true);
+        materialFloorGoal.setDiffuseMethod(new DiffuseMethod.Lambert());
+        materialFloorGoal.setColorInfluence(0f);
+
         try {
 
             materialFloor.addTexture(new Texture("Floor", R.drawable.floor));
+            materialFloorWeak.addTexture(new Texture("FloorWeak", R.drawable.floor_weak));
+            materialFloorHidden.addTexture(new Texture("FloorHidden", R.drawable.floor_hidden));
+            materialFloorGoal.addTexture(new Texture("FloorGoal", R.drawable.goal));
 
         } catch (Exception e) {
             e.printStackTrace();
 
             //color material if we couldn't load a texture
             materialFloor.setColor(Color.GRAY);
+            materialFloorWeak.setColor(Color.YELLOW);
+            materialFloorHidden.setColor(Color.GREEN);
+            materialFloorGoal.setColor(Color.RED);
         }
 
-        this.floor = new RectangularPrism(1f, 1f, .5f);
-        this.floor.setPosition(0,0,0);
-        this.floor.setMaterial(materialFloor);
+        this.blocks[PRISM_FLOOR_STANDARD] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
+        this.blocks[PRISM_FLOOR_STANDARD].setPosition(0,0,0);
+        this.blocks[PRISM_FLOOR_STANDARD].setMaterial(materialFloor);
+
+        this.blocks[PRISM_FLOOR_WEAK] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
+        this.blocks[PRISM_FLOOR_WEAK].setPosition(0,0,0);
+        this.blocks[PRISM_FLOOR_WEAK].setMaterial(materialFloorWeak);
+
+        this.blocks[PRISM_FLOOR_HIDDEN] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
+        this.blocks[PRISM_FLOOR_HIDDEN].setPosition(0,0,0);
+        this.blocks[PRISM_FLOOR_HIDDEN].setMaterial(materialFloorHidden);
+
+        this.blocks[PRISM_FLOOR_GOAL] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
+        this.blocks[PRISM_FLOOR_GOAL].setPosition(0,0,0);
+        this.blocks[PRISM_FLOOR_GOAL].setMaterial(materialFloorGoal);
+        this.blocks[PRISM_FLOOR_GOAL].rotate(Vector3.Axis.Z, 90);
     }
 
     @Override

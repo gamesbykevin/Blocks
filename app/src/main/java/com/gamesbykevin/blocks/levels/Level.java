@@ -1,13 +1,11 @@
 package com.gamesbykevin.blocks.levels;
 
-import android.util.Log;
-
 import com.gamesbykevin.blocks.board.Tile;
+
+import org.rajawali3d.math.vector.Vector3;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
 
 /**
  * Created by Kevin on 12/2/2017.
@@ -34,7 +32,10 @@ public class Level {
     private List<String> key;
 
     //list of locations that are linked to other locations
-    private List<Connector> connectors;
+    private List<Connector> switches;
+
+    //list of places for us to teleport
+    private List<Connector> teleporters;
 
     //the size of the level
     private int cols = 0, rows = 0;
@@ -45,9 +46,41 @@ public class Level {
     //where do we start the level
     private int startCol = 0, startRow = 0;
 
+    //do we stand at the start location?
+    private boolean standing = false;
+
+    //the location of the camera for this level
+    private Vector3 camera = null;
+
     public Level() {
+
         this.key = new ArrayList<>();
-        this.connectors = new ArrayList<>();
+        this.switches = new ArrayList<>();
+        this.teleporters = new ArrayList<>();
+    }
+
+    public void setCamera(final String desc) {
+
+        //parse our camera coordinates
+        final double x = Double.parseDouble(desc.substring(1).split(COORDINATE_SEPARATOR)[0]);
+        final double y = Double.parseDouble(desc.substring(1).split(COORDINATE_SEPARATOR)[1]);
+        final double z = Double.parseDouble(desc.substring(1).split(COORDINATE_SEPARATOR)[2]);
+
+        //assign the camera coordinates
+        this.camera = new Vector3();
+        this.camera.setAll(x, y, z);
+    }
+
+    public Vector3 getCamera() {
+        return this.camera;
+    }
+
+    public void setStanding(final boolean standing) {
+        this.standing = standing;
+    }
+
+    public boolean isStanding() {
+        return this.standing;
     }
 
     public int getCols() {
@@ -74,11 +107,23 @@ public class Level {
         return this.startRow;
     }
 
-    public List<Connector> getConnectors() {
-        return this.connectors;
+    public List<Connector> getSwitches() {
+        return this.switches;
     }
 
-    public void addConnector(final String desc) {
+    public List<Connector> getTeleporters() {
+        return this.teleporters;
+    }
+
+    public void addSwitch(final String desc) {
+        addConnector(desc, getSwitches());
+    }
+
+    public void addTeleport(final String desc) {
+        addConnector(desc, getTeleporters());
+    }
+
+    private void addConnector(final String desc, final List<Connector> connectorList) {
 
         //find where the source coordinates are
         int index = desc.indexOf(CONNECTOR_SOURCE_END);
@@ -105,7 +150,7 @@ public class Level {
         }
 
         //add to our list
-        getConnectors().add(connector);
+        connectorList.add(connector);
     }
 
     public List<String> getKey() {
@@ -117,8 +162,11 @@ public class Level {
      */
     public void analyze() {
 
+        if (getCamera() == null)
+            throw new RuntimeException("The camera coordinates are not set");
+
         //did we find these?
-        boolean goal = false, start = false;
+        boolean goal = false, start = false, startStanding = false;
 
         this.rows = getKey().size();
         this.cols = 0;
@@ -143,15 +191,24 @@ public class Level {
                     this.startCol = x;
                     this.startRow = i;
                     start = true;
+                    setStanding(false);
 
+                } else if (getKey().get(i).substring(x, x + 1).equalsIgnoreCase(Tile.Type.StartStanding.key)) {
+
+                    this.startCol = x;
+                    this.startRow = i;
+                    startStanding = true;
+                    setStanding(true);
                 }
             }
         }
 
         if (!goal)
             throw new RuntimeException("Level does not contain a goal");
-        if (!start)
-            throw new RuntimeException("Level does not have a start");
+        if (!start && !startStanding)
+            throw new RuntimeException("Level does not have a starting location");
+        if (start && startStanding)
+            throw new RuntimeException("You have more than 1 starting location");
     }
 
     /**
