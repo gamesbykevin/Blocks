@@ -1,13 +1,11 @@
 package com.gamesbykevin.blocks.block;
 
-import android.util.Log;
-
-import com.gamesbykevin.blocks.activity.MainActivity;
-
 import org.rajawali3d.math.vector.Vector3;
 
-import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
 import static com.gamesbykevin.blocks.activity.MainActivity.getGame;
+import static com.gamesbykevin.blocks.block.Block.MIN_Z_GOAL;
+import static com.gamesbykevin.blocks.block.Block.SCALE_ADJUST;
+import static com.gamesbykevin.blocks.block.Block.SCALE_MIN;
 import static com.gamesbykevin.blocks.opengl.Renderer.FLOOR_DEPTH;
 
 /**
@@ -18,12 +16,7 @@ public class BlockHelper {
     /**
      * How high does the block reside when laying down
      */
-    private static final float HEIGHT_Z = FLOOR_DEPTH;
-
-    /**
-     * Hide the block if it falls below this
-     */
-    private static final float HEIGHT_Z_HIDE = -2f;
+    public static final float HEIGHT_Z = FLOOR_DEPTH + .25F;
 
     /**
      * This is the allowed maximum limit for the block to fall
@@ -38,7 +31,7 @@ public class BlockHelper {
     /**
      * How high does the block reside when rotating vertically
      */
-    public static final float HEIGHT_Z_VERTICAL = FLOOR_DEPTH + .5f;
+    public static final float HEIGHT_Z_VERTICAL = HEIGHT_Z + .5f;
 
     /**
      * How fast do we adjust the z depth when rotating vertically?
@@ -68,7 +61,6 @@ public class BlockHelper {
     //here is where the block will start
     private static final float START_X = .5f;
     private static final float START_Y = 0;
-    private static final float START_Z = HEIGHT_Z;
 
     /**
      * How fast can the block move?
@@ -81,7 +73,7 @@ public class BlockHelper {
     protected static final int ROTATION = 90;
 
     protected static void reset(Block block) {
-        block.getPrism().setPosition(START_X, START_Y, START_Z);
+        block.getPrism().setPosition(START_X, START_Y, Block.START_Z);
         block.getPrism().setRotation(Vector3.Axis.X, 0);
         block.getPrism().setRotation(Vector3.Axis.Y, 0);
         block.setGoal(false);
@@ -90,6 +82,7 @@ public class BlockHelper {
         block.setSouth(false);
         block.setWest(false);
         block.setEast(false);
+        block.setSetup(true);
         block.setVertical(false);
         block.setStanding(false);
         block.setGravity(0f);
@@ -108,12 +101,22 @@ public class BlockHelper {
         if (block.hasGoal()) {
 
             //make the block fall
-            if (block.getPrism().getZ() > HEIGHT_Z_HIDE)
-                block.getPrism().setZ(block.getPrism().getZ() - VELOCITY_Z_FALL);
+            if (block.getPrism().getScaleZ() > SCALE_MIN) {
+                block.getPrism().setScaleZ(block.getPrism().getScale().z * SCALE_ADJUST);
 
-            //if it fell enough, let's hide it
-            if (block.getPrism().getZ() <= HEIGHT_Z_HIDE)
+                //our new z-coordinate
+                double newZ = HEIGHT_Z_VERTICAL - (HEIGHT_Z_VERTICAL * (1.0f - block.getPrism().getScaleZ()));
+
+                //make sure we stay in bounds
+                if (newZ > MIN_Z_GOAL) {
+                    block.getPrism().setZ(newZ);
+                } else {
+                    block.getPrism().setZ(MIN_Z_GOAL);
+                }
+
+            } else {
                 block.getPrism().setVisible(false);
+            }
 
             //no need to continue
             return;

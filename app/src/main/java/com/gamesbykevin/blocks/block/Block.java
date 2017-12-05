@@ -30,6 +30,9 @@ public class Block implements ICommon {
     //have we reached the goal
     private boolean goal = false;
 
+    //are we setting up this block?
+    private boolean setup = false;
+
     public enum Direction {
         North, East, South, West
     }
@@ -49,9 +52,42 @@ public class Block implements ICommon {
     //location of both blocks that make up the big block
     private int col, row;
 
+    /**
+     * The location where we start at beginning of setup
+     */
+    public static final float START_Z = 20;
+
+    /**
+     * Rate at which the block falls during setup
+     */
+    public static final float FALL_Z = .5f;
+
+    /**
+     * The minimum allowed scale
+     */
+    public static final double SCALE_MIN = .01;
+
+    /**
+     * How quickly do we change the scale
+     */
+    public static final double SCALE_ADJUST = .95;
+
+    /**
+     * The lowest allowed z coordinate when we reached the goal
+     */
+    public static final double MIN_Z_GOAL = .001;
+
     public Block(final RectangularPrism prism) {
         setPrism(prism);
         reset();
+    }
+
+    public void setSetup(boolean setup) {
+        this.setup = setup;
+    }
+
+    public boolean hasSetup() {
+        return this.setup;
     }
 
     public void setGoal(boolean goal) {
@@ -200,6 +236,33 @@ public class Block implements ICommon {
         //don't continue if we reached the goal
         if (hasGoal())
             return;
+
+        //if we have setup don't continue;
+        if (hasSetup()) {
+
+            //figure out where we are landing
+            float limit = isStanding() ? HEIGHT_Z_VERTICAL : BlockHelper.HEIGHT_Z;
+
+            if (getPrism().getZ() > limit) {
+
+                //if we haven't reached the limit
+                getPrism().setZ(getPrism().getZ() - FALL_Z);
+
+            } else {
+
+                //now we are done with setup
+                getPrism().setZ(limit);
+                setSetup(false);
+
+            }
+
+            //we can't move right now
+            setWest(false);
+            setEast(false);
+            setNorth(false);
+            setSouth(false);
+            return;
+        }
 
         //if not done rotating don't continue
         if (!hasCompleteRotation())

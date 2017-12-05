@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:background="@drawable/left"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/buttonRight"
@@ -20,28 +20,24 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/right"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
-
-
+    <Button
+        android:id="@+id/buttonUp"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/buttonDown"
         android:layout_margin="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@id/buttonUp"
         android:background="@drawable/down"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/buttonUp"
-        android:layout_margin="10dp"
-        android:layout_above="@+id/buttonDown"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

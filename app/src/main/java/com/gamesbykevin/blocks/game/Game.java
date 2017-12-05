@@ -52,6 +52,9 @@ public class Game implements ICommon {
             if (getLevel().isStanding())
                 getBlock().stand();
 
+            //start z location at top of the screen
+            getBlock().getPrism().setZ(Block.START_Z);
+
             //assign starting location
             getBlock().setCol(getLevel().getStartCol());
             getBlock().setRow(getLevel().getStartRow());
@@ -99,14 +102,18 @@ public class Game implements ICommon {
      */
     public void update() {
 
-        if (getBlock() != null) {
+        if (getBlock() != null && getBoard() != null) {
 
             if (getBlock().isDead()) {
+
                 //if the block is falling out of bounds let's reset the level
                 reset();
+
             } else {
+
                 //update the block based on the user input
-                getBlock().update();
+                if (!getBoard().hasSetup())
+                    getBlock().update();
             }
         }
     }

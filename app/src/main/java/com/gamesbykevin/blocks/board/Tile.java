@@ -2,6 +2,8 @@ package com.gamesbykevin.blocks.board;
 
 import org.rajawali3d.Object3D;
 
+import static com.gamesbykevin.blocks.board.Board.HEIGHT_Z_SWITCH;
+
 /**
  * Created by Kevin on 12/2/2017.
  */
@@ -9,6 +11,32 @@ public class Tile {
 
     //the 3d object representing the tile
     private Object3D object3D;
+
+    //the misc object attached to the tile (example switch)
+    private Object3D misc3D;
+
+    //how fast can this tile move to the start position
+    private float velocityZ = 1;
+
+    /**
+     * How fast can the tile move
+     */
+    public static float VELOCITY_Z_MAX = 1f;
+
+    /**
+     * How slow can the tile move
+     */
+    public static float VELOCITY_Z_MIN = .25f;
+
+    /**
+     * The starting location of the tile
+     */
+    public static double START_Z = -20;
+
+    /**
+     * The end location of the tile
+     */
+    public static double END_Z = 0;
 
     public enum Type {
 
@@ -71,7 +99,55 @@ public class Tile {
         return this.object3D;
     }
 
+    public void setMisc3D(final Object3D misc3D) {
+        this.misc3D = misc3D;
+    }
+
+    public Object3D getMisc3D() {
+        return this.misc3D;
+    }
+
+    public void setVelocityZ(float velocityZ) {
+        this.velocityZ = velocityZ;
+    }
+
+    public float getVelocityZ() {
+        return this.velocityZ;
+    }
+
     public Type getType() {
         return this.type;
+    }
+
+    public boolean hasEndZ() {
+        return getObject3D().getZ() == END_Z;
+    }
+
+    public void update() {
+
+        if (!hasEndZ()) {
+
+            //update the tile object (if exists)
+            if (getObject3D() != null) {
+
+                //update our location
+                getObject3D().setZ(getObject3D().getZ() + getVelocityZ());
+
+                //if we reached the end
+                if (getObject3D().getZ() > END_Z || hasEndZ())
+                    getObject3D().setZ(END_Z);
+            }
+
+            //update the misc object (if exists)
+            if (getMisc3D() != null) {
+
+                //update our location
+                getMisc3D().setZ(getMisc3D().getZ() + getVelocityZ());
+
+                //if we reached the end
+                if (getMisc3D().getZ() > END_Z + HEIGHT_Z_SWITCH || hasEndZ())
+                    getMisc3D().setZ(END_Z + HEIGHT_Z_SWITCH);
+            }
+        }
     }
 }

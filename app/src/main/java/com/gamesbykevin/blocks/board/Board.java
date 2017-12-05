@@ -1,7 +1,6 @@
 package com.gamesbykevin.blocks.board;
 
-import android.util.Log;
-
+import com.gamesbykevin.blocks.activity.MainActivity;
 import com.gamesbykevin.blocks.block.Block;
 import com.gamesbykevin.blocks.block.BlockHelper;
 import com.gamesbykevin.blocks.common.ICommon;
@@ -13,7 +12,9 @@ import org.rajawali3d.primitives.RectangularPrism;
 
 import java.util.List;
 
-import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
+import static com.gamesbykevin.blocks.board.Tile.START_Z;
+import static com.gamesbykevin.blocks.board.Tile.VELOCITY_Z_MAX;
+import static com.gamesbykevin.blocks.board.Tile.VELOCITY_Z_MIN;
 import static com.gamesbykevin.blocks.opengl.Renderer.FLOOR_DEPTH;
 
 /**
@@ -27,14 +28,14 @@ public class Board implements ICommon {
     //the goal of the level
     private int goalCol, goalRow;
 
-    //the starting point of our game
-    private int startCol, startRow;
-
     //how high are the switches on the board
-    private static final float HEIGHT_Z_SWITCH = FLOOR_DEPTH / 2;
+    public static final float HEIGHT_Z_SWITCH = FLOOR_DEPTH / 2;
 
     //list of all connectors on this board
     private final List<Level.Connector> switchesList, teleportersList;
+
+    //are we starting the board
+    private boolean setup = false;
 
     public Board(final Level level) {
 
@@ -48,10 +49,6 @@ public class Board implements ICommon {
         //assign the goal
         this.goalCol = level.getGoalCol();
         this.goalRow = level.getGoalRow();
-
-        //assign the start
-        this.startCol = level.getStartCol();
-        this.startRow = level.getStartRow();
 
         //check every line in our level key
         for (int row = 0; row < level.getKey().size(); row++) {
@@ -90,8 +87,8 @@ public class Board implements ICommon {
             case Goal:
 
                 //if we are standing on the goal, let's hide it
-                if (block.isStanding())
-                    getTile(block.getCol(), block.getRow()).getObject3D().setVisible(false);
+                //if (block.isStanding())
+                //    getTile(block.getCol(), block.getRow()).getObject3D().setVisible(false);
                 break;
 
             case Teleport:
@@ -338,6 +335,9 @@ public class Board implements ICommon {
 
     public void populate(Renderer renderer, final RectangularPrism[] blocks, final Object3D[] misc) {
 
+        //flag setup true
+        setSetup(true);
+
         for (int row = 0; row < getTiles().length; row++) {
             for (int col = 0; col < getTiles()[0].length; col++) {
 
@@ -375,7 +375,10 @@ public class Board implements ICommon {
                 }
 
                 //assign the position where the 3d model is displayed
-                getTile(col, row).getObject3D().setPosition(col, row, 0);
+                getTile(col, row).getObject3D().setPosition(col, row, START_Z);
+
+                //pick a random velocity at which to move
+                getTile(col, row).setVelocityZ(VELOCITY_Z_MIN + (MainActivity.getRandom().nextFloat() * (VELOCITY_Z_MAX - VELOCITY_Z_MIN)));
 
                 //make everything visible (for now)
                 getTiles()[row][col].getObject3D().setVisible(true);
@@ -392,32 +395,30 @@ public class Board implements ICommon {
 
                     case SwitchLight:
 
-                        if (misc != null && renderer != null) {
-                            Object3D circle = misc[Renderer.OBJECT3D_SWITCH_1].clone();
-                            circle.setPosition(col, row, HEIGHT_Z_SWITCH);
-                            renderer.getCurrentScene().addChild(circle);
-                        }
+                        if (misc != null && renderer != null)
+                            getTile(col, row).setMisc3D(misc[Renderer.OBJECT3D_SWITCH_1].clone());
                         break;
 
 
                     case SwitchHeavyOnlyHidden:
                     case SwitchHeavy:
 
-                        if (misc != null && renderer != null) {
-                            Object3D x = misc[Renderer.OBJECT3D_SWITCH_2].clone();
-                            x.setPosition(col, row, HEIGHT_Z_SWITCH);
-                            renderer.getCurrentScene().addChild(x);
-                        }
+                        if (misc != null && renderer != null)
+                            getTile(col, row).setMisc3D(misc[Renderer.OBJECT3D_SWITCH_2].clone());
                         break;
 
                     case Teleport:
 
-                        if (misc != null && renderer != null) {
-                            Object3D teleport = misc[Renderer.OBJECT3D_SWITCH_3].clone();
-                            teleport.setPosition(col, row, HEIGHT_Z_SWITCH);
-                            renderer.getCurrentScene().addChild(teleport);
-                        }
+                        if (misc != null && renderer != null)
+                            getTile(col, row).setMisc3D(misc[Renderer.OBJECT3D_SWITCH_3].clone());
                         break;
+                }
+
+                if (getTile(col, row).getMisc3D() != null) {
+                    getTile(col, row).getMisc3D().setPosition(col, row, START_Z + HEIGHT_Z_SWITCH);
+
+                    if (misc != null && renderer != null)
+                        renderer.getCurrentScene().addChild(getTile(col, row).getMisc3D());
                 }
             }
         }
@@ -427,6 +428,14 @@ public class Board implements ICommon {
         return this.tiles;
     }
 
+    public void setSetup(boolean setup) {
+        this.setup = setup;
+    }
+
+    public boolean hasSetup() {
+        return this.setup;
+    }
+
     @Override
     public void reset() {
         populate(null, null, null);
@@ -434,6 +443,30 @@ public class Board implements ICommon {
 
     @Override
     public void update() {
-        //add logic here
+
+        if (hasSetup()) {
+
+            boolean completed = true;
+
+            for (int row = 0; row < getTiles().length; row++) {
+                for (int col = 0; col < getTiles()[0].length; col++) {
+
+                    //if null don't continue
+                    if (getTile(col, row) == null)
+                        continue;
+
+                    //update the tile
+                    getTile(col, row).update();
+
+                    //if one tile isn't complete, we are not yet done
+                    if (!getTile(col, row).hasEndZ())
+                        completed = false;
+                }
+            }
+
+            //if we are done with setup
+            if (completed)
+                setSetup(false);
+        }
     }
 }

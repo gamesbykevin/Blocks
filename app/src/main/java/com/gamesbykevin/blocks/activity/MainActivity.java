@@ -14,6 +14,8 @@ import com.gamesbykevin.blocks.opengl.Renderer;
 import org.rajawali3d.view.ISurface;
 import org.rajawali3d.view.SurfaceView;
 
+import java.util.Random;
+
 public class MainActivity extends Activity implements Runnable {
 
     public static final String TAG = "gamesbykevin";
@@ -36,6 +38,9 @@ public class MainActivity extends Activity implements Runnable {
 
     //our game object
     private static Game game;
+
+    //our object used to generate random numbers
+    private static Random RANDOM;
 
     //figure out when a second has passed
     private long previous = System.currentTimeMillis();
@@ -172,10 +177,6 @@ public class MainActivity extends Activity implements Runnable {
         Log.d(TAG, "Thread created: " + this.thread.getName());
     }
 
-    public static Game getGame() {
-        return game;
-    }
-
     @Override
     public void onPause() {
 
@@ -253,5 +254,26 @@ public class MainActivity extends Activity implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static Game getGame() {
+        return game;
+    }
+
+    public static Random getRandom() {
+
+        if (RANDOM == null) {
+
+            //get current time stamp
+            long time = System.currentTimeMillis();
+
+            //create random with seed
+            RANDOM = new Random(time);
+
+            //display seed used
+            Log.d(TAG, "Random seed = " + time);
+        }
+
+        return RANDOM;
     }
 }

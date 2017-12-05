@@ -51,7 +51,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
     /**
      * The top height of the floor
      */
-    public static final float FLOOR_DEPTH = 1;
+    public static final float FLOOR_DEPTH = .5f;
 
     /**
      * The top height of the switches etc...
@@ -258,8 +258,20 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         //call parent to render objects
         super.onRender(elapsedTime, deltaTime);
 
-        //update the block animation (if exists)
-        if (MainActivity.getGame() != null && MainActivity.getGame().getBlock() != null)
-            MainActivity.getGame().getBlock().rotate();
+        if (MainActivity.getGame() != null &&
+            MainActivity.getGame().getBoard() != null &&
+            MainActivity.getGame().getBlock() != null) {
+
+            if (MainActivity.getGame().getBoard().hasSetup()) {
+                //update the board setup
+                MainActivity.getGame().getBoard().update();
+            } else if (MainActivity.getGame().getBlock().hasSetup()) {
+                //update the block setup
+                MainActivity.getGame().getBlock().update();
+            } else {
+                //update the block animation (if exists)
+                MainActivity.getGame().getBlock().rotate();
+            }
+        }
     }
 }
