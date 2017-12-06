@@ -32,13 +32,16 @@ public class Board implements ICommon {
     public static final float HEIGHT_Z_SWITCH = FLOOR_DEPTH / 2;
 
     //list of all connectors on this board
-    private final List<Level.Connector> switchesList, teleportersList;
+    private List<Level.Connector> switchesList, teleportersList;
 
     //are we starting the board
     private boolean setup = false;
 
-    public Board(final Level level) {
+    public Board() {
+        //default constructor
+    }
 
+    public void create(Level level) {
         //create new array list of tiles
         this.tiles = new Tile[level.getRows()][level.getCols()];
 
@@ -333,7 +336,7 @@ public class Board implements ICommon {
         return block.getCurrent();
     }
 
-    public void populate(Renderer renderer, final RectangularPrism[] blocks, final Object3D[] misc) {
+    public void populate(Renderer renderer) {
 
         //flag setup true
         setSetup(true);
@@ -349,26 +352,26 @@ public class Board implements ICommon {
                 //if (hasGoal(col, row))
                 //    continue;
 
-                if (blocks != null) {
+                if (renderer != null) {
 
                     //assign the 3d model floor reference accordingly
                     switch (getTile(col, row).getType()) {
 
                         case Goal:
-                            getTile(col, row).setObject3D(blocks[Renderer.PRISM_FLOOR_GOAL].clone());
+                            getTile(col, row).setObject3D(renderer.getBlocks()[Renderer.PRISM_FLOOR_GOAL].clone());
                             break;
 
                         case Weak:
-                            getTile(col, row).setObject3D(blocks[Renderer.PRISM_FLOOR_WEAK].clone());
+                            getTile(col, row).setObject3D(renderer.getBlocks()[Renderer.PRISM_FLOOR_WEAK].clone());
                             break;
 
                         case Hidden:
                         case HiddenDisplay:
-                            getTile(col, row).setObject3D(blocks[Renderer.PRISM_FLOOR_HIDDEN].clone());
+                            getTile(col, row).setObject3D(renderer.getBlocks()[Renderer.PRISM_FLOOR_HIDDEN].clone());
                             break;
 
                         default:
-                            getTile(col, row).setObject3D(blocks[Renderer.PRISM_FLOOR_STANDARD].clone());
+                            getTile(col, row).setObject3D(renderer.getBlocks()[Renderer.PRISM_FLOOR_STANDARD].clone());
                             break;
                     }
 
@@ -395,29 +398,29 @@ public class Board implements ICommon {
 
                     case SwitchLight:
 
-                        if (misc != null && renderer != null)
-                            getTile(col, row).setMisc3D(misc[Renderer.OBJECT3D_SWITCH_1].clone());
+                        if (renderer != null)
+                            getTile(col, row).setMisc3D(renderer.getMisc()[Renderer.OBJECT3D_SWITCH_1].clone());
                         break;
 
 
                     case SwitchHeavyOnlyHidden:
                     case SwitchHeavy:
 
-                        if (misc != null && renderer != null)
-                            getTile(col, row).setMisc3D(misc[Renderer.OBJECT3D_SWITCH_2].clone());
+                        if (renderer != null)
+                            getTile(col, row).setMisc3D(renderer.getMisc()[Renderer.OBJECT3D_SWITCH_2].clone());
                         break;
 
                     case Teleport:
 
-                        if (misc != null && renderer != null)
-                            getTile(col, row).setMisc3D(misc[Renderer.OBJECT3D_SWITCH_3].clone());
+                        if (renderer != null)
+                            getTile(col, row).setMisc3D(renderer.getMisc()[Renderer.OBJECT3D_SWITCH_3].clone());
                         break;
                 }
 
                 if (getTile(col, row).getMisc3D() != null) {
                     getTile(col, row).getMisc3D().setPosition(col, row, START_Z + HEIGHT_Z_SWITCH);
 
-                    if (misc != null && renderer != null)
+                    if (renderer != null)
                         renderer.getCurrentScene().addChild(getTile(col, row).getMisc3D());
                 }
             }
@@ -438,7 +441,7 @@ public class Board implements ICommon {
 
     @Override
     public void reset() {
-        populate(null, null, null);
+        populate(null);
     }
 
     @Override

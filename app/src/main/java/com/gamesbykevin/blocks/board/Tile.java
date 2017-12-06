@@ -120,7 +120,7 @@ public class Tile {
     }
 
     public boolean hasEndZ() {
-        return getObject3D().getZ() == END_Z;
+        return (getObject3D() != null && getObject3D().getZ() == END_Z);
     }
 
     public void update() {

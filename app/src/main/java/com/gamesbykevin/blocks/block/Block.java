@@ -60,7 +60,7 @@ public class Block implements ICommon {
     /**
      * Rate at which the block falls during setup
      */
-    public static final float FALL_Z = .5f;
+    public static final float FALL_Z = .25f;
 
     /**
      * The minimum allowed scale
@@ -96,6 +96,14 @@ public class Block implements ICommon {
 
     public boolean hasGoal() {
         return this.goal;
+    }
+
+    /**
+     * Is the goal complete?
+     * @return true if we have the goal and moved the block onto the ground, false otherwise
+     */
+    public boolean hasGoalComplete() {
+        return (hasGoal() && !getPrism().isVisible());
     }
 
     public void setCol(int col) {

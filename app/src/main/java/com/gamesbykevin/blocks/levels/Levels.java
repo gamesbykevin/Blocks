@@ -41,7 +41,7 @@ public class Levels {
     private List<Level> levelList;
 
     //the location of the current level
-    private int index = 7;
+    private int index = 0;
 
     public Levels(Context context) throws Exception {
 
@@ -90,6 +90,13 @@ public class Levels {
 
     public void setIndex(final int index) {
         this.index = index;
+
+        //keep index in bounds
+        if (getIndex() < 0) {
+            setIndex(getLevelList().size() - 1);
+        } else if (getIndex() >= getLevelList().size()) {
+            setIndex(0);
+        }
     }
 
     public int getIndex() {

@@ -1,5 +1,7 @@
 package com.gamesbykevin.blocks.game;
 
+import android.widget.Toast;
+
 import com.gamesbykevin.blocks.activity.LevelSelectActivity;
 import com.gamesbykevin.blocks.activity.MainActivity;
 import com.gamesbykevin.blocks.block.Block;
@@ -8,10 +10,7 @@ import com.gamesbykevin.blocks.common.ICommon;
 import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
-import org.rajawali3d.Object3D;
-import org.rajawali3d.primitives.RectangularPrism;
-
-import static com.gamesbykevin.blocks.block.BlockHelper.HEIGHT_Z_LIMIT_FALL;
+import static com.gamesbykevin.blocks.activity.LevelSelectActivity.LEVELS;
 
 /**
  * Created by Kevin on 11/29/2017.
@@ -60,33 +59,43 @@ public class Game implements ICommon {
             getBlock().setRow(getLevel().getStartRow());
         }
 
+        //reset the board
         if (getBoard() != null)
             getBoard().reset();
     }
 
-    public void create(final Renderer renderer, final RectangularPrism[] blocks, final Object3D[] misc) {
+    /**
+     * Create a new level now that the 3d objects in the renderer have been loaded
+     */
+    public void create() {
+
+        //create new board instance
+        this.board = new Board();
 
         //assign our block reference
-        this.block = new Block(blocks[Renderer.PRISM_BLOCK]);
-
-        //create new board based on the current level
-        this.board = new Board(getLevel());
-
-        //add 3d models to our board
-        this.board.populate(renderer, blocks, misc);
+        this.block = new Block(getActivity().getRenderer().getBlocks()[Renderer.PRISM_BLOCK]);
 
         //add the game block to the 3d scene
-        renderer.getCurrentScene().addChild(blocks[Renderer.PRISM_BLOCK]);
+        getActivity().getRenderer().getCurrentScene().addChild(getActivity().getRenderer().getBlocks()[Renderer.PRISM_BLOCK]);
+
+        //create the board based on the current level
+        getBoard().create(getLevel());
+
+        //add 3d models to our board
+        getBoard().populate(getActivity().getRenderer());
+
+        //update the camera angle
+        getActivity().getRenderer().updateCamera(getLevel().getCamera());
 
         //reset the game
         reset();
 
-        //update the camera angle
-        renderer.updateCamera(getLevel().getCamera());
+        //display current level #
+        getActivity().displayMessage("Level " + (LEVELS.getIndex() +  1));
     }
 
     public Level getLevel() {
-        return LevelSelectActivity.LEVELS.getLevel();
+        return LEVELS.getLevel();
     }
 
     public Board getBoard() {
@@ -111,9 +120,18 @@ public class Game implements ICommon {
 
             } else {
 
-                //update the block based on the user input
-                if (!getBoard().hasSetup())
+                if (getBlock().hasGoalComplete()) {
+
+                    //move to the next level
+                    //setupLevel(true);
+
+                    //reset the board
+                    //reset();
+
+                } else if (!getBoard().hasSetup()) {
+                    //update the block based on the user input
                     getBlock().update();
+                }
             }
         }
     }

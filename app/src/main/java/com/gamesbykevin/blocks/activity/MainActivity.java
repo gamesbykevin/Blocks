@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.game.Game;
@@ -51,6 +52,9 @@ public class MainActivity extends Activity implements Runnable {
     //all our user control buttons
     private Button buttonLeft, buttonRight, buttonUp, buttonDown;
 
+    //keep reference to our renderer object
+    private Renderer renderer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +72,8 @@ public class MainActivity extends Activity implements Runnable {
         surfaceView.setFrameRate(FPS);
         surfaceView.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
 
-        Renderer renderer = new Renderer(this, surfaceView);
-        surfaceView.setSurfaceRenderer(renderer);
+        this.renderer = new Renderer(this, surfaceView);
+        surfaceView.setSurfaceRenderer(getRenderer());
 
         //obtain our button reference controls
         this.buttonLeft = findViewById(R.id.buttonLeft);
@@ -275,5 +279,20 @@ public class MainActivity extends Activity implements Runnable {
         }
 
         return RANDOM;
+    }
+
+    public Renderer getRenderer() {
+        return this.renderer;
+    }
+
+    public void displayMessage(final String message) {
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

@@ -10,6 +10,9 @@ import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.activity.MainActivity;
 
 import org.rajawali3d.Object3D;
+import org.rajawali3d.cameras.Camera;
+import org.rajawali3d.cameras.Camera2D;
+import org.rajawali3d.cameras.OrthographicCamera;
 import org.rajawali3d.loader.LoaderSTL;
 import org.rajawali3d.materials.Material;
 import org.rajawali3d.materials.methods.DiffuseMethod;
@@ -94,7 +97,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         createMisc();
 
         //add the floor and block, etc... to our game
-        MainActivity.getGame().create(this, blocks, misc);
+        MainActivity.getGame().create();
     }
 
     public void updateCamera(Vector3 position) {
@@ -130,10 +133,10 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
         }
 
         //create our rectangle block
-        this.blocks[PRISM_BLOCK] = new RectangularPrism(2, 1, 1);
+        getBlocks()[PRISM_BLOCK] = new RectangularPrism(2, 1, 1);
 
         //add texture
-        this.blocks[PRISM_BLOCK].setMaterial(materialBlock);
+        getBlocks()[PRISM_BLOCK].setMaterial(materialBlock);
     }
 
     /**
@@ -141,31 +144,43 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
      */
     private void createMisc() {
 
-        Material material = new Material();
-        material.setColor(Color.BLUE);
-
         try {
+
+            Material material = new Material();
+            material.enableLighting(true);
+            material.setDiffuseMethod(new DiffuseMethod.Lambert());
+            material.setColorInfluence(0f);
+
+            try {
+                material.addTexture(new Texture("Switch", R.drawable.switches));
+            } catch (Exception e) {
+
+                e.printStackTrace();
+
+                //color material if we couldn't load a texture
+                material.setColor(Color.BLUE);
+            }
 
             LoaderSTL loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_1_stl);
             loaderSTL.parse();
-            this.misc[OBJECT3D_SWITCH_1] = loaderSTL.getParsedObject();
-            this.misc[OBJECT3D_SWITCH_1].setPosition(0,0, MISC_HEIGHT_Z);
-            this.misc[OBJECT3D_SWITCH_1].setMaterial(material);
-            this.misc[OBJECT3D_SWITCH_1].setScale(.02);
+            getMisc()[OBJECT3D_SWITCH_1] = loaderSTL.getParsedObject();
+            getMisc()[OBJECT3D_SWITCH_1].setPosition(0,0, MISC_HEIGHT_Z);
+            getMisc()[OBJECT3D_SWITCH_1].setMaterial(material);
+            getMisc()[OBJECT3D_SWITCH_1].setScale(.0115);
 
             loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_2_stl);
             loaderSTL.parse();
-            this.misc[OBJECT3D_SWITCH_2] = loaderSTL.getParsedObject();
-            this.misc[OBJECT3D_SWITCH_2].setPosition(1,0, MISC_HEIGHT_Z);
-            this.misc[OBJECT3D_SWITCH_2].setMaterial(material);
-            this.misc[OBJECT3D_SWITCH_2].setScale(.04);
+            getMisc()[OBJECT3D_SWITCH_2] = loaderSTL.getParsedObject();
+            getMisc()[OBJECT3D_SWITCH_2].setPosition(1,0, MISC_HEIGHT_Z);
+            getMisc()[OBJECT3D_SWITCH_2].setMaterial(material);
+            getMisc()[OBJECT3D_SWITCH_2].setScale(.04);
 
             loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_3_stl);
             loaderSTL.parse();
-            this.misc[OBJECT3D_SWITCH_3] = loaderSTL.getParsedObject();
-            this.misc[OBJECT3D_SWITCH_3].setPosition(1,0,MISC_HEIGHT_Z);
-            this.misc[OBJECT3D_SWITCH_3].setMaterial(material);
-            this.misc[OBJECT3D_SWITCH_3].setScale(.0115);
+            getMisc()[OBJECT3D_SWITCH_3] = loaderSTL.getParsedObject();
+            getMisc()[OBJECT3D_SWITCH_3].setPosition(1,0,MISC_HEIGHT_Z);
+            getMisc()[OBJECT3D_SWITCH_3].setMaterial(material);
+            getMisc()[OBJECT3D_SWITCH_3].setScale(.02);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -214,22 +229,22 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
             materialFloorGoal.setColor(Color.RED);
         }
 
-        this.blocks[PRISM_FLOOR_STANDARD] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
-        this.blocks[PRISM_FLOOR_STANDARD].setPosition(0,0,0);
-        this.blocks[PRISM_FLOOR_STANDARD].setMaterial(materialFloor);
+        getBlocks()[PRISM_FLOOR_STANDARD] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
+        getBlocks()[PRISM_FLOOR_STANDARD].setPosition(0,0,0);
+        getBlocks()[PRISM_FLOOR_STANDARD].setMaterial(materialFloor);
 
-        this.blocks[PRISM_FLOOR_WEAK] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
-        this.blocks[PRISM_FLOOR_WEAK].setPosition(0,0,0);
-        this.blocks[PRISM_FLOOR_WEAK].setMaterial(materialFloorWeak);
+        getBlocks()[PRISM_FLOOR_WEAK] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
+        getBlocks()[PRISM_FLOOR_WEAK].setPosition(0,0,0);
+        getBlocks()[PRISM_FLOOR_WEAK].setMaterial(materialFloorWeak);
 
-        this.blocks[PRISM_FLOOR_HIDDEN] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
-        this.blocks[PRISM_FLOOR_HIDDEN].setPosition(0,0,0);
-        this.blocks[PRISM_FLOOR_HIDDEN].setMaterial(materialFloorHidden);
+        getBlocks()[PRISM_FLOOR_HIDDEN] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
+        getBlocks()[PRISM_FLOOR_HIDDEN].setPosition(0,0,0);
+        getBlocks()[PRISM_FLOOR_HIDDEN].setMaterial(materialFloorHidden);
 
-        this.blocks[PRISM_FLOOR_GOAL] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
-        this.blocks[PRISM_FLOOR_GOAL].setPosition(0,0,0);
-        this.blocks[PRISM_FLOOR_GOAL].setMaterial(materialFloorGoal);
-        this.blocks[PRISM_FLOOR_GOAL].rotate(Vector3.Axis.Z, 90);
+        getBlocks()[PRISM_FLOOR_GOAL] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
+        getBlocks()[PRISM_FLOOR_GOAL].setPosition(0,0,0);
+        getBlocks()[PRISM_FLOOR_GOAL].setMaterial(materialFloorGoal);
+        getBlocks()[PRISM_FLOOR_GOAL].rotate(Vector3.Axis.Z, 90);
     }
 
     @Override
@@ -273,5 +288,13 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
                 MainActivity.getGame().getBlock().rotate();
             }
         }
+    }
+
+    public RectangularPrism[] getBlocks() {
+        return this.blocks;
+    }
+
+    public Object3D[] getMisc() {
+        return this.misc;
     }
 }
