@@ -9,6 +9,7 @@ import com.gamesbykevin.blocks.board.Board;
 import com.gamesbykevin.blocks.common.ICommon;
 import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
+import com.gamesbykevin.blocks.util.Timer;
 
 import static com.gamesbykevin.blocks.activity.LevelSelectActivity.LEVELS;
 
@@ -25,10 +26,21 @@ public class Game implements ICommon {
     //board where block plays on
     private Board board;
 
+    //keep track of our game timer
+    private Timer timer;
+
     public Game(final MainActivity activity) throws Exception {
 
         //save our activity reference
         this.activity = activity;
+
+        //create new game timer
+        this.timer = new Timer(activity);
+    }
+
+    @Override
+    public void dispose() {
+
     }
 
     public MainActivity getActivity() {
@@ -75,6 +87,9 @@ public class Game implements ICommon {
         //assign our block reference
         this.block = new Block(getActivity().getRenderer().getBlocks()[Renderer.PRISM_BLOCK]);
 
+        //reset game timer
+        getTimer().reset();
+
         //add the game block to the 3d scene
         getActivity().getRenderer().getCurrentScene().addChild(getActivity().getRenderer().getBlocks()[Renderer.PRISM_BLOCK]);
 
@@ -106,6 +121,10 @@ public class Game implements ICommon {
         return this.block;
     }
 
+    public Timer getTimer() {
+        return this.timer;
+    }
+
     /**
      * Update our game
      */
@@ -118,6 +137,9 @@ public class Game implements ICommon {
                 //if the block is falling out of bounds let's reset the level
                 reset();
 
+                //update timer
+                getTimer().update();
+
             } else {
 
                 if (getBlock().hasGoalComplete()) {
@@ -129,8 +151,12 @@ public class Game implements ICommon {
                     //reset();
 
                 } else if (!getBoard().hasSetup()) {
+
                     //update the block based on the user input
                     getBlock().update();
+
+                    //update timer since the board is done setting up
+                    getTimer().update();
                 }
             }
         }

@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.activity.MainActivity;
+import com.gamesbykevin.blocks.common.IDisposable;
 
 import org.rajawali3d.Object3D;
 import org.rajawali3d.cameras.Camera;
@@ -27,7 +28,7 @@ import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
 /**
  * Created by Kevin on 11/26/2017.
  */
-public class Renderer extends org.rajawali3d.renderer.Renderer {
+public class Renderer extends org.rajawali3d.renderer.Renderer implements IDisposable {
 
     private final View view;
 
@@ -80,6 +81,11 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
     }
 
     @Override
+    public void dispose() {
+
+    }
+
+    @Override
     public void initScene() {
 
         Log.d(TAG, "initScene");
@@ -107,6 +113,9 @@ public class Renderer extends org.rajawali3d.renderer.Renderer {
 
         //rotate so we are viewing from an angle
         getCurrentCamera().rotate(Vector3.Axis.X, -45);
+
+        //getCurrentCamera().rotate(Vector3.Axis.X, -55);
+        //getCurrentCamera().rotate(Vector3.Axis.Z, -15);
     }
 
     /**

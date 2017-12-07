@@ -2,13 +2,26 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ImageView
+        android:scaleType="fitXY"
+        android:src="@drawable/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    
     <org.rajawali3d.view.SurfaceView
+        app:isTransparent="true"
         android:id="@+id/surfaceView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+
+    <!-- the game timer -->
+    <include layout="@layout/layout_game_timer" style="@style/layout_game_timer" />
+
+    <!-- the game controls -->
     <include layout="@layout/layout_game_controls" />
 
 </RelativeLayout>

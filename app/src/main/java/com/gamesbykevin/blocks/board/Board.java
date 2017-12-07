@@ -41,6 +41,11 @@ public class Board implements ICommon {
         //default constructor
     }
 
+    @Override
+    public void dispose() {
+
+    }
+
     public void create(Level level) {
         //create new array list of tiles
         this.tiles = new Tile[level.getRows()][level.getCols()];
@@ -348,10 +353,6 @@ public class Board implements ICommon {
                 if (getTile(col, row) == null)
                     continue;
 
-                //if this is a goal, we don't need to add a model here
-                //if (hasGoal(col, row))
-                //    continue;
-
                 if (renderer != null) {
 
                     //assign the 3d model floor reference accordingly
@@ -375,16 +376,15 @@ public class Board implements ICommon {
                             break;
                     }
 
+                    //assign the position where the 3d model is displayed
+                    getTile(col, row).getObject3D().setPosition(col, row, START_Z);
+
+                    //pick a random velocity at which to move
+                    getTile(col, row).setVelocityZ(VELOCITY_Z_MIN + (MainActivity.getRandom().nextFloat() * (VELOCITY_Z_MAX - VELOCITY_Z_MIN)));
                 }
 
-                //assign the position where the 3d model is displayed
-                getTile(col, row).getObject3D().setPosition(col, row, START_Z);
-
-                //pick a random velocity at which to move
-                getTile(col, row).setVelocityZ(VELOCITY_Z_MIN + (MainActivity.getRandom().nextFloat() * (VELOCITY_Z_MAX - VELOCITY_Z_MIN)));
-
                 //make everything visible (for now)
-                getTiles()[row][col].getObject3D().setVisible(true);
+                getTile(col, row).getObject3D().setVisible(true);
 
                 //add it to the render scene so we can view it
                 if (renderer != null)
@@ -393,7 +393,7 @@ public class Board implements ICommon {
                 switch (getTile(col, row).getType()) {
 
                     case Hidden:
-                        getTiles()[row][col].getObject3D().setVisible(false);
+                        getTile(col, row).getObject3D().setVisible(false);
                         break;
 
                     case SwitchLight:
@@ -418,7 +418,7 @@ public class Board implements ICommon {
                 }
 
                 if (getTile(col, row).getMisc3D() != null) {
-                    getTile(col, row).getMisc3D().setPosition(col, row, START_Z + HEIGHT_Z_SWITCH);
+                    getTile(col, row).getMisc3D().setPosition(col, row, getTile(col, row).getObject3D().getZ() + HEIGHT_Z_SWITCH);
 
                     if (renderer != null)
                         renderer.getCurrentScene().addChild(getTile(col, row).getMisc3D());

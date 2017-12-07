@@ -1,16 +1,20 @@
 package com.gamesbykevin.blocks.activity;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.game.Game;
 import com.gamesbykevin.blocks.opengl.Renderer;
+import com.gamesbykevin.blocks.util.Timer;
 
 import org.rajawali3d.view.ISurface;
 import org.rajawali3d.view.SurfaceView;
@@ -27,9 +31,14 @@ public class MainActivity extends Activity implements Runnable {
     public static final int FPS = 60;
 
     /**
+     * How many milliseconds in 1 second
+     */
+    public static final long MILLISECONDS_PER_SECOND = 1000L;
+
+    /**
      * How long does each thread update expected to last
      */
-    private static final long THREAD_DURATION = (1000 / FPS);
+    public static final long THREAD_DURATION = (MILLISECONDS_PER_SECOND / FPS);
 
     //our main thread
     private Thread thread;
@@ -151,12 +160,10 @@ public class MainActivity extends Activity implements Runnable {
                 return false;
             }
         });
-
     }
 
     @Override
     public void onResume() {
-
 
         try {
             //if null, create a new game
@@ -199,6 +206,12 @@ public class MainActivity extends Activity implements Runnable {
 
         //flag null
         this.thread = null;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 
     @Override

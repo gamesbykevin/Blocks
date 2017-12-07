@@ -55,12 +55,12 @@ public class Block implements ICommon {
     /**
      * The location where we start at beginning of setup
      */
-    public static final float START_Z = 20;
+    public static final float START_Z = 15;
 
     /**
      * Rate at which the block falls during setup
      */
-    public static final float FALL_Z = .25f;
+    public static final float FALL_Z = .15f;
 
     /**
      * The minimum allowed scale
@@ -80,6 +80,11 @@ public class Block implements ICommon {
     public Block(final RectangularPrism prism) {
         setPrism(prism);
         reset();
+    }
+
+    @Override
+    public void dispose() {
+
     }
 
     public void setSetup(boolean setup) {
