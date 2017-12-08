@@ -6,24 +6,9 @@
     </style>
 
     <style name="game_controls">
-        <item name="android:layout_width">60dp</item>
-        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
         <item name="android:layout_margin">10dp</item>
     </style>
 
-    <style name="layout_game_timer">
-        <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_alignParentTop">true</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="tableRowTimer">
-        <item name="android:layout_margin">10dp</item>
-    </style>
-
-    <style name="imageViewTimer">
-        <item name="android:layout_width">50dp</item>
-        <item name="android:layout_height">50dp</item>
-    </style>
 </resources>

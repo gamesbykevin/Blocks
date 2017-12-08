@@ -85,6 +85,10 @@ public class Block implements ICommon {
     @Override
     public void dispose() {
 
+        if (this.prism != null) {
+            this.prism.destroy();
+            this.prism = null;
+        }
     }
 
     public void setSetup(boolean setup) {

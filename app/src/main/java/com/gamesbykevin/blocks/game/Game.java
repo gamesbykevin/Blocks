@@ -35,12 +35,26 @@ public class Game implements ICommon {
         this.activity = activity;
 
         //create new game timer
-        this.timer = new Timer(activity);
+        this.timer = new Timer();
     }
 
     @Override
     public void dispose() {
 
+        if (block != null) {
+            block.dispose();
+            block = null;
+        }
+
+        if (board != null) {
+            board.dispose();
+            board = null;
+        }
+
+        if (timer != null) {
+            timer.dispose();
+            timer = null;
+        }
     }
 
     public MainActivity getActivity() {
@@ -100,7 +114,7 @@ public class Game implements ICommon {
         getBoard().populate(getActivity().getRenderer());
 
         //update the camera angle
-        getActivity().getRenderer().updateCamera(getLevel().getCamera());
+        getActivity().getRenderer().updateCamera(getLevel());
 
         //reset the game
         reset();
@@ -140,6 +154,9 @@ public class Game implements ICommon {
                 //update timer
                 getTimer().update();
 
+                //update timer display
+                getActivity().getRenderer().updateTimer(getTimer());
+
             } else {
 
                 if (getBlock().hasGoalComplete()) {
@@ -155,8 +172,13 @@ public class Game implements ICommon {
                     //update the block based on the user input
                     getBlock().update();
 
-                    //update timer since the board is done setting up
-                    getTimer().update();
+                    //update timer as long as we aren't at the goal
+                    if (!getBlock().hasGoal()) {
+                        getTimer().update();
+
+                        //update timer display
+                        getActivity().getRenderer().updateTimer(getTimer());
+                    }
                 }
             }
         }

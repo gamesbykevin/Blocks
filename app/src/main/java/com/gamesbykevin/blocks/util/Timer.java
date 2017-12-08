@@ -21,7 +21,10 @@ public class Timer implements IDisposable {
     private long lapsed;
 
     //values for our display timer
-    private int clock1, clock2, clock3, clock4;
+    private int clock1 = 0;
+    private int clock2 = 0;
+    private int clock3 = 0;
+    private int clock4 = 0;
 
     //are we counting up or down ?
     private boolean ascending = true;
@@ -32,48 +35,10 @@ public class Timer implements IDisposable {
     private boolean flag3 = false;
     private boolean flag4 = false;
 
-    //save activity reference to update the ai
-    private final MainActivity activity;
-
-    //image object for the timer
-    private ImageView time1, time2, time3, time4;
-
-    //array of images for each number
-    private Bitmap[] images;
-
-    //runnable process
-    private Runnable runnable;
-
-    public Timer(final MainActivity activity) {
-
-        //save reference
-        this.activity = activity;
-
-        //load images into array
-        this.images = new Bitmap[10];
-        this.images[0] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.zero);
-        this.images[1] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.one);
-        this.images[2] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.two);
-        this.images[3] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.three);
-        this.images[4] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.four);
-        this.images[5] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.five);
-        this.images[6] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.six);
-        this.images[7] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.seven);
-        this.images[8] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.eight);
-        this.images[9] = BitmapFactory.decodeResource(getActivity().getResources(), R.drawable.nine);
-
-        //obtain our clock references
-        this.time1 = getActivity().findViewById(R.id.clock1);
-        this.time2 = getActivity().findViewById(R.id.clock2);
-        this.time3 = getActivity().findViewById(R.id.clock3);
-        this.time4 = getActivity().findViewById(R.id.clock4);
+    public Timer() {
 
         //reset timer
         reset();
-    }
-
-    private MainActivity getActivity() {
-        return this.activity;
     }
 
     @Override
@@ -108,38 +73,9 @@ public class Timer implements IDisposable {
         this.flag2 = true;
         this.flag3 = true;
         this.flag4 = true;
-    }
 
-    public boolean hasFlag1() {
-        return this.flag1;
-    }
-
-    public boolean hasFlag2() {
-        return this.flag2;
-    }
-
-    public boolean hasFlag3() {
-        return this.flag3;
-    }
-
-    public boolean hasFlag4() {
-        return this.flag4;
-    }
-
-    public int getClock1() {
-        return this.clock1;
-    }
-
-    public int getClock2() {
-        return this.clock2;
-    }
-
-    public int getClock3() {
-        return this.clock3;
-    }
-
-    public int getClock4() {
-        return this.clock4;
+        //we are counting up
+        setAscending(true);
     }
 
     /**
@@ -185,10 +121,39 @@ public class Timer implements IDisposable {
             } else {
                 descend();
             }
-
-            //update timer display
-            //updateTimer();
         }
+    }
+
+    public boolean hasFlag1() {
+        return this.flag1;
+    }
+
+    public boolean hasFlag2() {
+        return this.flag2;
+    }
+
+    public boolean hasFlag3() {
+        return this.flag3;
+    }
+
+    public boolean hasFlag4() {
+        return this.flag4;
+    }
+
+    public int getClock1() {
+        return this.clock1;
+    }
+
+    public int getClock2() {
+        return this.clock2;
+    }
+
+    public int getClock3() {
+        return this.clock3;
+    }
+
+    public int getClock4() {
+        return this.clock4;
     }
 
     private void ascend() {
@@ -316,30 +281,5 @@ public class Timer implements IDisposable {
         //don't go below 0
         if (clock1 < 0)
             clock1 = 0;
-    }
-
-    /**
-     * Update timer display
-     */
-    public void updateTimer() {
-
-        if (this.runnable == null) {
-            this.runnable = new Runnable() {
-                @Override
-                public void run() {
-                    if (flag1)
-                        time1.setImageBitmap(images[clock1]);
-                    if (flag2)
-                        time2.setImageBitmap(images[clock2]);
-                    if (flag3)
-                        time3.setImageBitmap(images[clock3]);
-                    if (flag4)
-                        time4.setImageBitmap(images[clock4]);
-                }
-            };
-        }
-
-        //run on ui thread
-        getActivity().runOnUiThread(runnable);
     }
 }

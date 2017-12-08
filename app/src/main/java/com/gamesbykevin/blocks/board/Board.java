@@ -7,9 +7,6 @@ import com.gamesbykevin.blocks.common.ICommon;
 import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
-import org.rajawali3d.Object3D;
-import org.rajawali3d.primitives.RectangularPrism;
-
 import java.util.List;
 
 import static com.gamesbykevin.blocks.board.Tile.START_Z;
@@ -32,7 +29,7 @@ public class Board implements ICommon {
     public static final float HEIGHT_Z_SWITCH = FLOOR_DEPTH / 2;
 
     //list of all connectors on this board
-    private List<Level.Connector> switchesList, teleportersList;
+    private List<Level.Connector> switchesList;
 
     //are we starting the board
     private boolean setup = false;
@@ -44,6 +41,24 @@ public class Board implements ICommon {
     @Override
     public void dispose() {
 
+        if (this.tiles != null) {
+            for (int row = 0; row < tiles.length; row++) {
+                for (int col = 0; col < tiles[0].length; col++) {
+
+                    if (tiles[row][col] != null) {
+                        tiles[row][col].dispose();
+                        tiles[row][col] = null;
+                    }
+                }
+            }
+
+            this.tiles = null;
+        }
+
+        if (switchesList != null) {
+            this.switchesList.clear();
+            this.switchesList = null;
+        }
     }
 
     public void create(Level level) {
@@ -52,7 +67,6 @@ public class Board implements ICommon {
 
         //get our list of connectors
         this.switchesList = level.getSwitches();
-        this.teleportersList = level.getTeleporters();
 
         //assign the goal
         this.goalCol = level.getGoalCol();
@@ -97,25 +111,6 @@ public class Board implements ICommon {
                 //if we are standing on the goal, let's hide it
                 //if (block.isStanding())
                 //    getTile(block.getCol(), block.getRow()).getObject3D().setVisible(false);
-                break;
-
-            case Teleport:
-
-                //can only be activated if we are standing
-                if (block.isStanding()) {
-
-                    for (int i = 0; i < teleportersList.size(); i++) {
-                        if (block.getCol() == teleportersList.get(i).sourceCol && block.getRow() == teleportersList.get(i).sourceRow) {
-
-                            //split up our block into 2 smaller blocks at these locations
-                            for (int x = 0; x < teleportersList.get(i).connections.size(); x++) {
-                                Tile tmp = getTile(teleportersList.get(i).connections.get(x).col, teleportersList.get(i).connections.get(x).row);
-                                tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
-                            }
-                            break;
-                        }
-                    }
-                }
                 break;
 
             case Weak:
@@ -408,12 +403,6 @@ public class Board implements ICommon {
 
                         if (renderer != null)
                             getTile(col, row).setMisc3D(renderer.getMisc()[Renderer.OBJECT3D_SWITCH_2].clone());
-                        break;
-
-                    case Teleport:
-
-                        if (renderer != null)
-                            getTile(col, row).setMisc3D(renderer.getMisc()[Renderer.OBJECT3D_SWITCH_3].clone());
                         break;
                 }
 

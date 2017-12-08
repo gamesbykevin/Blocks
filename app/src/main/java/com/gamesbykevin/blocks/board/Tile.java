@@ -1,5 +1,7 @@
 package com.gamesbykevin.blocks.board;
 
+import com.gamesbykevin.blocks.common.IDisposable;
+
 import org.rajawali3d.Object3D;
 
 import static com.gamesbykevin.blocks.board.Board.HEIGHT_Z_SWITCH;
@@ -7,7 +9,7 @@ import static com.gamesbykevin.blocks.board.Board.HEIGHT_Z_SWITCH;
 /**
  * Created by Kevin on 12/2/2017.
  */
-public class Tile {
+public class Tile implements IDisposable {
 
     //the 3d object representing the tile
     private Object3D object3D;
@@ -31,7 +33,7 @@ public class Tile {
     /**
      * The starting location of the tile
      */
-    public static double START_Z = -20;
+    public static double START_Z = -30;
 
     /**
      * The end location of the tile
@@ -42,9 +44,6 @@ public class Tile {
 
         //where the game will start laying down
         Start("O"),
-
-        //landing here will split and transfer the blocks
-        Teleport("P"),
 
         //where the game will start standing
         StartStanding("T"),
@@ -89,6 +88,20 @@ public class Tile {
 
     public Tile(final Type type) {
         this.type = type;
+    }
+
+    @Override
+    public void dispose() {
+
+        if (object3D != null) {
+            object3D.destroy();
+            object3D = null;
+        }
+
+        if (misc3D != null) {
+            misc3D.destroy();
+            misc3D = null;
+        }
     }
 
     public void setObject3D(final Object3D object3D) {

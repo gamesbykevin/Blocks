@@ -1,6 +1,7 @@
 package com.gamesbykevin.blocks.levels;
 
 import com.gamesbykevin.blocks.board.Tile;
+import com.gamesbykevin.blocks.common.IDisposable;
 
 import org.rajawali3d.math.vector.Vector3;
 
@@ -10,8 +11,7 @@ import java.util.List;
 /**
  * Created by Kevin on 12/2/2017.
  */
-
-public class Level {
+public class Level implements IDisposable {
 
     /**
      * This is the end of the source coordinate
@@ -34,9 +34,6 @@ public class Level {
     //list of locations that are linked to other locations
     private List<Connector> switches;
 
-    //list of places for us to teleport
-    private List<Connector> teleporters;
-
     //the size of the level
     private int cols = 0, rows = 0;
 
@@ -56,7 +53,19 @@ public class Level {
 
         this.key = new ArrayList<>();
         this.switches = new ArrayList<>();
-        this.teleporters = new ArrayList<>();
+    }
+
+    @Override
+    public void dispose() {
+
+        if (key != null)
+            key.clear();
+        if (switches != null)
+            switches.clear();
+
+        camera = null;
+        key = null;
+        switches = null;
     }
 
     public void setCamera(final String desc) {
@@ -111,16 +120,8 @@ public class Level {
         return this.switches;
     }
 
-    public List<Connector> getTeleporters() {
-        return this.teleporters;
-    }
-
     public void addSwitch(final String desc) {
         addConnector(desc, getSwitches());
-    }
-
-    public void addTeleport(final String desc) {
-        addConnector(desc, getTeleporters());
     }
 
     private void addConnector(final String desc, final List<Connector> connectorList) {

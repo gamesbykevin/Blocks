@@ -2,6 +2,8 @@ package com.gamesbykevin.blocks.levels;
 
 import android.content.Context;
 
+import com.gamesbykevin.blocks.common.IDisposable;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -10,17 +12,12 @@ import java.util.List;
 /**
  * Created by Kevin on 12/2/2017.
  */
-public class Levels {
+public class Levels implements IDisposable {
 
     /**
      * Indicates the camera position when viewing the level
      */
     private static final String LEVEL_CAMERA = "!";
-
-    /**
-     * Indicates splitting up the block into 2 smaller blocks
-     */
-    private static final String LEVEL_TELEPORT = "%";
 
     /**
      * Indicates what locations are connected to others
@@ -75,8 +72,6 @@ public class Levels {
                 level.addSwitch(line);
             } else if (line.startsWith(LEVEL_CAMERA)) {
                 level.setCamera(line);
-            } else if (line.startsWith(LEVEL_TELEPORT)) {
-                level.addTeleport(line);
             } else if (line.trim().length() > 0) {
                 level.getKey().add(line);
             }
@@ -86,6 +81,23 @@ public class Levels {
         for (int i = 0; i < getLevelList().size(); i++) {
             getLevelList().get(i).analyze();
         }
+    }
+
+    @Override
+    public void dispose() {
+
+        if (levelList != null) {
+            for (int i = 0; i < levelList.size(); i++) {
+                if (levelList.get(i) != null) {
+                    levelList.get(i).dispose();
+                    levelList.set(i, null);
+                }
+            }
+
+            levelList.clear();
+        }
+
+        levelList = null;
     }
 
     public void setIndex(final int index) {

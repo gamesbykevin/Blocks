@@ -2,23 +2,23 @@ package com.gamesbykevin.blocks.opengl;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.opengl.GLES20;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.activity.MainActivity;
 import com.gamesbykevin.blocks.common.IDisposable;
+import com.gamesbykevin.blocks.levels.Level;
+import com.gamesbykevin.blocks.util.Timer;
 
 import org.rajawali3d.Object3D;
-import org.rajawali3d.cameras.Camera;
-import org.rajawali3d.cameras.Camera2D;
-import org.rajawali3d.cameras.OrthographicCamera;
 import org.rajawali3d.loader.LoaderSTL;
 import org.rajawali3d.materials.Material;
 import org.rajawali3d.materials.methods.DiffuseMethod;
 import org.rajawali3d.materials.textures.Texture;
 import org.rajawali3d.math.vector.Vector3;
+import org.rajawali3d.primitives.Plane;
 import org.rajawali3d.primitives.RectangularPrism;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -30,8 +30,6 @@ import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
  */
 public class Renderer extends org.rajawali3d.renderer.Renderer implements IDisposable {
 
-    private final View view;
-
     /**
      * How we know to reference the blocks array
      */
@@ -41,16 +39,15 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
     public static final int PRISM_FLOOR_HIDDEN = 3;
     public static final int PRISM_FLOOR_GOAL = 4;
 
-    private RectangularPrism[] blocks;// block, floor, floorWeak;
+    private RectangularPrism[] blocks;
 
     /**
      * How we know to reference the misc array
      */
     public static final int OBJECT3D_SWITCH_1 = 0;
     public static final int OBJECT3D_SWITCH_2 = 1;
-    public static final int OBJECT3D_SWITCH_3 = 2;
 
-    private Object3D[] misc;// switch1, switch2;
+    private Object3D[] misc;
 
     /**
      * The top height of the floor
@@ -62,13 +59,16 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
      */
     public static final double MISC_HEIGHT_Z = FLOOR_DEPTH + .25;
 
-    public Renderer(Context context, View view) {
+    //all the number textures we need for our timer
+    private Material[] numbers;
+
+    //list of containers to display our 2d sprite images
+    private Plane[] containers;
+
+    public Renderer(Context context) {
 
         //call parent
         super(context);
-
-        //store view reference
-        this.view = view;
 
         //assign speed
         setFrameRate(MainActivity.FPS);
@@ -76,13 +76,59 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         //create new array for the blocks in the game
         this.blocks = new RectangularPrism[5];
 
-        //create new array for our switches etc...
-        this.misc = new Object3D[3];
+        //create new array for our 2 switches etc...
+        this.misc = new Object3D[2];
+
+        //create array to contain all our game timer images
+        this.numbers = new Material[11];
+
+        //create array for our numbers to be displayed
+        this.containers = new Plane[5];
+    }
+
+    public RectangularPrism[] getBlocks() {
+        return this.blocks;
+    }
+
+    public Object3D[] getMisc() {
+        return this.misc;
     }
 
     @Override
     public void dispose() {
 
+        if (this.misc != null) {
+            for (int i = 0; i < this.misc.length; i++) {
+                if (this.misc[i] != null) {
+                    this.misc[i].destroy();
+                    this.misc[i] = null;
+                }
+            }
+
+            this.misc = null;
+        }
+
+        if (this.numbers != null) {
+            for (int i = 0; i < this.numbers.length; i++) {
+                if (this.numbers[i] != null) {
+                    this.numbers[i].unbindTextures();
+                    this.numbers[i] = null;
+                }
+            }
+
+            this.numbers = null;
+        }
+
+        if (this.containers != null) {
+            for (int i = 0; i < this.containers.length; i++) {
+                if (this.containers[i] != null) {
+                    this.containers[i].destroy();
+                    this.containers[i] = null;
+                }
+            }
+
+            this.containers = null;
+        }
     }
 
     @Override
@@ -92,6 +138,12 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
 
         //remove all children, if exist
         getCurrentScene().clearChildren();
+
+        //create the numbers for our game timer
+        createNumbers();
+
+        //create the containers to display our numbers in
+        createContainers();
 
         //create the floors for the level
         createFloors();
@@ -106,16 +158,95 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         MainActivity.getGame().create();
     }
 
-    public void updateCamera(Vector3 position) {
+    public void updateCamera(Level level) {
 
         //position the camera accordingly
-        getCurrentCamera().setPosition(position);
+        getCurrentCamera().setPosition(level.getCamera());
 
         //rotate so we are viewing from an angle
         getCurrentCamera().rotate(Vector3.Axis.X, -45);
 
         //getCurrentCamera().rotate(Vector3.Axis.X, -55);
         //getCurrentCamera().rotate(Vector3.Axis.Z, -15);
+
+        //display 00:00 at start
+        resetContainers(1, 00, level.getCols() - 5, level.getRows(), 1);
+        resetContainers(2, 00, level.getCols() - 4, level.getRows(), 1);
+        resetContainers(3, 00, level.getCols() - 2, level.getRows(), 1);
+        resetContainers(4, 00, level.getCols() - 1, level.getRows(), 1);
+        resetContainers(0, 10, level.getCols() - 3, level.getRows(), 1);
+    }
+
+    public void updateTimer(Timer timer) {
+
+        if (timer.hasFlag1())
+            this.containers[1].setMaterial(this.numbers[timer.getClock1()]);
+        if (timer.hasFlag2())
+            this.containers[2].setMaterial(this.numbers[timer.getClock2()]);
+        if (timer.hasFlag3())
+            this.containers[3].setMaterial(this.numbers[timer.getClock3()]);
+        if (timer.hasFlag4())
+            this.containers[4].setMaterial(this.numbers[timer.getClock4()]);
+    }
+
+    private void resetContainers(int index, int numberIndex, int col, int row, int z) {
+
+        //set the image to be displayed
+        this.containers[index].setMaterial(this.numbers[numberIndex]);
+
+        //assign position
+        this.containers[index].setX(col);
+        this.containers[index].setY(row);
+        this.containers[index].setZ(z);
+    }
+
+    private void createContainers() {
+
+        //create our containers to place the images within
+        createPlane(0);
+        createPlane(1);
+        createPlane(2);
+        createPlane(3);
+        createPlane(4);
+    }
+
+    private void createPlane(final int index) {
+
+        //create our plane
+        this.containers[index] = new Plane(1,1,1,1);
+        this.containers[index].setBlendingEnabled(true);
+        this.containers[index].setBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
+        this.containers[index].rotate(Vector3.Axis.X, -45);
+
+        //add it to the current scene
+        getCurrentScene().addChild(this.containers[index]);
+    }
+
+    private void createNumbers() {
+        createMaterial(0, R.drawable.zero, "Zero");
+        createMaterial(1, R.drawable.one, "One");
+        createMaterial(2, R.drawable.two, "Two");
+        createMaterial(3, R.drawable.three, "Three");
+        createMaterial(4, R.drawable.four, "Four");
+        createMaterial(5, R.drawable.five, "Five");
+        createMaterial(6, R.drawable.six, "Six");
+        createMaterial(7, R.drawable.seven, "Seven");
+        createMaterial(8, R.drawable.eight, "Eight");
+        createMaterial(9, R.drawable.nine, "Nine");
+        createMaterial(10, R.drawable.colon, "Colon");
+    }
+
+    private void createMaterial(final int index, final int resId, final String desc) {
+
+        this.numbers[index] = new Material();
+        this.numbers[index].enableLighting(true);
+        this.numbers[index].setColorInfluence(0f);
+
+        try {
+            this.numbers[index].addTexture(new Texture(desc, resId));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -175,7 +306,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
             getMisc()[OBJECT3D_SWITCH_1] = loaderSTL.getParsedObject();
             getMisc()[OBJECT3D_SWITCH_1].setPosition(0,0, MISC_HEIGHT_Z);
             getMisc()[OBJECT3D_SWITCH_1].setMaterial(material);
-            getMisc()[OBJECT3D_SWITCH_1].setScale(.0115);
+            getMisc()[OBJECT3D_SWITCH_1].setScale(.04);
 
             loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_2_stl);
             loaderSTL.parse();
@@ -183,13 +314,6 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
             getMisc()[OBJECT3D_SWITCH_2].setPosition(1,0, MISC_HEIGHT_Z);
             getMisc()[OBJECT3D_SWITCH_2].setMaterial(material);
             getMisc()[OBJECT3D_SWITCH_2].setScale(.04);
-
-            loaderSTL = new LoaderSTL(getContext().getResources(), getTextureManager(), R.raw.switch_3_stl);
-            loaderSTL.parse();
-            getMisc()[OBJECT3D_SWITCH_3] = loaderSTL.getParsedObject();
-            getMisc()[OBJECT3D_SWITCH_3].setPosition(1,0,MISC_HEIGHT_Z);
-            getMisc()[OBJECT3D_SWITCH_3].setMaterial(material);
-            getMisc()[OBJECT3D_SWITCH_3].setScale(.02);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -229,6 +353,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
             materialFloorGoal.addTexture(new Texture("FloorGoal", R.drawable.goal));
 
         } catch (Exception e) {
+
             e.printStackTrace();
 
             //color material if we couldn't load a texture
@@ -287,23 +412,20 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
             MainActivity.getGame().getBlock() != null) {
 
             if (MainActivity.getGame().getBoard().hasSetup()) {
+
                 //update the board setup
                 MainActivity.getGame().getBoard().update();
+
             } else if (MainActivity.getGame().getBlock().hasSetup()) {
+
                 //update the block setup
                 MainActivity.getGame().getBlock().update();
+
             } else {
+
                 //update the block animation (if exists)
                 MainActivity.getGame().getBlock().rotate();
             }
         }
-    }
-
-    public RectangularPrism[] getBlocks() {
-        return this.blocks;
-    }
-
-    public Object3D[] getMisc() {
-        return this.misc;
     }
 }

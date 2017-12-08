@@ -18,9 +18,6 @@
         android:layout_height="match_parent"/>
 
 
-    <!-- the game timer -->
-    <include layout="@layout/layout_game_timer" style="@style/layout_game_timer" />
-
     <!-- the game controls -->
     <include layout="@layout/layout_game_controls" />
 

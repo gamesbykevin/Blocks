@@ -81,7 +81,7 @@ public class MainActivity extends Activity implements Runnable {
         surfaceView.setFrameRate(FPS);
         surfaceView.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
 
-        this.renderer = new Renderer(this, surfaceView);
+        this.renderer = new Renderer(this);
         surfaceView.setSurfaceRenderer(getRenderer());
 
         //obtain our button reference controls
@@ -176,6 +176,10 @@ public class MainActivity extends Activity implements Runnable {
         //call parent
         super.onResume();
 
+        //if there is a thread already running, no need to continue
+        if (this.running || this.thread != null)
+            return;
+
         //flag our thread running
         this.running = true;
 
@@ -219,6 +223,11 @@ public class MainActivity extends Activity implements Runnable {
 
         //call parent
         super.onDestroy();
+
+        if (this.renderer != null) {
+            this.renderer.dispose();
+            this.renderer = null;
+        }
     }
 
     @Override
