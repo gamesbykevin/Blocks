@@ -11,4 +11,12 @@
         <item name="android:layout_margin">10dp</item>
     </style>
 
+    <style name="level_select_text">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>

@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Blocks</string>
+
+    <!-- Application name-->
+    <string translatable="false" name="app_name">Blocks</string>
+
+    <!-- the key to our shared preferences -->
+    <string translatable="false" name="app_preferences">com.gamesbykevin.blocks.PREFERENCES</string>
+
+    <string translatable="false" name="file_key_completed_levels">com.gamesbykevin.blocks.FILE_KEY_COMPLETED</string>
 </resources>

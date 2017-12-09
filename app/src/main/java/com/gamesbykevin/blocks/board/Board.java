@@ -7,6 +7,8 @@ import com.gamesbykevin.blocks.common.ICommon;
 import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static com.gamesbykevin.blocks.board.Tile.START_Z;
@@ -62,11 +64,12 @@ public class Board implements ICommon {
     }
 
     public void create(Level level) {
+
         //create new array list of tiles
         this.tiles = new Tile[level.getRows()][level.getCols()];
 
-        //get our list of connectors
-        this.switchesList = level.getSwitches();
+        //copy the switches from the level
+        this.switchesList = level.copySwitches();
 
         //assign the goal
         this.goalCol = level.getGoalCol();

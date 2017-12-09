@@ -3,4 +3,40 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorYellow">#FFFF00</color>
+    <color name="colorGray">#CCCCCC</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorBlue">#1E90FF</color>
+    <color name="colorBrown">#C59169</color>
+    <color name="colorGreen">#64B928</color>
+    <color name="colorOrange">#CE5707</color>
+    <color name="colorPink">#FA798D</color>
+    <color name="colorPurple">#5B005D</color>
+    <color name="colorTurquoise">#1BA086</color>
+
+    <color name="colorTransparent00">#00000000</color>
+    <color name="colorTransparent05">#0D000000</color>
+    <color name="colorTransparent10">#1A000000</color>
+    <color name="colorTransparent15">#26000000</color>
+    <color name="colorTransparent20">#33000000</color>
+    <color name="colorTransparent25">#40000000</color>
+    <color name="colorTransparent30">#4D000000</color>
+    <color name="colorTransparent35">#59000000</color>
+    <color name="colorTransparent40">#66000000</color>
+    <color name="colorTransparent45">#73000000</color>
+    <color name="colorTransparent50">#80000000</color>
+    <color name="colorTransparent55">#8C000000</color>
+    <color name="colorTransparent60">#99000000</color>
+    <color name="colorTransparent65">#A6000000</color>
+    <color name="colorTransparent70">#B3000000</color>
+    <color name="colorTransparent75">#BF000000</color>
+    <color name="colorTransparent80">#CC000000</color>
+    <color name="colorTransparent85">#D9000000</color>
+    <color name="colorTransparent90">#E6000000</color>
+    <color name="colorTransparent95">#F2000000</color>
+    <color name="colorTransparent100">#FF000000</color>
+
 </resources>

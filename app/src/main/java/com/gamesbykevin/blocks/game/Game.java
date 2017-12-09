@@ -18,6 +18,7 @@ import static com.gamesbykevin.blocks.activity.LevelSelectActivity.LEVELS;
  */
 public class Game implements ICommon {
 
+    //reference to our main activity
     private final MainActivity activity;
 
     //game block used to solve level
@@ -167,17 +168,22 @@ public class Game implements ICommon {
                     //reset the board
                     //reset();
 
+                    //if we are done, save the level as completed
+                    LevelSelectActivity.addCompleted(LEVELS.getIndex());
+
                 } else if (!getBoard().hasSetup()) {
 
                     //update the block based on the user input
                     getBlock().update();
 
-                    //update timer as long as we aren't at the goal
                     if (!getBlock().hasGoal()) {
+
+                        //update our game timer
                         getTimer().update();
 
                         //update timer display
                         getActivity().getRenderer().updateTimer(getTimer());
+
                     }
                 }
             }

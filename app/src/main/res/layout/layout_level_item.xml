@@ -6,16 +6,13 @@
     android:layout_height="wrap_content">
 
     <TableLayout
-        android:background="@drawable/level_select_background"
+        android:id="@+id/level_select_background"
+        android:gravity="center"
+        android:background="@drawable/level_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TableRow android:gravity="center">
-            <TextView
-                android:textColor="#000000"
-                android:textSize="32sp"
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            <TextView style="@style/level_select_text" android:id="@+id/textView" />
         </TableRow>
     </TableLayout>
 

@@ -21,24 +21,7 @@ import org.rajawali3d.view.SurfaceView;
 
 import java.util.Random;
 
-public class MainActivity extends Activity implements Runnable {
-
-    public static final String TAG = "gamesbykevin";
-
-    /**
-     * Speed of our game
-     */
-    public static final int FPS = 60;
-
-    /**
-     * How many milliseconds in 1 second
-     */
-    public static final long MILLISECONDS_PER_SECOND = 1000L;
-
-    /**
-     * How long does each thread update expected to last
-     */
-    public static final long THREAD_DURATION = (MILLISECONDS_PER_SECOND / FPS);
+public class MainActivity extends BaseActivity implements Runnable {
 
     //our main thread
     private Thread thread;
@@ -66,7 +49,11 @@ public class MainActivity extends Activity implements Runnable {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //call parent
         super.onCreate(savedInstanceState);
+
+        //set our ui view
         setContentView(R.layout.activity_main);
 
         try {
@@ -81,7 +68,10 @@ public class MainActivity extends Activity implements Runnable {
         surfaceView.setFrameRate(FPS);
         surfaceView.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
 
+        //create our renderer
         this.renderer = new Renderer(this);
+
+        //assign to our surface view
         surfaceView.setSurfaceRenderer(getRenderer());
 
         //obtain our button reference controls
@@ -166,9 +156,11 @@ public class MainActivity extends Activity implements Runnable {
     public void onResume() {
 
         try {
+
             //if null, create a new game
             if (getGame() == null)
                 this.game = new Game(this);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -234,9 +234,36 @@ public class Level implements IDisposable {
 
         public int col, row;
 
+        private Cell(Cell cell) {
+            this(cell.col, cell.row);
+        }
+
         private Cell(int col, int row) {
             this.col = col;
             this.row = row;
         }
+    }
+
+    public List<Connector> copySwitches() {
+
+        //create our copied list
+        List<Connector> result = new ArrayList<>();
+
+        for (int i = 0; i < getSwitches().size(); i++) {
+
+            //create new connector
+            Connector tmp = new Connector(getSwitches().get(i).sourceCol, getSwitches().get(i).sourceRow);
+
+            //add all the connections to the connector
+            for (int x = 0; x < getSwitches().get(i).connections.size(); x++) {
+                tmp.connections.add(new Cell(getSwitches().get(i).connections.get(x)));
+            }
+
+            //now add the connector to our list
+            result.add(tmp);
+        }
+
+        //return our result
+        return result;
     }
 }

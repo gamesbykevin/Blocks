@@ -11,6 +11,7 @@
         android:id="@+id/levelSelectGrid"
         android:scrollbars="vertical"
         android:fadeScrollbars="false"
+        android:listSelector="@color/colorTransparent00"
         android:gravity="center"
         android:numColumns="auto_fit"
         android:columnWidth="125dp"
