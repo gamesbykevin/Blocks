@@ -1,6 +1,6 @@
 SSSSSSS
 SSSSSSS
-SSTSSGS
+STSSSGS
 SSSSSSS
 SSSSSSS
 !3,-5,6
@@ -31,7 +31,6 @@ SSSSSSSS__SG_
 TSSSSSSS__SS_
 __SS_________
 __SS_________
-
 !6,-8,9
 ################################################  5
 __SSS

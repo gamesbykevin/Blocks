@@ -228,6 +228,11 @@ public class MainActivity extends Activity implements Runnable {
             this.renderer.dispose();
             this.renderer = null;
         }
+
+        if (game != null) {
+            game.dispose();
+            game = null;
+        }
     }
 
     @Override

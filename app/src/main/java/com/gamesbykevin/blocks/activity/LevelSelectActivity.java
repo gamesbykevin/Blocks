@@ -47,8 +47,8 @@ public class LevelSelectActivity extends Activity {
         CustomAdapter adapter = new CustomAdapter(this);
 
         //add adapter to bind our data
-        gridView.setAdapter(adapter);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        this.gridView.setAdapter(adapter);
+        this.gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 LEVELS.setIndex(position);
@@ -64,9 +64,11 @@ public class LevelSelectActivity extends Activity {
         //call parent
         super.onResume();
 
-        //enable the gridview
-        if (this.gridView != null)
+        //enable the grid view and scroll to the recent index
+        if (this.gridView != null) {
             this.gridView.setEnabled(true);
+            this.gridView.smoothScrollToPosition(LEVELS.getIndex());
+        }
     }
 
     private class CustomAdapter extends ArrayAdapter<Level> {

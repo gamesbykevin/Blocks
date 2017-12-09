@@ -13,6 +13,7 @@ import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.util.Timer;
 
 import org.rajawali3d.Object3D;
+import org.rajawali3d.cameras.Camera2D;
 import org.rajawali3d.loader.LoaderSTL;
 import org.rajawali3d.materials.Material;
 import org.rajawali3d.materials.methods.DiffuseMethod;
@@ -169,12 +170,15 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         //getCurrentCamera().rotate(Vector3.Axis.X, -55);
         //getCurrentCamera().rotate(Vector3.Axis.Z, -15);
 
+        //the end will be the number of columns
+        int end = level.getCols();
+
         //display 00:00 at start
-        resetContainers(1, 00, level.getCols() - 5, level.getRows(), 1);
-        resetContainers(2, 00, level.getCols() - 4, level.getRows(), 1);
-        resetContainers(3, 00, level.getCols() - 2, level.getRows(), 1);
-        resetContainers(4, 00, level.getCols() - 1, level.getRows(), 1);
-        resetContainers(0, 10, level.getCols() - 3, level.getRows(), 1);
+        resetContainers(1, 00, end - 5, level.getRows(), 1);
+        resetContainers(2, 00, end - 4, level.getRows(), 1);
+        resetContainers(3, 00, end - 2, level.getRows(), 1);
+        resetContainers(4, 00, end - 1, level.getRows(), 1);
+        resetContainers(0, 10, end - 3, level.getRows(), 1);
     }
 
     public void updateTimer(Timer timer) {
@@ -189,7 +193,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
             this.containers[4].setMaterial(this.numbers[timer.getClock4()]);
     }
 
-    private void resetContainers(int index, int numberIndex, int col, int row, int z) {
+    private void resetContainers(int index, int numberIndex, int col, int row, double z) {
 
         //set the image to be displayed
         this.containers[index].setMaterial(this.numbers[numberIndex]);
