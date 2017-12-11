@@ -9,8 +9,8 @@
         android:id="@+id/level_select_background"
         android:gravity="center"
         android:background="@drawable/level_select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="125dp"
+        android:layout_height="125dp">
         <TableRow android:gravity="center">
             <TextView style="@style/level_select_text" android:id="@+id/textView" />
         </TableRow>

@@ -1,13 +1,13 @@
 package com.gamesbykevin.blocks.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.gamesbykevin.blocks.R;
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
 
     public static final String TAG = "gamesbykevin";
 

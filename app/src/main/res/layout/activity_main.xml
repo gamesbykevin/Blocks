@@ -21,4 +21,7 @@
     <!-- the game controls -->
     <include layout="@layout/layout_game_controls" />
 
+    <!-- the game over screen -->
+    <include layout="@layout/layout_game_over" />
+
 </RelativeLayout>

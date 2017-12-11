@@ -37,7 +37,7 @@ public class Board implements ICommon {
     private boolean setup = false;
 
     public Board() {
-        //default constructor
+        //standard constructor
     }
 
     @Override
@@ -290,7 +290,7 @@ public class Board implements ICommon {
             }
         }
 
-        //return true by default
+        //return true by standard
         return true;
     }
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -85,17 +86,34 @@ public class LevelSelectActivity extends BaseActivity {
         //call parent
         super.onResume();
 
-        //enable the grid view and scroll to the recent index
-        if (getGridView() != null) {
-            getGridView().setEnabled(true);
-            getGridView().smoothScrollToPosition(LEVELS.getIndex());
-        }
-
         //load our preferences
         readPreferences();
 
         //populate our grid view
         getGridView().setAdapter(new CustomAdapter(this));
+
+        //enable the grid view and scroll to the newest level
+        if (getGridView() != null) {
+
+            //make sure grid is enabled for selection
+            getGridView().setEnabled(true);
+
+            //where do we scroll to
+            int position = 0;
+
+            //start at the end and move to the newest level to play
+            for (int i = LEVELS.getLevelList().size(); i > 0; i--) {
+
+                //if the previous level is completed scroll to here
+                if (hasCompleted(i - 1)) {
+                    position = i;
+                    break;
+                }
+            }
+
+            //scroll to the position
+            getGridView().smoothScrollToPosition(position);
+        }
     }
 
     private void readPreferences() {

@@ -6,7 +6,18 @@
     android:background="@drawable/background"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <TextView
+        android:fontFamily="@font/font_family"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:id="@+id/level_select_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Select Level" />
+
     <GridView
+        android:layout_below="@+id/level_select_title"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/levelSelectGrid"
         android:scrollbars="vertical"

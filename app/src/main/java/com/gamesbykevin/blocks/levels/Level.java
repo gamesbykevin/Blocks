@@ -49,7 +49,13 @@ public class Level implements IDisposable {
     //the location of the camera for this level
     private Vector3 camera = null;
 
-    public Level() {
+    //keep track of the level number
+    private final int number;
+
+    public Level(final int number) {
+
+        //what level # is this
+        this.number = number;
 
         this.key = new ArrayList<>();
         this.switches = new ArrayList<>();
@@ -66,6 +72,10 @@ public class Level implements IDisposable {
         camera = null;
         key = null;
         switches = null;
+    }
+
+    public int getNumber() {
+        return this.number;
     }
 
     public void setCamera(final String desc) {

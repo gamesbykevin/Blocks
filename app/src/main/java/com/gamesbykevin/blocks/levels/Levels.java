@@ -61,7 +61,7 @@ public class Levels implements IDisposable {
         while ((line = reader.readLine()) != null) {
 
             if (dirty) {
-                level = new Level();
+                level = new Level(levelList.size() + 1);
                 dirty = false;
             }
 

@@ -1,7 +1,5 @@
 package com.gamesbykevin.blocks.game;
 
-import android.widget.Toast;
-
 import com.gamesbykevin.blocks.activity.LevelSelectActivity;
 import com.gamesbykevin.blocks.activity.MainActivity;
 import com.gamesbykevin.blocks.block.Block;
@@ -119,9 +117,6 @@ public class Game implements ICommon {
 
         //reset the game
         reset();
-
-        //display current level #
-        getActivity().displayMessage("Level " + (LEVELS.getIndex() +  1));
     }
 
     public Level getLevel() {
@@ -162,12 +157,6 @@ public class Game implements ICommon {
 
                 if (getBlock().hasGoalComplete()) {
 
-                    //move to the next level
-                    //setupLevel(true);
-
-                    //reset the board
-                    //reset();
-
                     //if we are done, save the level as completed
                     LevelSelectActivity.addCompleted(LEVELS.getIndex());
 
@@ -184,6 +173,10 @@ public class Game implements ICommon {
                         //update timer display
                         getActivity().getRenderer().updateTimer(getTimer());
 
+                    } else {
+
+                        //if we are done, save the level as completed
+                        LevelSelectActivity.addCompleted(LEVELS.getIndex());
                     }
                 }
             }

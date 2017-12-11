@@ -84,7 +84,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         this.numbers = new Material[11];
 
         //create array for our numbers to be displayed
-        this.containers = new Plane[5];
+        this.containers = new Plane[7];
     }
 
     public RectangularPrism[] getBlocks() {
@@ -179,6 +179,18 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         resetContainers(3, 00, end - 2, level.getRows(), 1);
         resetContainers(4, 00, end - 1, level.getRows(), 1);
         resetContainers(0, 10, end - 3, level.getRows(), 1);
+
+        if (level.getNumber() < 10) {
+            resetContainers(5, 00, end - 8, level.getRows(), 1);
+            resetContainers(6, level.getNumber(), end - 7, level.getRows(), 1);
+        } else {
+
+            int tens = level.getNumber() / 10;
+            int ones = level.getNumber() - (tens * 10);
+
+            resetContainers(5, tens, end - 8, level.getRows(), 1);
+            resetContainers(6, ones, end - 7, level.getRows(), 1);
+        }
     }
 
     public void updateTimer(Timer timer) {
@@ -212,6 +224,8 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         createPlane(2);
         createPlane(3);
         createPlane(4);
+        createPlane(5);
+        createPlane(6);
     }
 
     private void createPlane(final int index) {
