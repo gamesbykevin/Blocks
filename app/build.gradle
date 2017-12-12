@@ -28,6 +28,5 @@ dependencies {
     compile 'org.rajawali3d:rajawali:1.1.970@aar'
 
     //adding support library for text font support
-    //compile 'com.android.support:support-compat:26.0.1'
     implementation 'com.android.support:appcompat-v7:26.0.1'
 }

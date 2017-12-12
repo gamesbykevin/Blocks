@@ -5,10 +5,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.Surface;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.gamesbykevin.blocks.R;
@@ -19,7 +24,11 @@ import com.gamesbykevin.blocks.util.Timer;
 import org.rajawali3d.view.ISurface;
 import org.rajawali3d.view.SurfaceView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+
+import static android.view.View.VISIBLE;
 
 public class MainActivity extends BaseActivity implements Runnable {
 
@@ -41,11 +50,11 @@ public class MainActivity extends BaseActivity implements Runnable {
     //count our fps
     private int count = 0;
 
-    //all our user control buttons
-    private Button buttonLeft, buttonRight, buttonUp, buttonDown;
-
     //keep reference to our renderer object
     private Renderer renderer;
+
+    //our layout parameters
+    private LinearLayout.LayoutParams layoutParams;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +62,7 @@ public class MainActivity extends BaseActivity implements Runnable {
         //call parent
         super.onCreate(savedInstanceState);
 
-        //set our ui view
-        setContentView(R.layout.activity_main);
+        super.setContentView(R.layout.activity_main);
 
         try {
             //create new game
@@ -66,7 +74,6 @@ public class MainActivity extends BaseActivity implements Runnable {
         //create our surface view and assign the frame rate
         SurfaceView surfaceView = findViewById(R.id.surfaceView);
         surfaceView.setFrameRate(FPS);
-        surfaceView.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
 
         //create our renderer
         this.renderer = new Renderer(this);
@@ -74,82 +81,49 @@ public class MainActivity extends BaseActivity implements Runnable {
         //assign to our surface view
         surfaceView.setSurfaceRenderer(getRenderer());
 
-        //obtain our button reference controls
-        this.buttonLeft = findViewById(R.id.buttonLeft);
-        this.buttonLeft.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+        //set this after assigning our renderer
+        //surfaceView.setZOrderOnTop(false);
+        surfaceView.setZOrderMediaOverlay(true);
 
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+        //add our on click listeners for all the game control buttons
+        MainActivityHelper.setupControlListener(findViewById(R.id.game_controls));
 
-                    if (getGame() != null && getGame().getBlock() != null)
-                        getGame().getBlock().setWest(true);
+        /*
+        LayoutInflater inflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        View gameControls = inflater.inflate(R.layout.layout_game_controls, (ViewGroup)findViewById(R.id.game_controls));
 
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+        //add our on click listeners for all the game control buttons
+        MainActivityHelper.setupControlListener(gameControls);
 
-                    if (getGame() != null && getGame().getBlock() != null)
-                        getGame().getBlock().setWest(false);
-                }
-                return false;
-            }
-        });
+        //create our layout
+        RelativeLayout layout = new RelativeLayout(this);
 
-        this.buttonRight = findViewById(R.id.buttonRight);
-        this.buttonRight.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+        //assign full size screen params
+        layout.setLayoutParams(getLayoutParams());
 
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+        ImageView iv = new ImageView(this);
+        iv.setLayoutParams(getLayoutParams());
+        iv.setImageResource(R.drawable.background);
+        iv.setScaleType(ImageView.ScaleType.FIT_XY);
 
-                    if (getGame() != null && getGame().getBlock() != null)
-                        getGame().getBlock().setEast(true);
+        layout.addView(iv);
 
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+        layout.addView(surfaceView);
 
-                    if (getGame() != null && getGame().getBlock() != null)
-                        getGame().getBlock().setEast(false);
-                }
-                return false;
-            }
-        });
+        View gameOver = inflater.inflate(R.layout.layout_game_over, (ViewGroup)findViewById(R.id.game_over));
 
-        this.buttonDown = findViewById(R.id.buttonDown);
-        this.buttonDown.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
 
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+        layout.addView(gameControls, getLayoutParams());
+        layout.addView(gameOver, getLayoutParams());
+        //layout.addView(findViewById(R.id.game_over), getLayoutParams());
+        //layout.addView(findViewById(R.id.game_controls), getLayoutParams());
 
-                    if (getGame() != null && getGame().getBlock() != null)
-                        getGame().getBlock().setSouth(true);
+        gameOver.invalidate();
+        gameOver.bringToFront();
 
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-
-                    if (getGame() != null && getGame().getBlock() != null)
-                        getGame().getBlock().setSouth(false);
-                }
-                return false;
-            }
-        });
-
-        this.buttonUp = findViewById(R.id.buttonUp);
-        this.buttonUp.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-
-                    if (getGame() != null && getGame().getBlock() != null)
-                        getGame().getBlock().setNorth(true);
-
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-
-                    if (getGame() != null && getGame().getBlock() != null)
-                        getGame().getBlock().setNorth(false);
-                }
-                return false;
-            }
-        });
+        //setup our ui
+        setContentView(layout);
+        */
     }
 
     @Override
@@ -190,23 +164,32 @@ public class MainActivity extends BaseActivity implements Runnable {
         //call parent
         super.onPause();
 
-        //flag false to stop loop
-        this.running = false;
-
         try {
+
             //wait for thread to finish
             this.thread.join();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         //flag null
         this.thread = null;
+
+        //flag false to stop loop
+        this.running = false;
     }
 
     @Override
     public void onBackPressed() {
+
+        //call parent
         super.onBackPressed();
+
+        //pause to stop the thread
+        onPause();
+
+        //destroy the activity
         finish();
     }
 
@@ -257,8 +240,8 @@ public class MainActivity extends BaseActivity implements Runnable {
                 //keep track of fps
                 count++;
 
-                //if 1 second passed
-                if (end - previous >= 1000) {
+                //if 1 second has passed
+                if (end - previous >= MILLISECONDS_PER_SECOND) {
 
                     //store new time
                     previous = end;
@@ -304,14 +287,11 @@ public class MainActivity extends BaseActivity implements Runnable {
         return this.renderer;
     }
 
-    public void displayMessage(final String message) {
+    private LinearLayout.LayoutParams getLayoutParams() {
 
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();
-            }
-        });
+        if (this.layoutParams == null)
+            this.layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT , LinearLayout.LayoutParams.MATCH_PARENT);
 
+        return this.layoutParams;
     }
 }

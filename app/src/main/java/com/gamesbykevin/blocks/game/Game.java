@@ -10,6 +10,7 @@ import com.gamesbykevin.blocks.opengl.Renderer;
 import com.gamesbykevin.blocks.util.Timer;
 
 import static com.gamesbykevin.blocks.activity.LevelSelectActivity.LEVELS;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.PRISM_BLOCK;
 
 /**
  * Created by Kevin on 11/29/2017.
@@ -98,13 +99,13 @@ public class Game implements ICommon {
         this.board = new Board();
 
         //assign our block reference
-        this.block = new Block(getActivity().getRenderer().getBlocks()[Renderer.PRISM_BLOCK]);
+        this.block = new Block(getActivity().getRenderer().getBlocks()[PRISM_BLOCK]);
 
         //reset game timer
         getTimer().reset();
 
         //add the game block to the 3d scene
-        getActivity().getRenderer().getCurrentScene().addChild(getActivity().getRenderer().getBlocks()[Renderer.PRISM_BLOCK]);
+        getActivity().getRenderer().getCurrentScene().addChild(getActivity().getRenderer().getBlocks()[PRISM_BLOCK]);
 
         //create the board based on the current level
         getBoard().create(getLevel());

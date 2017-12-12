@@ -14,7 +14,13 @@ import java.util.List;
 import static com.gamesbykevin.blocks.board.Tile.START_Z;
 import static com.gamesbykevin.blocks.board.Tile.VELOCITY_Z_MAX;
 import static com.gamesbykevin.blocks.board.Tile.VELOCITY_Z_MIN;
-import static com.gamesbykevin.blocks.opengl.Renderer.FLOOR_DEPTH;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.FLOOR_DEPTH;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.OBJECT3D_SWITCH_1;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.OBJECT3D_SWITCH_2;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.PRISM_FLOOR_GOAL;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.PRISM_FLOOR_HIDDEN;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.PRISM_FLOOR_STANDARD;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.PRISM_FLOOR_WEAK;
 
 /**
  * Created by Kevin on 11/27/2017.
@@ -357,20 +363,20 @@ public class Board implements ICommon {
                     switch (getTile(col, row).getType()) {
 
                         case Goal:
-                            getTile(col, row).setObject3D(renderer.getBlocks()[Renderer.PRISM_FLOOR_GOAL].clone());
+                            getTile(col, row).setObject3D(renderer.getBlocks()[PRISM_FLOOR_GOAL].clone());
                             break;
 
                         case Weak:
-                            getTile(col, row).setObject3D(renderer.getBlocks()[Renderer.PRISM_FLOOR_WEAK].clone());
+                            getTile(col, row).setObject3D(renderer.getBlocks()[PRISM_FLOOR_WEAK].clone());
                             break;
 
                         case Hidden:
                         case HiddenDisplay:
-                            getTile(col, row).setObject3D(renderer.getBlocks()[Renderer.PRISM_FLOOR_HIDDEN].clone());
+                            getTile(col, row).setObject3D(renderer.getBlocks()[PRISM_FLOOR_HIDDEN].clone());
                             break;
 
                         default:
-                            getTile(col, row).setObject3D(renderer.getBlocks()[Renderer.PRISM_FLOOR_STANDARD].clone());
+                            getTile(col, row).setObject3D(renderer.getBlocks()[PRISM_FLOOR_STANDARD].clone());
                             break;
                     }
 
@@ -397,7 +403,7 @@ public class Board implements ICommon {
                     case SwitchLight:
 
                         if (renderer != null)
-                            getTile(col, row).setMisc3D(renderer.getMisc()[Renderer.OBJECT3D_SWITCH_1].clone());
+                            getTile(col, row).setMisc3D(renderer.getMisc()[OBJECT3D_SWITCH_1].clone());
                         break;
 
 
@@ -405,7 +411,7 @@ public class Board implements ICommon {
                     case SwitchHeavy:
 
                         if (renderer != null)
-                            getTile(col, row).setMisc3D(renderer.getMisc()[Renderer.OBJECT3D_SWITCH_2].clone());
+                            getTile(col, row).setMisc3D(renderer.getMisc()[OBJECT3D_SWITCH_2].clone());
                         break;
                 }
 

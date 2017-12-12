@@ -10,18 +10,18 @@
         android:src="@drawable/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    
+
     <org.rajawali3d.view.SurfaceView
+        app:renderMode="RENDER_WHEN_DIRTY"
         app:isTransparent="true"
         android:id="@+id/surfaceView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-
     <!-- the game controls -->
-    <include layout="@layout/layout_game_controls" />
+    <include android:id="@+id/game_controls" layout="@layout/layout_game_controls" />
 
     <!-- the game over screen -->
-    <include layout="@layout/layout_game_over" />
+    <include android:id="@+id/game_over" layout="@layout/layout_game_over" />
 
 </RelativeLayout>

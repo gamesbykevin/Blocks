@@ -1,11 +1,16 @@
 package com.gamesbykevin.blocks.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.gamesbykevin.blocks.R;
+
+import static android.view.View.VISIBLE;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -81,5 +86,34 @@ public class BaseActivity extends AppCompatActivity {
 
     public static SharedPreferences getPreferences() {
         return preferences;
+    }
+
+    public void displayMessage(final String message) {
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    protected void setLayoutVisibility(final ViewGroup layoutView, final int visibility) {
+        this.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                //assign visibility accordingly
+                layoutView.setVisibility(visibility);
+
+                //if the layout is visible, make sure it is displayed
+                if (visibility == VISIBLE) {
+                    layoutView.invalidate();
+                    layoutView.bringToFront();
+                }
+            }
+        });
     }
 }

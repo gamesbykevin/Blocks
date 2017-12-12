@@ -6,7 +6,7 @@ import static com.gamesbykevin.blocks.activity.MainActivity.getGame;
 import static com.gamesbykevin.blocks.block.Block.MIN_Z_GOAL;
 import static com.gamesbykevin.blocks.block.Block.SCALE_ADJUST;
 import static com.gamesbykevin.blocks.block.Block.SCALE_MIN;
-import static com.gamesbykevin.blocks.opengl.Renderer.FLOOR_DEPTH;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.FLOOR_DEPTH;
 
 /**
  * Created by Kevin on 11/30/2017.

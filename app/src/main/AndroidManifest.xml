@@ -25,8 +25,5 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <!-- Base-->
-        <activity android:name=".activity.BaseActivity" android:theme="@style/AppTheme" />
     </application>
 </manifest>

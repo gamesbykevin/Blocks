@@ -1,12 +1,5 @@
 <resources>
 
-    <style name="AppTheme" parent="@style/Theme.AppCompat.Light">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
     <style name="AppFullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
@@ -20,7 +13,19 @@
         <item name="android:layout_margin">10dp</item>
     </style>
 
+    <style name="title_text">
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
     <style name="level_select_text">
+        <item name="android:fontFamily">@font/font_family</item>
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">48sp</item>
