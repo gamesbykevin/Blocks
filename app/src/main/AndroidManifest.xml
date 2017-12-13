@@ -22,8 +22,17 @@
             android:theme="@style/AppFullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activity.GameOverActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppFullScreenTheme">
+        </activity>
+
     </application>
+
 </manifest>

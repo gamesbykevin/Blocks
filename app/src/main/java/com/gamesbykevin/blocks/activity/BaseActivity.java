@@ -5,10 +5,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.gamesbykevin.blocks.R;
+
+import java.util.Random;
 
 import static android.view.View.VISIBLE;
 
@@ -36,6 +39,9 @@ public class BaseActivity extends AppCompatActivity {
 
     //keep reference to this activity
     private static BaseActivity instance;
+
+    //our object used to generate random numbers
+    private static Random RANDOM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,21 +105,20 @@ public class BaseActivity extends AppCompatActivity {
         });
     }
 
-    protected void setLayoutVisibility(final ViewGroup layoutView, final int visibility) {
-        this.runOnUiThread(new Runnable() {
+    public static Random getRandom() {
 
-            @Override
-            public void run() {
+        if (RANDOM == null) {
 
-                //assign visibility accordingly
-                layoutView.setVisibility(visibility);
+            //get current time stamp
+            long time = System.currentTimeMillis();
 
-                //if the layout is visible, make sure it is displayed
-                if (visibility == VISIBLE) {
-                    layoutView.invalidate();
-                    layoutView.bringToFront();
-                }
-            }
-        });
+            //create random with seed
+            RANDOM = new Random(time);
+
+            //display seed used
+            Log.d(TAG, "Random seed = " + time);
+        }
+
+        return RANDOM;
     }
 }

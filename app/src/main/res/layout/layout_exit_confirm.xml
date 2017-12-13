@@ -6,8 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView style="@style/title_text" android:text="@string/exit_level_confirm" />
-
     <TableLayout
         android:background="@drawable/game_ui_background"
         android:layout_centerInParent="true"
@@ -15,9 +13,22 @@
         android:layout_width="400dp"
         android:layout_height="250dp">
 
-        <TableRow android:gravity="center" android:layout_gravity="center">
-            <ImageView style="@style/overlay_image_view_confirm" android:src="@drawable/confirm_yes" android:onClick="confirmYes" />
-            <ImageView style="@style/overlay_image_view_confirm" android:src="@drawable/confirm_no" android:onClick="confirmNo" />
+        <TableRow android:gravity="center">
+            <TextView android:layout_span="2" style="@style/title_text" android:text="@string/exit_level_confirm" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+
+            <ImageView
+                style="@style/overlay_image_view_confirm"
+                android:onClick="confirmYes"
+                android:src="@drawable/confirm_yes"/>
+
+            <ImageView
+                style="@style/overlay_image_view_confirm"
+                android:onClick="confirmNo"
+                android:src="@drawable/confirm_no"/>
+
         </TableRow>
 
     </TableLayout>

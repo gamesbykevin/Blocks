@@ -1,12 +1,12 @@
 package com.gamesbykevin.blocks.game;
 
+import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.activity.LevelSelectActivity;
 import com.gamesbykevin.blocks.activity.MainActivity;
 import com.gamesbykevin.blocks.block.Block;
 import com.gamesbykevin.blocks.board.Board;
 import com.gamesbykevin.blocks.common.ICommon;
 import com.gamesbykevin.blocks.levels.Level;
-import com.gamesbykevin.blocks.opengl.Renderer;
 import com.gamesbykevin.blocks.util.Timer;
 
 import static com.gamesbykevin.blocks.activity.LevelSelectActivity.LEVELS;
@@ -98,7 +98,7 @@ public class Game implements ICommon {
         //create new board instance
         this.board = new Board();
 
-        //assign our block reference
+        //create our block reference
         this.block = new Block(getActivity().getRenderer().getBlocks()[PRISM_BLOCK]);
 
         //reset game timer
@@ -144,6 +144,10 @@ public class Game implements ICommon {
         if (getBlock() == null || getBoard() == null)
             return;
 
+        //make sure we are playing the game
+        if (getActivity().getScreen() != R.id.game_surfaceView && getActivity().getScreen() != R.id.game_controls)
+            return;
+
         if (getBlock().isDead()) {
 
             //if the block is falling out of bounds let's reset the level
@@ -162,6 +166,9 @@ public class Game implements ICommon {
                 //if we are done, save the level as completed
                 LevelSelectActivity.addCompleted(LEVELS.getIndex());
 
+                //go to the game over activity screen
+                getActivity().showGameOver();
+
             } else if (!getBoard().hasSetup()) {
 
                 //update the block based on the user input
@@ -174,11 +181,6 @@ public class Game implements ICommon {
 
                     //update timer display
                     getActivity().getRenderer().updateTimer(getTimer());
-
-                } else {
-
-                    //if we are done, save the level as completed
-                    LevelSelectActivity.addCompleted(LEVELS.getIndex());
                 }
             }
         }

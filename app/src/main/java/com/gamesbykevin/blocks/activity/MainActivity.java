@@ -1,5 +1,6 @@
 package com.gamesbykevin.blocks.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,8 +10,6 @@ import com.gamesbykevin.blocks.game.Game;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
 import org.rajawali3d.view.SurfaceView;
-
-import java.util.Random;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
@@ -27,9 +26,6 @@ public class MainActivity extends BaseActivity implements Runnable {
     //our game object
     private static Game game;
 
-    //our object used to generate random numbers
-    private static Random RANDOM;
-
     //figure out when a second has passed
     private long previous = System.currentTimeMillis();
 
@@ -39,8 +35,11 @@ public class MainActivity extends BaseActivity implements Runnable {
     //keep reference to our renderer object
     private Renderer renderer;
 
-    //the current assiged screen
+    //the current assigned screen
     private int screen;
+
+    //our runnable function for the ui thread
+    private Runnable runnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +60,10 @@ public class MainActivity extends BaseActivity implements Runnable {
         //create our renderer
         this.renderer = new Renderer(this);
 
-        //create our surface view and assign the frame rate
+        //obtain our surface view
         SurfaceView surfaceView = findViewById(R.id.game_surfaceView);
+
+        //assign the game's frame rate
         surfaceView.setFrameRate(FPS);
 
         //assign to our surface view
@@ -141,7 +142,6 @@ public class MainActivity extends BaseActivity implements Runnable {
                 break;
 
             case R.id.game_exit:
-            case R.id.game_over:
                 return;
 
             default:
@@ -164,6 +164,9 @@ public class MainActivity extends BaseActivity implements Runnable {
             game.dispose();
             game = null;
         }
+
+        if (this.runnable != null)
+            this.runnable = null;
     }
 
     @Override
@@ -218,25 +221,19 @@ public class MainActivity extends BaseActivity implements Runnable {
         }
     }
 
-    public static Game getGame() {
-        return game;
+    public void showGameOver() {
+
+        //go to the game over page
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(getBaseContext(), GameOverActivity.class));
+            }
+        });
     }
 
-    public static Random getRandom() {
-
-        if (RANDOM == null) {
-
-            //get current time stamp
-            long time = System.currentTimeMillis();
-
-            //create random with seed
-            RANDOM = new Random(time);
-
-            //display seed used
-            Log.d(TAG, "Random seed = " + time);
-        }
-
-        return RANDOM;
+    public static Game getGame() {
+        return game;
     }
 
     public Renderer getRenderer() {
@@ -247,37 +244,45 @@ public class MainActivity extends BaseActivity implements Runnable {
         return this.screen;
     }
 
-    public void switchScreen(final int resid) {
+    public void switchScreen(final int resId) {
 
         //assign the current screen
-        this.screen = resid;
+        this.screen = resId;
 
-        //hide all by default
-        findViewById(R.id.game_surfaceView).setVisibility(INVISIBLE);
-        findViewById(R.id.game_controls).setVisibility(INVISIBLE);
-        findViewById(R.id.game_over).setVisibility(INVISIBLE);
-        findViewById(R.id.game_exit).setVisibility(INVISIBLE);
+        //create our runnable process for the ui thread
+        if (this.runnable == null) {
 
-        //display the correct screen(s)
-        switch (resid) {
+            this.runnable = new Runnable() {
+                @Override
+                public void run() {
 
-            case R.id.game_controls:
-            case R.id.game_surfaceView:
-                findViewById(R.id.game_surfaceView).setVisibility(VISIBLE);
-                findViewById(R.id.game_controls).setVisibility(VISIBLE);
-                break;
+                    //hide all by default
+                    findViewById(R.id.game_surfaceView).setVisibility(INVISIBLE);
+                    findViewById(R.id.game_controls).setVisibility(INVISIBLE);
+                    findViewById(R.id.game_exit).setVisibility(INVISIBLE);
 
-            case R.id.game_exit:
-                findViewById(R.id.game_exit).setVisibility(VISIBLE);
-                break;
+                    //display the correct screen(s)
+                    switch (getScreen()) {
 
-            case R.id.game_over:
-                findViewById(R.id.game_over).setVisibility(VISIBLE);
-                break;
+                        case R.id.game_controls:
+                        case R.id.game_surfaceView:
+                            findViewById(R.id.game_surfaceView).setVisibility(VISIBLE);
+                            findViewById(R.id.game_controls).setVisibility(VISIBLE);
+                            break;
 
-            default:
-                throw new RuntimeException("Screen not handled : " + resid);
+                        case R.id.game_exit:
+                            findViewById(R.id.game_exit).setVisibility(VISIBLE);
+                            break;
+
+                        default:
+                            throw new RuntimeException("Screen not handled : " + resId);
+                    }
+                }
+            };
         }
+
+        //make sure this is run on the main thread
+        runOnUiThread(this.runnable);
     }
 
     public void confirmYes(View view) {

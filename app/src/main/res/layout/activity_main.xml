@@ -22,7 +22,4 @@
     <!-- confirm exit -->
     <include android:id="@+id/game_exit" layout="@layout/layout_exit_confirm" />
 
-    <!-- the game over screen -->
-    <include android:id="@+id/game_over" layout="@layout/layout_game_over" />
-
 </RelativeLayout>

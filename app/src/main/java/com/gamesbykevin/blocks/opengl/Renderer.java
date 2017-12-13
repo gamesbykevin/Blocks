@@ -116,9 +116,6 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         //remove all children, if exist
         getCurrentScene().clearChildren();
 
-        //create our background
-        //createBackground(this);
-
         //create the numbers for our game timer
         createNumbers(this);
 
@@ -145,9 +142,6 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
 
         //rotate so we are viewing from an angle
         getCurrentCamera().rotate(Vector3.Axis.X, -45);
-
-        //update our game background so it appears behind the level
-        //updateBackground(this, level);
 
         //getCurrentCamera().rotate(Vector3.Axis.X, -55);
         //getCurrentCamera().rotate(Vector3.Axis.Z, -15);

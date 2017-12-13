@@ -81,6 +81,13 @@ public class LevelSelectActivity extends BaseActivity {
     }
 
     @Override
+    public void onBackPressed() {
+
+        //destroy this activity
+        finish();
+    }
+
+    @Override
     public void onResume() {
 
         //call parent
