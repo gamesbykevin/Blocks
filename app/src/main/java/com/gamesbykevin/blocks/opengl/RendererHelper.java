@@ -97,6 +97,7 @@ public class RendererHelper {
 
         renderer.textures[index] = new Material();
         renderer.textures[index].enableLighting(true);
+        renderer.textures[index].setDiffuseMethod(new DiffuseMethod.Lambert());
         renderer.textures[index].setColorInfluence(0f);
 
         try {
@@ -236,33 +237,5 @@ public class RendererHelper {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    protected static void createBackground(Renderer renderer) {
-
-        renderer.backgroundMaterial = new Material();
-        renderer.backgroundMaterial.enableLighting(true);
-        renderer.backgroundMaterial.setColorInfluence(0f);
-
-        try {
-            renderer.backgroundMaterial.addTexture(new Texture("Background", R.drawable.background));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    protected static void updateBackground(Renderer renderer, Level level) {
-
-        //create our plane
-        renderer.backgroundContainer = new Plane(level.getCols(), level.getRows(),level.getCols(), level.getRows());
-        renderer.backgroundContainer.setBlendingEnabled(true);
-        renderer.backgroundContainer.setBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
-        renderer.backgroundContainer.rotate(Vector3.Axis.X, -45);
-        renderer.backgroundContainer.setX(-1);
-        renderer.backgroundContainer.setY(-1);
-        renderer.backgroundContainer.setZ(-5);
-
-        //add it to the current scene
-        renderer.getCurrentScene().addChild(renderer.backgroundContainer);
     }
 }

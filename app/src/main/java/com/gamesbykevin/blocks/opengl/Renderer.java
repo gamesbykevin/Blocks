@@ -18,14 +18,12 @@ import org.rajawali3d.primitives.RectangularPrism;
 import javax.microedition.khronos.opengles.GL10;
 
 import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
-import static com.gamesbykevin.blocks.opengl.RendererHelper.createBackground;
 import static com.gamesbykevin.blocks.opengl.RendererHelper.createBlock;
 import static com.gamesbykevin.blocks.opengl.RendererHelper.createContainers;
 import static com.gamesbykevin.blocks.opengl.RendererHelper.createFloors;
 import static com.gamesbykevin.blocks.opengl.RendererHelper.createMisc;
 import static com.gamesbykevin.blocks.opengl.RendererHelper.createNumbers;
 import static com.gamesbykevin.blocks.opengl.RendererHelper.resetContainers;
-import static com.gamesbykevin.blocks.opengl.RendererHelper.updateBackground;
 
 /**
  * Created by Kevin on 11/26/2017.
@@ -43,12 +41,6 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
 
     //list of containers to display our 2d sprite images
     protected Plane[] containers;
-
-    //container to render our texture within
-    protected Plane backgroundContainer;
-
-    //texture for our background
-    protected Material backgroundMaterial;
 
     public Renderer(Context context) {
 
@@ -124,8 +116,8 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         //remove all children, if exist
         getCurrentScene().clearChildren();
 
-        //create the background for our level
-        createBackground(this);
+        //create our background
+        //createBackground(this);
 
         //create the numbers for our game timer
         createNumbers(this);
@@ -154,6 +146,9 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         //rotate so we are viewing from an angle
         getCurrentCamera().rotate(Vector3.Axis.X, -45);
 
+        //update our game background so it appears behind the level
+        //updateBackground(this, level);
+
         //getCurrentCamera().rotate(Vector3.Axis.X, -55);
         //getCurrentCamera().rotate(Vector3.Axis.Z, -15);
 
@@ -178,8 +173,6 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
             resetContainers(this, 5, tens, end - 8, level.getRows(), 1);
             resetContainers(this, 6, ones, end - 7, level.getRows(), 1);
         }
-
-        updateBackground(this, level);
     }
 
     public void updateTimer(Timer timer) {

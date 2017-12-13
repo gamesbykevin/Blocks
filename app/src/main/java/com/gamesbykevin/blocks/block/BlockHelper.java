@@ -102,6 +102,9 @@ public class BlockHelper {
 
             //make the block fall
             if (block.getPrism().getScaleZ() > SCALE_MIN) {
+
+                //move up a little bit to prevent texture bleeding
+                block.getPrism().setY(getGame().getBoard().getGoalRow() + .01);
                 block.getPrism().setScaleZ(block.getPrism().getScale().z * SCALE_ADJUST);
 
                 //our new z-coordinate

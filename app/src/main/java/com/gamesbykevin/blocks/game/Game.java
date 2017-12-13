@@ -141,44 +141,44 @@ public class Game implements ICommon {
      */
     public void update() {
 
-        if (getBlock() != null && getBoard() != null) {
+        if (getBlock() == null || getBoard() == null)
+            return;
 
-            if (getBlock().isDead()) {
+        if (getBlock().isDead()) {
 
-                //if the block is falling out of bounds let's reset the level
-                reset();
+            //if the block is falling out of bounds let's reset the level
+            reset();
 
-                //update timer
-                getTimer().update();
+            //update timer
+            getTimer().update();
 
-                //update timer display
-                getActivity().getRenderer().updateTimer(getTimer());
+            //update timer display
+            getActivity().getRenderer().updateTimer(getTimer());
 
-            } else {
+        } else {
 
-                if (getBlock().hasGoalComplete()) {
+            if (getBlock().hasGoalComplete()) {
+
+                //if we are done, save the level as completed
+                LevelSelectActivity.addCompleted(LEVELS.getIndex());
+
+            } else if (!getBoard().hasSetup()) {
+
+                //update the block based on the user input
+                getBlock().update();
+
+                if (!getBlock().hasGoal()) {
+
+                    //update our game timer
+                    getTimer().update();
+
+                    //update timer display
+                    getActivity().getRenderer().updateTimer(getTimer());
+
+                } else {
 
                     //if we are done, save the level as completed
                     LevelSelectActivity.addCompleted(LEVELS.getIndex());
-
-                } else if (!getBoard().hasSetup()) {
-
-                    //update the block based on the user input
-                    getBlock().update();
-
-                    if (!getBlock().hasGoal()) {
-
-                        //update our game timer
-                        getTimer().update();
-
-                        //update timer display
-                        getActivity().getRenderer().updateTimer(getTimer());
-
-                    } else {
-
-                        //if we are done, save the level as completed
-                        LevelSelectActivity.addCompleted(LEVELS.getIndex());
-                    }
                 }
             }
         }

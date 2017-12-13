@@ -1,34 +1,20 @@
 package com.gamesbykevin.blocks.activity;
 
-import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.Surface;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.game.Game;
 import com.gamesbykevin.blocks.opengl.Renderer;
-import com.gamesbykevin.blocks.util.Timer;
 
-import org.rajawali3d.view.ISurface;
 import org.rajawali3d.view.SurfaceView;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
+import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
+import static com.gamesbykevin.blocks.activity.MainActivityHelper.setupControlListener;
 
 public class MainActivity extends BaseActivity implements Runnable {
 
@@ -53,8 +39,8 @@ public class MainActivity extends BaseActivity implements Runnable {
     //keep reference to our renderer object
     private Renderer renderer;
 
-    //our layout parameters
-    private LinearLayout.LayoutParams layoutParams;
+    //the current assiged screen
+    private int screen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +48,7 @@ public class MainActivity extends BaseActivity implements Runnable {
         //call parent
         super.onCreate(savedInstanceState);
 
+        //set our content view
         super.setContentView(R.layout.activity_main);
 
         try {
@@ -71,59 +58,21 @@ public class MainActivity extends BaseActivity implements Runnable {
             e.printStackTrace();
         }
 
-        //create our surface view and assign the frame rate
-        SurfaceView surfaceView = findViewById(R.id.surfaceView);
-        surfaceView.setFrameRate(FPS);
-
         //create our renderer
         this.renderer = new Renderer(this);
+
+        //create our surface view and assign the frame rate
+        SurfaceView surfaceView = findViewById(R.id.game_surfaceView);
+        surfaceView.setFrameRate(FPS);
 
         //assign to our surface view
         surfaceView.setSurfaceRenderer(getRenderer());
 
-        //set this after assigning our renderer
-        //surfaceView.setZOrderOnTop(false);
-        surfaceView.setZOrderMediaOverlay(true);
-
         //add our on click listeners for all the game control buttons
-        MainActivityHelper.setupControlListener(findViewById(R.id.game_controls));
+        setupControlListener(findViewById(R.id.game_controls));
 
-        /*
-        LayoutInflater inflater = (LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        View gameControls = inflater.inflate(R.layout.layout_game_controls, (ViewGroup)findViewById(R.id.game_controls));
-
-        //add our on click listeners for all the game control buttons
-        MainActivityHelper.setupControlListener(gameControls);
-
-        //create our layout
-        RelativeLayout layout = new RelativeLayout(this);
-
-        //assign full size screen params
-        layout.setLayoutParams(getLayoutParams());
-
-        ImageView iv = new ImageView(this);
-        iv.setLayoutParams(getLayoutParams());
-        iv.setImageResource(R.drawable.background);
-        iv.setScaleType(ImageView.ScaleType.FIT_XY);
-
-        layout.addView(iv);
-
-        layout.addView(surfaceView);
-
-        View gameOver = inflater.inflate(R.layout.layout_game_over, (ViewGroup)findViewById(R.id.game_over));
-
-
-        layout.addView(gameControls, getLayoutParams());
-        layout.addView(gameOver, getLayoutParams());
-        //layout.addView(findViewById(R.id.game_over), getLayoutParams());
-        //layout.addView(findViewById(R.id.game_controls), getLayoutParams());
-
-        gameOver.invalidate();
-        gameOver.bringToFront();
-
-        //setup our ui
-        setContentView(layout);
-        */
+        //switch to the game screen
+        switchScreen(R.id.game_surfaceView);
     }
 
     @Override
@@ -164,10 +113,14 @@ public class MainActivity extends BaseActivity implements Runnable {
         //call parent
         super.onPause();
 
+        //flag false to stop loop
+        this.running = false;
+
         try {
 
             //wait for thread to finish
-            this.thread.join();
+            if (this.thread != null)
+                this.thread.join();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -175,22 +128,25 @@ public class MainActivity extends BaseActivity implements Runnable {
 
         //flag null
         this.thread = null;
-
-        //flag false to stop loop
-        this.running = false;
     }
 
     @Override
     public void onBackPressed() {
 
-        //call parent
-        super.onBackPressed();
+        switch (getScreen()) {
 
-        //pause to stop the thread
-        onPause();
+            case R.id.game_controls:
+            case R.id.game_surfaceView:
+                switchScreen(R.id.game_exit);
+                break;
 
-        //destroy the activity
-        finish();
+            case R.id.game_exit:
+            case R.id.game_over:
+                return;
+
+            default:
+                throw new RuntimeException("Screen not handled : " + getScreen());
+        }
     }
 
     @Override
@@ -287,11 +243,58 @@ public class MainActivity extends BaseActivity implements Runnable {
         return this.renderer;
     }
 
-    private LinearLayout.LayoutParams getLayoutParams() {
+    public int getScreen() {
+        return this.screen;
+    }
 
-        if (this.layoutParams == null)
-            this.layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT , LinearLayout.LayoutParams.MATCH_PARENT);
+    public void switchScreen(final int resid) {
 
-        return this.layoutParams;
+        //assign the current screen
+        this.screen = resid;
+
+        //hide all by default
+        findViewById(R.id.game_surfaceView).setVisibility(INVISIBLE);
+        findViewById(R.id.game_controls).setVisibility(INVISIBLE);
+        findViewById(R.id.game_over).setVisibility(INVISIBLE);
+        findViewById(R.id.game_exit).setVisibility(INVISIBLE);
+
+        //display the correct screen(s)
+        switch (resid) {
+
+            case R.id.game_controls:
+            case R.id.game_surfaceView:
+                findViewById(R.id.game_surfaceView).setVisibility(VISIBLE);
+                findViewById(R.id.game_controls).setVisibility(VISIBLE);
+                break;
+
+            case R.id.game_exit:
+                findViewById(R.id.game_exit).setVisibility(VISIBLE);
+                break;
+
+            case R.id.game_over:
+                findViewById(R.id.game_over).setVisibility(VISIBLE);
+                break;
+
+            default:
+                throw new RuntimeException("Screen not handled : " + resid);
+        }
+    }
+
+    public void confirmYes(View view) {
+
+        //call parent
+        super.onBackPressed();
+
+        //pause to stop the thread
+        onPause();
+
+        //destroy the activity
+        finish();
+    }
+
+    public void confirmNo(View view) {
+
+        //go back to our game
+        switchScreen(R.id.game_surfaceView);
     }
 }

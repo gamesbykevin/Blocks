@@ -5,21 +5,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:scaleType="fitXY"
-        android:src="@drawable/background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <!-- the game image background -->
+    <ImageView style="@style/image_view_background" />
 
+    <!-- the game container -->
     <org.rajawali3d.view.SurfaceView
         app:renderMode="RENDER_WHEN_DIRTY"
         app:isTransparent="true"
-        android:id="@+id/surfaceView"
+        android:id="@+id/game_surfaceView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <!-- the game controls -->
     <include android:id="@+id/game_controls" layout="@layout/layout_game_controls" />
+
+    <!-- confirm exit -->
+    <include android:id="@+id/game_exit" layout="@layout/layout_exit_confirm" />
 
     <!-- the game over screen -->
     <include android:id="@+id/game_over" layout="@layout/layout_game_over" />

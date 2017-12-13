@@ -14,6 +14,7 @@
     </style>
 
     <style name="title_text">
+        <item name="android:background">@drawable/title</item>
         <item name="android:fontFamily">@font/font_family</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:gravity">center_horizontal</item>
@@ -31,6 +32,23 @@
         <item name="android:textSize">48sp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="image_view_background">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/background</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="overlay_image_view">
+        <item name="android:layout_margin">15dp</item>
+        <item name="android:layout_width">105dp</item>
+        <item name="android:layout_height">105dp</item>
+    </style>
+
+    <style name="overlay_image_view_confirm" parent="overlay_image_view">
+        <item name="android:layout_margin">30dp</item>
     </style>
 
 </resources>

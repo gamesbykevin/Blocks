@@ -252,7 +252,15 @@ public class Board implements ICommon {
     }
 
     public boolean hasGoal(int col, int row) {
-        return (col == this.goalCol && row == this.goalRow);
+        return (col == getGoalCol() && row == getGoalRow());
+    }
+
+    public int getGoalCol() {
+        return this.goalCol;
+    }
+
+    public int getGoalRow() {
+        return this.goalRow;
     }
 
     public boolean hasFloor(Block block) {
