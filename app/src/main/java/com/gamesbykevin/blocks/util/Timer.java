@@ -1,12 +1,6 @@
 package com.gamesbykevin.blocks.util;
 
-import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.widget.ImageView;
-
-import com.gamesbykevin.blocks.R;
-import com.gamesbykevin.blocks.activity.MainActivity;
+import com.gamesbykevin.blocks.activity.GameActivity;
 import com.gamesbykevin.blocks.common.IDisposable;
 
 /**
@@ -99,13 +93,13 @@ public class Timer implements IDisposable {
     public void update() {
 
         //keep track of time elapsed (temporary timer)
-        tmp += MainActivity.THREAD_DURATION;
+        tmp += GameActivity.THREAD_DURATION;
 
         //keep track of time elapsed (overall)
-        lapsed += MainActivity.THREAD_DURATION;
+        lapsed += GameActivity.THREAD_DURATION;
 
         //if 1 second has passed, update our timer
-        if (tmp >= MainActivity.MILLISECONDS_PER_SECOND) {
+        if (tmp >= GameActivity.MILLISECONDS_PER_SECOND) {
 
             //turn off all flags at first
             this.flag1 = false;

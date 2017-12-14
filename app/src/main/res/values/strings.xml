@@ -13,4 +13,12 @@
     <string name="level_select_title_text">Select Level</string>
     <string name="game_over_text">Level Complete</string>
     <string name="exit_level_confirm">Confirm Exit?</string>
+    <string name="exit_app_prompt">Press back again to exit</string>
+    <string name="button_start">Start</string>
+    <string name="button_options">Options</string>
+    <string name="button_tutorial">Tutorial</string>
+    <string name="button_rate">Rate</string>
+    <string name="button_achievement">Achievements</string>
+    <string name="button_leaderboard">Leaderboard</string>
+    <string name="button_more">More</string>
 </resources>

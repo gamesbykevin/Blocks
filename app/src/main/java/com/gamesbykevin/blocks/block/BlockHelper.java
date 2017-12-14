@@ -2,7 +2,7 @@ package com.gamesbykevin.blocks.block;
 
 import org.rajawali3d.math.vector.Vector3;
 
-import static com.gamesbykevin.blocks.activity.MainActivity.getGame;
+import static com.gamesbykevin.blocks.activity.GameActivity.getGame;
 import static com.gamesbykevin.blocks.block.Block.MIN_Z_GOAL;
 import static com.gamesbykevin.blocks.block.Block.SCALE_ADJUST;
 import static com.gamesbykevin.blocks.block.Block.SCALE_MIN;

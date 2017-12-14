@@ -1,25 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/background"
+    tools:context="com.gamesbykevin.blocks.activity.MainActivity">
 
-    <!-- the game image background -->
-    <ImageView style="@style/image_view_background" />
+    <!-- layout logo -->
+    <include layout="@layout/layout_logo" android:id="@+id/image_view_logo" />
 
-    <!-- the game container -->
-    <org.rajawali3d.view.SurfaceView
-        app:renderMode="RENDER_WHEN_DIRTY"
-        app:isTransparent="true"
-        android:id="@+id/game_surfaceView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <TableLayout style="@style/table_layout_menu" android:layout_below="@+id/image_view_logo">
 
-    <!-- the game controls -->
-    <include android:id="@+id/game_controls" layout="@layout/layout_game_controls" />
+        <TableRow style="@style/table_row_menu">
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_start" android:onClick="startGame" />
+        </TableRow>
 
-    <!-- confirm exit -->
-    <include android:id="@+id/game_exit" layout="@layout/layout_exit_confirm" />
+        <TableRow style="@style/table_row_menu">
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_options" />
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu">
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_tutorial" />
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu">
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_rate" />
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu">
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_achievement" />
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu">
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_leaderboard" />
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu">
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_more" />
+        </TableRow>
+
+    </TableLayout>
+
+    <!-- social media icons -->
+    <include layout="@layout/layout_social" />
+
 
 </RelativeLayout>

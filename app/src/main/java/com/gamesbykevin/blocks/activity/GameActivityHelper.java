@@ -6,12 +6,12 @@ import android.widget.Button;
 
 import com.gamesbykevin.blocks.R;
 
-import static com.gamesbykevin.blocks.activity.MainActivity.getGame;
+import static com.gamesbykevin.blocks.activity.GameActivity.getGame;
 
 /**
  * Created by Kevin on 12/11/2017.
  */
-public class MainActivityHelper {
+public class GameActivityHelper {
 
     protected static void setupControlListener(View view) {
 

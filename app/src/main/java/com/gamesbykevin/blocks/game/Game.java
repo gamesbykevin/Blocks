@@ -2,7 +2,7 @@ package com.gamesbykevin.blocks.game;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.activity.LevelSelectActivity;
-import com.gamesbykevin.blocks.activity.MainActivity;
+import com.gamesbykevin.blocks.activity.GameActivity;
 import com.gamesbykevin.blocks.block.Block;
 import com.gamesbykevin.blocks.board.Board;
 import com.gamesbykevin.blocks.common.ICommon;
@@ -18,7 +18,7 @@ import static com.gamesbykevin.blocks.opengl.RendererHelper.PRISM_BLOCK;
 public class Game implements ICommon {
 
     //reference to our main activity
-    private final MainActivity activity;
+    private final GameActivity activity;
 
     //game block used to solve level
     private Block block;
@@ -29,7 +29,7 @@ public class Game implements ICommon {
     //keep track of our game timer
     private Timer timer;
 
-    public Game(final MainActivity activity) throws Exception {
+    public Game(final GameActivity activity) throws Exception {
 
         //save our activity reference
         this.activity = activity;
@@ -57,7 +57,7 @@ public class Game implements ICommon {
         }
     }
 
-    public MainActivity getActivity() {
+    public GameActivity getActivity() {
         return this.activity;
     }
 

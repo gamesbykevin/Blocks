@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- the game image background -->
+    <ImageView style="@style/image_view_background" />
+
+    <!-- the game container -->
+    <org.rajawali3d.view.SurfaceView
+        app:renderMode="RENDER_WHEN_DIRTY"
+        app:isTransparent="true"
+        android:id="@+id/game_surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- the game controls -->
+    <include android:id="@+id/game_controls" layout="@layout/layout_game_controls" />
+
+    <!-- confirm exit -->
+    <include android:id="@+id/game_exit" layout="@layout/layout_exit_confirm" />
+
+</RelativeLayout>

@@ -1,18 +1,14 @@
 package com.gamesbykevin.blocks.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -74,7 +70,7 @@ public class LevelSelectActivity extends BaseActivity {
                     return;
 
                 LEVELS.setIndex(position);
-                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                startActivity(new Intent(getBaseContext(), GameActivity.class));
                 getGridView().setEnabled(false);
             }
         });

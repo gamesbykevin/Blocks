@@ -1,14 +1,12 @@
 package com.gamesbykevin.blocks.board;
 
-import com.gamesbykevin.blocks.activity.MainActivity;
+import com.gamesbykevin.blocks.activity.GameActivity;
 import com.gamesbykevin.blocks.block.Block;
 import com.gamesbykevin.blocks.block.BlockHelper;
 import com.gamesbykevin.blocks.common.ICommon;
 import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static com.gamesbykevin.blocks.board.Tile.START_Z;
@@ -392,7 +390,7 @@ public class Board implements ICommon {
                     getTile(col, row).getObject3D().setPosition(col, row, START_Z);
 
                     //pick a random velocity at which to move
-                    getTile(col, row).setVelocityZ(VELOCITY_Z_MIN + (MainActivity.getRandom().nextFloat() * (VELOCITY_Z_MAX - VELOCITY_Z_MIN)));
+                    getTile(col, row).setVelocityZ(VELOCITY_Z_MIN + (GameActivity.getRandom().nextFloat() * (VELOCITY_Z_MAX - VELOCITY_Z_MIN)));
                 }
 
                 //make everything visible (for now)

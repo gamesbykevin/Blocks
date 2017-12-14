@@ -33,7 +33,7 @@ public class GameOverActivity extends AppCompatActivity {
         LEVELS.setIndex(LEVELS.getIndex() + 1);
 
         //let's begin the next level
-        startActivity(new Intent(getBaseContext(), MainActivity.class));
+        startActivity(new Intent(getBaseContext(), GameActivity.class));
     }
 
     public void levelCompleteAchievements(View view) {
@@ -50,6 +50,6 @@ public class GameOverActivity extends AppCompatActivity {
         finish();
 
         //go back to the level selection page
-        startActivity(new Intent(getBaseContext(), LevelSelectActivity.class));
+        startActivity(new Intent(getBaseContext(), MainActivity.class));
     }
 }

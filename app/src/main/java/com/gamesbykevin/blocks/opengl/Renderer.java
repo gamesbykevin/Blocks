@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.view.MotionEvent;
 
-import com.gamesbykevin.blocks.activity.MainActivity;
+import com.gamesbykevin.blocks.activity.GameActivity;
 import com.gamesbykevin.blocks.common.IDisposable;
 import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.util.Timer;
@@ -17,7 +17,7 @@ import org.rajawali3d.primitives.RectangularPrism;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import static com.gamesbykevin.blocks.activity.MainActivity.TAG;
+import static com.gamesbykevin.blocks.activity.GameActivity.TAG;
 import static com.gamesbykevin.blocks.opengl.RendererHelper.createBlock;
 import static com.gamesbykevin.blocks.opengl.RendererHelper.createContainers;
 import static com.gamesbykevin.blocks.opengl.RendererHelper.createFloors;
@@ -48,7 +48,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         super(context);
 
         //assign speed
-        setFrameRate(MainActivity.FPS);
+        setFrameRate(GameActivity.FPS);
 
         //create new array for the blocks in the game
         this.blocks = new RectangularPrism[5];
@@ -132,7 +132,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         createMisc(this);
 
         //add the floor and block, etc... to our game
-        MainActivity.getGame().create();
+        GameActivity.getGame().create();
     }
 
     public void updateCamera(Level level) {
@@ -207,24 +207,24 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
         //call parent to render objects
         super.onRender(elapsedTime, deltaTime);
 
-        if (MainActivity.getGame() != null &&
-            MainActivity.getGame().getBoard() != null &&
-            MainActivity.getGame().getBlock() != null) {
+        if (GameActivity.getGame() != null &&
+            GameActivity.getGame().getBoard() != null &&
+            GameActivity.getGame().getBlock() != null) {
 
-            if (MainActivity.getGame().getBoard().hasSetup()) {
+            if (GameActivity.getGame().getBoard().hasSetup()) {
 
                 //update the board setup
-                MainActivity.getGame().getBoard().update();
+                GameActivity.getGame().getBoard().update();
 
-            } else if (MainActivity.getGame().getBlock().hasSetup()) {
+            } else if (GameActivity.getGame().getBlock().hasSetup()) {
 
                 //update the block setup
-                MainActivity.getGame().getBlock().update();
+                GameActivity.getGame().getBlock().update();
 
             } else {
 
                 //update the block animation (if exists)
-                MainActivity.getGame().getBlock().rotate();
+                GameActivity.getGame().getBlock().rotate();
             }
         }
     }
