@@ -17,7 +17,7 @@
         <item name="android:background">@drawable/title</item>
         <item name="android:fontFamily">@font/font_family</item>
         <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">5dp</item>
@@ -54,30 +54,31 @@
     <style name="text_view_menu_button">
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/button</item>
-        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:fontFamily">@font/font_family</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_margin">2dp</item>
     </style>
 
     <style name="image_view_logo">
         <item name="android:layout_width">250dp</item>
         <item name="android:layout_height">75dp</item>
-        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:src">@drawable/logo</item>
     </style>
 
     <style name="image_view_social">
-        <item name="android:layout_width">65dp</item>
-        <item name="android:layout_height">65dp</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
         <item name="android:layout_margin">10dp</item>
     </style>
 
     <style name="table_layout_menu">
-        <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_margin">5dp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>

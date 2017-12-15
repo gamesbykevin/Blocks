@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.gamesbykevin.blocks.R;
+import com.gamesbykevin.blocks.opengl.MainRenderer;
+
+import org.rajawali3d.view.SurfaceView;
 
 public class MainActivity extends BaseActivity {
 
@@ -14,8 +17,22 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //call parent
         super.onCreate(savedInstanceState);
+
+        //setup our visual display
         setContentView(R.layout.activity_main);
+
+        //obtain our surface view
+        SurfaceView surfaceView = findViewById(R.id.game_surfaceView);
+
+        //assign the game's frame rate
+        surfaceView.setFrameRate(FPS);
+
+        //assign renderer to our surface view
+        surfaceView.setSurfaceRenderer(new MainRenderer(this));
+
     }
 
     @Override

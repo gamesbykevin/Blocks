@@ -46,7 +46,7 @@ public class RendererHelper {
 
     protected static void createContainers(Renderer renderer) {
 
-        //create our containers to place the images within
+        //create our containers to place the images within for the level # and timer
         createPlane(renderer, 0);
         createPlane(renderer, 1);
         createPlane(renderer, 2);

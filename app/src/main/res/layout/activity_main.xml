@@ -4,9 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background"
     tools:context="com.gamesbykevin.blocks.activity.MainActivity">
+
+    <!-- rotating block renderer -->
+    <org.rajawali3d.view.SurfaceView
+        app:renderMode="RENDER_WHEN_DIRTY"
+        app:isTransparent="true"
+        android:id="@+id/game_surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <!-- layout logo -->
     <include layout="@layout/layout_logo" android:id="@+id/image_view_logo" />
@@ -15,30 +23,18 @@
 
         <TableRow style="@style/table_row_menu">
             <TextView style="@style/text_view_menu_button" android:text="@string/button_start" android:onClick="startGame" />
-        </TableRow>
-
-        <TableRow style="@style/table_row_menu">
             <TextView style="@style/text_view_menu_button" android:text="@string/button_options" />
-        </TableRow>
-
-        <TableRow style="@style/table_row_menu">
             <TextView style="@style/text_view_menu_button" android:text="@string/button_tutorial" />
         </TableRow>
 
         <TableRow style="@style/table_row_menu">
-            <TextView style="@style/text_view_menu_button" android:text="@string/button_rate" />
-        </TableRow>
-
-        <TableRow style="@style/table_row_menu">
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_rate" android:onClick="showRating" />
             <TextView style="@style/text_view_menu_button" android:text="@string/button_achievement" />
-        </TableRow>
-
-        <TableRow style="@style/table_row_menu">
             <TextView style="@style/text_view_menu_button" android:text="@string/button_leaderboard" />
         </TableRow>
 
         <TableRow style="@style/table_row_menu">
-            <TextView style="@style/text_view_menu_button" android:text="@string/button_more" />
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_more" android:onClick="showWebsite" />
         </TableRow>
 
     </TableLayout>

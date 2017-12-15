@@ -11,9 +11,14 @@ import com.gamesbykevin.blocks.opengl.Renderer;
 
 import org.rajawali3d.view.SurfaceView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static com.gamesbykevin.blocks.activity.GameActivityHelper.setupControlListener;
+import static com.gamesbykevin.blocks.activity.GameOverActivity.PARAM_NAME;
 
 public class GameActivity extends BaseActivity implements Runnable {
 
@@ -227,7 +232,19 @@ public class GameActivity extends BaseActivity implements Runnable {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getBaseContext(), GameOverActivity.class));
+
+                //create our intent
+                Intent intent = new Intent(getBaseContext(), GameOverActivity.class);
+
+                //format the time for the user to see
+                DateFormat formatter = new SimpleDateFormat(GameOverActivity.TIME_FORMAT);
+                String dateFormatted = formatter.format(new Date(getGame().getTimer().getLapsed()));
+
+                //add the time parameter to the intent so we can display the time to beat the level
+                intent.putExtra(PARAM_NAME, dateFormatted);
+
+                //start the activity
+                startActivity(intent);
             }
         });
     }
@@ -287,14 +304,14 @@ public class GameActivity extends BaseActivity implements Runnable {
 
     public void confirmYes(View view) {
 
-        //call parent
-        super.onBackPressed();
-
         //pause to stop the thread
         onPause();
 
         //destroy the activity
         finish();
+
+        //go back to the level select activity
+        startActivity(new Intent(getBaseContext(), LevelSelectActivity.class));
     }
 
     public void confirmNo(View view) {

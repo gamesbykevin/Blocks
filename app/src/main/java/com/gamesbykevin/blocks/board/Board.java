@@ -7,6 +7,8 @@ import com.gamesbykevin.blocks.common.ICommon;
 import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
+import org.rajawali3d.Object3D;
+
 import java.util.List;
 
 import static com.gamesbykevin.blocks.board.Tile.START_Z;
@@ -356,6 +358,11 @@ public class Board implements ICommon {
         //flag setup true
         setSetup(true);
 
+        //did we clone the objects
+        boolean cloneWeak = false;
+        boolean cloneStandard = false;
+        boolean cloneHidden = false;
+
         for (int row = 0; row < getTiles().length; row++) {
             for (int col = 0; col < getTiles()[0].length; col++) {
 
@@ -365,24 +372,92 @@ public class Board implements ICommon {
 
                 if (renderer != null) {
 
+                    //what 3d object are we using
+                    Object3D object3D = null;
+
                     //assign the 3d model floor reference accordingly
                     switch (getTile(col, row).getType()) {
 
                         case Goal:
+
+                            //clone the object and assign the reference to the tile
                             getTile(col, row).setObject3D(renderer.getBlocks()[PRISM_FLOOR_GOAL].clone());
+
+                            //add it as a child to the current scene
+                            renderer.getCurrentScene().addChild(getTile(col, row).getObject3D());
                             break;
 
                         case Weak:
+
+                            if (!cloneWeak) {
+
+                                //mark flag
+                                cloneWeak = true;
+
+                                //set model up for batch processing
+                                renderer.getBlocks()[PRISM_FLOOR_WEAK].setRenderChildrenAsBatch(true);
+
+                                //hide model that is not to be displayed
+                                renderer.getBlocks()[PRISM_FLOOR_WEAK].setVisible(false);
+
+                                //add it as a child to the current scene
+                                renderer.getCurrentScene().addChild(renderer.getBlocks()[PRISM_FLOOR_WEAK]);
+                            }
+
+                            //clone the object and assign the reference to the tile
                             getTile(col, row).setObject3D(renderer.getBlocks()[PRISM_FLOOR_WEAK].clone());
+
+                            //now add the tile to the parent 3d model
+                            renderer.getBlocks()[PRISM_FLOOR_WEAK].addChild(getTile(col, row).getObject3D());
                             break;
 
                         case Hidden:
                         case HiddenDisplay:
+
+                            if (!cloneHidden) {
+
+                                //mark flag
+                                cloneHidden = true;
+
+                                //set model up for batch processing
+                                renderer.getBlocks()[PRISM_FLOOR_HIDDEN].setRenderChildrenAsBatch(true);
+
+                                //hide model that is not to be displayed
+                                renderer.getBlocks()[PRISM_FLOOR_HIDDEN].setVisible(false);
+
+                                //add it as a child to the current scene
+                                renderer.getCurrentScene().addChild(renderer.getBlocks()[PRISM_FLOOR_HIDDEN]);
+                            }
+
+                            //clone the object and assign the reference to the tile
                             getTile(col, row).setObject3D(renderer.getBlocks()[PRISM_FLOOR_HIDDEN].clone());
+
+                            //now add the tile to the parent 3d model
+                            renderer.getBlocks()[PRISM_FLOOR_HIDDEN].addChild(getTile(col, row).getObject3D());
                             break;
 
                         default:
+
+                            if (!cloneStandard) {
+
+                                //mark flag
+                                cloneStandard = true;
+
+                                //set model up for batch processing
+                                renderer.getBlocks()[PRISM_FLOOR_STANDARD].setRenderChildrenAsBatch(true);
+
+                                //hide model that is not to be displayed
+                                renderer.getBlocks()[PRISM_FLOOR_STANDARD].setVisible(false);
+
+                                //add it as a child to the current scene
+                                renderer.getCurrentScene().addChild(renderer.getBlocks()[PRISM_FLOOR_STANDARD]);
+                            }
+
+                            //clone the object and assign the reference to the tile
                             getTile(col, row).setObject3D(renderer.getBlocks()[PRISM_FLOOR_STANDARD].clone());
+
+                            //now add the tile to the parent 3d model
+                            renderer.getBlocks()[PRISM_FLOOR_STANDARD].addChild(getTile(col, row).getObject3D());
                             break;
                     }
 
@@ -397,8 +472,8 @@ public class Board implements ICommon {
                 getTile(col, row).getObject3D().setVisible(true);
 
                 //add it to the render scene so we can view it
-                if (renderer != null)
-                    renderer.getCurrentScene().addChild(getTile(col, row).getObject3D());
+                //if (renderer != null)
+                //    renderer.getCurrentScene().addChild(getTile(col, row).getObject3D());
 
                 switch (getTile(col, row).getType()) {
 

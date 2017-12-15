@@ -81,6 +81,9 @@ public class LevelSelectActivity extends BaseActivity {
 
         //destroy this activity
         finish();
+
+        //go back to main menu
+        startActivity(new Intent(getBaseContext(), MainActivity.class));
     }
 
     @Override

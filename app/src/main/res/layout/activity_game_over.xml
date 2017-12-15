@@ -18,7 +18,7 @@
         android:layout_height="250dp">
 
         <TableRow android:gravity="center">
-            <TextView android:layout_span="4" style="@style/title_text" android:text="@string/game_over_text" />
+            <TextView android:layout_span="4" style="@style/title_text" android:text="@string/game_over_text" android:id="@+id/text_view_title" />
         </TableRow>
 
         <TableRow android:gravity="center">
