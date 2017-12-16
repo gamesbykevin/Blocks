@@ -1,6 +1,5 @@
 package com.gamesbykevin.blocks.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +10,7 @@ import android.widget.Spinner;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.opengl.MainRenderer;
+import com.gamesbykevin.blocks.ui.CustomButton;
 
 import org.rajawali3d.view.SurfaceView;
 
@@ -30,9 +30,6 @@ public class MainActivity extends BaseActivity {
     //renderer for the block
     private MainRenderer renderer;
 
-    //container for our background
-    private ImageView background;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,9 +38,6 @@ public class MainActivity extends BaseActivity {
 
         //setup our visual display
         setContentView(R.layout.activity_main);
-
-        //obtain our image view background container
-        this.background = findViewById(R.id.image_view_background);
 
         //create our renderer
         this.renderer = new MainRenderer(this);
@@ -65,6 +59,12 @@ public class MainActivity extends BaseActivity {
 
         //setup the spinner for different backgrounds
         setupSpinnerBackground();
+
+        //pre-pop our sound setting
+        setupCustomButtonSound();
+
+        //pre-pop the vibrate setting
+        setupCustomButtonVibrate();
     }
 
     @Override
@@ -114,6 +114,11 @@ public class MainActivity extends BaseActivity {
 
             //if we are on the options page, we can go back to the main menu
             case R.id.table_layout_options_menu:
+
+                //before we go back, save the shared preferences
+                updateSharedPreferences(this);
+
+                //go from options to the main menu
                 switchScreen(R.id.table_layout_main_menu);
                 break;
         }
@@ -121,9 +126,6 @@ public class MainActivity extends BaseActivity {
     }
 
     public void startGame(View view) {
-
-        //before continuing save the shared preference settings
-        updateSharedPreferences(this);
 
         //start the level select activity
         startActivity(new Intent(this, LevelSelectActivity.class));
@@ -211,8 +213,8 @@ public class MainActivity extends BaseActivity {
                 //update the background position
                 CURRENT_BACKGROUND = position;
 
-                //change the background
-                background.setImageResource(RESOURCE_BACKGROUND[CURRENT_BACKGROUND]);
+                //obtain our image view background container and change the background
+                ((ImageView)findViewById(R.id.image_view_background)).setImageResource(RESOURCE_BACKGROUND[CURRENT_BACKGROUND]);
             }
 
             @Override
@@ -220,5 +222,15 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+    }
+
+    private void setupCustomButtonSound() {
+        CustomButton button = findViewById(R.id.customButtonSound);
+        button.setIndex(BaseActivity.getPreferences().getInt(getString(R.string.file_key_sound), 0));
+    }
+
+    private void setupCustomButtonVibrate() {
+        CustomButton button = findViewById(R.id.customButtonVibrate);
+        button.setIndex(BaseActivity.getPreferences().getInt(getString(R.string.file_key_vibrate), 0));
     }
 }

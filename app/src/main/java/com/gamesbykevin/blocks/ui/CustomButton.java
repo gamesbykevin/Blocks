@@ -29,7 +29,7 @@ public class CustomButton extends AppCompatButton implements View.OnClickListene
     public CustomButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        //setup the  onclick listener
+        //setup the onclick listener
         init();
 
         //obtain the array container for our values
@@ -73,9 +73,6 @@ public class CustomButton extends AppCompatButton implements View.OnClickListene
 
         //move to the next index
         setIndex(getIndex() + 1);
-
-        //update the text
-        displayText();
     }
 
     private void displayText() {
@@ -94,6 +91,8 @@ public class CustomButton extends AppCompatButton implements View.OnClickListene
         //keep array index in bounds
         if (getIndex() >= this.desc.length)
             setIndex(0);
+
+        displayText();
     }
 
     public int getIndex() {
