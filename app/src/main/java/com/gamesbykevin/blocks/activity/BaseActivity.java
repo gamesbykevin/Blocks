@@ -6,13 +6,18 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.gamesbykevin.blocks.R;
 
 import java.util.Random;
+
+import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_BACKGROUND;
+import static com.gamesbykevin.blocks.opengl.MainRenderer.RESOURCE_BACKGROUND;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -67,8 +72,47 @@ public class BaseActivity extends AppCompatActivity {
             preferences = getBaseContext().getSharedPreferences(getString(R.string.app_preferences), Context.MODE_PRIVATE);
 
         //store instance of activity if null
-        if (instance == null)
+        if (instance == null) {
             instance = this;
+
+            String desc = "";
+
+            //display the screen density to the user
+            switch (getResources().getDisplayMetrics().densityDpi) {
+
+                case DisplayMetrics.DENSITY_LOW:
+                    desc = "LDPI";
+                    break;
+
+                case DisplayMetrics.DENSITY_MEDIUM:
+                    desc = "MDPI";
+                    break;
+
+                case DisplayMetrics.DENSITY_HIGH:
+                    desc = "HDPI";
+                    break;
+
+                case DisplayMetrics.DENSITY_XHIGH:
+                    desc = "XHDPI";
+                    break;
+
+                case DisplayMetrics.DENSITY_XXHIGH:
+                    desc = "XXHDPI";
+                    break;
+
+                case DisplayMetrics.DENSITY_XXXHIGH:
+                    desc = "XXXHDPI";
+                    break;
+
+                default:
+                    desc = "Unknown";
+                    break;
+            }
+
+            //print screen density
+            Log.d(TAG, "Screen Density: " + desc);
+        }
+
     }
 
     @Override
@@ -76,6 +120,9 @@ public class BaseActivity extends AppCompatActivity {
 
         //call parent
         super.onResume();
+
+        //pre-populate the background (if exists)
+        setupBackground();
     }
 
     @Override
@@ -171,5 +218,18 @@ public class BaseActivity extends AppCompatActivity {
 
         //start the activity opening the app / web browser
         startActivity(this.intent);
+    }
+
+    /**
+     * Setup the background if the image view container exists
+     */
+    protected void setupBackground() {
+
+        //obtain the image view for the background
+        ImageView imageView = findViewById(R.id.image_view_background);
+
+        //update the image background if the container exists
+        if (imageView != null)
+            imageView.setImageResource(RESOURCE_BACKGROUND[CURRENT_BACKGROUND]);
     }
 }

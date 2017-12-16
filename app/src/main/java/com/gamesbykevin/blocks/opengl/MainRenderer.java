@@ -29,7 +29,7 @@ public class MainRenderer extends Renderer implements IDisposable {
     private RectangularPrism block;
 
     //how is the block rotating
-    private int index;
+    private int index = 0;
 
     //keep track of the number of rotations
     private int count = 0;
@@ -46,6 +46,44 @@ public class MainRenderer extends Renderer implements IDisposable {
     //how long do we rotate before changing
     private static final int ROTATION = 180;
 
+    //the material for each texture
+    private Material[] materials;
+
+    //different block textures
+    public static final int[] BLOCK_TEXTURES = {
+        R.drawable.block,
+        R.drawable.block_grass,
+        R.drawable.block_rock,
+        R.drawable.block_water,
+        R.drawable.block_rocky,
+        R.drawable.block_snow,
+        R.drawable.block_tile,
+        R.drawable.block_wall
+    };
+
+    //different backgrounds
+    public static final int[] RESOURCE_BACKGROUND = {
+        R.drawable.background,
+        R.drawable.background1,
+        R.drawable.background2,
+        R.drawable.background3,
+        R.drawable.background4,
+        R.drawable.background5,
+        R.drawable.background6,
+        R.drawable.background7,
+        R.drawable.background8,
+        R.drawable.background9
+    };
+
+    //the current background
+    public static int CURRENT_BACKGROUND;
+
+    //the current texture
+    public static int CURRENT_TEXTURE;
+
+    //are we changing the texture?
+    private int next = CURRENT_TEXTURE;
+
     public MainRenderer(Context context) {
 
         //call parent
@@ -58,6 +96,22 @@ public class MainRenderer extends Renderer implements IDisposable {
     @Override
     public void dispose() {
 
+        if (block != null) {
+            block.destroy();
+            block = null;
+        }
+
+        if (materials != null) {
+
+            for (int i = 0; i < materials.length; i++) {
+                if (materials[i] != null) {
+                    materials[i].unbindTextures();
+                    materials[i] = null;
+                }
+            }
+
+            materials = null;
+        }
     }
 
     @Override
@@ -68,29 +122,19 @@ public class MainRenderer extends Renderer implements IDisposable {
         //remove all children, if exist
         getCurrentScene().clearChildren();
 
-        Material material = new Material();
-        material.enableLighting(true);
-        material.setDiffuseMethod(new DiffuseMethod.Lambert());
-        material.setColorInfluence(0f);
+        //create new array for our materials
+        this.materials = new Material[BLOCK_TEXTURES.length];
 
-        try {
-
-            //load and add texture to material
-            material.addTexture(new Texture("Block", R.drawable.block));
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-
-            //color material if we couldn't load a texture
-            material.setColor(Color.CYAN);
+        //create our material(s)
+        for (int i = 0; i < this.materials.length; i++) {
+            this.materials[i] = createMaterial(new Material(), BLOCK_TEXTURES[i]);
         }
 
         //create our rectangle block
         block = new RectangularPrism(2, 1, 1);
 
-        //add texture to the block
-        block.setMaterial(material);
+        //add texture to the block at first
+        block.setMaterial(this.materials[CURRENT_TEXTURE]);
 
         //rotate block accordingly
         //block.rotate(Vector3.Axis.X, -45);
@@ -134,6 +178,16 @@ public class MainRenderer extends Renderer implements IDisposable {
 
         //call parent to render objects
         super.onRender(elapsedTime, deltaTime);
+
+        //do we need to switch textures
+        if (next != CURRENT_TEXTURE) {
+
+            //update the next index
+            CURRENT_TEXTURE = this.next;
+
+            //update material of the block
+            block.setMaterial(this.materials[CURRENT_TEXTURE]);
+        }
 
         //rotate the block
         switch(index) {
@@ -190,5 +244,33 @@ public class MainRenderer extends Renderer implements IDisposable {
             if (speed > SPEED_MAX)
                 speed = SPEED_MIN;
         }
+    }
+
+    private Material createMaterial(Material material, final int resId) {
+
+        //setup material
+        material.enableLighting(true);
+        material.setDiffuseMethod(new DiffuseMethod.Lambert());
+        material.setColorInfluence(0f);
+
+        try {
+            //load and add texture to material
+            material.addTexture(new Texture("Block" + resId, resId));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //return our populated material
+        return material;
+    }
+
+    public void setNext(int next) {
+
+        //if out of bounds, go back to 0
+        if (next >= BLOCK_TEXTURES.length)
+            next = 0;
+
+        this.next = next;
     }
 }

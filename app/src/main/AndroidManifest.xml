@@ -13,23 +13,25 @@
         <activity
             android:name=".activity.GameActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppFullScreenTheme">
-        </activity>
+            android:theme="@style/AppFullScreenTheme" />
 
         <activity
             android:name=".activity.LevelSelectActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppFullScreenTheme">
-        </activity>
+            android:theme="@style/AppFullScreenTheme" />
 
         <activity
             android:name=".activity.GameOverActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppFullScreenTheme">
-        </activity>
+            android:theme="@style/AppFullScreenTheme" />
 
         <activity
             android:name=".activity.MainActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppFullScreenTheme" />
+
+        <activity
+            android:name=".activity.SplashActivity"
             android:screenOrientation="landscape"
             android:theme="@style/AppFullScreenTheme">
             <intent-filter>
@@ -37,7 +39,5 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
     </application>
-
 </manifest>

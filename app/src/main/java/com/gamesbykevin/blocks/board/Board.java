@@ -372,9 +372,6 @@ public class Board implements ICommon {
 
                 if (renderer != null) {
 
-                    //what 3d object are we using
-                    Object3D object3D = null;
-
                     //assign the 3d model floor reference accordingly
                     switch (getTile(col, row).getType()) {
 

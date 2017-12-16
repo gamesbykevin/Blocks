@@ -14,6 +14,9 @@ import org.rajawali3d.math.vector.Vector3;
 import org.rajawali3d.primitives.Plane;
 import org.rajawali3d.primitives.RectangularPrism;
 
+import static com.gamesbykevin.blocks.opengl.MainRenderer.BLOCK_TEXTURES;
+import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_TEXTURE;
+
 /**
  * Created by Kevin on 12/11/2017.
  */
@@ -181,7 +184,7 @@ public class RendererHelper {
         try {
 
             //load and add texture to material
-            materialBlock.addTexture(new Texture("Block", R.drawable.block));
+            materialBlock.addTexture(new Texture("Block", BLOCK_TEXTURES[CURRENT_TEXTURE]));
 
         } catch (Exception e) {
 

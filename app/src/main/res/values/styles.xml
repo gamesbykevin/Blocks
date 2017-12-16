@@ -87,4 +87,37 @@
         <item name="android:layout_margin">2dp</item>
     </style>
 
+    <style name="spinner">
+        <item name="android:background">@drawable/button</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:dropDownWidth">100dp</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+    <style name="spinner_item">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textIsSelectable">false</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:soundEffectsEnabled">true</item>
+    </style>
+
+    <style name="spinner_dropdown_item">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textIsSelectable">false</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:soundEffectsEnabled">true</item>
+    </style>
+
 </resources>

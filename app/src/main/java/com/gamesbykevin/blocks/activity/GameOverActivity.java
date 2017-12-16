@@ -1,7 +1,6 @@
 package com.gamesbykevin.blocks.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -10,7 +9,7 @@ import com.gamesbykevin.blocks.R;
 
 import static com.gamesbykevin.blocks.activity.LevelSelectActivity.LEVELS;
 
-public class GameOverActivity extends AppCompatActivity {
+public class GameOverActivity extends BaseActivity {
 
     /**
      * How we will access the time
@@ -45,6 +44,13 @@ public class GameOverActivity extends AppCompatActivity {
 
         //assign the correct description
         textView.setText(getString(R.string.game_over_text) + duration);
+    }
+
+    @Override
+    public void onResume() {
+
+        //call parent
+        super.onResume();
     }
 
     @Override

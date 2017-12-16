@@ -3,11 +3,15 @@
     <!-- Application name-->
     <string name="app_name" translatable="false">Blocks</string>
 
-    <!-- the key to our shared preferences -->
+    <!-- the unique key to our shared preferences -->
     <string name="app_preferences" translatable="false">com.gamesbykevin.blocks.PREFERENCES</string>
 
     <!-- preference keys -->
     <string name="file_key_completed_levels" translatable="false">com.gamesbykevin.blocks.FILE_KEY_COMPLETED</string>
+    <string name="file_key_sound" translatable="false">com.gamesbykevin.blocks.FILE_KEY_SOUND</string>
+    <string name="file_key_vibrate" translatable="false">com.gamesbykevin.blocks.FILE_KEY_VIBRATE</string>
+    <string name="file_key_texture" translatable="false">com.gamesbykevin.blocks.FILE_KEY_TEXTURE</string>
+    <string name="file_key_background" translatable="false">com.gamesbykevin.blocks.FILE_KEY_BACKGROUND</string>
 
     <!-- english translations -->
     <string name="level_select_title_text">Select Level</string>
@@ -21,4 +25,39 @@
     <string name="button_achievement">Achievements</string>
     <string name="button_leaderboard">Leaderboard</string>
     <string name="button_more">More</string>
+
+    <array name="custom_button_text_sound">
+        <item>Sound: On</item>
+        <item>Sound: Off</item>
+    </array>
+
+    <array name="custom_button_text_vibrate">
+        <item>Vibrate: On</item>
+        <item>Vibrate: Off</item>
+    </array>
+
+    <array name="spinner_text_texture">
+        <item>Cement</item>
+        <item>Grass</item>
+        <item>Rock</item>
+        <item>Water</item>
+        <item>Rocky</item>
+        <item>Snow</item>
+        <item>Tile</item>
+        <item>Wall</item>
+    </array>
+
+    <array name="spinner_text_background">
+        <item>Picture 1</item>
+        <item>Picture 2</item>
+        <item>Picture 3</item>
+        <item>Picture 4</item>
+        <item>Picture 5</item>
+        <item>Picture 6</item>
+        <item>Picture 7</item>
+        <item>Picture 8</item>
+        <item>Picture 9</item>
+        <item>Picture 10</item>
+    </array>
+
 </resources>

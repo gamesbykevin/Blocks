@@ -5,8 +5,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- the game image background -->
-    <ImageView style="@style/image_view_background" />
+    <!-- image background -->
+    <ImageView android:id="@+id/image_view_background" style="@style/image_view_background" />
 
     <!-- the game container -->
     <org.rajawali3d.view.SurfaceView

@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background"
     tools:context="com.gamesbykevin.blocks.activity.MainActivity">
+
+    <!-- image background -->
+    <ImageView android:id="@+id/image_view_background" style="@style/image_view_background" />
 
     <!-- rotating block renderer -->
     <org.rajawali3d.view.SurfaceView
@@ -19,11 +21,15 @@
     <!-- layout logo -->
     <include layout="@layout/layout_logo" android:id="@+id/image_view_logo" />
 
-    <TableLayout style="@style/table_layout_menu" android:layout_below="@+id/image_view_logo">
+    <!-- main menu buttons -->
+    <TableLayout
+        android:id="@+id/table_layout_main_menu"
+        style="@style/table_layout_menu"
+        android:layout_below="@+id/image_view_logo">
 
         <TableRow style="@style/table_row_menu">
             <TextView style="@style/text_view_menu_button" android:text="@string/button_start" android:onClick="startGame" />
-            <TextView style="@style/text_view_menu_button" android:text="@string/button_options" />
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_options" android:onClick="showOptions" />
             <TextView style="@style/text_view_menu_button" android:text="@string/button_tutorial" />
         </TableRow>
 
@@ -38,6 +44,42 @@
         </TableRow>
 
     </TableLayout>
+
+    <!-- option buttons -->
+    <TableLayout
+        android:visibility="gone"
+        android:id="@+id/table_layout_options_menu"
+        style="@style/table_layout_menu"
+        android:layout_below="@+id/image_view_logo">
+
+        <TableRow style="@style/table_row_menu">
+
+            <com.gamesbykevin.blocks.ui.CustomButton
+                android:id="@+id/customButtonSound"
+                app:entry_index_default="0"
+                android:entries="@array/custom_button_text_sound"
+                style="@style/text_view_menu_button" />
+
+            <com.gamesbykevin.blocks.ui.CustomButton
+                android:id="@+id/customButtonVibrate"
+                app:entry_index_default="0"
+                android:entries="@array/custom_button_text_vibrate"
+                style="@style/text_view_menu_button" />
+
+            <Spinner style="@style/spinner" android:id="@+id/spinner_texture" />
+
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu">
+            <Spinner style="@style/spinner" android:id="@+id/spinner_background" />
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu">
+            <TextView android:visibility="invisible" style="@style/text_view_menu_button" android:text="@string/button_achievement" />
+        </TableRow>
+
+    </TableLayout>
+
 
     <!-- social media icons -->
     <include layout="@layout/layout_social" />

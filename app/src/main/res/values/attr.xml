@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- custom attribute for the CustomButton -->
+    <declare-styleable name="CustomButton">
+
+        <!-- custom attribute so we can populate an array -->
+        <attr name="android:entries" />
+
+        <!-- which is the first entry displayed (optional) -->
+        <attr name="entry_index_default" format="integer" />
+    </declare-styleable>
+</resources>

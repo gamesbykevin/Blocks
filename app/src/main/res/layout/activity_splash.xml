@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.gamesbykevin.blocks.activity.MainActivity">
+
+    <!-- image background -->
+    <ImageView android:id="@+id/image_view_background" style="@style/image_view_background" />
+
+    <ImageView
+        android:id="@+id/image_view_website"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/website"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="15dp"
+        />
+
+    <ImageView
+        android:layout_below="@+id/image_view_website"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/loading"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        />
+
+</RelativeLayout>
