@@ -51,28 +51,24 @@ public class MainRenderer extends Renderer implements IDisposable {
 
     //different block textures
     public static final int[] BLOCK_TEXTURES = {
-        R.drawable.block,
-        R.drawable.block_grass,
-        R.drawable.block_rock,
-        R.drawable.block_water,
-        R.drawable.block_rocky,
-        R.drawable.block_snow,
-        R.drawable.block_tile,
-        R.drawable.block_wall
+        R.drawable.block, R.drawable.block_grass, R.drawable.block_rock,
+        R.drawable.block_water, R.drawable.block_rocky, R.drawable.block_snow,
+        R.drawable.block_tile, R.drawable.block_wall, R.drawable.block_moss,
+        R.drawable.block_violet, R.drawable.block_speckled, R.drawable.block_aqua,
+        R.drawable.block_dark, R.drawable.block_green, R.drawable.block_pattern,
+        R.drawable.block_pinkish, R.drawable.block_purple, R.drawable.block_sky,
+        R.drawable.block_stone, R.drawable.block_turquoise
     };
 
     //different backgrounds
     public static final int[] RESOURCE_BACKGROUND = {
-        R.drawable.background,
-        R.drawable.background1,
-        R.drawable.background2,
-        R.drawable.background3,
-        R.drawable.background4,
-        R.drawable.background5,
-        R.drawable.background6,
-        R.drawable.background7,
-        R.drawable.background8,
-        R.drawable.background9
+        R.drawable.background, R.drawable.background1, R.drawable.background2,
+        R.drawable.background3, R.drawable.background4, R.drawable.background5,
+        R.drawable.background6, R.drawable.background7, R.drawable.background8,
+        R.drawable.background9, R.drawable.background10, R.drawable.background11,
+        R.drawable.background12, R.drawable.background13, R.drawable.background14,
+        R.drawable.background15, R.drawable.background16, R.drawable.background17,
+        R.drawable.background18, R.drawable.background19
     };
 
     //the current background

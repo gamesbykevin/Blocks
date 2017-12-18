@@ -46,19 +46,41 @@
         <item>Snow</item>
         <item>Tile</item>
         <item>Wall</item>
+        <item>Moss</item>
+        <item>Violet</item>
+        <item>Speckled</item>
+        <item>Aqua</item>
+        <item>Dark</item>
+        <item>Green</item>
+        <item>Pattern</item>
+        <item>Pinkish</item>
+        <item>Purple</item>
+        <item>Sky</item>
+        <item>Stone</item>
+        <item>Turquoise</item>
     </array>
 
     <array name="spinner_text_background">
-        <item>Picture 1</item>
-        <item>Picture 2</item>
-        <item>Picture 3</item>
-        <item>Picture 4</item>
-        <item>Picture 5</item>
-        <item>Picture 6</item>
-        <item>Picture 7</item>
-        <item>Picture 8</item>
-        <item>Picture 9</item>
-        <item>Picture 10</item>
+        <item>Blue</item>
+        <item>Multi</item>
+        <item>Streak</item>
+        <item>Stripes</item>
+        <item>Dark Blue</item>
+        <item>Orange</item>
+        <item>Titan</item>
+        <item>Rainbow</item>
+        <item>Wood</item>
+        <item>Colors</item>
+        <item>Red</item>
+        <item>Brown</item>
+        <item>Gradient</item>
+        <item>Road</item>
+        <item>Galaxy</item>
+        <item>Fall</item>
+        <item>Town</item>
+        <item>Farm</item>
+        <item>Diagonal</item>
+        <item>Forest</item>
     </array>
 
 </resources>
