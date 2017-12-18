@@ -84,5 +84,7 @@
     <!-- social media icons -->
     <include layout="@layout/layout_social" />
 
+    <!-- include splash page -->
+    <include layout="@layout/activity_splash" android:id="@+id/layout_splash" android:visibility="gone"/>
 
 </RelativeLayout>

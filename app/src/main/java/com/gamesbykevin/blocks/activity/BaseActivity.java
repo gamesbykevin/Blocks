@@ -3,11 +3,14 @@ package com.gamesbykevin.blocks.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -16,6 +19,10 @@ import com.gamesbykevin.blocks.R;
 
 import java.util.Random;
 
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.SOUND_KEY;
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.VIBRATION_DURATION_DEFAULT;
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.loadSound;
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.setupVibration;
 import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_BACKGROUND;
 import static com.gamesbykevin.blocks.opengl.MainRenderer.RESOURCE_BACKGROUND;
 
@@ -60,6 +67,12 @@ public class BaseActivity extends AppCompatActivity {
 
     //our intent to access our social media urls
     private Intent intent;
+
+    //our vibrator object
+    protected Vibrator vibrator;
+
+    //list of all our game sounds
+    protected static SparseArray<MediaPlayer> SOUND;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +126,11 @@ public class BaseActivity extends AppCompatActivity {
             Log.d(TAG, "Screen Density: " + desc);
         }
 
+        //load our game sound
+        loadSound(this);
+
+        //assign the sound key so we can call from static context
+        BaseActivityHelper.SOUND_KEY = getString(R.string.file_key_sound);
     }
 
     @Override
@@ -120,6 +138,9 @@ public class BaseActivity extends AppCompatActivity {
 
         //call parent
         super.onResume();
+
+        //setup our vibration object
+        setupVibration(this);
 
         //pre-populate the background (if exists)
         setupBackground();
@@ -231,5 +252,39 @@ public class BaseActivity extends AppCompatActivity {
         //update the image background if the container exists
         if (imageView != null)
             imageView.setImageResource(RESOURCE_BACKGROUND[CURRENT_BACKGROUND]);
+
+        //obtain the splash page layout
+        View view = findViewById(R.id.layout_splash);
+
+        //if the view exists
+        if (view != null) {
+
+            //obtain the background from the splash page
+            ImageView iv = view.findViewById(R.id.image_view_background);
+
+            //if it exists we will change it to match
+            if (iv != null)
+                iv.setImageResource(RESOURCE_BACKGROUND[CURRENT_BACKGROUND]);
+        }
+    }
+
+    /**
+     * Vibrate the phone for the default duration
+     */
+    public void vibrate() {
+        vibrate(VIBRATION_DURATION_DEFAULT);
+    }
+
+    public void vibrate(final long duration) {
+
+        //if null we can't vibrate
+        if (this.vibrator == null)
+            return;
+
+        //if vibration isn't enabled, we can't vibrate
+        if (getPreferences().getInt(getString(R.string.file_key_vibrate), 0) != 0)
+            return;
+
+        this.vibrator.vibrate(duration);
     }
 }

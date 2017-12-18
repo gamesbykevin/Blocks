@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.gamesbykevin.blocks.R;
@@ -14,10 +13,11 @@ import com.gamesbykevin.blocks.ui.CustomButton;
 
 import org.rajawali3d.view.SurfaceView;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static com.gamesbykevin.blocks.activity.MainActivityHelper.updateSharedPreferences;
 import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_BACKGROUND;
 import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_TEXTURE;
-import static com.gamesbykevin.blocks.opengl.MainRenderer.RESOURCE_BACKGROUND;
 
 public class MainActivity extends BaseActivity {
 
@@ -75,6 +75,12 @@ public class MainActivity extends BaseActivity {
 
         //we have not yet prompted exit
         this.exit = false;
+
+        //hide the splash page
+        findViewById(R.id.layout_splash).setVisibility(GONE);
+
+        //display the rotating block
+        findViewById(R.id.game_surfaceView).setVisibility(VISIBLE);
     }
 
     @Override
@@ -118,6 +124,8 @@ public class MainActivity extends BaseActivity {
                 //before we go back, save the shared preferences
                 updateSharedPreferences(this);
 
+                //if disabled turn off sound
+
                 //go from options to the main menu
                 switchScreen(R.id.table_layout_main_menu);
                 break;
@@ -126,6 +134,12 @@ public class MainActivity extends BaseActivity {
     }
 
     public void startGame(View view) {
+
+        //hide the rotating block
+        findViewById(R.id.game_surfaceView).setVisibility(GONE);
+
+        //display the loading screen
+        findViewById(R.id.layout_splash).setVisibility(VISIBLE);
 
         //start the level select activity
         startActivity(new Intent(this, LevelSelectActivity.class));
@@ -146,13 +160,13 @@ public class MainActivity extends BaseActivity {
         switch (getScreen()) {
 
             case R.id.table_layout_main_menu:
-                findViewById(R.id.table_layout_main_menu).setVisibility(View.VISIBLE);
-                findViewById(R.id.table_layout_options_menu).setVisibility(View.GONE);
+                findViewById(R.id.table_layout_main_menu).setVisibility(VISIBLE);
+                findViewById(R.id.table_layout_options_menu).setVisibility(GONE);
                 break;
 
             case R.id.table_layout_options_menu:
-                findViewById(R.id.table_layout_main_menu).setVisibility(View.GONE);
-                findViewById(R.id.table_layout_options_menu).setVisibility(View.VISIBLE);
+                findViewById(R.id.table_layout_main_menu).setVisibility(GONE);
+                findViewById(R.id.table_layout_options_menu).setVisibility(VISIBLE);
                 break;
         }
     }
@@ -213,8 +227,8 @@ public class MainActivity extends BaseActivity {
                 //update the background position
                 CURRENT_BACKGROUND = position;
 
-                //obtain our image view background container and change the background
-                ((ImageView)findViewById(R.id.image_view_background)).setImageResource(RESOURCE_BACKGROUND[CURRENT_BACKGROUND]);
+                //update the image background
+                setupBackground();
             }
 
             @Override

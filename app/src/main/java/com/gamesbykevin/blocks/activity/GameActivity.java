@@ -78,7 +78,7 @@ public class GameActivity extends BaseActivity implements Runnable {
         //add our on click listeners for all the game control buttons
         setupControlListener(findViewById(R.id.game_controls));
 
-        //switch to the game screen
+        //switch to game screen
         switchScreen(R.id.game_surfaceView);
     }
 

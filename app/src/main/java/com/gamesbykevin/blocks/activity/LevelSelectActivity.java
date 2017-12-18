@@ -19,6 +19,9 @@ import com.gamesbykevin.blocks.levels.Levels;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 public class LevelSelectActivity extends BaseActivity {
 
     /**
@@ -62,12 +65,18 @@ public class LevelSelectActivity extends BaseActivity {
 
         //setup our onclick listener for the grid view
         getGridView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 //if not enabled, we can't do anything
-                if (view == null || !view.isEnabled())
+                if (view == null || !view.isEnabled()) {
+                    vibrate();
                     return;
+                }
+
+                //display the splash loading page
+                findViewById(R.id.layout_splash).setVisibility(VISIBLE);
 
                 LEVELS.setIndex(position);
                 startActivity(new Intent(getBaseContext(), GameActivity.class));
@@ -120,6 +129,9 @@ public class LevelSelectActivity extends BaseActivity {
             //scroll to the position
             getGridView().smoothScrollToPosition(position);
         }
+
+        //hide the splash layout for now
+        findViewById(R.id.layout_splash).setVisibility(GONE);
     }
 
     private void readPreferences() {

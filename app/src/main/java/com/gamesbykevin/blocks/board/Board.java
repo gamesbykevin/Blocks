@@ -1,5 +1,8 @@
 package com.gamesbykevin.blocks.board;
 
+import com.gamesbykevin.blocks.R;
+import com.gamesbykevin.blocks.activity.BaseActivity;
+import com.gamesbykevin.blocks.activity.BaseActivityHelper;
 import com.gamesbykevin.blocks.activity.GameActivity;
 import com.gamesbykevin.blocks.block.Block;
 import com.gamesbykevin.blocks.block.BlockHelper;
@@ -11,6 +14,7 @@ import org.rajawali3d.Object3D;
 
 import java.util.List;
 
+import static com.gamesbykevin.blocks.activity.GameActivity.getGame;
 import static com.gamesbykevin.blocks.board.Tile.START_Z;
 import static com.gamesbykevin.blocks.board.Tile.VELOCITY_Z_MAX;
 import static com.gamesbykevin.blocks.board.Tile.VELOCITY_Z_MIN;
@@ -112,14 +116,39 @@ public class Board implements ICommon {
         if (tile1 == null)
             return;
 
+        //are we on a weak block?
+        boolean weak = false;
+
+        //are we on a strong block?
+        boolean strong = false;
+
+        //are we activating a switch?
+        boolean switchOff = false;
+        boolean switchOn = false;
+
+        //are we on a hidden block
+        boolean hidden = false;
+
+        //is the block falling
+        boolean fall = false;
+
         //handle the tile type
         switch (tile1.getType()) {
 
+            case Hidden:
+            case HiddenDisplay:
+
+                //flag we are on this type of block
+                hidden = true;
+                break;
+
+            case Standard:
+            case Start:
+            case StartStanding:
             case Goal:
 
-                //if we are standing on the goal, let's hide it
-                //if (block.isStanding())
-                //    getTile(block.getCol(), block.getRow()).getObject3D().setVisible(false);
+                //flag we are on this type of block
+                strong = true;
                 break;
 
             case Weak:
@@ -130,8 +159,16 @@ public class Board implements ICommon {
                     //setup block to fall
                     BlockHelper.setupBlockFall(block, null);
 
+                    //we are falling
+                    fall = true;
+
                     //hide the tile
                     tile1.getObject3D().setVisible(false);
+
+                } else {
+
+                    //flag we are on this type of block
+                    weak = true;
                 }
                 break;
 
@@ -143,6 +180,17 @@ public class Board implements ICommon {
                         for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
                             Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
                             tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
+
+                            //only need to check the first tile
+                            if (x == 0) {
+                                if (tmp.getObject3D().isVisible()) {
+                                    switchOn = true;
+                                    switchOff = false;
+                                } else {
+                                    switchOn = false;
+                                    switchOff = true;
+                                }
+                            }
                         }
                         break;
                     }
@@ -160,6 +208,17 @@ public class Board implements ICommon {
                             for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
                                 Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
                                 tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
+
+                                //only need to check the first tile
+                                if (x == 0) {
+                                    if (tmp.getObject3D().isVisible()) {
+                                        switchOn = true;
+                                        switchOff = false;
+                                    } else {
+                                        switchOn = false;
+                                        switchOff = true;
+                                    }
+                                }
                             }
                             break;
                         }
@@ -178,13 +237,24 @@ public class Board implements ICommon {
                             for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
                                 Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
                                 tmp.getObject3D().setVisible(false);
+
+                                //only need to check the first tile
+                                if (x == 0) {
+                                    if (tmp.getObject3D().isVisible()) {
+                                        switchOn = true;
+                                        switchOff = false;
+                                    } else {
+                                        switchOn = false;
+                                        switchOff = true;
+                                    }
+                                }
                             }
                             break;
                         }
                     }
                 }
+                break;
         }
-
 
         int col2 = -1, row2 = -1;
 
@@ -225,6 +295,29 @@ public class Board implements ICommon {
         if (tile2 != null) {
 
             switch (tile2.getType()) {
+
+                case Hidden:
+                case HiddenDisplay:
+
+                    //flag we are on this type of block
+                    hidden = true;
+                    break;
+
+                case Standard:
+                case Start:
+                case StartStanding:
+                case Goal:
+
+                    //flag we are on this type of block
+                    strong = true;
+                    break;
+
+                case Weak:
+
+                    //flag we are on this type of block
+                    weak = true;
+                    break;
+
                 case SwitchLight:
 
                     for (int i = 0; i < switchesList.size(); i++) {
@@ -233,12 +326,38 @@ public class Board implements ICommon {
                             for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
                                 Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
                                 tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
+
+                                //only need to check the first tile
+                                if (x == 0) {
+                                    if (tmp.getObject3D().isVisible()) {
+                                        switchOn = true;
+                                        switchOff = false;
+                                    } else {
+                                        switchOn = false;
+                                        switchOff = true;
+                                    }
+                                }
                             }
                             break;
                         }
                     }
                     break;
             }
+        }
+
+        //play the appropriate sound effect
+        if (switchOn) {
+            BaseActivityHelper.playSound(R.raw.switch_on);
+        } else if (switchOff) {
+            BaseActivityHelper.playSound(R.raw.switch_off);
+        } else if (fall) {
+            BaseActivityHelper.playSoundFall();
+        } else if (strong && !weak && !hidden) {
+            BaseActivityHelper.playSoundRotateStrong();
+        } else if (weak) {
+            BaseActivityHelper.playSoundRotateWeak();
+        } else if (hidden) {
+            BaseActivityHelper.playSoundRotateHidden();
         }
     }
 

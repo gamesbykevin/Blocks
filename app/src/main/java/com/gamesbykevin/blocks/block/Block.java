@@ -1,10 +1,13 @@
 package com.gamesbykevin.blocks.block;
 
+import com.gamesbykevin.blocks.activity.BaseActivityHelper;
 import com.gamesbykevin.blocks.common.ICommon;
 
 import org.rajawali3d.math.vector.Vector3;
 import org.rajawali3d.primitives.RectangularPrism;
 
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.VIBRATION_DURATION_PLACE;
+import static com.gamesbykevin.blocks.activity.GameActivity.getGame;
 import static com.gamesbykevin.blocks.block.BlockHelper.HEIGHT_Z_LIMIT_FALL;
 import static com.gamesbykevin.blocks.block.BlockHelper.HEIGHT_Z_VERTICAL;
 import static com.gamesbykevin.blocks.block.BlockHelper.ROTATION;
@@ -264,6 +267,12 @@ public class Block implements ICommon {
 
                 //if we haven't reached the limit
                 getPrism().setZ(getPrism().getZ() - FALL_Z);
+
+                //if we reached the limit, vibrate the phone and play sound effect
+                if (getPrism().getZ() <= limit) {
+                    getGame().getActivity().vibrate(VIBRATION_DURATION_PLACE);
+                    BaseActivityHelper.playSoundRotateStrong();
+                }
 
             } else {
 

@@ -1,7 +1,11 @@
 package com.gamesbykevin.blocks.block;
 
+import com.gamesbykevin.blocks.R;
+import com.gamesbykevin.blocks.activity.BaseActivityHelper;
+
 import org.rajawali3d.math.vector.Vector3;
 
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.VIBRATION_DURATION_GOAL;
 import static com.gamesbykevin.blocks.activity.GameActivity.getGame;
 import static com.gamesbykevin.blocks.block.Block.MIN_Z_GOAL;
 import static com.gamesbykevin.blocks.block.Block.SCALE_ADJUST;
@@ -241,9 +245,9 @@ public class BlockHelper {
 
         //update the location
         block.getPrism().setPosition(
-                block.getPrism().getX() + xVel,
-                block.getPrism().getY() + yVel,
-                block.getPrism().getZ() + zVel
+            block.getPrism().getX() + xVel,
+            block.getPrism().getY() + yVel,
+            block.getPrism().getZ() + zVel
         );
 
         //keep track of were we are at with our rotation
@@ -262,8 +266,17 @@ public class BlockHelper {
                 //correct the height
                 block.getPrism().setZ(block.isStanding() ? HEIGHT_Z_VERTICAL : HEIGHT_Z);
 
+                //do we already have the goal
+                final boolean goal = block.hasGoal();
+
                 //update our goal status
                 block.setGoal(getGame().getBoard().hasGoal(block));
+
+                //if we achieved the goal for the first time, vibrate the phone and play sound effect
+                if (!goal && block.hasGoal()) {
+                    getGame().getActivity().vibrate(VIBRATION_DURATION_GOAL);
+                    BaseActivityHelper.playSoundGoal();
+                }
 
                 if (getGame().getBoard().hasFloor(block)) {
 
@@ -274,7 +287,12 @@ public class BlockHelper {
 
                     //if we aren't falling, and we are not on the goal then we need to start falling
                     if (!block.hasGoal()) {
+
+                        //setup the block to fall
                         setupBlockFall(block, getGame().getBoard().getDirectionFall(block));
+
+                        //play sound effect
+                        BaseActivityHelper.playSoundFall();
                     }
                 }
 
