@@ -45,7 +45,8 @@ public class BaseActivityHelper {
         R.raw.rotate_strong_1, R.raw.rotate_strong_2, R.raw.rotate_strong_3,
         R.raw.rotate_weak_1, R.raw.rotate_weak_2, R.raw.rotate_weak_3, R.raw.rotate_weak_4,
         R.raw.rotate_hidden_1, R.raw.rotate_hidden_2,
-        R.raw.switch_off, R.raw.switch_on
+        R.raw.switch_off, R.raw.switch_on,
+        R.raw.menu, R.raw.theme
     };
 
     protected static String SOUND_KEY;
@@ -117,12 +118,14 @@ public class BaseActivityHelper {
 
     protected static void loadSound(BaseActivity activity) {
 
-        if (activity.SOUND == null)
+        //if null load the sound
+        if (activity.SOUND == null) {
             activity.SOUND = new SparseArray<>();
 
-        //load all the sounds in the game
-        for (int i = 0; i < RESOURCE_SOUNDS.length; i++) {
-            activity.SOUND.put(RESOURCE_SOUNDS[i], MediaPlayer.create(activity, RESOURCE_SOUNDS[i]));
+            //load all the sounds in the game
+            for (int i = 0; i < RESOURCE_SOUNDS.length; i++) {
+                activity.SOUND.put(RESOURCE_SOUNDS[i], MediaPlayer.create(activity, RESOURCE_SOUNDS[i]));
+            }
         }
     }
 
@@ -143,7 +146,8 @@ public class BaseActivityHelper {
             return;
 
         //don't stop, only pause the sound
-        sound.pause();
+        if (sound.isPlaying() || sound.isLooping())
+            sound.pause();
     }
 
     public static void playSoundGoal() {

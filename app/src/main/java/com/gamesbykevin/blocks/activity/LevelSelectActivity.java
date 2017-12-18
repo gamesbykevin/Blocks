@@ -72,6 +72,7 @@ public class LevelSelectActivity extends BaseActivity {
                 //if not enabled, we can't do anything
                 if (view == null || !view.isEnabled()) {
                     vibrate();
+                    BaseActivityHelper.playSoundFall();
                     return;
                 }
 
@@ -132,6 +133,9 @@ public class LevelSelectActivity extends BaseActivity {
 
         //hide the splash layout for now
         findViewById(R.id.layout_splash).setVisibility(GONE);
+
+        //resume menu music
+        BaseActivityHelper.playSound(R.raw.menu, true, false);
     }
 
     private void readPreferences() {

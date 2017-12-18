@@ -23,6 +23,9 @@ import static com.gamesbykevin.blocks.activity.GameOverActivity.PARAM_NAME;
 
 public class GameActivity extends BaseActivity implements Runnable {
 
+    //does the user want to exit?
+    private boolean exit = false;
+
     //our main thread
     private Thread thread;
 
@@ -40,12 +43,6 @@ public class GameActivity extends BaseActivity implements Runnable {
 
     //keep reference to our renderer object
     private Renderer renderer;
-
-    //the current assigned screen
-    private int screen;
-
-    //our runnable function for the ui thread
-    private Runnable runnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,13 +74,13 @@ public class GameActivity extends BaseActivity implements Runnable {
 
         //add our on click listeners for all the game control buttons
         setupControlListener(findViewById(R.id.game_controls));
-
-        //switch to game screen
-        switchScreen(R.id.game_surfaceView);
     }
 
     @Override
     public void onResume() {
+
+        //we have not yet prompted exit
+        this.exit = false;
 
         try {
 
@@ -112,6 +109,9 @@ public class GameActivity extends BaseActivity implements Runnable {
 
         //display thread created
         Log.d(TAG, "Thread created: " + this.thread.getName());
+
+        //resume theme music
+        BaseActivityHelper.playSound(R.raw.theme, true, false);
     }
 
     @Override
@@ -140,19 +140,20 @@ public class GameActivity extends BaseActivity implements Runnable {
     @Override
     public void onBackPressed() {
 
-        switch (getScreen()) {
+        if (!exit) {
 
-            case R.id.game_controls:
-            case R.id.game_surfaceView:
-                switchScreen(R.id.game_exit);
-                break;
+            //prompt user for exit
+            super.displayMessage(getString(R.string.exit_game_prompt));
 
-            case R.id.game_exit:
-                return;
+            //flag exit prompt
+            this.exit = true;
 
-            default:
-                throw new RuntimeException("Screen not handled : " + getScreen());
+        } else {
+
+            //close the activity
+            finish();
         }
+
     }
 
     @Override
@@ -170,9 +171,6 @@ public class GameActivity extends BaseActivity implements Runnable {
             game.dispose();
             game = null;
         }
-
-        if (this.runnable != null)
-            this.runnable = null;
     }
 
     @Override
@@ -256,68 +254,5 @@ public class GameActivity extends BaseActivity implements Runnable {
 
     public Renderer getRenderer() {
         return this.renderer;
-    }
-
-    public int getScreen() {
-        return this.screen;
-    }
-
-    public void switchScreen(final int resId) {
-
-        //assign the current screen
-        this.screen = resId;
-
-        //create our runnable process for the ui thread
-        if (this.runnable == null) {
-
-            this.runnable = new Runnable() {
-                @Override
-                public void run() {
-
-                    //hide all by default
-                    findViewById(R.id.game_surfaceView).setVisibility(INVISIBLE);
-                    findViewById(R.id.game_controls).setVisibility(INVISIBLE);
-                    findViewById(R.id.game_exit).setVisibility(INVISIBLE);
-
-                    //display the correct screen(s)
-                    switch (getScreen()) {
-
-                        case R.id.game_controls:
-                        case R.id.game_surfaceView:
-                            findViewById(R.id.game_surfaceView).setVisibility(VISIBLE);
-                            findViewById(R.id.game_controls).setVisibility(VISIBLE);
-                            break;
-
-                        case R.id.game_exit:
-                            findViewById(R.id.game_exit).setVisibility(VISIBLE);
-                            break;
-
-                        default:
-                            throw new RuntimeException("Screen not handled : " + resId);
-                    }
-                }
-            };
-        }
-
-        //make sure this is run on the main thread
-        runOnUiThread(this.runnable);
-    }
-
-    public void confirmYes(View view) {
-
-        //pause to stop the thread
-        onPause();
-
-        //destroy the activity
-        finish();
-
-        //go back to the level select activity
-        startActivity(new Intent(getBaseContext(), LevelSelectActivity.class));
-    }
-
-    public void confirmNo(View view) {
-
-        //go back to our game
-        switchScreen(R.id.game_surfaceView);
     }
 }

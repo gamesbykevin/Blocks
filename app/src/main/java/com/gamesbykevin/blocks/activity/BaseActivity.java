@@ -19,10 +19,10 @@ import com.gamesbykevin.blocks.R;
 
 import java.util.Random;
 
-import static com.gamesbykevin.blocks.activity.BaseActivityHelper.SOUND_KEY;
 import static com.gamesbykevin.blocks.activity.BaseActivityHelper.VIBRATION_DURATION_DEFAULT;
 import static com.gamesbykevin.blocks.activity.BaseActivityHelper.loadSound;
 import static com.gamesbykevin.blocks.activity.BaseActivityHelper.setupVibration;
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.stopSound;
 import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_BACKGROUND;
 import static com.gamesbykevin.blocks.opengl.MainRenderer.RESOURCE_BACKGROUND;
 
@@ -127,7 +127,7 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         //load our game sound
-        loadSound(this);
+        loadSound(getActivity());
 
         //assign the sound key so we can call from static context
         BaseActivityHelper.SOUND_KEY = getString(R.string.file_key_sound);
@@ -151,6 +151,9 @@ public class BaseActivity extends AppCompatActivity {
 
         //call parent
         super.onPause();
+
+        //stop any existing sound on pause
+        stopSound();
     }
 
     @Override

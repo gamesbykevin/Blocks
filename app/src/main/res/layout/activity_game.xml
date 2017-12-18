@@ -19,7 +19,4 @@
     <!-- the game controls -->
     <include android:id="@+id/game_controls" layout="@layout/layout_game_controls" />
 
-    <!-- confirm exit -->
-    <include android:id="@+id/game_exit" layout="@layout/layout_exit_confirm" />
-
 </RelativeLayout>

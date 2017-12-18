@@ -51,6 +51,9 @@ public class GameOverActivity extends BaseActivity {
 
         //call parent
         super.onResume();
+
+        //resume theme music
+        BaseActivityHelper.playSound(R.raw.theme, true, false);
     }
 
     @Override

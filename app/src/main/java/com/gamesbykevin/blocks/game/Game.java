@@ -144,10 +144,6 @@ public class Game implements ICommon {
         if (getBlock() == null || getBoard() == null)
             return;
 
-        //make sure we are playing the game
-        if (getActivity().getScreen() != R.id.game_surfaceView && getActivity().getScreen() != R.id.game_controls)
-            return;
-
         if (getBlock().isDead()) {
 
             //if the block is falling out of bounds let's reset the level

@@ -47,10 +47,6 @@
         <item name="android:layout_height">105dp</item>
     </style>
 
-    <style name="overlay_image_view_confirm" parent="overlay_image_view">
-        <item name="android:layout_margin">25dp</item>
-    </style>
-
     <style name="text_view_menu_button">
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/button</item>

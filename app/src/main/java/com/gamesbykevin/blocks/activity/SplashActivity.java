@@ -6,6 +6,7 @@ import android.os.Handler;
 
 import com.gamesbykevin.blocks.R;
 
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.loadSound;
 import static com.gamesbykevin.blocks.activity.MainActivityHelper.retrieveSharedPreferences;
 
 public class SplashActivity extends BaseActivity {

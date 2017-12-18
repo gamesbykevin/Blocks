@@ -81,6 +81,9 @@ public class MainActivity extends BaseActivity {
 
         //display the rotating block
         findViewById(R.id.game_surfaceView).setVisibility(VISIBLE);
+
+        //resume menu music
+        BaseActivityHelper.playSound(R.raw.menu, true, false);
     }
 
     @Override

@@ -18,6 +18,7 @@
     <string name="game_over_text">Completed</string>
     <string name="exit_level_confirm">Confirm Exit?</string>
     <string name="exit_app_prompt">Press again to exit</string>
+    <string name="exit_game_prompt">Press again to go back</string>
     <string name="button_start">Start</string>
     <string name="button_options">Options</string>
     <string name="button_tutorial">Tutorial</string>
