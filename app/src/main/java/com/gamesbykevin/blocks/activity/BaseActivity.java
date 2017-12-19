@@ -23,8 +23,8 @@ import static com.gamesbykevin.blocks.activity.BaseActivityHelper.VIBRATION_DURA
 import static com.gamesbykevin.blocks.activity.BaseActivityHelper.loadSound;
 import static com.gamesbykevin.blocks.activity.BaseActivityHelper.setupVibration;
 import static com.gamesbykevin.blocks.activity.BaseActivityHelper.stopSound;
-import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_BACKGROUND;
-import static com.gamesbykevin.blocks.opengl.MainRenderer.RESOURCE_BACKGROUND;
+import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.CURRENT_BACKGROUND;
+import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.RESOURCE_BACKGROUND;
 
 public class BaseActivity extends AppCompatActivity {
 

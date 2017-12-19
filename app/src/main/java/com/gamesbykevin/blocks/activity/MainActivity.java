@@ -8,16 +8,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.gamesbykevin.blocks.R;
-import com.gamesbykevin.blocks.opengl.MainRenderer;
+import com.gamesbykevin.blocks.opengl.MainActivityRenderer;
 import com.gamesbykevin.blocks.ui.CustomButton;
 
 import org.rajawali3d.view.SurfaceView;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.RESOURCE_SOUNDS;
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.SOUND_KEY;
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.stopSound;
 import static com.gamesbykevin.blocks.activity.MainActivityHelper.updateSharedPreferences;
-import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_BACKGROUND;
-import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_TEXTURE;
+import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.CURRENT_BACKGROUND;
+import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.CURRENT_TEXTURE;
 
 public class MainActivity extends BaseActivity {
 
@@ -28,7 +31,7 @@ public class MainActivity extends BaseActivity {
     private int screen;
 
     //renderer for the block
-    private MainRenderer renderer;
+    private MainActivityRenderer renderer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         //create our renderer
-        this.renderer = new MainRenderer(this);
+        this.renderer = new MainActivityRenderer(this);
 
         //obtain our surface view
         SurfaceView surfaceView = findViewById(R.id.game_surfaceView);
@@ -92,6 +95,26 @@ public class MainActivity extends BaseActivity {
         //call parent
         super.onDestroy();
 
+        SurfaceView surfaceView = findViewById(R.id.game_surfaceView);
+
+        if (surfaceView != null) {
+            surfaceView.destroyDrawingCache();
+            surfaceView = null;
+        }
+
+        if (SOUND != null) {
+
+            for (int i = 0; i < RESOURCE_SOUNDS.length; i++) {
+                if (SOUND.get(RESOURCE_SOUNDS[i]) != null) {
+                    SOUND.get(RESOURCE_SOUNDS[i]).release();
+                    SOUND.put(RESOURCE_SOUNDS[i], null);
+                }
+            }
+
+            SOUND.clear();
+            SOUND = null;
+        }
+
         if (this.renderer != null) {
             this.renderer.dispose();
             this.renderer = null;
@@ -128,6 +151,11 @@ public class MainActivity extends BaseActivity {
                 updateSharedPreferences(this);
 
                 //if disabled turn off sound
+                if (getPreferences().getInt(SOUND_KEY, 0) != 0) {
+                    stopSound();
+                } else {
+                    BaseActivityHelper.playSound(R.raw.menu, true, false);
+                }
 
                 //go from options to the main menu
                 switchScreen(R.id.table_layout_main_menu);

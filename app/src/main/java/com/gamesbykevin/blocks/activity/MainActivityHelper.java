@@ -5,7 +5,7 @@ import android.content.SharedPreferences.Editor;
 import android.widget.Spinner;
 
 import com.gamesbykevin.blocks.R;
-import com.gamesbykevin.blocks.opengl.MainRenderer;
+import com.gamesbykevin.blocks.opengl.MainActivityRenderer;
 import com.gamesbykevin.blocks.ui.CustomButton;
 
 /**
@@ -19,10 +19,10 @@ public class MainActivityHelper {
         SharedPreferences preferences = BaseActivity.getPreferences();
 
         //retrieve our background setting
-        MainRenderer.CURRENT_BACKGROUND = preferences.getInt(activity.getString(R.string.file_key_background), 0);
+        MainActivityRenderer.CURRENT_BACKGROUND = preferences.getInt(activity.getString(R.string.file_key_background), 0);
 
         //retrieve our texture setting
-        MainRenderer.CURRENT_TEXTURE = preferences.getInt(activity.getString(R.string.file_key_texture), 0);
+        MainActivityRenderer.CURRENT_TEXTURE = preferences.getInt(activity.getString(R.string.file_key_texture), 0);
     }
 
     protected static void updateSharedPreferences(MainActivity activity) {

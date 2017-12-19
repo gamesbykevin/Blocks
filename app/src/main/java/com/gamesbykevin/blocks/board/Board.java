@@ -105,260 +105,8 @@ public class Board implements ICommon {
         }
     }
 
-    public void checkMisc(Block block) {
-
-        Tile tile1 = null, tile2 = null;
-
-        //we the base tile
-        tile1 = getTile(block.getCol(), block.getRow());
-
-        //no tile beneath
-        if (tile1 == null)
-            return;
-
-        //are we on a weak block?
-        boolean weak = false;
-
-        //are we on a strong block?
-        boolean strong = false;
-
-        //are we activating a switch?
-        boolean switchOff = false;
-        boolean switchOn = false;
-
-        //are we on a hidden block
-        boolean hidden = false;
-
-        //is the block falling
-        boolean fall = false;
-
-        //handle the tile type
-        switch (tile1.getType()) {
-
-            case Hidden:
-            case HiddenDisplay:
-
-                //flag we are on this type of block
-                hidden = true;
-                break;
-
-            case Standard:
-            case Start:
-            case StartStanding:
-            case Goal:
-
-                //flag we are on this type of block
-                strong = true;
-                break;
-
-            case Weak:
-
-                //if standing on a weak block we need to fall through the floor
-                if (block.isStanding()) {
-
-                    //setup block to fall
-                    BlockHelper.setupBlockFall(block, null);
-
-                    //we are falling
-                    fall = true;
-
-                    //hide the tile
-                    tile1.getObject3D().setVisible(false);
-
-                } else {
-
-                    //flag we are on this type of block
-                    weak = true;
-                }
-                break;
-
-            case SwitchLight:
-
-                for (int i = 0; i < switchesList.size(); i++) {
-                    if (block.getCol() == switchesList.get(i).sourceCol && block.getRow() == switchesList.get(i).sourceRow) {
-
-                        for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
-                            Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
-                            tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
-
-                            //only need to check the first tile
-                            if (x == 0) {
-                                if (tmp.getObject3D().isVisible()) {
-                                    switchOn = true;
-                                    switchOff = false;
-                                } else {
-                                    switchOn = false;
-                                    switchOff = true;
-                                }
-                            }
-                        }
-                        break;
-                    }
-                }
-                break;
-
-            case SwitchHeavy:
-
-                //we are required to stand on this switch
-                if (block.isStanding()) {
-
-                    for (int i = 0; i < switchesList.size(); i++) {
-                        if (block.getCol() == switchesList.get(i).sourceCol && block.getRow() == switchesList.get(i).sourceRow) {
-
-                            for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
-                                Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
-                                tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
-
-                                //only need to check the first tile
-                                if (x == 0) {
-                                    if (tmp.getObject3D().isVisible()) {
-                                        switchOn = true;
-                                        switchOff = false;
-                                    } else {
-                                        switchOn = false;
-                                        switchOff = true;
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    }
-                }
-                break;
-
-            case SwitchHeavyOnlyHidden:
-
-                //we are required to stand on this switch
-                if (block.isStanding()) {
-
-                    for (int i = 0; i < switchesList.size(); i++) {
-                        if (block.getCol() == switchesList.get(i).sourceCol && block.getRow() == switchesList.get(i).sourceRow) {
-
-                            for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
-                                Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
-                                tmp.getObject3D().setVisible(false);
-
-                                //only need to check the first tile
-                                if (x == 0) {
-                                    if (tmp.getObject3D().isVisible()) {
-                                        switchOn = true;
-                                        switchOff = false;
-                                    } else {
-                                        switchOn = false;
-                                        switchOff = true;
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    }
-                }
-                break;
-        }
-
-        int col2 = -1, row2 = -1;
-
-        //if the block isn't standing we need to get the other tile
-        if (!block.isStanding()) {
-
-            switch (block.getCurrent()) {
-                case North:
-                case South:
-
-                    if (!block.isVertical()) {
-                        col2 = block.getCol() + 1;
-                        row2 = block.getRow();
-                    } else {
-                        col2 = block.getCol();
-                        row2 = block.getRow() + 1;
-                    }
-                    break;
-
-                case West:
-                case East:
-
-                    if (!block.isVertical()) {
-                        col2 = block.getCol();
-                        row2 = block.getRow() + 1;
-                    } else {
-                        col2 = block.getCol() + 1;
-                        row2 = block.getRow();
-                    }
-                    break;
-            }
-        }
-
-        //get the tile reference
-        tile2 = getTile(col2, row2);
-
-        //if the tile exists, check it
-        if (tile2 != null) {
-
-            switch (tile2.getType()) {
-
-                case Hidden:
-                case HiddenDisplay:
-
-                    //flag we are on this type of block
-                    hidden = true;
-                    break;
-
-                case Standard:
-                case Start:
-                case StartStanding:
-                case Goal:
-
-                    //flag we are on this type of block
-                    strong = true;
-                    break;
-
-                case Weak:
-
-                    //flag we are on this type of block
-                    weak = true;
-                    break;
-
-                case SwitchLight:
-
-                    for (int i = 0; i < switchesList.size(); i++) {
-                        if (col2 == switchesList.get(i).sourceCol && row2 == switchesList.get(i).sourceRow) {
-
-                            for (int x = 0; x < switchesList.get(i).connections.size(); x++) {
-                                Tile tmp = getTile(switchesList.get(i).connections.get(x).col, switchesList.get(i).connections.get(x).row);
-                                tmp.getObject3D().setVisible(!tmp.getObject3D().isVisible());
-
-                                //only need to check the first tile
-                                if (x == 0) {
-                                    if (tmp.getObject3D().isVisible()) {
-                                        switchOn = true;
-                                        switchOff = false;
-                                    } else {
-                                        switchOn = false;
-                                        switchOff = true;
-                                    }
-                                }
-                            }
-                            break;
-                        }
-                    }
-                    break;
-            }
-        }
-
-        //play the appropriate sound effect
-        if (switchOn) {
-            BaseActivityHelper.playSound(R.raw.switch_on);
-        } else if (switchOff) {
-            BaseActivityHelper.playSound(R.raw.switch_off);
-        } else if (fall) {
-            BaseActivityHelper.playSoundFall();
-        } else if (strong && !weak && !hidden) {
-            BaseActivityHelper.playSoundRotateStrong();
-        } else if (weak) {
-            BaseActivityHelper.playSoundRotateWeak();
-        } else if (hidden) {
-            BaseActivityHelper.playSoundRotateHidden();
-        }
+    public List<Level.Connector> getSwitchesList() {
+        return this.switchesList;
     }
 
     public boolean hasGoal(Block block) {
@@ -587,24 +335,19 @@ public class Board implements ICommon {
                 //make everything visible (for now)
                 getTile(col, row).getObject3D().setVisible(true);
 
-                //add it to the render scene so we can view it
-                //if (renderer != null)
-                //    renderer.getCurrentScene().addChild(getTile(col, row).getObject3D());
-
                 switch (getTile(col, row).getType()) {
 
                     case Hidden:
                         getTile(col, row).getObject3D().setVisible(false);
                         break;
 
+                    case SwitchLightHiddenOnly:
                     case SwitchLight:
 
                         if (renderer != null)
                             getTile(col, row).setMisc3D(renderer.getMisc()[OBJECT3D_SWITCH_1].clone());
                         break;
 
-
-                    case SwitchHeavyOnlyHidden:
                     case SwitchHeavy:
 
                         if (renderer != null)

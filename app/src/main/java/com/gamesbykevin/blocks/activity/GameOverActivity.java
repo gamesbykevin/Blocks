@@ -57,6 +57,13 @@ public class GameOverActivity extends BaseActivity {
     }
 
     @Override
+    public void onDestroy() {
+
+        //call parent
+        super.onDestroy();
+    }
+
+    @Override
     public void onBackPressed() {
 
         //don't allow the user to go back

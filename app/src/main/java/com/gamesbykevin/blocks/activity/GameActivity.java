@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.game.Game;
+import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
 import org.rajawali3d.view.SurfaceView;
@@ -152,8 +153,10 @@ public class GameActivity extends BaseActivity implements Runnable {
 
             //close the activity
             finish();
-        }
 
+            //go back to the level select screen
+            startActivity(new Intent(getBaseContext(), LevelSelectActivity.class));
+        }
     }
 
     @Override

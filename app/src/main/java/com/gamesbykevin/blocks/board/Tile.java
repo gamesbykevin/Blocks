@@ -57,16 +57,16 @@ public class Tile implements IDisposable {
         //this switch needs a lot of pressure and only works when standing
         SwitchHeavy("B"),
 
-        //this switch only works when standing on it, and it only hides blocks
-        SwitchHeavyOnlyHidden("A"),
+        //this switch only hides blocks when we hit it
+        SwitchLightHiddenOnly("A"),
 
         //this switch you just need to lay on it
         SwitchLight("L"),
 
-        //this block is hidden and can't be seen until the switch is hit
+        //this block is hidden at first and can't be seen until the switch is hit
         Hidden("H"),
 
-        //this block is displayed, but will be hidden if a switch is hit
+        //this block is displayed first, but will be hidden if a switch is hit
         HiddenDisplay("D"),
 
         //this is the goal to complete a level

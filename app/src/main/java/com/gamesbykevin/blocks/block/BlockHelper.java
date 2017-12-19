@@ -2,6 +2,7 @@ package com.gamesbykevin.blocks.block;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.activity.BaseActivityHelper;
+import com.gamesbykevin.blocks.board.BoardHelper;
 
 import org.rajawali3d.math.vector.Vector3;
 
@@ -281,7 +282,7 @@ public class BlockHelper {
                 if (getGame().getBoard().hasFloor(block)) {
 
                     //check the floor to see if anything needs to be changed
-                    getGame().getBoard().checkMisc(block);
+                    BoardHelper.checkTiles(getGame().getBoard(), block);
 
                 } else {
 

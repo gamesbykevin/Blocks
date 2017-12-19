@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.opengl.GLES20;
 
 import com.gamesbykevin.blocks.R;
-import com.gamesbykevin.blocks.levels.Level;
 
 import org.rajawali3d.loader.LoaderSTL;
 import org.rajawali3d.materials.Material;
@@ -14,8 +13,8 @@ import org.rajawali3d.math.vector.Vector3;
 import org.rajawali3d.primitives.Plane;
 import org.rajawali3d.primitives.RectangularPrism;
 
-import static com.gamesbykevin.blocks.opengl.MainRenderer.BLOCK_TEXTURES;
-import static com.gamesbykevin.blocks.opengl.MainRenderer.CURRENT_TEXTURE;
+import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.BLOCK_TEXTURES;
+import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.CURRENT_TEXTURE;
 
 /**
  * Created by Kevin on 12/11/2017.
