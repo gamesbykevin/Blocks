@@ -151,9 +151,6 @@ public class GameActivity extends BaseActivity implements Runnable {
 
         } else {
 
-            //close the activity
-            finish();
-
             //go back to the level select screen
             startActivity(new Intent(getBaseContext(), LevelSelectActivity.class));
         }

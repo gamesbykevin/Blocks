@@ -1,6 +1,5 @@
 package com.gamesbykevin.blocks.block;
 
-import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.activity.BaseActivityHelper;
 import com.gamesbykevin.blocks.board.BoardHelper;
 

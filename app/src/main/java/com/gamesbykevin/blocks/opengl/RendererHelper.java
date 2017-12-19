@@ -46,6 +46,11 @@ public class RendererHelper {
      */
     public static final double MISC_HEIGHT_Z = FLOOR_DEPTH + .25;
 
+    /**
+     * How many times do we try to load the resources before failing
+     */
+    public static final int LIMIT = 10;
+
     protected static void createContainers(Renderer renderer) {
 
         //create our containers to place the images within for the level # and timer
@@ -102,10 +107,22 @@ public class RendererHelper {
         renderer.textures[index].setDiffuseMethod(new DiffuseMethod.Lambert());
         renderer.textures[index].setColorInfluence(0f);
 
-        try {
-            renderer.textures[index].addTexture(new Texture(desc, resId));
-        } catch (Exception e) {
-            e.printStackTrace();
+        int count = 0;
+
+        //attempt to load the texture x number of times
+        while (count < LIMIT) {
+            try {
+
+                renderer.textures[index].addTexture(new Texture(desc, resId));
+                break;
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+
+                //keep track of attempts
+                count++;
+            }
         }
     }
 
@@ -134,22 +151,30 @@ public class RendererHelper {
         materialFloorGoal.setDiffuseMethod(new DiffuseMethod.Lambert());
         materialFloorGoal.setColorInfluence(0f);
 
-        try {
+        int count = 0;
 
-            materialFloor.addTexture(new Texture("Floor", R.drawable.floor));
-            materialFloorWeak.addTexture(new Texture("FloorWeak", R.drawable.floor_weak));
-            materialFloorHidden.addTexture(new Texture("FloorHidden", R.drawable.floor_hidden));
-            materialFloorGoal.addTexture(new Texture("FloorGoal", R.drawable.goal));
+        //attempt to load the texture x number of times
+        while (count < LIMIT) {
 
-        } catch (Exception e) {
+            try {
+                materialFloor.addTexture(new Texture("Floor", R.drawable.floor));
+                materialFloorWeak.addTexture(new Texture("FloorWeak", R.drawable.floor_weak));
+                materialFloorHidden.addTexture(new Texture("FloorHidden", R.drawable.floor_hidden));
+                materialFloorGoal.addTexture(new Texture("FloorGoal", R.drawable.goal));
+                break;
+            } catch (Exception e) {
 
-            e.printStackTrace();
+                e.printStackTrace();
 
-            //color material if we couldn't load a texture
-            materialFloor.setColor(Color.GRAY);
-            materialFloorWeak.setColor(Color.YELLOW);
-            materialFloorHidden.setColor(Color.GREEN);
-            materialFloorGoal.setColor(Color.RED);
+                //color material if we couldn't load a texture
+                materialFloor.setColor(Color.GRAY);
+                materialFloorWeak.setColor(Color.YELLOW);
+                materialFloorHidden.setColor(Color.GREEN);
+                materialFloorGoal.setColor(Color.RED);
+
+                //keep track of attempts
+                count++;
+            }
         }
 
         renderer.getBlocks()[PRISM_FLOOR_STANDARD] = new RectangularPrism(1f, 1f, FLOOR_DEPTH);
@@ -180,17 +205,29 @@ public class RendererHelper {
         materialBlock.setDiffuseMethod(new DiffuseMethod.Lambert());
         materialBlock.setColorInfluence(0f);
 
-        try {
+        int count = 0;
 
-            //load and add texture to material
-            materialBlock.addTexture(new Texture("Block", BLOCK_TEXTURES[CURRENT_TEXTURE]));
+        //attempt to load the texture x number of times
+        while (count < LIMIT) {
 
-        } catch (Exception e) {
+            try {
 
-            e.printStackTrace();
+                //load and add texture to material
+                materialBlock.addTexture(new Texture("Block", BLOCK_TEXTURES[CURRENT_TEXTURE]));
 
-            //color material if we couldn't load a texture
-            materialBlock.setColor(Color.CYAN);
+                //since we are successful, exit the loop
+                break;
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+
+                //color material if we couldn't load a texture
+                materialBlock.setColor(Color.CYAN);
+
+                //keep track of the count
+                count++;
+            }
         }
 
         //create our rectangle block
@@ -205,39 +242,62 @@ public class RendererHelper {
      */
     protected static void createMisc(Renderer renderer) {
 
-        try {
+        Material material = new Material();
+        material.enableLighting(true);
+        material.setDiffuseMethod(new DiffuseMethod.Lambert());
+        material.setColorInfluence(0f);
 
-            Material material = new Material();
-            material.enableLighting(true);
-            material.setDiffuseMethod(new DiffuseMethod.Lambert());
-            material.setColorInfluence(0f);
+        int count = 0;
+
+        //attempt to load the texture x number of times
+        while (count < LIMIT) {
 
             try {
+
+                //add the texture
                 material.addTexture(new Texture("Switch", R.drawable.switches));
+
+                //since we are successful, exit the loop
+                break;
+
             } catch (Exception e) {
 
                 e.printStackTrace();
 
                 //color material if we couldn't load a texture
                 material.setColor(Color.BLUE);
+
+                //keep track of the count
+                count++;
             }
-
-            LoaderSTL loaderSTL = new LoaderSTL(renderer.getContext().getResources(), renderer.getTextureManager(), R.raw.switch_1_stl);
-            loaderSTL.parse();
-            renderer.getMisc()[OBJECT3D_SWITCH_1] = loaderSTL.getParsedObject();
-            renderer.getMisc()[OBJECT3D_SWITCH_1].setPosition(0,0, MISC_HEIGHT_Z);
-            renderer.getMisc()[OBJECT3D_SWITCH_1].setMaterial(material);
-            renderer.getMisc()[OBJECT3D_SWITCH_1].setScale(.04);
-
-            loaderSTL = new LoaderSTL(renderer.getContext().getResources(), renderer.getTextureManager(), R.raw.switch_2_stl);
-            loaderSTL.parse();
-            renderer.getMisc()[OBJECT3D_SWITCH_2] = loaderSTL.getParsedObject();
-            renderer.getMisc()[OBJECT3D_SWITCH_2].setPosition(1,0, MISC_HEIGHT_Z);
-            renderer.getMisc()[OBJECT3D_SWITCH_2].setMaterial(material);
-            renderer.getMisc()[OBJECT3D_SWITCH_2].setScale(.04);
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+
+        //load the 2 switch models
+        loadModel(renderer, OBJECT3D_SWITCH_1, material, R.raw.switch_1_stl, 0);
+        loadModel(renderer, OBJECT3D_SWITCH_2, material, R.raw.switch_2_stl, 1);
+    }
+
+    private static void loadModel(Renderer renderer, int index, Material material, int resId, int col) {
+
+        int count = 0;
+
+        LoaderSTL loaderSTL = null;
+
+        //attempt to load the 3d model x number of times
+        while (count < LIMIT) {
+            try {
+                loaderSTL = new LoaderSTL(renderer.getContext().getResources(), renderer.getTextureManager(), resId);
+                loaderSTL.parse();
+                break;
+            } catch (Exception e) {
+                e.printStackTrace();
+                count++;
+            }
+        }
+
+        renderer.getMisc()[index] = loaderSTL.getParsedObject();
+        renderer.getMisc()[index].setPosition(col,0, MISC_HEIGHT_Z);
+        renderer.getMisc()[index].setMaterial(material);
+        renderer.getMisc()[index].setScale(.04);
     }
 }

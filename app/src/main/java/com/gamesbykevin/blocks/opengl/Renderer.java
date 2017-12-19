@@ -192,17 +192,15 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
     }
 
     @Override
-    public void onRenderFrame(GL10 unused) {
-        super.onRenderFrame(unused);
-    }
-
-    @Override
     public void onRenderSurfaceSizeChanged(GL10 gl, int width, int height) {
         super.onRenderSurfaceSizeChanged(gl, width, height);
     }
 
     @Override
     public void onRender(final long elapsedTime, final double deltaTime) {
+
+        if (this.misc == null || this.textures == null || this.containers == null)
+            return;
 
         //call parent to render objects
         super.onRender(elapsedTime, deltaTime);

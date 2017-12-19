@@ -19,6 +19,7 @@ import org.rajawali3d.renderer.Renderer;
 import javax.microedition.khronos.opengles.GL10;
 
 import static com.gamesbykevin.blocks.activity.BaseActivity.TAG;
+import static com.gamesbykevin.blocks.opengl.RendererHelper.LIMIT;
 
 /**
  * Created by Kevin on 12/14/2017.
@@ -156,11 +157,6 @@ public class MainActivityRenderer extends Renderer implements IDisposable {
     }
 
     @Override
-    public void onRenderFrame(GL10 unused) {
-        super.onRenderFrame(unused);
-    }
-
-    @Override
     public void onRenderSurfaceSizeChanged(GL10 gl, int width, int height) {
         super.onRenderSurfaceSizeChanged(gl, width, height);
     }
@@ -168,11 +164,11 @@ public class MainActivityRenderer extends Renderer implements IDisposable {
     @Override
     public void onRender(final long elapsedTime, final double deltaTime) {
 
-        //call parent to render objects
-        super.onRender(elapsedTime, deltaTime);
-
         if (block == null || materials == null)
             return;
+
+        //call parent to render objects
+        super.onRender(elapsedTime, deltaTime);
 
         //do we need to switch textures
         if (next != CURRENT_TEXTURE) {
@@ -248,12 +244,17 @@ public class MainActivityRenderer extends Renderer implements IDisposable {
         material.setDiffuseMethod(new DiffuseMethod.Lambert());
         material.setColorInfluence(0f);
 
-        try {
-            //load and add texture to material
-            material.addTexture(new Texture("Block" + resId, resId));
+        int count = 0;
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        while (count < LIMIT) {
+            try {
+                //load and add texture to material
+                material.addTexture(new Texture("Block" + resId, resId));
+                break;
+            } catch (Exception e) {
+                e.printStackTrace();
+                count++;
+            }
         }
 
         //return our populated material

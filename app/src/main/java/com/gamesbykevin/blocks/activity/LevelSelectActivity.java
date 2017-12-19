@@ -73,7 +73,7 @@ public class LevelSelectActivity extends BaseActivity {
                 if (view == null || !view.isEnabled()) {
                     vibrate();
                     BaseActivityHelper.playSoundFall();
-                    return;
+                    //return;
                 }
 
                 //display the splash loading page
