@@ -196,5 +196,17 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="text_view_google_login_greeting_sw600">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginBottom">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:text">@string/signin_success_welcome</item>
+    </style>
 
 </resources>

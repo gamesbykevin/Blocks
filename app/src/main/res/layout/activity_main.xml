@@ -35,8 +35,8 @@
 
         <TableRow style="@style/table_row_menu">
             <TextView style="@style/text_view_menu_button" android:text="@string/button_rate" android:onClick="showRating" />
-            <TextView style="@style/text_view_menu_button" android:text="@string/button_achievement" />
-            <TextView style="@style/text_view_menu_button" android:text="@string/button_leaderboard" />
+            <TextView style="@style/text_view_menu_button" android:id="@+id/textViewAchievements" android:text="@string/button_achievement" android:onClick="onClickAchievements" />
+            <TextView style="@style/text_view_menu_button" android:id="@+id/textViewLeaderboard" android:text="@string/button_leaderboard" android:onClick="onClickLeaderboard" />
         </TableRow>
 
         <TableRow style="@style/table_row_menu">
@@ -66,16 +66,17 @@
                 android:entries="@array/custom_button_text_vibrate"
                 style="@style/text_view_menu_button" />
 
-            <Spinner style="@style/spinner" android:id="@+id/spinner_texture" />
+            <com.gamesbykevin.blocks.ui.CustomButton
+                android:id="@+id/customButtonLogin"
+                app:entry_index_default="0"
+                android:entries="@array/custom_button_text_login"
+                style="@style/text_view_menu_button" />
 
         </TableRow>
 
         <TableRow style="@style/table_row_menu">
             <Spinner style="@style/spinner" android:id="@+id/spinner_background" />
-        </TableRow>
-
-        <TableRow style="@style/table_row_menu">
-            <TextView android:visibility="invisible" style="@style/text_view_menu_button" android:text="@string/button_achievement" />
+            <Spinner style="@style/spinner" android:id="@+id/spinner_texture" />
         </TableRow>
 
     </TableLayout>
@@ -83,6 +84,9 @@
 
     <!-- social media icons -->
     <include layout="@layout/layout_social" />
+
+    <!-- our google login greeting -->
+    <TextView style="@style/text_view_google_login_greeting" android:id="@+id/text_greeting" android:onClick="signInClick" />
 
     <!-- include splash page -->
     <include layout="@layout/activity_splash" android:id="@+id/layout_splash" android:visibility="gone"/>

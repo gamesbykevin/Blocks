@@ -20,8 +20,8 @@
 
         <TableRow android:gravity="center">
             <ImageView style="@style/overlay_image_view_sw600" android:onClick="levelCompleteNext" android:src="@drawable/level_complete_next" />
-            <ImageView style="@style/overlay_image_view_sw600" android:onClick="levelCompleteAchievements" android:src="@drawable/level_complete_achievements" />
-            <ImageView style="@style/overlay_image_view_sw600" android:onClick="levelCompleteLeaderboard" android:src="@drawable/level_complete_leaderboard" />
+            <ImageView style="@style/overlay_image_view_sw600" android:onClick="onClickAchievements" android:src="@drawable/level_complete_achievements" android:id="@+id/imageViewAchievements" />
+            <ImageView style="@style/overlay_image_view_sw600" android:onClick="onClickLeaderboard" android:src="@drawable/level_complete_leaderboard" android:id="@+id/imageViewLeaderboard" />
             <ImageView style="@style/overlay_image_view_sw600" android:onClick="levelCompleteHome" android:src="@drawable/level_complete_home" />
         </TableRow>
 

@@ -68,6 +68,13 @@ public class MainActivity extends BaseActivity {
 
         //pre-pop the vibrate setting
         setupCustomButtonVibrate();
+
+        //pre-pop our login setting
+        setupCustomButtonLogin();
+
+        //start auto-login if we aren't already signed in
+        if (getPreferences().getInt(getString(R.string.file_key_login), 0) == 0)
+            startSignInIntent();
     }
 
     @Override
@@ -139,6 +146,9 @@ public class MainActivity extends BaseActivity {
 
                 } else {
 
+                    //sign out of google play
+                    signOut();
+
                     //close all open activities
                     finishAffinity();
                 }
@@ -161,7 +171,6 @@ public class MainActivity extends BaseActivity {
                 switchScreen(R.id.table_layout_main_menu);
                 break;
         }
-
     }
 
     public void startGame(View view) {
@@ -178,6 +187,17 @@ public class MainActivity extends BaseActivity {
 
     public void showOptions(View view) {
         switchScreen(R.id.table_layout_options_menu);
+    }
+
+    public void signInClick(View view) {
+
+        if (!isSignedIn()) {
+            //if not signed in start login
+            super.startSignInIntent();
+        } else {
+            //if already signed in, sign out
+            super.signOut();
+        }
     }
 
     public void showTutorial(View view) {
@@ -289,5 +309,10 @@ public class MainActivity extends BaseActivity {
     private void setupCustomButtonVibrate() {
         CustomButton button = findViewById(R.id.customButtonVibrate);
         button.setIndex(BaseActivity.getPreferences().getInt(getString(R.string.file_key_vibrate), 0));
+    }
+
+    private void setupCustomButtonLogin() {
+        CustomButton button = findViewById(R.id.customButtonLogin);
+        button.setIndex(BaseActivity.getPreferences().getInt(getString(R.string.file_key_login), 0));
     }
 }

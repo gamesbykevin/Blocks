@@ -10,6 +10,7 @@
     <string name="file_key_completed_levels" translatable="false">com.gamesbykevin.blocks.FILE_KEY_COMPLETED</string>
     <string name="file_key_sound" translatable="false">com.gamesbykevin.blocks.FILE_KEY_SOUND</string>
     <string name="file_key_vibrate" translatable="false">com.gamesbykevin.blocks.FILE_KEY_VIBRATE</string>
+    <string name="file_key_login" translatable="false">com.gamesbykevin.blocks.FILE_KEY_LOGIN</string>
     <string name="file_key_texture" translatable="false">com.gamesbykevin.blocks.FILE_KEY_TEXTURE</string>
     <string name="file_key_background" translatable="false">com.gamesbykevin.blocks.FILE_KEY_BACKGROUND</string>
 
@@ -26,6 +27,11 @@
     <string name="button_achievement">Achievements</string>
     <string name="button_leaderboard">Leaderboard</string>
     <string name="button_more">More</string>
+
+    <array name="custom_button_text_login">
+        <item>Auto Login: On</item>
+        <item>Auto Login: Off</item>
+    </array>
 
     <array name="custom_button_text_sound">
         <item>Sound: On</item>
@@ -93,4 +99,8 @@
     <string name="tutorialTextPage8">This switch you must stand on in order to activate</string>
     <string name="tutorialTextPage9">Some switches may only hide blocks. You will have to play to figure out</string>
     <string name="turorialTextPage10">Be careful not to fall off. That\'s it enjoy the game</string>
+
+    <string name="signin_success_welcome">Hi</string>
+    <string name="not_signed_in_default_message">Not signed in</string>
+    <string name="signin_other_error">There was an issue with sign in. Please try again later.</string>
 </resources>

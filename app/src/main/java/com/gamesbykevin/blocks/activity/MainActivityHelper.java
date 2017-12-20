@@ -63,6 +63,10 @@ public class MainActivityHelper {
         button = activity.findViewById(R.id.customButtonVibrate);
         edit.putInt(activity.getString(R.string.file_key_vibrate), button.getIndex());
 
+        //update login setting
+        button = activity.findViewById(R.id.customButtonLogin);
+        edit.putInt(activity.getString(R.string.file_key_login), button.getIndex());
+
         //update desired block texture
         Spinner spinner = activity.findViewById(R.id.spinner_texture);
         edit.putInt(activity.getString(R.string.file_key_texture), spinner.getSelectedItemPosition());

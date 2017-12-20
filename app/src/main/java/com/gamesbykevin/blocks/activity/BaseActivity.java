@@ -30,7 +30,7 @@ import static com.gamesbykevin.blocks.activity.BaseActivityHelper.stopSound;
 import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.CURRENT_BACKGROUND;
 import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.RESOURCE_BACKGROUND;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends GooglePlayActivity {
 
     /**
      * Global tag for logcat events
