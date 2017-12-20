@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TableLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <ImageView style="@style/image_view_social_sw720" android:src="@drawable/twitter" android:onClick="showTwitter" />
+            <ImageView style="@style/image_view_social_sw720" android:src="@drawable/facebook" android:onClick="showFacebook" />
+            <ImageView style="@style/image_view_social_sw720" android:src="@drawable/youtube" android:onClick="showYoutube" />
+            <ImageView style="@style/image_view_social_sw720" android:src="@drawable/instagram" android:onClick="showInstagram" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

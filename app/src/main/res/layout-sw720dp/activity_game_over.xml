@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- image background -->
+    <ImageView android:id="@+id/image_view_background" style="@style/image_view_background" />
+
+    <ImageView
+        android:src="@color/colorTransparent50"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TableLayout style="@style/table_layout_game_over_sw720">
+
+        <TableRow android:gravity="center">
+            <TextView android:layout_span="4" style="@style/title_text_sw720" android:text="@string/game_over_text" android:id="@+id/text_view_title" />
+        </TableRow>
+
+        <TableRow android:gravity="center">
+            <ImageView style="@style/overlay_image_view_sw720" android:onClick="levelCompleteNext" android:src="@drawable/level_complete_next" />
+            <ImageView style="@style/overlay_image_view_sw720" android:onClick="levelCompleteAchievements" android:src="@drawable/level_complete_achievements" />
+            <ImageView style="@style/overlay_image_view_sw720" android:onClick="levelCompleteLeaderboard" android:src="@drawable/level_complete_leaderboard" />
+            <ImageView style="@style/overlay_image_view_sw720" android:onClick="levelCompleteHome" android:src="@drawable/level_complete_home" />
+        </TableRow>
+
+    </TableLayout>
+</RelativeLayout>

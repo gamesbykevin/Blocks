@@ -116,4 +116,97 @@
         <item name="android:soundEffectsEnabled">true</item>
     </style>
 
+    <style name="table_layout_level_item">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/level_select</item>
+        <item name="android:layout_width">125dp</item>
+        <item name="android:layout_height">125dp</item>
+    </style>
+
+    <style name="image_view_website">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:src">@drawable/website</item>
+        <item name="android:layout_width">400dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+
+    <style name="image_view_loading">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:src">@drawable/loading</item>
+        <item name="android:layout_width">400dp</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
+
+    <style name="grid_view_level_select">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:listSelector">@color/colorTransparent00</item>
+        <item name="android:gravity">center</item>
+        <item name="android:numColumns">auto_fit</item>
+        <item name="android:columnWidth">125dp</item>
+        <item name="android:horizontalSpacing">5dp</item>
+        <item name="android:verticalSpacing">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="table_layout_game_over">
+        <item name="android:background">@drawable/game_ui_background</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">510dp</item>
+        <item name="android:layout_height">250dp</item>
+    </style>
+
+    <style name="linear_layout_pager_container">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@color/colorTransparent00</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="image_view_tutorial">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:contentDescription">@null</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="text_view_tutorial">
+        <item name="android:background">@color/colorTransparent50</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="layout_custom_toast">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/toast_border</item>
+    </style>
+
+    <style name="text_view_custom_toast">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

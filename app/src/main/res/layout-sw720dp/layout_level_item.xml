@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TableLayout
+        android:id="@+id/level_select_background"
+        style="@style/table_layout_level_item_sw720">
+        <TableRow android:gravity="center">
+            <TextView style="@style/level_select_text_sw720" android:id="@+id/textView" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -9,22 +9,10 @@
     <!-- image background -->
     <ImageView android:id="@+id/image_view_background" style="@style/image_view_background" />
 
-    <ImageView
-        android:id="@+id/image_view_website"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/website"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="15dp"
-        />
+    <!-- website image -->
+    <ImageView android:id="@+id/image_view_website" style="@style/image_view_website" />
 
-    <ImageView
-        android:layout_below="@+id/image_view_website"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/loading"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
-        />
+    <!-- loading image -->
+    <ImageView android:layout_below="@+id/image_view_website" style="@style/image_view_loading" />
 
 </RelativeLayout>

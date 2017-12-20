@@ -7,10 +7,7 @@
 
     <TableLayout
         android:id="@+id/level_select_background"
-        android:gravity="center"
-        android:background="@drawable/level_select"
-        android:layout_width="125dp"
-        android:layout_height="125dp">
+        style="@style/table_layout_level_item">
         <TableRow android:gravity="center">
             <TextView style="@style/level_select_text" android:id="@+id/textView" />
         </TableRow>

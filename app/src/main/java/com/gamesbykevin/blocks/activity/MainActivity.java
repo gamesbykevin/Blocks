@@ -180,6 +180,18 @@ public class MainActivity extends BaseActivity {
         switchScreen(R.id.table_layout_options_menu);
     }
 
+    public void showTutorial(View view) {
+
+        //hide the rotating block
+        findViewById(R.id.game_surfaceView).setVisibility(GONE);
+
+        //display the loading screen
+        findViewById(R.id.layout_splash).setVisibility(VISIBLE);
+
+        //go to the tutorial activity
+        startActivity(new Intent(this, TutorialActivity.class));
+    }
+
     public void switchScreen(final int resId) {
 
         //assign the current screen

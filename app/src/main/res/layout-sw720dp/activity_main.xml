@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.gamesbykevin.blocks.activity.MainActivity">
+
+    <!-- image background -->
+    <ImageView android:id="@+id/image_view_background" style="@style/image_view_background" />
+
+    <!-- rotating block renderer -->
+    <org.rajawali3d.view.SurfaceView
+        app:renderMode="RENDER_WHEN_DIRTY"
+        app:isTransparent="true"
+        android:id="@+id/game_surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- layout logo -->
+    <include layout="@layout/layout_logo" android:id="@+id/image_view_logo" />
+
+    <!-- main menu buttons -->
+    <TableLayout
+        android:id="@+id/table_layout_main_menu"
+        style="@style/table_layout_menu_sw720"
+        android:layout_below="@+id/image_view_logo">
+
+        <TableRow style="@style/table_row_menu_sw720">
+            <TextView style="@style/text_view_menu_button_sw720" android:text="@string/button_start" android:onClick="startGame" />
+            <TextView style="@style/text_view_menu_button_sw720" android:text="@string/button_options" android:onClick="showOptions" />
+            <TextView style="@style/text_view_menu_button_sw720" android:text="@string/button_tutorial" android:onClick="showTutorial" />
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu_sw720">
+            <TextView style="@style/text_view_menu_button_sw720" android:text="@string/button_rate" android:onClick="showRating" />
+            <TextView style="@style/text_view_menu_button_sw720" android:text="@string/button_achievement" />
+            <TextView style="@style/text_view_menu_button_sw720" android:text="@string/button_leaderboard" />
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu_sw720">
+            <TextView style="@style/text_view_menu_button_sw720" android:text="@string/button_more" android:onClick="showWebsite" />
+        </TableRow>
+
+    </TableLayout>
+
+    <!-- option buttons -->
+    <TableLayout
+        android:visibility="gone"
+        android:id="@+id/table_layout_options_menu"
+        style="@style/table_layout_menu_sw720"
+        android:layout_below="@+id/image_view_logo">
+
+        <TableRow style="@style/table_row_menu_sw720">
+
+            <com.gamesbykevin.blocks.ui.CustomButton
+                android:id="@+id/customButtonSound"
+                app:entry_index_default="0"
+                android:entries="@array/custom_button_text_sound"
+                style="@style/text_view_menu_button_sw720" />
+
+            <com.gamesbykevin.blocks.ui.CustomButton
+                android:id="@+id/customButtonVibrate"
+                app:entry_index_default="0"
+                android:entries="@array/custom_button_text_vibrate"
+                style="@style/text_view_menu_button_sw720" />
+
+            <Spinner style="@style/spinner_sw720" android:id="@+id/spinner_texture" />
+
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu_sw720">
+            <Spinner style="@style/spinner_sw720" android:id="@+id/spinner_background" />
+        </TableRow>
+
+        <TableRow style="@style/table_row_menu_sw720">
+            <TextView android:visibility="invisible" style="@style/text_view_menu_button_sw720" android:text="@string/button_achievement" />
+        </TableRow>
+
+    </TableLayout>
+
+
+    <!-- social media icons -->
+    <include layout="@layout/layout_social" />
+
+    <!-- include splash page -->
+    <include layout="@layout/activity_splash" android:id="@+id/layout_splash" android:visibility="gone"/>
+
+</RelativeLayout>

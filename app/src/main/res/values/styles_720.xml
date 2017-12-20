@@ -1,0 +1,199 @@
+<resources>
+
+    <style name="game_controls_sw720">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">130dp</item>
+        <item name="android:layout_margin">25dp</item>
+    </style>
+
+    <style name="title_text_sw720">
+        <item name="android:background">@drawable/title</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">570dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_margin">15dp</item>
+        <item name="android:textSize">64sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="level_select_text_sw720">
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">64sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="overlay_image_view_sw720">
+        <item name="android:layout_margin">15dp</item>
+        <item name="android:layout_width">225dp</item>
+        <item name="android:layout_height">225dp</item>
+    </style>
+
+    <style name="text_view_menu_button_sw720">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:layout_margin">6dp</item>
+    </style>
+
+    <style name="image_view_logo_sw720">
+        <item name="android:layout_width">420dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:src">@drawable/logo</item>
+    </style>
+
+    <style name="image_view_social_sw720">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+    <style name="table_layout_menu_sw720">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="table_row_menu_sw720">
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="spinner_sw720">
+        <item name="android:background">@drawable/button</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:dropDownWidth">200dp</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <style name="spinner_item_sw720">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textIsSelectable">false</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:soundEffectsEnabled">true</item>
+    </style>
+
+    <style name="spinner_dropdown_item_sw720">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textIsSelectable">false</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:soundEffectsEnabled">true</item>
+    </style>
+
+    <style name="table_layout_level_item_sw720">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/level_select</item>
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">250dp</item>
+    </style>
+
+    <style name="image_view_website_sw720">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:src">@drawable/website</item>
+        <item name="android:layout_width">1000dp</item>
+        <item name="android:layout_height">250dp</item>
+        <item name="android:layout_marginTop">75dp</item>
+        <item name="android:layout_marginBottom">25dp</item>
+    </style>
+
+    <style name="image_view_loading_sw720">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:src">@drawable/loading</item>
+        <item name="android:layout_width">1000dp</item>
+        <item name="android:layout_height">250dp</item>
+    </style>
+
+    <style name="grid_view_level_select_sw720">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:listSelector">@color/colorTransparent00</item>
+        <item name="android:gravity">center</item>
+        <item name="android:numColumns">auto_fit</item>
+        <item name="android:columnWidth">250dp</item>
+        <item name="android:horizontalSpacing">20dp</item>
+        <item name="android:verticalSpacing">25dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="table_layout_game_over_sw720">
+        <item name="android:background">@drawable/game_ui_background</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">1150dp</item>
+        <item name="android:layout_height">500dp</item>
+    </style>
+
+    <style name="linear_layout_pager_container_sw720">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@color/colorTransparent00</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginBottom">25dp</item>
+    </style>
+
+    <style name="image_view_tutorial_sw720">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:contentDescription">@null</item>
+        <item name="android:layout_width">600dp</item>
+        <item name="android:layout_height">600dp</item>
+    </style>
+
+    <style name="text_view_tutorial_sw720">
+        <item name="android:background">@color/colorTransparent50</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">42sp</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="layout_custom_toast_sw720">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/toast_border</item>
+    </style>
+
+    <style name="text_view_custom_toast_sw720">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">48dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+</resources>

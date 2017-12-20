@@ -30,7 +30,7 @@
         <TableRow style="@style/table_row_menu">
             <TextView style="@style/text_view_menu_button" android:text="@string/button_start" android:onClick="startGame" />
             <TextView style="@style/text_view_menu_button" android:text="@string/button_options" android:onClick="showOptions" />
-            <TextView style="@style/text_view_menu_button" android:text="@string/button_tutorial" />
+            <TextView style="@style/text_view_menu_button" android:text="@string/button_tutorial" android:onClick="showTutorial" />
         </TableRow>
 
         <TableRow style="@style/table_row_menu">

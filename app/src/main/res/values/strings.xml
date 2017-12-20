@@ -83,4 +83,14 @@
         <item>Forest</item>
     </array>
 
+    <string name="tutorialTextPage1">Stand the block on the green goal to complete each level</string>
+    <string name="tutorialTextPage2">You can rotate the block in all four directions</string>
+    <string name="tutorialTextPage3">Beware you can\'t stand on red blocks</string>
+    <string name="tutorialTextPage4">You can lay down on red blocks though</string>
+    <string name="tutorialTextPage5">If you stand on a red block it will break and you will fall through the floor</string>
+    <string name="tutorialTextPage6">Switches activate hidden blocks</string>
+    <string name="tutorialTextPage7">When you touch this switch the hidden blocks appear</string>
+    <string name="tutorialTextPage8">This switch you must stand on in order to activate</string>
+    <string name="tutorialTextPage9">Some switches may only hide blocks. You will have to play to figure out</string>
+    <string name="turorialTextPage10">Be careful not to fall off. That\'s it enjoy the game</string>
 </resources>

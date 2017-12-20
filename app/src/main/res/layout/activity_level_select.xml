@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_gravity="center">
 
     <!-- image background -->
     <ImageView android:id="@+id/image_view_background" style="@style/image_view_background" />
@@ -14,19 +14,10 @@
         android:text="@string/level_select_title_text" />
 
     <GridView
-        android:layout_below="@+id/level_select_title"
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_below="@+id/level_select_title"
         android:id="@+id/levelSelectGrid"
-        android:scrollbars="vertical"
-        android:fadeScrollbars="false"
-        android:listSelector="@color/colorTransparent00"
-        android:gravity="center"
-        android:numColumns="auto_fit"
-        android:columnWidth="125dp"
-        android:horizontalSpacing="5dp"
-        android:verticalSpacing="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        style="@style/grid_view_level_select" />
 
     <!-- include splash page -->
     <include layout="@layout/activity_splash" android:id="@+id/layout_splash" android:visibility="gone"/>

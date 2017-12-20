@@ -12,27 +12,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-
         <activity
             android:name=".activity.GameActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppFullScreenTheme" />
-
+            android:theme="@style/AppFullScreenTheme"/>
         <activity
             android:name=".activity.LevelSelectActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppFullScreenTheme" />
-
+            android:theme="@style/AppFullScreenTheme"/>
         <activity
             android:name=".activity.GameOverActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/AppFullScreenTheme" />
-
+            android:theme="@style/AppFullScreenTheme"/>
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="landscape"
+            android:theme="@style/AppFullScreenTheme"/>
+        <activity
+            android:name=".activity.TutorialActivity"
+            android:screenOrientation="landscape"
             android:theme="@style/AppFullScreenTheme" />
-
         <activity
             android:name=".activity.SplashActivity"
             android:screenOrientation="landscape"
@@ -43,4 +42,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

@@ -12,12 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <TableLayout
-        android:background="@drawable/game_ui_background"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:layout_width="510dp"
-        android:layout_height="250dp">
+    <TableLayout style="@style/table_layout_game_over">
 
         <TableRow android:gravity="center">
             <TextView android:layout_span="4" style="@style/title_text" android:text="@string/game_over_text" android:id="@+id/text_view_title" />

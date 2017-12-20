@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.gamesbykevin.blocks.R;
 
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.restartSound;
 import static com.gamesbykevin.blocks.activity.LevelSelectActivity.LEVELS;
 
 public class GameOverActivity extends BaseActivity {
@@ -91,6 +92,9 @@ public class GameOverActivity extends BaseActivity {
     }
 
     public void levelCompleteHome(View view) {
+
+        //restart menu music
+        restartSound(R.raw.menu);
 
         //destroy the activity
         finish();

@@ -21,6 +21,7 @@ import java.util.List;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static com.gamesbykevin.blocks.activity.BaseActivityHelper.restartSound;
 
 public class LevelSelectActivity extends BaseActivity {
 
@@ -73,8 +74,11 @@ public class LevelSelectActivity extends BaseActivity {
                 if (view == null || !view.isEnabled()) {
                     vibrate();
                     BaseActivityHelper.playSoundFall();
-                    //return;
+                    return;
                 }
+
+                //restart theme music
+                restartSound(R.raw.theme);
 
                 //display the splash loading page
                 findViewById(R.id.layout_splash).setVisibility(VISIBLE);

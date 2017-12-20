@@ -1,0 +1,10 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custom_toast_container"
+    style="@style/layout_custom_toast_sw600">
+
+    <TextView
+        android:id="@+id/text"
+        style="@style/text_view_custom_toast_sw600" />
+
+</RelativeLayout>

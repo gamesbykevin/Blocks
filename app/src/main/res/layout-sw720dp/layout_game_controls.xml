@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/buttonLeft"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/left"
+        style="@style/game_controls_sw720" />
+
+    <Button
+        android:id="@+id/buttonRight"
+        android:layout_toRightOf="@+id/buttonLeft"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/right"
+        style="@style/game_controls_sw720" />
+
+    <Button
+        android:id="@+id/buttonUp"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/buttonDown"
+        android:background="@drawable/up"
+        style="@style/game_controls_sw720" />
+
+    <Button
+        android:id="@+id/buttonDown"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/down"
+        style="@style/game_controls_sw720" />
+
+</RelativeLayout>

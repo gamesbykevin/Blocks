@@ -11,8 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gamesbykevin.blocks.R;
@@ -180,13 +184,19 @@ public class BaseActivity extends AppCompatActivity {
 
     public void displayMessage(final String message) {
 
-        runOnUiThread(new Runnable() {
+        //create our layout view for the toast text
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup)findViewById(R.id.custom_toast_container));
 
-            @Override
-            public void run() {
-                Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();
-            }
-        });
+        //update our text view object with the desired text
+        TextView text = layout.findViewById(R.id.text);
+        text.setText(message);
+
+        //create our toast text and assign the inflated layout
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
     }
 
     public static Random getRandom() {

@@ -228,12 +228,22 @@ public class BaseActivityHelper {
 
         //if restarting, set back to the beginning
         if (restart)
-            SOUND.get(resId).seekTo(0);
+            restartSound(resId);
 
         //do we loop the sound
         SOUND.get(resId).setLooping(loop);
 
         //resume playing
         SOUND.get(resId).start();
+    }
+
+    public static void restartSound(final int resId) {
+
+        //if sound doesn't exist, return
+        if (SOUND.get(resId) == null)
+            return;
+
+        //set position back to the beginning
+        SOUND.get(resId).seekTo(0);
     }
 }
