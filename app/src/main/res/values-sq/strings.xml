@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Zgjidh Nivelin</string>
+<string name="game_over_text">i përfunduar</string>
+<string name="exit_level_confirm">Konfirmo daljen?</string>
+<string name="exit_app_prompt">Shtypni përsëri për të dalë</string>
+<string name="exit_game_prompt">Shtypni përsëri për t'u kthyer</string>
+<string name="button_start">fillim</string>
+<string name="button_options">Opsione</string>
+<string name="button_tutorial">punë praktike</string>
+<string name="button_rate">normë</string>
+<string name="button_achievement">Arritjet</string>
+<string name="button_leaderboard">Fituesit</string>
+<string name="button_more">më shumë</string>
+<string name="tutorialTextPage1">Qëndroni në bllok për qëllimin e gjelbër për të përfunduar çdo nivel</string>
+<string name="tutorialTextPage2">Ju mund ta rrotulloni bllokun në të katër drejtimet</string>
+<string name="tutorialTextPage3">Kini kujdes se nuk mund të qëndroni në blloqe të kuqe</string>
+<string name="tutorialTextPage4">Ju mund të vendosni në blloqe të kuq pse</string>
+<string name="tutorialTextPage5">Nëse qëndroni në një bllok të kuq, ajo do të thyhet dhe ju do të bini nëpër dysheme</string>
+<string name="tutorialTextPage6">Çelsat aktivizojnë blloqet e fshehura</string>
+<string name="tutorialTextPage7">Kur prekni këtë ndërprerje, shfaqen blloqet e fshehura</string>
+<string name="tutorialTextPage8">Ky kaloni ju duhet të qëndroni në mënyrë që të aktivizoni</string>
+<string name="tutorialTextPage9">Disa çelsin mund të fshehin vetëm blloqe. </string>
+<string name="turorialTextPage10">Kini kujdes që të mos bien. </string>
+<string name="achievement_unlocked_prompt">Arritje e hapur</string>
+<string name="signin_success_welcome">Hi</string>
+<string name="not_signed_in_default_message">Nuk është nënshkruar</string>
+<string name="signin_other_error">Kishte një problem me hyrjen. Ju lutemi, provoni përsëri më vonë.</string>
+<string name="achievements_exception">Kishte një çështje që komunikon me arritjet.</string>
+<string name="status_exception_error">% 1 $ s (statusi% 2 $ d). </string>
+<string name="leaderboards_exception">Kishte një çështje që komunikon me tabelat e rezultateve.</string>
+<string name="players_exception">Kishte një problem që komunikon me lojtarët.</string>
+<array name="custom_button_text_login">
+<item>Regjistrimi automatik: Po</item>
+<item>Regjistrimi automatik: Off</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Zëri: Të ndezur</item>
+<item>Zëri: Po</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrate: Po</item>
+<item>Dridhje: Jo</item>
+</array>
+<array name="spinner_text_texture">
+<item>çimento</item>
+<item>bar</item>
+<item>shkëmb</item>
+<item>ujë</item>
+<item>shkëmbor</item>
+<item>borë</item>
+<item>tjegull</item>
+<item>mur</item>
+<item>myshk</item>
+<item>vjollcë</item>
+<item>pika-pika</item>
+<item>Aqua</item>
+<item>i errët</item>
+<item>e gjelbër</item>
+<item>model</item>
+<item>rozë e çelët</item>
+<item>vjollcë</item>
+<item>qiell</item>
+<item>guri</item>
+<item>bruz</item>
+</array>
+<array name="spinner_text_background">
+<item>blu</item>
+<item>multi</item>
+<item>dell</item>
+<item>Stripes</item>
+<item>BLU e erret</item>
+<item>portokall</item>
+<item>titan</item>
+<item>ylber</item>
+<item>dru</item>
+<item>Colors</item>
+<item>i kuq</item>
+<item>bojë kafe</item>
+<item>gradient</item>
+<item>rrugë</item>
+<item>galaktikë</item>
+<item>bie</item>
+<item>qytet</item>
+<item>fermë</item>
+<item>diagonale</item>
+<item>pyll</item>
+</array>
+</resources>

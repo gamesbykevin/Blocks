@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Seviye seç</string>
+<string name="game_over_text">Tamamlanan</string>
+<string name="exit_level_confirm">Çıkış'ı onaylıyor musun?</string>
+<string name="exit_app_prompt">Çıkmak için tekrar basın</string>
+<string name="exit_game_prompt">Geri dönmek için tekrar basın</string>
+<string name="button_start">başla</string>
+<string name="button_options">Seçenekler</string>
+<string name="button_tutorial">Eğitimi</string>
+<string name="button_rate">oran</string>
+<string name="button_achievement">Başarılar</string>
+<string name="button_leaderboard">Liderler Sıralaması</string>
+<string name="button_more">Daha</string>
+<string name="tutorialTextPage1">Her seviyede tamamlamak için yeşil hedefin üzerinde durun</string>
+<string name="tutorialTextPage2">Bloğu dört yönde de döndürebilirsiniz</string>
+<string name="tutorialTextPage3">Kırmızı blokların üzerinde duramazsın.</string>
+<string name="tutorialTextPage4">Kırmızı bloklara uzanabilirsin.</string>
+<string name="tutorialTextPage5">Kırmızı bir blokta durursan kırılır ve zeminden düşersin.</string>
+<string name="tutorialTextPage6">Anahtarlar gizli blokları etkinleştirir</string>
+<string name="tutorialTextPage7">Bu anahtara dokunduğunuzda gizli bloklar görünür</string>
+<string name="tutorialTextPage8">Aktive etmek için durmanız gereken bu anahtar</string>
+<string name="tutorialTextPage9">Bazı anahtarlar yalnızca blokları gizleyebilir. </string>
+<string name="turorialTextPage10">Düşmemeye dikkat edin. </string>
+<string name="achievement_unlocked_prompt">Başarım açıldı</string>
+<string name="signin_success_welcome">Merhaba</string>
+<string name="not_signed_in_default_message">Oturum açılmamış</string>
+<string name="signin_other_error">Oturum açma ile ilgili bir sorun oluştu. Lütfen daha sonra tekrar deneyin.</string>
+<string name="achievements_exception">Başarılarla iletişim kurmada bir sorun vardı.</string>
+<string name="status_exception_error">% 1 $ s (durum% 2 $ d). </string>
+<string name="leaderboards_exception">Liderlik tablolarıyla iletişim kurmada bir sorun vardı.</string>
+<string name="players_exception">Oyuncularla iletişim kurmada bir sorun vardı.</string>
+<array name="custom_button_text_login">
+<item>Otomatik Giriş: Açık</item>
+<item>Otomatik Giriş: Kapalı</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Ses açık</item>
+<item>Sesi kapamak</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Titreşim: Açık</item>
+<item>Titreşim: Kapalı</item>
+</array>
+<array name="spinner_text_texture">
+<item>Çimento</item>
+<item>çimen</item>
+<item>Kaya</item>
+<item>Su</item>
+<item>Kayalık</item>
+<item>Kar</item>
+<item>Fayans</item>
+<item>Duvar</item>
+<item>yosun</item>
+<item>Menekşe</item>
+<item>Benekli</item>
+<item>su</item>
+<item>karanlık</item>
+<item>Yeşil</item>
+<item>Desen</item>
+<item>Pembemsi</item>
+<item>Mor</item>
+<item>Gökyüzü</item>
+<item>Taş</item>
+<item>Turkuaz</item>
+</array>
+<array name="spinner_text_background">
+<item>Mavi</item>
+<item>Çok</item>
+<item>Meç</item>
+<item>Çizgili</item>
+<item>Koyu mavi</item>
+<item>Portakal</item>
+<item>titan</item>
+<item>Gökkuşağı</item>
+<item>Ahşap</item>
+<item>Renkler</item>
+<item>Kırmızı</item>
+<item>Kahverengi</item>
+<item>meyil</item>
+<item>Yol</item>
+<item>Gökada</item>
+<item>Düşmek</item>
+<item>kasaba</item>
+<item>Çiftlik</item>
+<item>Diyagonal</item>
+<item>Orman</item>
+</array>
+</resources>

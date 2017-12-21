@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Vælg niveau</string>
+<string name="game_over_text">afsluttet</string>
+<string name="exit_level_confirm">Bekræft Afslut?</string>
+<string name="exit_app_prompt">Tryk igen for at afslutte</string>
+<string name="exit_game_prompt">Tryk igen for at gå tilbage</string>
+<string name="button_start">Start</string>
+<string name="button_options">Muligheder</string>
+<string name="button_tutorial">tutorial</string>
+<string name="button_rate">Sats</string>
+<string name="button_achievement">Resultater</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Mere</string>
+<string name="tutorialTextPage1">Stand blokken på det grønne mål for at fuldføre hvert niveau</string>
+<string name="tutorialTextPage2">Du kan rotere blokken i alle fire retninger</string>
+<string name="tutorialTextPage3">Pas på, at du ikke kan stå på røde blokke</string>
+<string name="tutorialTextPage4">Du kan dog lægge sig ned på røde blokke</string>
+<string name="tutorialTextPage5">Hvis du står på en rød blok, vil den gå i stykker, og du vil falde gennem gulvet</string>
+<string name="tutorialTextPage6">Skiftere aktiverer skjulte blokke</string>
+<string name="tutorialTextPage7">Når du trykker på denne kontakt, vises de skjulte blokke</string>
+<string name="tutorialTextPage8">Denne switch skal du stå på for at aktivere</string>
+<string name="tutorialTextPage9">Nogle afbrydere kan kun skjule blokke. </string>
+<string name="turorialTextPage10">Pas på ikke at falde af. </string>
+<string name="achievement_unlocked_prompt">Achievement unlocked</string>
+<string name="signin_success_welcome">Hej</string>
+<string name="not_signed_in_default_message">Ikke logget ind</string>
+<string name="signin_other_error">Der opstod et problem med login. Prøv igen senere.</string>
+<string name="achievements_exception">Der var et problem at kommunikere med resultater.</string>
+<string name="status_exception_error">% 1 $ s (status% 2 $ d). </string>
+<string name="leaderboards_exception">Der var et problem at kommunikere med leaderboards.</string>
+<string name="players_exception">Der var et problem at kommunikere med spillere.</string>
+<array name="custom_button_text_login">
+<item>Automatisk login: Til</item>
+<item>Automatisk login: Fra</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Lyd: Til</item>
+<item>Lyden af</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrere: Til</item>
+<item>Vibrere: Fra</item>
+</array>
+<array name="spinner_text_texture">
+<item>Cement</item>
+<item>Græs</item>
+<item>Klippe</item>
+<item>Vand</item>
+<item>Stenet</item>
+<item>Sne</item>
+<item>Flise</item>
+<item>Væg</item>
+<item>Mos</item>
+<item>Violet</item>
+<item>plettet</item>
+<item>Aqua</item>
+<item>Mørk</item>
+<item>Grøn</item>
+<item>Mønster</item>
+<item>pinkish</item>
+<item>Lilla</item>
+<item>Himmel</item>
+<item>Sten</item>
+<item>turkis</item>
+</array>
+<array name="spinner_text_background">
+<item>Blå</item>
+<item>Multi</item>
+<item>Streak</item>
+<item>Striber</item>
+<item>Mørkeblå</item>
+<item>orange</item>
+<item>Titan</item>
+<item>Regnbue</item>
+<item>Træ</item>
+<item>farver</item>
+<item>Rød</item>
+<item>Brun</item>
+<item>gradient</item>
+<item>Vej</item>
+<item>Galaxy</item>
+<item>Efterår</item>
+<item>By</item>
+<item>Farm</item>
+<item>Diagonal</item>
+<item>Skov</item>
+</array>
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">سطح را انتخاب کنید</string>
+<string name="game_over_text">تکمیل شده</string>
+<string name="exit_level_confirm">تایید خروج؟</string>
+<string name="exit_app_prompt">برای خروج مجددا فشار دهید</string>
+<string name="exit_game_prompt">برای بازگشت دوباره فشار دهید</string>
+<string name="button_start">شروع کنید</string>
+<string name="button_options">گزینه ها</string>
+<string name="button_tutorial">آموزش</string>
+<string name="button_rate">نرخ</string>
+<string name="button_achievement">دستاوردها</string>
+<string name="button_leaderboard">قهرمانی</string>
+<string name="button_more">بیشتر</string>
+<string name="tutorialTextPage1">برای تکمیل هر سطح، بلوک را روی هدف سبز قرار دهید</string>
+<string name="tutorialTextPage2">شما می توانید بلوک را در چهار جهت چرخانید</string>
+<string name="tutorialTextPage3">مراقب باشید که شما روی بلوک های قرمز ایستاده اید</string>
+<string name="tutorialTextPage4">هر چند می توانید بر روی بلوک های قرمز قرار دهید</string>
+<string name="tutorialTextPage5">اگر شما بر روی یک بلوک قرمز ایستاده اید، آن را شکستن و شما را از طریق طبقه سقوط</string>
+<string name="tutorialTextPage6">کلید ها بلوک های پنهان را فعال می کنند</string>
+<string name="tutorialTextPage7">هنگامی که این کلید را لمس می کنید، بلوک های پنهان ظاهر می شوند</string>
+<string name="tutorialTextPage8">این کلید باید فعال باشد</string>
+<string name="tutorialTextPage9">بعضی سوئیچ ها ممکن است تنها بلوک ها را پنهان کنند. </string>
+<string name="turorialTextPage10">مراقب باشید که سقوط نکنید. </string>
+<string name="achievement_unlocked_prompt">موفقیت بدست آمد</string>
+<string name="signin_success_welcome">سلام</string>
+<string name="not_signed_in_default_message">وارد نشده اید</string>
+<string name="signin_other_error">یک مشکل با ورود به سیستم وجود داشت. لطفا بعدا دوباره امتحان کنید.</string>
+<string name="achievements_exception">یک مسئله ارتباط با دستاوردها وجود داشت.</string>
+<string name="status_exception_error">٪ 1 $ s (وضعیت٪ 2 $ d). </string>
+<string name="leaderboards_exception">یک ارتباط با مدیران وجود داشت.</string>
+<string name="players_exception">یک موضوع ارتباط با بازیکنان وجود داشت.</string>
+<array name="custom_button_text_login">
+<item>خودکار ورود: روشن</item>
+<item>خودکار ورود: خاموش</item>
+</array>
+<array name="custom_button_text_sound">
+<item>صدا: روشن است</item>
+<item>قطع صدا</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>ارتعاش: روشن</item>
+<item>ارتعاش: خاموش</item>
+</array>
+<array name="spinner_text_texture">
+<item>سیمان</item>
+<item>چمن</item>
+<item>سنگ</item>
+<item>اب</item>
+<item>راکی</item>
+<item>برف</item>
+<item>کاشی</item>
+<item>دیوار</item>
+<item>موش</item>
+<item>بنفش</item>
+<item>عجیب و غریب</item>
+<item>آبی</item>
+<item>تاریکی</item>
+<item>سبز</item>
+<item>الگو</item>
+<item>صورتی</item>
+<item>رنگ بنفش</item>
+<item>آسمان</item>
+<item>سنگ</item>
+<item>فیروزه</item>
+</array>
+<array name="spinner_text_background">
+<item>آبی</item>
+<item>چند</item>
+<item>خط</item>
+<item>نوارها</item>
+<item>آبی تیره</item>
+<item>نارنجی</item>
+<item>تیتان</item>
+<item>رنگين كمان</item>
+<item>چوب</item>
+<item>رنگ ها</item>
+<item>سرخ</item>
+<item>رنگ قهوه ای</item>
+<item>شیب</item>
+<item>جاده</item>
+<item>کهکشان</item>
+<item>سقوط</item>
+<item>شهر</item>
+<item>مزرعه</item>
+<item>مورب</item>
+<item>جنگل</item>
+</array>
+</resources>

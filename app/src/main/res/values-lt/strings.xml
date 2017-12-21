@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Pasirinkite lygį</string>
+<string name="game_over_text">Baigtas</string>
+<string name="exit_level_confirm">Patvirtinti išėjimą?</string>
+<string name="exit_app_prompt">Paspauskite dar kartą, kad išeitumėte</string>
+<string name="exit_game_prompt">Paspauskite dar kartą, kad grįžtumėte</string>
+<string name="button_start">Pradėti</string>
+<string name="button_options">Galimybės</string>
+<string name="button_tutorial">Pamoka</string>
+<string name="button_rate">Įvertinti</string>
+<string name="button_achievement">Pasiekimai</string>
+<string name="button_leaderboard">\"Leaderboard\"</string>
+<string name="button_more">Daugiau</string>
+<string name="tutorialTextPage1">Sustokite bloką žaliame tikslyje, kad užbaigtumėte kiekvieną lygį</string>
+<string name="tutorialTextPage2">Galite pasukti bloką visomis keturiomis kryptimis</string>
+<string name="tutorialTextPage3">Saugokitės, kad negalėsite stovėti ant raudonų blokų</string>
+<string name="tutorialTextPage4">Galite nustatyti raudonus blokus nors</string>
+<string name="tutorialTextPage5">Jei atsistosite ant raudono bloko, jis sulaužys ir taps ant grindų</string>
+<string name="tutorialTextPage6">Jungikliai aktyvuoja paslėptus blokus</string>
+<string name="tutorialTextPage7">Palietus šį jungiklį pasirodys paslėptos blokai</string>
+<string name="tutorialTextPage8">Šis jungiklis turi būti aktyvus</string>
+<string name="tutorialTextPage9">Kai kurie jungikliai gali tik paslėpti blokus. </string>
+<string name="turorialTextPage10">Būkite atsargūs, kad nepatektumėte. </string>
+<string name="achievement_unlocked_prompt">Pasiekimas atrakintas</string>
+<string name="signin_success_welcome">Labas!</string>
+<string name="not_signed_in_default_message">Neužsiregistravote</string>
+<string name="signin_other_error">Įvyko problema su prisijungimu. Prašome pabandyti dar kartą vėliau.</string>
+<string name="achievements_exception">Susidūrėme su laimėjimais.</string>
+<string name="status_exception_error">% 1 $ s (būsena% 2 $ d). </string>
+<string name="leaderboards_exception">Kilo klausimas, bendraujant su lyderiais.</string>
+<string name="players_exception">Susidūrėme su žaidėjais.</string>
+<array name="custom_button_text_login">
+<item>Automatinis prisijungimas: įjungtas</item>
+<item>Automatinis prisijungimas: išjungta</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Garsas: on</item>
+<item>Garsas išjungtas</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibracija: įjungta</item>
+<item>Vibracija: išjungta</item>
+</array>
+<array name="spinner_text_texture">
+<item>Cementas</item>
+<item>Žolė</item>
+<item>Rokas</item>
+<item>Vanduo</item>
+<item>Rocky</item>
+<item>Sniegas</item>
+<item>Plytelė</item>
+<item>Siena</item>
+<item>Samanos</item>
+<item>Violetinė</item>
+<item>Siaubingas</item>
+<item>Aqua</item>
+<item>Tamsus</item>
+<item>Žalias</item>
+<item>Modelis</item>
+<item>Rausvas</item>
+<item>Violetinė</item>
+<item>Dangus</item>
+<item>Akmuo</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Mėlyna</item>
+<item>Multi</item>
+<item>Streak</item>
+<item>Juostos</item>
+<item>Tamsiai mėlyna</item>
+<item>Oranžinė</item>
+<item>Titanas</item>
+<item>Vaivorykštė</item>
+<item>Medis</item>
+<item>Spalvos</item>
+<item>Raudona</item>
+<item>Ruda</item>
+<item>Gradientas</item>
+<item>Kelias</item>
+<item>Galaktika</item>
+<item>Kritimas</item>
+<item>Miestas</item>
+<item>Ūkis</item>
+<item>Įstrižainė</item>
+<item>Miškas</item>
+</array>
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">اختار مستوى</string>
+<string name="game_over_text">منجز</string>
+<string name="exit_level_confirm">هل تريد تأكيد الخروج؟</string>
+<string name="exit_app_prompt">اضغط مرة أخرى للخروج</string>
+<string name="exit_game_prompt">اضغط مرة أخرى للعودة</string>
+<string name="button_start">بداية</string>
+<string name="button_options">خيارات</string>
+<string name="button_tutorial">الدورة التعليمية</string>
+<string name="button_rate">معدل</string>
+<string name="button_achievement">الإنجازات</string>
+<string name="button_leaderboard">المتصدرين</string>
+<string name="button_more">أكثر من</string>
+<string name="tutorialTextPage1">الوقوف كتلة على الهدف الأخضر لإكمال كل مستوى</string>
+<string name="tutorialTextPage2">يمكنك تدوير كتلة في جميع الاتجاهات الأربعة</string>
+<string name="tutorialTextPage3">حذار يمكنك الوقوف على كتل حمراء</string>
+<string name="tutorialTextPage4">يمكنك وضع على كتل حمراء على الرغم من</string>
+<string name="tutorialTextPage5">إذا كنت تقف على كتلة حمراء فإنه سيتم كسر وسوف تقع من خلال الكلمة</string>
+<string name="tutorialTextPage6">مفاتيح تنشيط كتل خفية</string>
+<string name="tutorialTextPage7">عند لمس هذا التبديل تظهر كتل خفية</string>
+<string name="tutorialTextPage8">هذا التبديل يجب عليك الوقوف على من أجل تفعيل</string>
+<string name="tutorialTextPage9">بعض مفاتيح قد تخفي فقط كتل. </string>
+<string name="turorialTextPage10">يجب الحرص على عدم تسقط. </string>
+<string name="achievement_unlocked_prompt">تم إلغاء تأمين الإنجاز</string>
+<string name="signin_success_welcome">مرحبا</string>
+<string name="not_signed_in_default_message">لم تسجل الدخول</string>
+<string name="signin_other_error">حدثت مشكلة أثناء تسجيل الدخول. الرجاء إعادة المحاولة لاحقا.</string>
+<string name="achievements_exception">وكانت هناك مشكلة في التواصل مع الإنجازات.</string>
+<string name="status_exception_error">٪ 1 $ s (الحالة٪ 2 $ d). </string>
+<string name="leaderboards_exception">كانت هناك مشكلة في التواصل مع المتصدرين.</string>
+<string name="players_exception">كانت هناك مشكلة التواصل مع اللاعبين.</string>
+<array name="custom_button_text_login">
+<item>تسجيل الدخول التلقائي: تشغيل</item>
+<item>تسجيل الدخول التلقائي: إيقاف</item>
+</array>
+<array name="custom_button_text_sound">
+<item>الصوت مفعل</item>
+<item>الصوت مقفل</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>الاهتزاز: تشغيل</item>
+<item>الاهتزاز: إيقاف</item>
+</array>
+<array name="spinner_text_texture">
+<item>يبني</item>
+<item>نجيل</item>
+<item>صخرة</item>
+<item>ماء</item>
+<item>صخري</item>
+<item>ثلج</item>
+<item>قرميدة</item>
+<item>حائط</item>
+<item>طحلب</item>
+<item>البنفسجي</item>
+<item>مبقع</item>
+<item>أكوا</item>
+<item>داكن</item>
+<item>أخضر</item>
+<item>نمط</item>
+<item>يساري معتدل</item>
+<item>أرجواني</item>
+<item>سماء</item>
+<item>حجر</item>
+<item>فيروز</item>
+</array>
+<array name="spinner_text_background">
+<item>أزرق</item>
+<item>متعدد</item>
+<item>خط</item>
+<item>شرائط</item>
+<item>أزرق غامق</item>
+<item>البرتقالي</item>
+<item>عملاق</item>
+<item>قوس المطر</item>
+<item>خشب</item>
+<item>الألوان</item>
+<item>أحمر</item>
+<item>بنى</item>
+<item>الانحدار</item>
+<item>الطريق</item>
+<item>المجرة</item>
+<item>خريف</item>
+<item>مدينة</item>
+<item>مزرعة</item>
+<item>قطري</item>
+<item>غابة</item>
+</array>
+</resources>

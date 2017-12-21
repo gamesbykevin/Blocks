@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Pilih Tahap</string>
+<string name="game_over_text">Selesai</string>
+<string name="exit_level_confirm">Sahkan Exit?</string>
+<string name="exit_app_prompt">Tekan sekali lagi untuk keluar</string>
+<string name="exit_game_prompt">Tekan sekali lagi untuk kembali</string>
+<string name="button_start">Mulakan</string>
+<string name="button_options">Pilihan</string>
+<string name="button_tutorial">Tutorial</string>
+<string name="button_rate">Kadar</string>
+<string name="button_achievement">Pencapaian</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Lebih banyak</string>
+<string name="tutorialTextPage1">Berdirilah blok pada matlamat hijau untuk menyelesaikan setiap peringkat</string>
+<string name="tutorialTextPage2">Anda boleh memutar blok di semua empat arah</string>
+<string name="tutorialTextPage3">Berhati-hatilah anda tidak boleh berdiri di blok merah</string>
+<string name="tutorialTextPage4">Anda boleh meletakkan di blok merah walaupun</string>
+<string name="tutorialTextPage5">Jika anda berdiri di blok merah, ia akan pecah dan anda akan jatuh ke lantai</string>
+<string name="tutorialTextPage6">Suis mengaktifkan blok tersembunyi</string>
+<string name="tutorialTextPage7">Apabila anda menyentuh suis ini, blok tersembunyi muncul</string>
+<string name="tutorialTextPage8">Suis ini perlu anda teruskan untuk mengaktifkannya</string>
+<string name="tutorialTextPage9">Sesetengah suis hanya boleh menyembunyikan blok. </string>
+<string name="turorialTextPage10">Berhati-hatilah untuk tidak jatuh. </string>
+<string name="achievement_unlocked_prompt">Pencapaian dikunci</string>
+<string name="signin_success_welcome">Hi</string>
+<string name="not_signed_in_default_message">Tidak masuk</string>
+<string name="signin_other_error">Terdapat masalah dengan masuk. Sila cuba lagi kemudian.</string>
+<string name="achievements_exception">Terdapat isu berkomunikasi dengan pencapaian.</string>
+<string name="status_exception_error">% 1 $ s (status% 2 $ d). </string>
+<string name="leaderboards_exception">Terdapat masalah berkomunikasi dengan papan pendahulu.</string>
+<string name="players_exception">Terdapat isu berkomunikasi dengan pemain.</string>
+<array name="custom_button_text_login">
+<item>Masuk Auto: Aktif</item>
+<item>Masuk Auto: Tidak aktif</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Bunyi: Aktif</item>
+<item>Matikan suara</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Getaran: Aktif</item>
+<item>Vibrate: Off</item>
+</array>
+<array name="spinner_text_texture">
+<item>Simen</item>
+<item>Rumput</item>
+<item>Rock</item>
+<item>Air</item>
+<item>Rocky</item>
+<item>Salji</item>
+<item>Tile</item>
+<item>Wall</item>
+<item>Lumut</item>
+<item>Violet</item>
+<item>Speckled</item>
+<item>Aqua</item>
+<item>Gelap</item>
+<item>Hijau</item>
+<item>Corak</item>
+<item>Pinkish</item>
+<item>Ungu</item>
+<item>Langit</item>
+<item>Batu</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Biru</item>
+<item>Multi</item>
+<item>Streak</item>
+<item>Jalur</item>
+<item>Biru gelap</item>
+<item>Orange</item>
+<item>Titan</item>
+<item>Pelangi</item>
+<item>Kayu</item>
+<item>Warna</item>
+<item>Merah</item>
+<item>Coklat</item>
+<item>Kecerunan</item>
+<item>Jalan</item>
+<item>Galaxy</item>
+<item>Jatuh</item>
+<item>Bandar</item>
+<item>Ladang</item>
+<item>Diagonal</item>
+<item>Hutan</item>
+</array>
+</resources>

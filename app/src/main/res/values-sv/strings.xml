@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Välj nivå</string>
+<string name="game_over_text">Avslutad</string>
+<string name="exit_level_confirm">Bekräfta Exit?</string>
+<string name="exit_app_prompt">Tryck igen för att avsluta</string>
+<string name="exit_game_prompt">Tryck igen för att gå tillbaka</string>
+<string name="button_start">Start</string>
+<string name="button_options">alternativ</string>
+<string name="button_tutorial">Handledning</string>
+<string name="button_rate">Betygsätta</string>
+<string name="button_achievement">Prestationer</string>
+<string name="button_leaderboard">leaderboard</string>
+<string name="button_more">Mer</string>
+<string name="tutorialTextPage1">Stå blocket på det gröna målet för att slutföra varje nivå</string>
+<string name="tutorialTextPage2">Du kan rotera blocket i alla fyra riktningarna</string>
+<string name="tutorialTextPage3">Akta dig för att du inte kan stå på röda block</string>
+<string name="tutorialTextPage4">Du kan dock lägga sig på röda block</string>
+<string name="tutorialTextPage5">Om du står på ett rött block kommer det att bryta och du kommer att falla genom golvet</string>
+<string name="tutorialTextPage6">Omkopplare aktiverar dolda block</string>
+<string name="tutorialTextPage7">När du trycker på den här knappen visas de dolda blocken</string>
+<string name="tutorialTextPage8">Denna strömbrytare måste du stå på för att aktivera</string>
+<string name="tutorialTextPage9">Vissa växlar kan bara dölja block. </string>
+<string name="turorialTextPage10">Var försiktig så att du inte faller av. </string>
+<string name="achievement_unlocked_prompt">Upplåst upplåst</string>
+<string name="signin_success_welcome">Hej</string>
+<string name="not_signed_in_default_message">Inte inloggad</string>
+<string name="signin_other_error">Det gick inte att logga in. Vänligen försök igen senare.</string>
+<string name="achievements_exception">Det var ett problem att kommunicera med prestationer.</string>
+<string name="status_exception_error">% 1 $ s (status% 2 $ d). </string>
+<string name="leaderboards_exception">Det var ett problem att kommunicera med leaderboards.</string>
+<string name="players_exception">Det var ett problem att kommunicera med spelarna.</string>
+<array name="custom_button_text_login">
+<item>Automatisk inloggning: På</item>
+<item>Automatisk inloggning: Av</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Ljud på</item>
+<item>Ljud av</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrera: På</item>
+<item>Vibrera: Av</item>
+</array>
+<array name="spinner_text_texture">
+<item>Cement</item>
+<item>Gräs</item>
+<item>Sten</item>
+<item>Vatten</item>
+<item>Klippig</item>
+<item>Snö</item>
+<item>Bricka</item>
+<item>Vägg</item>
+<item>Mossa</item>
+<item>Violett</item>
+<item>Spräcklig</item>
+<item>Aqua</item>
+<item>Mörk</item>
+<item>Grön</item>
+<item>Mönster</item>
+<item>Typ Rosa</item>
+<item>Lila</item>
+<item>Himmel</item>
+<item>Sten</item>
+<item>Turkos</item>
+</array>
+<array name="spinner_text_background">
+<item>Blå</item>
+<item>Mång</item>
+<item>Strimma</item>
+<item>Stripes</item>
+<item>Mörkblå</item>
+<item>Orange</item>
+<item>titan</item>
+<item>Regnbåge</item>
+<item>Trä</item>
+<item>Färger</item>
+<item>Röd</item>
+<item>Brun</item>
+<item>Lutning</item>
+<item>Väg</item>
+<item>galax</item>
+<item>Falla</item>
+<item>Stad</item>
+<item>Odla</item>
+<item>Diagonal</item>
+<item>Skog</item>
+</array>
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Түвшинг сонго</string>
+<string name="game_over_text">Дууссан</string>
+<string name="exit_level_confirm">Exit гэдгийг баталгаажуулна уу?</string>
+<string name="exit_app_prompt">Гарахын тулд дахин дарна уу</string>
+<string name="exit_game_prompt">Буцахын тулд дахин дарна уу</string>
+<string name="button_start">Эхлээд</string>
+<string name="button_options">Сонголтууд</string>
+<string name="button_tutorial">Tutorial</string>
+<string name="button_rate">Үнэлгээ</string>
+<string name="button_achievement">Ололт амжилтууд</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Дэлгэрэнгүй</string>
+<string name="tutorialTextPage1">Түвшин бүрийг дуусгахын тулд ногоон дэвсгэр дээр блокийг зогсооно</string>
+<string name="tutorialTextPage2">Та блокыг бүх чиглэлд эргүүлэх боломжтой</string>
+<string name="tutorialTextPage3">Та улаан блок дээр зогсож болохгүй</string>
+<string name="tutorialTextPage4">Та улаан блокууд дээр хэвтэж болно</string>
+<string name="tutorialTextPage5">Хэрэв та улаан блок дээр зогсвол энэ нь эвдэрч, шалан дээр унах болно</string>
+<string name="tutorialTextPage6">Надад нуусан блокуудыг идэвхжүүлнэ</string>
+<string name="tutorialTextPage7">Та энэ шилжихэд нуусан блокууд гарч ирнэ</string>
+<string name="tutorialTextPage8">Та энэ шилжүүлэлтийг идэвхжүүлэхийн тулд идэвхтэй байх ёстой</string>
+<string name="tutorialTextPage9">Зарим унтраалга нь зөвхөн блокуудыг нуух боломжтой. </string>
+<string name="turorialTextPage10">Унахаас болгоомжлох хэрэгтэй. </string>
+<string name="achievement_unlocked_prompt">Түгжээг нь гаргасан амжилт</string>
+<string name="signin_success_welcome">Сайн уу</string>
+<string name="not_signed_in_default_message">Нэвтрээгүй байна</string>
+<string name="signin_other_error">Нэвтрэх асуудал байна. Дараа дахин оролдоно уу.</string>
+<string name="achievements_exception">Амжилтад хүрэхтэй холбоотой асуудал гарлаа.</string>
+<string name="status_exception_error">% 1 $ s (статус% 2 $ d). </string>
+<string name="leaderboards_exception">Шийдвэрлэх самбартай холбогдох асуудал гарсан.</string>
+<string name="players_exception">Тоглогчидтой холбоотой асуудал гарлаа.</string>
+<array name="custom_button_text_login">
+<item>Авто нэвтрэх: Идэвхтэй байна</item>
+<item>Авто нэвтрэх: Off</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Дууны: On</item>
+<item>Дууны: Off</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrate: On</item>
+<item>Vibrate: Off</item>
+</array>
+<array name="spinner_text_texture">
+<item>Цемент</item>
+<item>Өвсний</item>
+<item>Рок</item>
+<item>Ус</item>
+<item>Rocky</item>
+<item>Цас</item>
+<item>Хавтанцар</item>
+<item>Хана</item>
+<item>хөвд</item>
+<item>Violet</item>
+<item>Speckled</item>
+<item>А Aqua</item>
+<item>Dark</item>
+<item>Ногоон</item>
+<item>Загвар</item>
+<item>Ягаан байна</item>
+<item>Нил ягаан өнгийн</item>
+<item>Тэнгэр</item>
+<item>Чулуун байна</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Цэнхэр</item>
+<item>Олон</item>
+<item>Streak</item>
+<item>Stripes</item>
+<item>Хар хөх</item>
+<item>жүрж</item>
+<item>Титан</item>
+<item>Солонго</item>
+<item>Мод</item>
+<item>Өнгө</item>
+<item>Улаан</item>
+<item>Браун</item>
+<item>Gradient</item>
+<item>Зам</item>
+<item>Galaxy</item>
+<item>Уналт</item>
+<item>Хот</item>
+<item>Ферм</item>
+<item>Диагонал</item>
+<item>Ой</item>
+</array>
+</resources>

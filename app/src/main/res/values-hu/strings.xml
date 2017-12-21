@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Válasszon szintet</string>
+<string name="game_over_text">befejezték</string>
+<string name="exit_level_confirm">Erősítse meg a kilépést?</string>
+<string name="exit_app_prompt">Nyomja meg újra a kilépéshez</string>
+<string name="exit_game_prompt">Nyomja meg ismét a gombot, hogy visszatérjen</string>
+<string name="button_start">Rajt</string>
+<string name="button_options">Lehetőségek</string>
+<string name="button_tutorial">oktatói</string>
+<string name="button_rate">Arány</string>
+<string name="button_achievement">Kitüntetések</string>
+<string name="button_leaderboard">ranglistán</string>
+<string name="button_more">Több</string>
+<string name="tutorialTextPage1">Állítsd a blokkot a zöld célon, hogy befejezed az egyes szinteket</string>
+<string name="tutorialTextPage2">A blokkot mind a négy irányban forgathatja</string>
+<string name="tutorialTextPage3">Vigyázz, hogy ne álljon piros blokkokon</string>
+<string name="tutorialTextPage4">Lehet feküdni a piros blokkok azonban</string>
+<string name="tutorialTextPage5">Ha piros blokkban állsz, akkor megtörik, és a padlón esik át</string>
+<string name="tutorialTextPage6">A kapcsolók aktiválják a rejtett blokkokat</string>
+<string name="tutorialTextPage7">Ha megérinti ezt a kapcsolót, megjelenik a rejtett blokkok</string>
+<string name="tutorialTextPage8">A kapcsolónak be kell állnia az aktiváláshoz</string>
+<string name="tutorialTextPage9">Egyes kapcsolók csak blokkokat elrejthetnek. </string>
+<string name="turorialTextPage10">Vigyázzon, nehogy leessen. </string>
+<string name="achievement_unlocked_prompt">A teljesítés feloldva</string>
+<string name="signin_success_welcome">Szia</string>
+<string name="not_signed_in_default_message">Nincs bejelentkezve</string>
+<string name="signin_other_error">Hiba történt a bejelentkezéssel. Próbálja újra később.</string>
+<string name="achievements_exception">Volt olyan kérdés, amely kommunikál az eredményekkel.</string>
+<string name="status_exception_error">% 1 $ s (% 2 $ d állapota). </string>
+<string name="leaderboards_exception">Volt olyan kérdés, amely kommunikál a ranglistákkal.</string>
+<string name="players_exception">A játékosokkal kommunikáltak.</string>
+<array name="custom_button_text_login">
+<item>Automatikus bejelentkezés: Be</item>
+<item>Automatikus bejelentkezés: Ki</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Hang: Be</item>
+<item>Nyíltan beszél</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Rezgés: Be</item>
+<item>Rezgés: Ki</item>
+</array>
+<array name="spinner_text_texture">
+<item>Cement</item>
+<item>Fű</item>
+<item>Szikla</item>
+<item>Víz</item>
+<item>Sziklás</item>
+<item>Hó</item>
+<item>Csempe</item>
+<item>Fal</item>
+<item>Moha</item>
+<item>Ibolya</item>
+<item>Pettyes</item>
+<item>Aqua</item>
+<item>Sötét</item>
+<item>Zöld</item>
+<item>Minta</item>
+<item>Rózsaszínű</item>
+<item>Lila</item>
+<item>Ég</item>
+<item>Kő</item>
+<item>Türkiz</item>
+</array>
+<array name="spinner_text_background">
+<item>Kék</item>
+<item>Több</item>
+<item>Csík</item>
+<item>Csíkok</item>
+<item>Sötétkék</item>
+<item>narancs</item>
+<item>Titán</item>
+<item>Szivárvány</item>
+<item>Faipari</item>
+<item>Színek</item>
+<item>Piros</item>
+<item>Barna</item>
+<item>Gradiens</item>
+<item>Út</item>
+<item>galaktika</item>
+<item>Esik</item>
+<item>Város</item>
+<item>Farm</item>
+<item>Átlós</item>
+<item>Erdő</item>
+</array>
+</resources>

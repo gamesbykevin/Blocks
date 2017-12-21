@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">בחר שלב</string>
+<string name="game_over_text">הושלם</string>
+<string name="exit_level_confirm">האם לאשר יציאה?</string>
+<string name="exit_app_prompt">לחץ שוב על מנת לצאת</string>
+<string name="exit_game_prompt">לחץ שוב כדי לחזור</string>
+<string name="button_start">הַתחָלָה</string>
+<string name="button_options">אפשרויות</string>
+<string name="button_tutorial">הדרכה</string>
+<string name="button_rate">ציון</string>
+<string name="button_achievement">הישגים</string>
+<string name="button_leaderboard">לידרבורד</string>
+<string name="button_more">יותר</string>
+<string name="tutorialTextPage1">לעמוד בלוק על המטרה הירוק כדי להשלים כל רמה</string>
+<string name="tutorialTextPage2">ניתן לסובב את הבלוק בכל ארבעת הכיוונים</string>
+<string name="tutorialTextPage3">היזהר שאתה לא יכול לעמוד על בלוקים אדומים</string>
+<string name="tutorialTextPage4">אתה יכול לשכב על בלוקים אדומים אף</string>
+<string name="tutorialTextPage5">אם אתה עומד על בלוק אדום זה יהיה לשבור ואתה תיפול דרך הרצפה</string>
+<string name="tutorialTextPage6">מתגים להפעיל בלוקים מוסתרים</string>
+<string name="tutorialTextPage7">כאשר אתה נוגע זה מתג את בלוקים מוסתרים מופיעים</string>
+<string name="tutorialTextPage8">בורר זה חייב לעמוד על מנת להפעיל</string>
+<string name="tutorialTextPage9">בוררים מסוימים עשויים להסתיר רק בלוקים. </string>
+<string name="turorialTextPage10">היזהר לא ליפול. </string>
+<string name="achievement_unlocked_prompt">נפתח הישג</string>
+<string name="signin_success_welcome">היי</string>
+<string name="not_signed_in_default_message">לא מחובר</string>
+<string name="signin_other_error">הייתה בעיה עם כניסה. נסה שוב מאוחר יותר.</string>
+<string name="achievements_exception">היתה בעיה בתקשורת עם הישגים.</string>
+<string name="status_exception_error">% 1 $ s (סטטוס% 2 $ d). </string>
+<string name="leaderboards_exception">היתה בעיה בתקשורת עם Leaderboards.</string>
+<string name="players_exception">היתה בעיה בתקשורת עם שחקנים.</string>
+<array name="custom_button_text_login">
+<item>כניסה אוטומטית: מופעל</item>
+<item>כניסה אוטומטית: כבוי</item>
+</array>
+<array name="custom_button_text_sound">
+<item>קול: מופעל</item>
+<item>צליל של</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>רטט: מופעל</item>
+<item>רטט: כבוי</item>
+</array>
+<array name="spinner_text_texture">
+<item>בטון</item>
+<item>דֶשֶׁא</item>
+<item>סלע</item>
+<item>מים</item>
+<item>סַלעִי</item>
+<item>שֶׁלֶג</item>
+<item>אָרִיחַ</item>
+<item>קִיר</item>
+<item>אֵזוֹב</item>
+<item>סָגוֹל</item>
+<item>מְנוּמָר</item>
+<item>אקווה</item>
+<item>אפל</item>
+<item>ירוק</item>
+<item>תַבְנִית</item>
+<item>וְרַדרַד</item>
+<item>סָגוֹל</item>
+<item>שָׁמַיִם</item>
+<item>אֶבֶן</item>
+<item>טורקיז</item>
+</array>
+<array name="spinner_text_background">
+<item>כָּחוֹל</item>
+<item>רַב</item>
+<item>פַּס</item>
+<item>פסים</item>
+<item>כחול כהה</item>
+<item>תפוז</item>
+<item>עֲנָק</item>
+<item>קשת בענן</item>
+<item>עץ</item>
+<item>צבעים</item>
+<item>אָדוֹם</item>
+<item>חום</item>
+<item>מִדרוֹן</item>
+<item>כְּבִישׁ</item>
+<item>גָלַקסִיָה</item>
+<item>נפילה</item>
+<item>העיר</item>
+<item>חווה חקלאית</item>
+<item>אֲלַכסוֹנִי</item>
+<item>יַעַר</item>
+</array>
+</resources>

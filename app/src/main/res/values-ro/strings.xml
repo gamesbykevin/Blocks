@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Selectează nivelul</string>
+<string name="game_over_text">terminat</string>
+<string name="exit_level_confirm">Confirmați ieșirea?</string>
+<string name="exit_app_prompt">Apăsați din nou pentru a ieși</string>
+<string name="exit_game_prompt">Apăsați din nou pentru a reveni</string>
+<string name="button_start">start</string>
+<string name="button_options">Opțiuni</string>
+<string name="button_tutorial">Tutorial</string>
+<string name="button_rate">Rată</string>
+<string name="button_achievement">Realizări</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Mai Mult</string>
+<string name="tutorialTextPage1">Stați blocul pe obiectivul verde pentru a termina fiecare nivel</string>
+<string name="tutorialTextPage2">Puteți roti blocul în toate cele patru direcții</string>
+<string name="tutorialTextPage3">Feriți-vă că nu puteți sta pe blocuri roșii</string>
+<string name="tutorialTextPage4">Puteți să vă așezați pe blocuri roșii</string>
+<string name="tutorialTextPage5">Dacă stați pe un bloc roșu se va sparge și veți cădea prin podea</string>
+<string name="tutorialTextPage6">Comutatoarele activează blocurile ascunse</string>
+<string name="tutorialTextPage7">Când atingeți acest comutator, apar blocurile ascunse</string>
+<string name="tutorialTextPage8">Acest comutator trebuie să stea pentru a se activa</string>
+<string name="tutorialTextPage9">Unele comutatoare pot ascunde blocuri. </string>
+<string name="turorialTextPage10">Aveți grijă să nu cădeți. </string>
+<string name="achievement_unlocked_prompt">Realizare deblocata</string>
+<string name="signin_success_welcome">Bună</string>
+<string name="not_signed_in_default_message">Nu ai fost semnat</string>
+<string name="signin_other_error">A apărut o problemă la conectare. Încercați din nou mai târziu.</string>
+<string name="achievements_exception">A fost o problemă de comunicare cu realizările.</string>
+<string name="status_exception_error">% 1 $ s (starea% 2 $ d). </string>
+<string name="leaderboards_exception">A apărut o problemă de comunicare cu clasamentele leaderboard.</string>
+<string name="players_exception">A apărut o problemă de comunicare cu jucătorii.</string>
+<array name="custom_button_text_login">
+<item>Login automat: activat</item>
+<item>Login automat: Oprit</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Sunet pornit</item>
+<item>Fara sunet</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrați: Pornit</item>
+<item>Vibrați: Oprit</item>
+</array>
+<array name="spinner_text_texture">
+<item>Ciment</item>
+<item>Iarbă</item>
+<item>stâncă</item>
+<item>Apă</item>
+<item>stâncos</item>
+<item>Zăpadă</item>
+<item>Ţiglă</item>
+<item>Perete</item>
+<item>mușchi</item>
+<item>violet</item>
+<item>Pătat</item>
+<item>apă</item>
+<item>Întuneric</item>
+<item>Verde</item>
+<item>Model</item>
+<item>Roz</item>
+<item>Violet</item>
+<item>Cer</item>
+<item>Piatră</item>
+<item>Turcoaz</item>
+</array>
+<array name="spinner_text_background">
+<item>Albastru</item>
+<item>Multi</item>
+<item>dungă</item>
+<item>Stripes</item>
+<item>Albastru inchis</item>
+<item>Portocale</item>
+<item>Titan</item>
+<item>Curcubeu</item>
+<item>Lemn</item>
+<item>colorate</item>
+<item>roșu</item>
+<item>Maro</item>
+<item>Gradient</item>
+<item>drum</item>
+<item>Galaxie</item>
+<item>cădea</item>
+<item>Oraș</item>
+<item>Fermă</item>
+<item>Diagonală</item>
+<item>pădure</item>
+</array>
+</resources>

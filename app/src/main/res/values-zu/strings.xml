@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Khetha Izinga</string>
+<string name="game_over_text">Kuqedile</string>
+<string name="exit_level_confirm">Qinisekisa ukuphuma?</string>
+<string name="exit_app_prompt">Cindezela futhi ukuze uphume</string>
+<string name="exit_game_prompt">Cindezela futhi ukuze ubuyele emuva</string>
+<string name="button_start">Qala</string>
+<string name="button_options">Izinketho</string>
+<string name="button_tutorial">Isifundo</string>
+<string name="button_rate">Linganisa</string>
+<string name="button_achievement">Izimpumelelo</string>
+<string name="button_leaderboard">I-Leaderboard</string>
+<string name="button_more">Okuningi</string>
+<string name="tutorialTextPage1">Misa ibhola emgomeni ohlaza ukuze uqedele izinga ngalinye</string>
+<string name="tutorialTextPage2">Ungashintsha ibhulogi kuzo zonke izinkomba ezine</string>
+<string name="tutorialTextPage3">Qaphela ukuthi awukwazi ukuma emabhuloki obomvu</string>
+<string name="tutorialTextPage4">Ungakwazi ukubeka phansi emabhuloki obomvu nokho</string>
+<string name="tutorialTextPage5">Uma umile ebomvu elibomvu lizophuka futhi uzowela phansi</string>
+<string name="tutorialTextPage6">Ishintshela ukuvimbela okuvimba okufihliwe</string>
+<string name="tutorialTextPage7">Uma uthinta lokhu shintsha izivimbe ezifihliwe zivele</string>
+<string name="tutorialTextPage8">Lolu tshintsho kumele ume ukuze usebenze</string>
+<string name="tutorialTextPage9">Ezinye izishintshi zivele zifihle amabhlokhi kuphela. </string>
+<string name="turorialTextPage10">Qaphela ukuthi ungawa. </string>
+<string name="achievement_unlocked_prompt">Ukuphumelela Kuvuliwe</string>
+<string name="signin_success_welcome">Sawubona</string>
+<string name="not_signed_in_default_message">Angangeni ngemvume</string>
+<string name="signin_other_error">Kube nenkinga ngokungena ngemvume. Sicela uzame futhi emuva kwesikhathi.</string>
+<string name="achievements_exception">Kube nenkinga yokuxhumana nezimpumelelo.</string>
+<string name="status_exception_error">% 1 $ s (isimo% 2 $ d). </string>
+<string name="leaderboards_exception">Kube nenkinga yokuxhumana namabhodi wabaphambili.</string>
+<string name="players_exception">Kube nenkinga yokuxhumana nabadlali.</string>
+<array name="custom_button_text_login">
+<item>Ukungena ngemvume ngokuzenzakalelayo: Kuvuliwe</item>
+<item>Ukungena ngemvume ngokuzenzakalela: Kuvaliwe</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Umsindo: Vuliwe</item>
+<item>Umsindo: Kuvaliwe</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vula: Vuliwe</item>
+<item>Vula: Kuvaliwe</item>
+</array>
+<array name="spinner_text_texture">
+<item>I-Cement</item>
+<item>Utshani</item>
+<item>IDwala</item>
+<item>Amanzi</item>
+<item>Rocky</item>
+<item>Isiqhwa</item>
+<item>Tile</item>
+<item>I-Wall</item>
+<item>Moss</item>
+<item>I-Violet</item>
+<item>Speckled</item>
+<item>I-Aqua</item>
+<item>Umnyama</item>
+<item>Okuhlaza</item>
+<item>Iphethini</item>
+<item>I-Pinkish</item>
+<item>I-Purple</item>
+<item>I-Sky</item>
+<item>Amatshe</item>
+<item>I-Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Blue</item>
+<item>I-Multi</item>
+<item>I-Streak</item>
+<item>Ukuncipha</item>
+<item>Umbala ohlaza ozothile</item>
+<item>iwolintshi</item>
+<item>I-Titan</item>
+<item>Rainbow</item>
+<item>Izinkuni</item>
+<item>Imibala</item>
+<item>Okubomvu</item>
+<item>Brown</item>
+<item>I-Gradient</item>
+<item>Umgwaqo</item>
+<item>I-Galaxy</item>
+<item>Ukuwa</item>
+<item>Idolobha</item>
+<item>Ipulazi</item>
+<item>I-Diagonal</item>
+<item>Ihlathi</item>
+</array>
+</resources>

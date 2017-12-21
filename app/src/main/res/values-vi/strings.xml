@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Chọn cấp độ</string>
+<string name="game_over_text">Đã hoàn thành</string>
+<string name="exit_level_confirm">Xác nhận Thoát?</string>
+<string name="exit_app_prompt">nhấn một lần nữa để thoát</string>
+<string name="exit_game_prompt">Nhấn lần nữa để quay lại</string>
+<string name="button_start">Khởi đầu</string>
+<string name="button_options">Tùy chọn</string>
+<string name="button_tutorial">Hướng dẫn</string>
+<string name="button_rate">Tỷ lệ</string>
+<string name="button_achievement">Thành tựu</string>
+<string name="button_leaderboard">Bảng xếp hạng</string>
+<string name="button_more">Hơn</string>
+<string name="tutorialTextPage1">Đứng khối trên mục tiêu màu xanh lá cây để hoàn thành mỗi cấp</string>
+<string name="tutorialTextPage2">Bạn có thể xoay khối theo bốn hướng</string>
+<string name="tutorialTextPage3">Cẩn thận, bạn không thể đứng trên khối màu đỏ</string>
+<string name="tutorialTextPage4">Bạn có thể đặt trên khối đỏ mặc dù</string>
+<string name="tutorialTextPage5">Nếu bạn đứng trên một khối màu đỏ nó sẽ phá vỡ và bạn sẽ rơi qua sàn nhà</string>
+<string name="tutorialTextPage6">Công tắc bật các khối ẩn</string>
+<string name="tutorialTextPage7">Khi bạn chạm vào chuyển đổi này các khối ẩn xuất hiện</string>
+<string name="tutorialTextPage8">Công tắc này bạn phải đứng trên để kích hoạt</string>
+<string name="tutorialTextPage9">Một số thiết bị chuyển mạch chỉ có thể ẩn khối. </string>
+<string name="turorialTextPage10">Hãy cẩn thận không để rơi ra. </string>
+<string name="achievement_unlocked_prompt">Mở khóa thành tựu</string>
+<string name="signin_success_welcome">Chào</string>
+<string name="not_signed_in_default_message">Không đăng nhập</string>
+<string name="signin_other_error">Có vấn đề với đăng nhập. Vui lòng thử lại sau.</string>
+<string name="achievements_exception">Có vấn đề liên lạc với thành tích.</string>
+<string name="status_exception_error">% 1 $ s (trạng thái% 2 $ d). </string>
+<string name="leaderboards_exception">Đã xảy ra sự cố khi liên lạc với bảng thành tích.</string>
+<string name="players_exception">Có vấn đề giao tiếp với người chơi.</string>
+<array name="custom_button_text_login">
+<item>Đăng nhập tự động: Bật</item>
+<item>Đăng nhập tự động: Tắt</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Âm thanh: Bật</item>
+<item>Âm thanh: Tắt</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Rung: Bật</item>
+<item>Rung: Tắt</item>
+</array>
+<array name="spinner_text_texture">
+<item>Xi măng</item>
+<item>Cỏ</item>
+<item>Đá</item>
+<item>Nước</item>
+<item>Rocky</item>
+<item>Tuyết</item>
+<item>Ngói</item>
+<item>Tường</item>
+<item>Rêu</item>
+<item>màu tím</item>
+<item>Lấp lánh</item>
+<item>Aqua</item>
+<item>Tối</item>
+<item>màu xanh lá</item>
+<item>Mẫu</item>
+<item>Hồng</item>
+<item>Màu tím</item>
+<item>Sky</item>
+<item>Cục đá</item>
+<item>Màu ngọc lam</item>
+</array>
+<array name="spinner_text_background">
+<item>Màu xanh da trời</item>
+<item>Multi</item>
+<item>Streak</item>
+<item>Sọc</item>
+<item>Xanh đậm</item>
+<item>trái cam</item>
+<item>Titan</item>
+<item>cầu vồng</item>
+<item>Gỗ</item>
+<item>Màu sắc</item>
+<item>Đỏ</item>
+<item>nâu</item>
+<item>Dốc</item>
+<item>Đường</item>
+<item>Thiên hà</item>
+<item>Ngã</item>
+<item>Thị trấn</item>
+<item>Nông trại</item>
+<item>Chéo</item>
+<item>rừng</item>
+</array>
+</resources>

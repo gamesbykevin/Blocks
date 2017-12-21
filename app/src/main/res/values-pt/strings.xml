@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Selecione o nível</string>
+<string name="game_over_text">Concluído</string>
+<string name="exit_level_confirm">Confirmar saída?</string>
+<string name="exit_app_prompt">Pressione novamente para sair</string>
+<string name="exit_game_prompt">Pressione novamente para voltar</string>
+<string name="button_start">Começar</string>
+<string name="button_options">Opções</string>
+<string name="button_tutorial">Tutorial</string>
+<string name="button_rate">Taxa</string>
+<string name="button_achievement">Realizações</string>
+<string name="button_leaderboard">Entre os melhores</string>
+<string name="button_more">Mais</string>
+<string name="tutorialTextPage1">Mantenha o bloco no objetivo verde para completar cada nível</string>
+<string name="tutorialTextPage2">Você pode girar o bloco nas quatro direções</string>
+<string name="tutorialTextPage3">Cuidado, você não pode ficar em blocos vermelhos</string>
+<string name="tutorialTextPage4">Você pode se deitar em blocos vermelhos embora</string>
+<string name="tutorialTextPage5">Se você ficar em um bloco vermelho quebrará e você vai cair pelo chão</string>
+<string name="tutorialTextPage6">Switches ativam blocos escondidos</string>
+<string name="tutorialTextPage7">Quando você toca nesta opção, os blocos ocultos aparecem</string>
+<string name="tutorialTextPage8">Esta opção você deve permanecer parada para ativar</string>
+<string name="tutorialTextPage9">Alguns switches podem apenas ocultar blocos. </string>
+<string name="turorialTextPage10">Tenha cuidado para não cair. </string>
+<string name="achievement_unlocked_prompt">Conquista desbloqueada</string>
+<string name="signin_success_welcome">Oi</string>
+<string name="not_signed_in_default_message">Não iniciou sessão</string>
+<string name="signin_other_error">Houve um problema com o login. Por favor, tente novamente mais tarde.</string>
+<string name="achievements_exception">Houve uma questão de comunicação com realizações.</string>
+<string name="status_exception_error">% 1 $ s (status% 2 $ d). </string>
+<string name="leaderboards_exception">Houve uma questão de comunicação com os quadros de classificação.</string>
+<string name="players_exception">Houve uma questão de comunicação com os jogadores.</string>
+<array name="custom_button_text_login">
+<item>Login automático: ligado</item>
+<item>Login automático: Desativado</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Som ligado</item>
+<item>Som: Desligado</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrar: Ligado</item>
+<item>Vibrar: Desligado</item>
+</array>
+<array name="spinner_text_texture">
+<item>Cimento</item>
+<item>Grama</item>
+<item>Rocha</item>
+<item>agua</item>
+<item>Rochoso</item>
+<item>Neve</item>
+<item>Telha</item>
+<item>parede</item>
+<item>Musgo</item>
+<item>Tolet</item>
+<item>Salpicada</item>
+<item>Aqua</item>
+<item>Sombrio</item>
+<item>Verde</item>
+<item>padronizar</item>
+<item>Pinkish</item>
+<item>Roxa</item>
+<item>Céu</item>
+<item>Pedra</item>
+<item>Turquesa</item>
+</array>
+<array name="spinner_text_background">
+<item>Azul</item>
+<item>Multi</item>
+<item>À risca</item>
+<item>Listras</item>
+<item>Azul escuro</item>
+<item>laranja</item>
+<item>Titã</item>
+<item>arco Iris</item>
+<item>Madeira</item>
+<item>Cores</item>
+<item>Vermelho</item>
+<item>Castanho</item>
+<item>Gradiente</item>
+<item>Estrada</item>
+<item>Galáxia</item>
+<item>Cair</item>
+<item>Cidade</item>
+<item>Fazenda</item>
+<item>Diagonal</item>
+<item>Floresta</item>
+</array>
+</resources>

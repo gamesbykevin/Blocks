@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Выберите уровень</string>
+<string name="game_over_text">Завершенный</string>
+<string name="exit_level_confirm">Подтвердить выход?</string>
+<string name="exit_app_prompt">Нажмите еще раз, чтобы выйти</string>
+<string name="exit_game_prompt">Нажмите еще раз, чтобы вернуться</string>
+<string name="button_start">Начало</string>
+<string name="button_options">Опции</string>
+<string name="button_tutorial">Руководство</string>
+<string name="button_rate">Ставка</string>
+<string name="button_achievement">достижения</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Больше</string>
+<string name="tutorialTextPage1">Поднимите блок на зеленую цель, чтобы завершить каждый уровень</string>
+<string name="tutorialTextPage2">Вы можете повернуть блок во всех четырех направлениях</string>
+<string name="tutorialTextPage3">Остерегайтесь, что вы не можете стоять на красных блоках</string>
+<string name="tutorialTextPage4">Вы можете ложиться на красные блоки, хотя</string>
+<string name="tutorialTextPage5">Если вы встанете на красный блок, он сломается, и вы упадете через пол</string>
+<string name="tutorialTextPage6">Переключатели активируют скрытые блоки</string>
+<string name="tutorialTextPage7">Когда вы касаетесь этого переключателя, появляются скрытые блоки</string>
+<string name="tutorialTextPage8">Этот переключатель должен стоять, чтобы активировать</string>
+<string name="tutorialTextPage9">Некоторые переключатели могут скрывать только блоки. </string>
+<string name="turorialTextPage10">Будьте осторожны, чтобы не упасть. </string>
+<string name="achievement_unlocked_prompt">Достижение разблокировано</string>
+<string name="signin_success_welcome">Здравствуй</string>
+<string name="not_signed_in_default_message">Не подписан</string>
+<string name="signin_other_error">Возникла проблема со входом. Повторите попытку позже.</string>
+<string name="achievements_exception">Был вопрос, связанный с достижениями.</string>
+<string name="status_exception_error">% 1 $ s (статус% 2 $ d). </string>
+<string name="leaderboards_exception">Возникла проблема, связанная с лидерами.</string>
+<string name="players_exception">С игроками возникла проблема.</string>
+<array name="custom_button_text_login">
+<item>Авто Войти: Вкл.</item>
+<item>Авто вход: выключен</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Звучать на</item>
+<item>Без звука</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Вибрация: включена</item>
+<item>Вибрация: выкл.</item>
+</array>
+<array name="spinner_text_texture">
+<item>Цемент</item>
+<item>трава</item>
+<item>рок</item>
+<item>вода</item>
+<item>скалистый</item>
+<item>Снег</item>
+<item>Кафельная плитка</item>
+<item>стена</item>
+<item>Мох</item>
+<item>Фиолетовый</item>
+<item>пестрый</item>
+<item>вода</item>
+<item>Темно</item>
+<item>зеленый</item>
+<item>Шаблон</item>
+<item>розоватый</item>
+<item>Пурпурный</item>
+<item>Небо</item>
+<item>Камень</item>
+<item>Бирюзовый</item>
+</array>
+<array name="spinner_text_background">
+<item>синий</item>
+<item>много</item>
+<item>жилка</item>
+<item>полосы</item>
+<item>Темно-синий</item>
+<item>оранжевый</item>
+<item>Титан</item>
+<item>радуга</item>
+<item>Дерево</item>
+<item>Цвета</item>
+<item>красный</item>
+<item>коричневый</item>
+<item>градиент</item>
+<item>Дорога</item>
+<item>галактика</item>
+<item>Осень</item>
+<item>Город</item>
+<item>ферма</item>
+<item>Диагональ</item>
+<item>лес</item>
+</array>
+</resources>

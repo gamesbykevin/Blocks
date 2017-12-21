@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Vali tase</string>
+<string name="game_over_text">Lõpetatud</string>
+<string name="exit_level_confirm">Kinnita väljumine?</string>
+<string name="exit_app_prompt">Väljumiseks vajutage uuesti</string>
+<string name="exit_game_prompt">Tagasi minemiseks vajutage uuesti</string>
+<string name="button_start">Alusta</string>
+<string name="button_options">Valikud</string>
+<string name="button_tutorial">Juhendaja</string>
+<string name="button_rate">Hinda</string>
+<string name="button_achievement">Saavutused</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Veel</string>
+<string name="tutorialTextPage1">Seistage plokk rohelist eesmärki, et iga tasand täita</string>
+<string name="tutorialTextPage2">Saate pöörata plokki kõigis neljas suunas</string>
+<string name="tutorialTextPage3">Hoiduge, et sa ei jää punastele plokkidele</string>
+<string name="tutorialTextPage4">Kuid võite panna punaseid plokke</string>
+<string name="tutorialTextPage5">Kui te seisate punase ploki juures, siis see murdub ja te langete põrandale</string>
+<string name="tutorialTextPage6">Lülitid aktiveerivad varjatud plokid</string>
+<string name="tutorialTextPage7">Kui puudutate seda lülitit, ilmuvad peidetud plokid</string>
+<string name="tutorialTextPage8">See lüliti peab aktiveerimiseks seisma</string>
+<string name="tutorialTextPage9">Mõned lülitid võivad ainult blokeerida. </string>
+<string name="turorialTextPage10">Olge ettevaatlik, et mitte kukkuda. </string>
+<string name="achievement_unlocked_prompt">Achievement lukustamata</string>
+<string name="signin_success_welcome">Tere</string>
+<string name="not_signed_in_default_message">Pole sisse logitud</string>
+<string name="signin_other_error">Sisselogimisega tekkis probleem. Palun proovige hiljem uuesti.</string>
+<string name="achievements_exception">Tekkis probleemidega suhtlemine.</string>
+<string name="status_exception_error">% 1 $ s (olek% 2 $ d). </string>
+<string name="leaderboards_exception">Küsimus oli edetabelitega suhtlemisel.</string>
+<string name="players_exception">Mängijatega suhtlemisel oli küsimus.</string>
+<array name="custom_button_text_login">
+<item>Automaatne sisselogimine: sisse lülitatud</item>
+<item>Automaatne sisselogimine: välja lülitatud</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Heli: On</item>
+<item>Heli: väljas</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibreerima: sisse lülitatud</item>
+<item>Vibreerima: välja lülitatud</item>
+</array>
+<array name="spinner_text_texture">
+<item>Tsement</item>
+<item>Rohi</item>
+<item>Rock</item>
+<item>Vesi</item>
+<item>Rocky</item>
+<item>Lumi</item>
+<item>Plaat</item>
+<item>Sein</item>
+<item>Moss</item>
+<item>violetne</item>
+<item>Karvane</item>
+<item>Aqua</item>
+<item>Tume</item>
+<item>Roheline</item>
+<item>Muster</item>
+<item>Pinkish</item>
+<item>Lilla</item>
+<item>Taevas</item>
+<item>Kivi</item>
+<item>Türkiis</item>
+</array>
+<array name="spinner_text_background">
+<item>Sinine</item>
+<item>Multi</item>
+<item>Tünn</item>
+<item>Triibud</item>
+<item>Tumesinine</item>
+<item>Oranž</item>
+<item>Titan</item>
+<item>Rainbow</item>
+<item>Puit</item>
+<item>Värvid</item>
+<item>Punane</item>
+<item>Pruun</item>
+<item>Gradient</item>
+<item>Tee</item>
+<item>Galaktika</item>
+<item>Sügisel</item>
+<item>Linn</item>
+<item>Talu</item>
+<item>Diagonaal</item>
+<item>Mets</item>
+</array>
+</resources>

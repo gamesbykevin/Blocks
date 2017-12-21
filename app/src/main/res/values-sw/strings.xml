@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Chagua Kiwango</string>
+<string name="game_over_text">Imekamilishwa</string>
+<string name="exit_level_confirm">Thibitisha Toka?</string>
+<string name="exit_app_prompt">Bonyeza tena ili uondoke</string>
+<string name="exit_game_prompt">Bonyeza tena kurudi</string>
+<string name="button_start">Anza</string>
+<string name="button_options">Chaguo</string>
+<string name="button_tutorial">Mafunzo</string>
+<string name="button_rate">Kiwango</string>
+<string name="button_achievement">Mafanikio</string>
+<string name="button_leaderboard">Kiongozi wa kiongozi</string>
+<string name="button_more">Zaidi</string>
+<string name="tutorialTextPage1">Simama kuzuia lengo la kijani kukamilisha kila ngazi</string>
+<string name="tutorialTextPage2">Unaweza kuzunguka block katika njia zote nne</string>
+<string name="tutorialTextPage3">Jihadharini huwezi kusimama kwenye vitalu vyekundu</string>
+<string name="tutorialTextPage4">Unaweza kuweka kwenye vitalu vyekundu ingawa</string>
+<string name="tutorialTextPage5">Ikiwa unasimama juu ya kuzuia nyekundu utavunja na utaanguka chini ya sakafu</string>
+<string name="tutorialTextPage6">Inabadilisha kuamsha vitalu vya siri</string>
+<string name="tutorialTextPage7">Unapogusa hii kubadili vitalu vidogo vinavyoonekana</string>
+<string name="tutorialTextPage8">Kubadili hii lazima usimame ili kuamsha</string>
+<string name="tutorialTextPage9">Swichi fulani zinaweza tu kuficha vitalu. </string>
+<string name="turorialTextPage10">Kuwa makini usiingie. </string>
+<string name="achievement_unlocked_prompt">Mafanikio ya kufunguliwa</string>
+<string name="signin_success_welcome">Hi</string>
+<string name="not_signed_in_default_message">Haijaingia</string>
+<string name="signin_other_error">Kulikuwa na suala la kuingia. Tafadhali jaribu tena baadaye.</string>
+<string name="achievements_exception">Kulikuwa na suala la kuwasiliana na mafanikio.</string>
+<string name="status_exception_error">% 1 $ s (hali% 2 $ d). </string>
+<string name="leaderboards_exception">Kulikuwa na suala la kuzungumza na ubao wa kiongozi.</string>
+<string name="players_exception">Kulikuwa na suala la kuwasiliana na wachezaji.</string>
+<array name="custom_button_text_login">
+<item>Kuingia kwa Auto: On</item>
+<item>Kuingia kwa Auto: Huru</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Sauti: On</item>
+<item>Sauti: Huru</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Viburisha: On</item>
+<item>Vibisha: Huru</item>
+</array>
+<array name="spinner_text_texture">
+<item>Saruji</item>
+<item>Nyasi</item>
+<item>Mwamba</item>
+<item>Maji</item>
+<item>Rocky</item>
+<item>Theluji</item>
+<item>Tile</item>
+<item>Ukuta</item>
+<item>Moss</item>
+<item>Violet</item>
+<item>Ilipigwa</item>
+<item>Aqua</item>
+<item>Giza</item>
+<item>Kijani</item>
+<item>Sifa</item>
+<item>Pinkish</item>
+<item>Nyekundu</item>
+<item>Anga</item>
+<item>Jiwe</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Bluu</item>
+<item>Multi</item>
+<item>Njia</item>
+<item>Kupigwa</item>
+<item>Bluu ya giza</item>
+<item>Orange</item>
+<item>Titan</item>
+<item>Upinde wa mvua</item>
+<item>Mbao</item>
+<item>Rangi</item>
+<item>Nyekundu</item>
+<item>Brown</item>
+<item>Nzuri</item>
+<item>Barabara</item>
+<item>Galaxy</item>
+<item>Kuanguka</item>
+<item>Mji</item>
+<item>Shamba</item>
+<item>Diagonal</item>
+<item>Msitu</item>
+</array>
+</resources>

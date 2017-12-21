@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">ເລືອກລະດັບ</string>
+<string name="game_over_text">ແລ້ວສິ້ນ</string>
+<string name="exit_level_confirm">ຢືນຢັນອອກ?</string>
+<string name="exit_app_prompt">ກົດອີກເທື່ອຫນຶ່ງເພື່ອອອກຈາກຫ້ອງ</string>
+<string name="exit_game_prompt">ກົດອີກເທື່ອຫນຶ່ງເພື່ອກັບຄືນ</string>
+<string name="button_start">ເລີ່ມຕົ້ນ</string>
+<string name="button_options">ຕົວເລືອກ</string>
+<string name="button_tutorial">Tutorial</string>
+<string name="button_rate">ອັດຕາ</string>
+<string name="button_achievement">ຜົນສໍາເລັດ</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">ອ່ານຕໍ່</string>
+<string name="tutorialTextPage1">ຢືນຕັນສຸດເປົ້າຫມາຍສີຂຽວເພື່ອໃຫ້ສໍາເລັດໃນແຕ່ລະຂັ້ນ</string>
+<string name="tutorialTextPage2">ທ່ານສາມາດ rotate ຕັນໃນສີ່ທິດທາງ</string>
+<string name="tutorialTextPage3">ລະວັງວ່າທ່ານບໍ່ສາມາດຢືນຢູ່ເທິງບລັອກສີແດງ</string>
+<string name="tutorialTextPage4">ທ່ານສາມາດວາງລົງເທິງບລັອກສີແດງແມ້ວ່າ</string>
+<string name="tutorialTextPage5">ຖ້າທ່ານຢືນຢູ່ເທິງບລັອກສີແດງມັນກໍ່ຈະທໍາລາຍແລະທ່ານຈະຕົກລົງຜ່ານຊັ້ນ</string>
+<string name="tutorialTextPage6">ສະຫວິດເປີດໃຊ້ລະຫັດລັບ</string>
+<string name="tutorialTextPage7">ເມື່ອທ່ານແຕະຕ້ອງການປ່ຽນແປງນີ້, ຕັນທີ່ເຊື່ອງໄວ້ຈະປາກົດຂຶ້ນ</string>
+<string name="tutorialTextPage8">ການປ່ຽນແປງນີ້ທ່ານຕ້ອງຢືນຢູ່ເພື່ອການກະຕຸ້ນ</string>
+<string name="tutorialTextPage9">ບາງສະຫວິດສາມາດຊ່ອນຕັນໄດ້. </string>
+<string name="turorialTextPage10">ຈົ່ງລະວັງບໍ່ໃຫ້ຕົກລົງ. </string>
+<string name="achievement_unlocked_prompt">ຜົນສໍາເລັດເປີດ</string>
+<string name="signin_success_welcome">Hi</string>
+<string name="not_signed_in_default_message">ບໍ່ໄດ້ເຂົ້າສູ່ລະບົບ</string>
+<string name="signin_other_error">ມີບັນຫາທີ່ມີເຂົ້າສູ່ລະບົບ. ກະລຸນາລອງອີກເທື່ອຫນຶ່ງ.</string>
+<string name="achievements_exception">ມີບັນຫາທີ່ກ່ຽວຂ້ອງກັບຜົນສໍາເລັດ.</string>
+<string name="status_exception_error">% 1 $ s (ສະຖານະ% 2 $ d). </string>
+<string name="leaderboards_exception">ມີບັນຫາກ່ຽວກັບການສື່ສານກັບຜູ້ນໍາທ່ຽວ.</string>
+<string name="players_exception">ມີບັນຫາກ່ຽວກັບການສື່ສານກັບຜູ້ຫຼິ້ນ.</string>
+<array name="custom_button_text_login">
+<item>Auto Login: On</item>
+<item>Auto Login: Off</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Sound: On</item>
+<item>Sound: Off</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>ສັ່ນ: ໃນ</item>
+<item>ການສັ່ນສະເທືອນ: ປິດ</item>
+</array>
+<array name="spinner_text_texture">
+<item>Cement</item>
+<item>ຫຍ້າ</item>
+<item>Rock</item>
+<item>ນ້ໍາ</item>
+<item>Rocky</item>
+<item>ຫິມະ</item>
+<item>ກະເບື້ອງ</item>
+<item>Wall</item>
+<item>Moss</item>
+<item>Violet</item>
+<item>Speckled</item>
+<item>Aqua</item>
+<item>ຊ້ໍາ</item>
+<item>ສີຂຽວ</item>
+<item>ຮູບແບບ</item>
+<item>Pinkish</item>
+<item>ສີມ່ວງ</item>
+<item>Sky</item>
+<item>ຫີນ</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>ສີຟ້າ</item>
+<item>Multi</item>
+<item>Streak</item>
+<item>Stripes</item>
+<item>ສີ​ຟ້າ​ແກ່</item>
+<item>ສີສົ້ມ</item>
+<item>Titan</item>
+<item>Rainbow</item>
+<item>ໄມ້</item>
+<item>ສີ</item>
+<item>ສີແດງ</item>
+<item>ສີນ້ໍາຕານ</item>
+<item>Gradient</item>
+<item>ຖະຫນົນ</item>
+<item>Galaxy</item>
+<item>ຕົກລົງ</item>
+<item>ຕົວເມືອງ</item>
+<item>ການກະສິກໍາ</item>
+<item>Diagonal</item>
+<item>ປ່າໄມ້</item>
+</array>
+</resources>

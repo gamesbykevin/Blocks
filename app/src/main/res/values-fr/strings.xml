@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Choisir le niveau</string>
+<string name="game_over_text">Terminé</string>
+<string name="exit_level_confirm">Confirmer Quitter?</string>
+<string name="exit_app_prompt">Appuyez à nouveau pour quitter</string>
+<string name="exit_game_prompt">Appuyez à nouveau pour revenir en arrière</string>
+<string name="button_start">Début</string>
+<string name="button_options">Options</string>
+<string name="button_tutorial">Didacticiel</string>
+<string name="button_rate">Taux</string>
+<string name="button_achievement">Réalisations</string>
+<string name="button_leaderboard">Classement</string>
+<string name="button_more">Plus</string>
+<string name="tutorialTextPage1">Tenez le bloc sur l'objectif vert pour compléter chaque niveau</string>
+<string name="tutorialTextPage2">Vous pouvez faire pivoter le bloc dans les quatre directions</string>
+<string name="tutorialTextPage3">Attention, vous ne pouvez pas rester sur des blocs rouges</string>
+<string name="tutorialTextPage4">Vous pouvez vous allonger sur des blocs rouges</string>
+<string name="tutorialTextPage5">Si vous vous tenez sur un bloc rouge, il se cassera et vous tomberez à travers le sol</string>
+<string name="tutorialTextPage6">Les commutateurs activent les blocs cachés</string>
+<string name="tutorialTextPage7">Lorsque vous appuyez sur ce bouton, les blocs cachés apparaissent</string>
+<string name="tutorialTextPage8">Ce commutateur doit être activé pour activer</string>
+<string name="tutorialTextPage9">Certains commutateurs peuvent masquer uniquement les blocs. </string>
+<string name="turorialTextPage10">Veillez à ne pas tomber. </string>
+<string name="achievement_unlocked_prompt">Succès dévérouillé</string>
+<string name="signin_success_welcome">salut</string>
+<string name="not_signed_in_default_message">Pas connecté</string>
+<string name="signin_other_error">Un problème est survenu lors de la connexion. Veuillez réessayer plus tard.</string>
+<string name="achievements_exception">Il y avait un problème de communication avec les réalisations.</string>
+<string name="status_exception_error">% 1 $ s (statut% 2 $ d). </string>
+<string name="leaderboards_exception">Il y avait un problème de communication avec les classements.</string>
+<string name="players_exception">Il y avait un problème de communication avec les joueurs.</string>
+<array name="custom_button_text_login">
+<item>Connexion automatique: Oui</item>
+<item>Connexion automatique: désactivée</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Son: Sur</item>
+<item>Son: Off</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibreur: Sur</item>
+<item>Vibreur: désactivé</item>
+</array>
+<array name="spinner_text_texture">
+<item>Ciment</item>
+<item>Herbe</item>
+<item>Roche</item>
+<item>Eau</item>
+<item>Rocheux</item>
+<item>Neige</item>
+<item>Tuile</item>
+<item>mur</item>
+<item>Mousse</item>
+<item>Violet</item>
+<item>Tacheté</item>
+<item>Aqua</item>
+<item>Foncé</item>
+<item>vert</item>
+<item>Modèle</item>
+<item>Rosâtre</item>
+<item>Violet</item>
+<item>Ciel</item>
+<item>Pierre</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Bleu</item>
+<item>Multi</item>
+<item>Traînée</item>
+<item>Rayures</item>
+<item>Bleu foncé</item>
+<item>Orange</item>
+<item>Titan</item>
+<item>arc en ciel</item>
+<item>Bois</item>
+<item>Couleurs</item>
+<item>rouge</item>
+<item>marron</item>
+<item>Pente</item>
+<item>Route</item>
+<item>Galaxie</item>
+<item>Tomber</item>
+<item>Ville</item>
+<item>Ferme</item>
+<item>Diagonale</item>
+<item>Forêt</item>
+</array>
+</resources>

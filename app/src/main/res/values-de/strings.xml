@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Stufe auswählen</string>
+<string name="game_over_text">Abgeschlossen</string>
+<string name="exit_level_confirm">Bestätigen Beenden?</string>
+<string name="exit_app_prompt">Drücken Sie erneut, um zu beenden</string>
+<string name="exit_game_prompt">Drücken Sie erneut, um zurückzugehen</string>
+<string name="button_start">Anfang</string>
+<string name="button_options">Optionen</string>
+<string name="button_tutorial">Tutorial</string>
+<string name="button_rate">Bewertung</string>
+<string name="button_achievement">Erfolge</string>
+<string name="button_leaderboard">Bestenliste</string>
+<string name="button_more">Mehr</string>
+<string name="tutorialTextPage1">Stellen Sie den Block auf das grüne Ziel, um jedes Level zu beenden</string>
+<string name="tutorialTextPage2">Sie können den Block in alle vier Richtungen drehen</string>
+<string name="tutorialTextPage3">Pass auf, dass du nicht auf roten Blöcken stehen kannst</string>
+<string name="tutorialTextPage4">Sie können sich jedoch auf rote Blöcke legen</string>
+<string name="tutorialTextPage5">Wenn Sie auf einem roten Block stehen, wird es brechen und Sie werden durch den Boden fallen</string>
+<string name="tutorialTextPage6">Schalter aktivieren versteckte Blöcke</string>
+<string name="tutorialTextPage7">Wenn Sie diesen Schalter berühren, werden die ausgeblendeten Blöcke angezeigt</string>
+<string name="tutorialTextPage8">Dieser Schalter muss aktiviert sein, um aktiviert zu werden</string>
+<string name="tutorialTextPage9">Einige Schalter können nur Blöcke ausblenden. </string>
+<string name="turorialTextPage10">Pass auf, dass du nicht herunterfällst. </string>
+<string name="achievement_unlocked_prompt">Errungenschaft freigeschaltet</string>
+<string name="signin_success_welcome">Hallo</string>
+<string name="not_signed_in_default_message">Nicht eingeloggt</string>
+<string name="signin_other_error">Beim Anmelden ist ein Problem aufgetreten. Bitte versuchen Sie es später erneut.</string>
+<string name="achievements_exception">Es gab ein Problem mit den Errungenschaften zu kommunizieren.</string>
+<string name="status_exception_error">% 1 $ s (Status% 2 $ d). </string>
+<string name="leaderboards_exception">Es gab ein Problem bei der Kommunikation mit Bestenlisten.</string>
+<string name="players_exception">Es gab ein Problem mit Spielern zu kommunizieren.</string>
+<array name="custom_button_text_login">
+<item>Automatische Anmeldung: Ein</item>
+<item>Automatische Anmeldung: Aus</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Ton an</item>
+<item>Ton aus</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrieren: Ein</item>
+<item>Vibrieren: Aus</item>
+</array>
+<array name="spinner_text_texture">
+<item>Zement</item>
+<item>Gras</item>
+<item>Rock</item>
+<item>Wasser</item>
+<item>Felsig</item>
+<item>Schnee</item>
+<item>Fliese</item>
+<item>Mauer</item>
+<item>Moos</item>
+<item>Violett</item>
+<item>Gesprenkelt</item>
+<item>Aqua</item>
+<item>Dunkel</item>
+<item>Grün</item>
+<item>Muster</item>
+<item>Pinkfarben</item>
+<item>Lila</item>
+<item>Himmel</item>
+<item>Stein</item>
+<item>Türkis</item>
+</array>
+<array name="spinner_text_background">
+<item>Blau</item>
+<item>Multi</item>
+<item>Streifen</item>
+<item>Streifen</item>
+<item>Dunkelblau</item>
+<item>Orange</item>
+<item>Titan</item>
+<item>Regenbogen</item>
+<item>Holz</item>
+<item>Farben</item>
+<item>rot</item>
+<item>Braun</item>
+<item>Gradient</item>
+<item>Straße</item>
+<item>Galaxis</item>
+<item>Fallen</item>
+<item>Stadt, Dorf</item>
+<item>Bauernhof</item>
+<item>Diagonale</item>
+<item>Wald</item>
+</array>
+</resources>

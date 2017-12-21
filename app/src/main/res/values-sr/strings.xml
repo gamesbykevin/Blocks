@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Изаберите ниво</string>
+<string name="game_over_text">Завршено</string>
+<string name="exit_level_confirm">Потврдите излаз?</string>
+<string name="exit_app_prompt">Притисните поново да изађете</string>
+<string name="exit_game_prompt">Притисните поново да се вратите</string>
+<string name="button_start">Почетак</string>
+<string name="button_options">Опције</string>
+<string name="button_tutorial">Приручник</string>
+<string name="button_rate">Оцените</string>
+<string name="button_achievement">Достигнућа</string>
+<string name="button_leaderboard">Леадербоард</string>
+<string name="button_more">Више</string>
+<string name="tutorialTextPage1">Поставите блок на зелени циљ да довршите сваки ниво</string>
+<string name="tutorialTextPage2">Можете блокирати блок у сва четири правца</string>
+<string name="tutorialTextPage3">Пазите да не можете стајати на црвеним блоковима</string>
+<string name="tutorialTextPage4">Међутим, можете се залепити на црвеним блоковима</string>
+<string name="tutorialTextPage5">Ако стојите на црвеном блоку, она ће се разбити и падати кроз под</string>
+<string name="tutorialTextPage6">Прекидачи активирају скривене блокове</string>
+<string name="tutorialTextPage7">Када додирнете овај прекидач појављују се скривени блокови</string>
+<string name="tutorialTextPage8">Овај прекидач морате стајати да бисте активирали</string>
+<string name="tutorialTextPage9">Неки прекидачи могу само сакрити блокове. </string>
+<string name="turorialTextPage10">Пазите да не паднете. </string>
+<string name="achievement_unlocked_prompt">Достигнуће откључано</string>
+<string name="signin_success_welcome">Ћао</string>
+<string name="not_signed_in_default_message">Није пријављено</string>
+<string name="signin_other_error">Било је проблема са пријавом. Покушајте поново касније.</string>
+<string name="achievements_exception">Постојао је проблем у комуникацији са достигнућима.</string>
+<string name="status_exception_error">% 1 $ с (статус% 2 $ д). </string>
+<string name="leaderboards_exception">Било је проблема у комуникацији са лидерима.</string>
+<string name="players_exception">Било је проблема у комуникацији са играчима.</string>
+<array name="custom_button_text_login">
+<item>Ауто Логин: Он</item>
+<item>Ауто Логин: Искључено</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Звук: укључен</item>
+<item>Звук: Искључено</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Вибрирање: укључено</item>
+<item>Вибрирање: Искључено</item>
+</array>
+<array name="spinner_text_texture">
+<item>Цемент</item>
+<item>Трава</item>
+<item>Роцк</item>
+<item>Вода</item>
+<item>Роцки</item>
+<item>Снег</item>
+<item>Плочица</item>
+<item>Зид</item>
+<item>Мосс</item>
+<item>Виолет</item>
+<item>Спецклед</item>
+<item>Акуа</item>
+<item>Дарк</item>
+<item>Зелен</item>
+<item>Паттерн</item>
+<item>Пинкисх</item>
+<item>Љубичаста</item>
+<item>Небо</item>
+<item>Камен</item>
+<item>Тиркизна</item>
+</array>
+<array name="spinner_text_background">
+<item>Плави</item>
+<item>Мулти</item>
+<item>Пруга</item>
+<item>Стрипес</item>
+<item>Тамно плава</item>
+<item>Наранџаста</item>
+<item>Титан</item>
+<item>Раинбов</item>
+<item>Воод</item>
+<item>Боје</item>
+<item>Црвена</item>
+<item>Бровн</item>
+<item>Градијент</item>
+<item>Пут</item>
+<item>Галаки</item>
+<item>Пасти</item>
+<item>Град</item>
+<item>Фарма</item>
+<item>Дијагонала</item>
+<item>Шума</item>
+</array>
+</resources>

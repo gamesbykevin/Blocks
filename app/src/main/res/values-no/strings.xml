@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Velg nivå</string>
+<string name="game_over_text">fullført</string>
+<string name="exit_level_confirm">Bekreft Avslutt?</string>
+<string name="exit_app_prompt">Trykk igjen for å avslutte</string>
+<string name="exit_game_prompt">Trykk igjen for å gå tilbake</string>
+<string name="button_start">Start</string>
+<string name="button_options">alternativer</string>
+<string name="button_tutorial">Opplæringen</string>
+<string name="button_rate">Sats</string>
+<string name="button_achievement">prestasjoner</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Mer</string>
+<string name="tutorialTextPage1">Hold blokken på det grønne målet for å fullføre hvert nivå</string>
+<string name="tutorialTextPage2">Du kan rotere blokken i alle fire retninger</string>
+<string name="tutorialTextPage3">Pass på at du ikke står på røde blokker</string>
+<string name="tutorialTextPage4">Du kan legge ned på røde blokker skjønt</string>
+<string name="tutorialTextPage5">Hvis du står på en rød blokk, vil den gå i stykker, og du kommer til å falle gjennom gulvet</string>
+<string name="tutorialTextPage6">Brytere aktiverer skjulte blokker</string>
+<string name="tutorialTextPage7">Når du berører denne bryteren, vises de skjulte blokkene</string>
+<string name="tutorialTextPage8">Denne bryteren du må stå på for å aktivere</string>
+<string name="tutorialTextPage9">Noen brytere kan bare skjule blokker. </string>
+<string name="turorialTextPage10">Vær forsiktig så du ikke faller av. </string>
+<string name="achievement_unlocked_prompt">Oppnåelse ulåst</string>
+<string name="signin_success_welcome">Hei</string>
+<string name="not_signed_in_default_message">Ikke logget inn</string>
+<string name="signin_other_error">Det oppstod et problem med pålogging. Prøv igjen senere.</string>
+<string name="achievements_exception">Det var et problem å kommunisere med prestasjoner.</string>
+<string name="status_exception_error">% 1 $ s (status% 2 $ d). </string>
+<string name="leaderboards_exception">Det var et problem å kommunisere med leaderboards.</string>
+<string name="players_exception">Det var et problem å kommunisere med spillere.</string>
+<array name="custom_button_text_login">
+<item>Automatisk innlogging: På</item>
+<item>Automatisk innlogging: Av</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Lyd: På</item>
+<item>Lyden av</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrer: På</item>
+<item>Vibrer: Av</item>
+</array>
+<array name="spinner_text_texture">
+<item>Sement</item>
+<item>Gress</item>
+<item>Stein</item>
+<item>Vann</item>
+<item>Rocky</item>
+<item>Snø</item>
+<item>Tile</item>
+<item>vegg</item>
+<item>Mose</item>
+<item>Violet</item>
+<item>flekkete</item>
+<item>Aqua</item>
+<item>Mørk</item>
+<item>Grønn</item>
+<item>Mønster</item>
+<item>rosa</item>
+<item>Purple</item>
+<item>Himmel</item>
+<item>Stein</item>
+<item>turkis</item>
+</array>
+<array name="spinner_text_background">
+<item>Blå</item>
+<item>multi</item>
+<item>Streak</item>
+<item>Stripes</item>
+<item>Mørke blå</item>
+<item>oransje</item>
+<item>Titan</item>
+<item>Regnbue</item>
+<item>Tre</item>
+<item>Farger</item>
+<item>rød</item>
+<item>brun</item>
+<item>gradient</item>
+<item>Vei</item>
+<item>Galaxy</item>
+<item>Falle</item>
+<item>By</item>
+<item>Farm</item>
+<item>Diagonal</item>
+<item>skog</item>
+</array>
+</resources>

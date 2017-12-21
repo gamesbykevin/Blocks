@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">ਪੱਧਰ ਚੁਣੋ</string>
+<string name="game_over_text">ਮੁਕੰਮਲ</string>
+<string name="exit_level_confirm">ਬਾਹਰ ਨਿਕਾਲਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ?</string>
+<string name="exit_app_prompt">ਬਾਹਰ ਜਾਣ ਲਈ ਦੁਬਾਰਾ ਦਬਾਓ</string>
+<string name="exit_game_prompt">ਵਾਪਸ ਜਾਣ ਲਈ ਦੁਬਾਰਾ ਦਬਾਓ</string>
+<string name="button_start">ਸ਼ੁਰੂ ਕਰੋ</string>
+<string name="button_options">ਚੋਣਾਂ</string>
+<string name="button_tutorial">ਟਿਊਟੋਰਿਅਲ</string>
+<string name="button_rate">ਰੇਟ</string>
+<string name="button_achievement">ਪ੍ਰਾਪਤੀਆਂ</string>
+<string name="button_leaderboard">ਲੀਡਰਬੋਰਡ</string>
+<string name="button_more">ਹੋਰ</string>
+<string name="tutorialTextPage1">ਹਰ ਪੱਧਰ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ ਹਰੇ ਟੀਚੇ ਤੇ ਬਲਾਕ ਦੀ ਰੱਖਿਆ ਕਰੋ</string>
+<string name="tutorialTextPage2">ਤੁਸੀਂ ਸਾਰੇ ਚਾਰ ਦਿਸ਼ਾਵਾਂ ਵਿੱਚ ਬਲਾਕ ਨੂੰ ਘੁੰਮਾ ਸਕਦੇ ਹੋ</string>
+<string name="tutorialTextPage3">ਸਾਵਧਾਨ ਰਹੋ ਕਿ ਤੁਸੀਂ ਲਾਲ ਬਲੋਕਾਂ ਤੇ ਨਹੀਂ ਖੜ੍ਹੇ ਹੋ</string>
+<string name="tutorialTextPage4">ਤੁਸੀਂ ਹਾਲਾਂਕਿ ਲਾਲ ਬਲਾਕ ਤੇ ਰੱਖ ਸਕਦੇ ਹੋ</string>
+<string name="tutorialTextPage5">ਜੇ ਤੁਸੀਂ ਇੱਕ ਲਾਲ ਬਲਾਕ 'ਤੇ ਖੜ੍ਹੇ ਹੋ ਤਾਂ ਇਹ ਤੋੜ ਜਾਵੇਗਾ ਅਤੇ ਤੁਸੀਂ ਫਰਸ਼ ਤੋਂ ਡਿੱਗ ਜਾਓਗੇ</string>
+<string name="tutorialTextPage6">ਸਵਿੱਚਾਂ ਨੂੰ ਲੁਕੇ ਹੋਏ ਬਲਾਕ ਐਕਟੀਵੇਟ ਕਰੋ</string>
+<string name="tutorialTextPage7">ਜਦੋਂ ਤੁਸੀਂ ਇਸ ਸਵਿੱਚ ਨੂੰ ਛੂਹੋਗੇ ਤਾਂ ਓਹਲੇ ਕੀਤੇ ਬਲਾਕ ਵਿਖਾਈ ਦੇਣਗੇ</string>
+<string name="tutorialTextPage8">ਇਹ ਸਵਿੱਚ ਤੁਹਾਨੂੰ ਸਰਗਰਮ ਕਰਨ ਲਈ ਕ੍ਰਮ ਵਿੱਚ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ</string>
+<string name="tutorialTextPage9">ਕੁਝ ਸਵਿੱਚਾਂ ਕੇਵਲ ਬਲਾਕ ਨੂੰ ਲੁਕਾ ਸਕਦੇ ਹਨ </string>
+<string name="turorialTextPage10">ਬੰਦ ਨਾ ਹੋਣ ਦੀ ਸਾਵਧਾਨ ਰਹੋ </string>
+<string name="achievement_unlocked_prompt">ਪ੍ਰਾਪਤੀ ਅਨਲੌਕ ਕੀਤੀ</string>
+<string name="signin_success_welcome">ਹੈਲੋ</string>
+<string name="not_signed_in_default_message">ਸਾਈਨ ਇਨ ਨਹੀਂ ਕੀਤਾ</string>
+<string name="signin_other_error">ਸਾਈਨ ਇਨ ਕਰਨ ਦੇ ਨਾਲ ਕੋਈ ਸਮੱਸਿਆ ਸੀ. ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ.</string>
+<string name="achievements_exception">ਉਪਲਬਧੀਆਂ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਲਈ ਕੋਈ ਮੁੱਦਾ ਸੀ</string>
+<string name="status_exception_error">% 1 $ s (ਸਥਿਤੀ% 2 $ d) </string>
+<string name="leaderboards_exception">ਲੀਡਰਬੋਰਡਾਂ ਨਾਲ ਸੰਚਾਰ ਕਰਨ ਵੇਲੇ ਕੋਈ ਸਮੱਸਿਆ ਸੀ</string>
+<string name="players_exception">ਖਿਡਾਰੀਆਂ ਨਾਲ ਸੰਵਾਦ ਕਰਨ ਲਈ ਕੋਈ ਮੁੱਦਾ ਸੀ</string>
+<array name="custom_button_text_login">
+<item>ਆਟੋ ਲਾਗਇਨ: ਚਾਲੂ</item>
+<item>ਆਟੋ ਲਾਗਇਨ: ਬੰਦ</item>
+</array>
+<array name="custom_button_text_sound">
+<item>ਅਵਾਜ਼: ਚਾਲੂ</item>
+<item>ਅਵਾਜ਼: ਬੰਦ</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>ਵਾਈਬ੍ਰੇਟ: ਚਾਲੂ</item>
+<item>ਵਾਈਬ੍ਰੇਟ: ਬੰਦ</item>
+</array>
+<array name="spinner_text_texture">
+<item>ਸੀਮੈਂਟ</item>
+<item>ਘਾਹ</item>
+<item>ਰਾਕ</item>
+<item>ਪਾਣੀ</item>
+<item>ਰਾਕੀ</item>
+<item>ਬਰਫ਼</item>
+<item>ਟਾਇਲ</item>
+<item>ਕੰਧ</item>
+<item>ਮੌਸ</item>
+<item>ਵੇਓਲੇਟ</item>
+<item>ਸਪੀਕਲੇਡ</item>
+<item>ਐਵਾ</item>
+<item>ਹਨੇਰ</item>
+<item>ਗ੍ਰੀਨ</item>
+<item>ਪੈਟਰਨ</item>
+<item>ਪਿੰਕ</item>
+<item>ਜਾਮਨੀ</item>
+<item>ਸਕਾਈ</item>
+<item>ਪੱਥਰ</item>
+<item>ਪੀਰੀਓਈ</item>
+</array>
+<array name="spinner_text_background">
+<item>ਨੀਲੇ</item>
+<item>ਮਲਟੀ</item>
+<item>ਸਟ੍ਰੈਕ</item>
+<item>ਸਟ੍ਰਿਪਜ਼</item>
+<item>ਗੂੜਾ ਨੀਲਾ</item>
+<item>ਸੰਤਰਾ</item>
+<item>ਟਾਇਟਨ</item>
+<item>ਰੇਨਬੋ</item>
+<item>ਲੱਕੜ</item>
+<item>ਰੰਗ</item>
+<item>ਲਾਲ</item>
+<item>ਭੂਰੇ</item>
+<item>ਢਾਲ</item>
+<item>ਸੜਕ</item>
+<item>ਗਲੈਕਸੀ</item>
+<item>ਪਤਨ</item>
+<item>ਟਾਊਨ</item>
+<item>ਫਾਰਮ</item>
+<item>ਵਿਕਰਣ</item>
+<item>ਜੰਗਲਾਤ</item>
+</array>
+</resources>

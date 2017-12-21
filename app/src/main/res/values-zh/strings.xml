@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">选择级别</string>
+<string name="game_over_text">已完成</string>
+<string name="exit_level_confirm">确认退出？</string>
+<string name="exit_app_prompt">再按一次退出</string>
+<string name="exit_game_prompt">再按一次返回</string>
+<string name="button_start">开始</string>
+<string name="button_options">选项</string>
+<string name="button_tutorial">教程</string>
+<string name="button_rate">率</string>
+<string name="button_achievement">成就</string>
+<string name="button_leaderboard">排行榜</string>
+<string name="button_more">更多</string>
+<string name="tutorialTextPage1">站在绿色的目标块完成每个级别</string>
+<string name="tutorialTextPage2">您可以在所有四个方向上旋转块</string>
+<string name="tutorialTextPage3">当心，你不能站在红色的块</string>
+<string name="tutorialTextPage4">尽管你可以躺在红色的方块上</string>
+<string name="tutorialTextPage5">如果你站在一个红色的块，它会打破，你会穿过地板</string>
+<string name="tutorialTextPage6">开关激活隐藏的块</string>
+<string name="tutorialTextPage7">当您触摸此开关时，会出现隐藏块</string>
+<string name="tutorialTextPage8">您必须站在这个开关才能激活</string>
+<string name="tutorialTextPage9">有些交换机只能隐藏块。</string>
+<string name="turorialTextPage10">小心不要脱落。</string>
+<string name="achievement_unlocked_prompt">成就解锁</string>
+<string name="signin_success_welcome">你好</string>
+<string name="not_signed_in_default_message">未登录</string>
+<string name="signin_other_error">登录时出现问题，请稍后重试。</string>
+<string name="achievements_exception">有一个与成就沟通的问题。</string>
+<string name="status_exception_error">％1 $ s（状态％2 $ d）。 </string>
+<string name="leaderboards_exception">有一个与排行榜沟通的问题。</string>
+<string name="players_exception">有一个与玩家沟通的问题。</string>
+<array name="custom_button_text_login">
+<item>自动登录：开</item>
+<item>自动登录：关闭</item>
+</array>
+<array name="custom_button_text_sound">
+<item>声音：开</item>
+<item>声音：关闭</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>振动：开</item>
+<item>振动：关闭</item>
+</array>
+<array name="spinner_text_texture">
+<item>水泥</item>
+<item>草</item>
+<item>岩</item>
+<item>水</item>
+<item>洛基</item>
+<item>雪</item>
+<item>瓦</item>
+<item>壁</item>
+<item>苔藓</item>
+<item>紫色</item>
+<item>斑点</item>
+<item>水族</item>
+<item>黑暗</item>
+<item>绿色</item>
+<item>模式</item>
+<item>粉红色的</item>
+<item>紫色</item>
+<item>天空</item>
+<item>石</item>
+<item>绿松石</item>
+</array>
+<array name="spinner_text_background">
+<item>蓝色</item>
+<item>多</item>
+<item>条纹</item>
+<item>条纹</item>
+<item>深蓝</item>
+<item>橙子</item>
+<item>泰坦</item>
+<item>彩虹</item>
+<item>木</item>
+<item>颜色</item>
+<item>红</item>
+<item>棕色</item>
+<item>梯度</item>
+<item>路</item>
+<item>星系</item>
+<item>秋季</item>
+<item>镇</item>
+<item>农场</item>
+<item>对角线</item>
+<item>森林</item>
+</array>
+</resources>

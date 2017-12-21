@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Seleziona livello</string>
+<string name="game_over_text">Completato</string>
+<string name="exit_level_confirm">Conferma l'uscita?</string>
+<string name="exit_app_prompt">Premere di nuovo per uscire</string>
+<string name="exit_game_prompt">Premere di nuovo per tornare indietro</string>
+<string name="button_start">Inizio</string>
+<string name="button_options">Opzioni</string>
+<string name="button_tutorial">lezione</string>
+<string name="button_rate">Vota</string>
+<string name="button_achievement">realizzazioni</string>
+<string name="button_leaderboard">Classifica</string>
+<string name="button_more">Di Più</string>
+<string name="tutorialTextPage1">Metti il ​​blocco sull'obiettivo verde per completare ogni livello</string>
+<string name="tutorialTextPage2">È possibile ruotare il blocco in tutte e quattro le direzioni</string>
+<string name="tutorialTextPage3">Attenzione non puoi stare su blocchi rossi</string>
+<string name="tutorialTextPage4">Puoi comunque sdraiarti sui blocchi rossi</string>
+<string name="tutorialTextPage5">Se ti trovi su un blocco rosso, si romperà e cadrai attraverso il pavimento</string>
+<string name="tutorialTextPage6">Gli interruttori attivano i blocchi nascosti</string>
+<string name="tutorialTextPage7">Quando tocchi questo interruttore compaiono i blocchi nascosti</string>
+<string name="tutorialTextPage8">Questo interruttore devi stare in piedi per attivarlo</string>
+<string name="tutorialTextPage9">Alcuni interruttori possono nascondere solo i blocchi. </string>
+<string name="turorialTextPage10">Stai attento a non cadere. </string>
+<string name="achievement_unlocked_prompt">Obiettivo sbloccato</string>
+<string name="signin_success_welcome">Ciao</string>
+<string name="not_signed_in_default_message">Non eseguito l'accesso</string>
+<string name="signin_other_error">Si è verificato un problema con l'accesso. Riprova più tardi.</string>
+<string name="achievements_exception">C'è stato un problema nella comunicazione con i risultati.</string>
+<string name="status_exception_error">% 1 $ s (stato% 2 $ d). </string>
+<string name="leaderboards_exception">Si è verificato un problema durante la comunicazione con le classifiche.</string>
+<string name="players_exception">C'è stato un problema nella comunicazione con i giocatori.</string>
+<array name="custom_button_text_login">
+<item>Accesso automatico: attivato</item>
+<item>Accesso automatico: disattivato</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Suono acceso</item>
+<item>Audio Disattivato</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrazione: acceso</item>
+<item>Vibrazione: spento</item>
+</array>
+<array name="spinner_text_texture">
+<item>Cemento</item>
+<item>Erba</item>
+<item>Roccia</item>
+<item>acqua</item>
+<item>roccioso</item>
+<item>La neve</item>
+<item>Piastrella</item>
+<item>Parete</item>
+<item>Muschio</item>
+<item>Viola</item>
+<item>speckled</item>
+<item>acqua</item>
+<item>Buio</item>
+<item>verde</item>
+<item>Modello</item>
+<item>Rosato</item>
+<item>Viola</item>
+<item>Cielo</item>
+<item>Pietra</item>
+<item>Turchese</item>
+</array>
+<array name="spinner_text_background">
+<item>Blu</item>
+<item>Multi</item>
+<item>striscia</item>
+<item>strisce</item>
+<item>Blu scuro</item>
+<item>arancia</item>
+<item>titano</item>
+<item>Arcobaleno</item>
+<item>Legna</item>
+<item>Colori</item>
+<item>Rosso</item>
+<item>Marrone</item>
+<item>Pendenza</item>
+<item>Strada</item>
+<item>Galassia</item>
+<item>Autunno</item>
+<item>Cittadina</item>
+<item>Azienda agricola</item>
+<item>Diagonale</item>
+<item>foresta</item>
+</array>
+</resources>

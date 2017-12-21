@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Pilih Level</string>
+<string name="game_over_text">réngsé</string>
+<string name="exit_level_confirm">Mastikeun Kaluar?</string>
+<string name="exit_app_prompt">Pencét deui ka LN</string>
+<string name="exit_game_prompt">Pencét deui mun balik</string>
+<string name="button_start">ngamimitian</string>
+<string name="button_options">Pilihan</string>
+<string name="button_tutorial">tutorial</string>
+<string name="button_rate">Meunteun</string>
+<string name="button_achievement">prestasi</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Tambih deui</string>
+<string name="tutorialTextPage1">Nangtung blok kana tujuan héjo pikeun ngalengkepan unggal tingkat</string>
+<string name="tutorialTextPage2">Anjeun tiasa muterkeun block dina sagala opat arah</string>
+<string name="tutorialTextPage3">Awas anjeun tiasa \\ 't nangtung dina blok beureum</string>
+<string name="tutorialTextPage4">Anjeun tiasa iklas turun dina blok beureum najan</string>
+<string name="tutorialTextPage5">Lamun nangtung dina blok beureum éta bakal megatkeun anjeun bakal tumiba ngaliwatan lantai</string>
+<string name="tutorialTextPage6">Saklar ngaktipkeun blok disumputkeun</string>
+<string name="tutorialTextPage7">Basa Anjeun noel switch ieu blok disumputkeun muncul</string>
+<string name="tutorialTextPage8">switch Ieu anjeun kudu nangtung di guna ngaktipkeun</string>
+<string name="tutorialTextPage9">Sababaraha saklar ukur bisa nyumputkeun blok. </string>
+<string name="turorialTextPage10">Janten Kade ulah layu atawa gugur. </string>
+<string name="achievement_unlocked_prompt">prestasi Henteu dikonci</string>
+<string name="signin_success_welcome">Hai</string>
+<string name="not_signed_in_default_message">Teu asup</string>
+<string name="signin_other_error">Aya hiji masalah ku tanda dina. Mangga cobian deui engké.</string>
+<string name="achievements_exception">Aya hiji masalah komunikasi kalayan prestasi.</string>
+<string name="status_exception_error">% 1 $ s (status% 2 $ d). </string>
+<string name="leaderboards_exception">Aya hiji masalah komunikasi kalayan leaderboards.</string>
+<string name="players_exception">Aya hiji masalah komunikasi kalawan pamaén.</string>
+<array name="custom_button_text_login">
+<item>Otomatis Login: Éta</item>
+<item>Otomatis Login: Pareum</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Disada: Dina</item>
+<item>Disada: Pareum</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Ngageter: Dina</item>
+<item>Geter: Pareum</item>
+</array>
+<array name="spinner_text_texture">
+<item>semen</item>
+<item>jukut</item>
+<item>batu</item>
+<item>cai</item>
+<item>taringgul</item>
+<item>salju</item>
+<item>kotak</item>
+<item>dingding</item>
+<item>lukut</item>
+<item>Violet</item>
+<item>Speckled</item>
+<item>aqua</item>
+<item>Poek</item>
+<item>hejo</item>
+<item>corak</item>
+<item>Pinkish</item>
+<item>wungu</item>
+<item>langit</item>
+<item>batu</item>
+<item>pirus</item>
+</array>
+<array name="spinner_text_background">
+<item>biru</item>
+<item>multi</item>
+<item>tilas</item>
+<item>stripes</item>
+<item>Biru kolot</item>
+<item>oranyeu</item>
+<item>Titan</item>
+<item>katumbiri</item>
+<item>kayu</item>
+<item>kelir</item>
+<item>beureum</item>
+<item>coklat</item>
+<item>gradién</item>
+<item>jalan</item>
+<item>Galaxy</item>
+<item>labuh</item>
+<item>kota</item>
+<item>lemah keur pertanian</item>
+<item>diagonal</item>
+<item>leuweung</item>
+</array>
+</resources>

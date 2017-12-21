@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Vyberte položku Úroveň</string>
+<string name="game_over_text">dokončený</string>
+<string name="exit_level_confirm">Potvrdiť Ukončiť?</string>
+<string name="exit_app_prompt">Opätovným stlačením opustíte</string>
+<string name="exit_game_prompt">Opätovným stlačením sa vrátite späť</string>
+<string name="button_start">štart</string>
+<string name="button_options">možnosti</string>
+<string name="button_tutorial">cvičenie</string>
+<string name="button_rate">rýchlosť</string>
+<string name="button_achievement">úspechy</string>
+<string name="button_leaderboard">leaderboard</string>
+<string name="button_more">viac</string>
+<string name="tutorialTextPage1">Postaviť blok na zelenej cieľ dokončiť každej úrovni</string>
+<string name="tutorialTextPage2">Blok môžete otáčať vo všetkých štyroch smeroch</string>
+<string name="tutorialTextPage3">Dajte si pozor, aby ste nemohli stáť na červených blokoch</string>
+<string name="tutorialTextPage4">Môžete si však položiť červené bloky</string>
+<string name="tutorialTextPage5">Ak stojíte na červenom bloku, zlomíte sa a spadnete cez podlahu</string>
+<string name="tutorialTextPage6">Prepínače aktivujú skryté bloky</string>
+<string name="tutorialTextPage7">Keď sa dotknete tohto prepínača, objavia sa skryté bloky</string>
+<string name="tutorialTextPage8">Tento prepínač musí byť zapnutý, aby sa aktivoval</string>
+<string name="tutorialTextPage9">Niektoré prepínače môžu skryť iba bloky. </string>
+<string name="turorialTextPage10">Buďte opatrní, aby ste nepadli. </string>
+<string name="achievement_unlocked_prompt">Uspech dosiahnuty</string>
+<string name="signin_success_welcome">Ahoj</string>
+<string name="not_signed_in_default_message">Nie ste prihlásení</string>
+<string name="signin_other_error">Vyskytol sa problém s prihlásením. Skúste to znova neskôr.</string>
+<string name="achievements_exception">Vyskytla sa otázka komunikácie s úspechom.</string>
+<string name="status_exception_error">% 1 $ s (stav% 2 $ d). </string>
+<string name="leaderboards_exception">Vyskytol sa problém s komunikáciou s leaderboardmi.</string>
+<string name="players_exception">Vyskytol sa problém s komunikáciou s hráčmi.</string>
+<array name="custom_button_text_login">
+<item>Automatické prihlásenie: Zapnuté</item>
+<item>Automatické prihlásenie: Vypnuté</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Zvuk: Zapnutý</item>
+<item>Vypnúť zvuk</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrovanie: Zapnuté</item>
+<item>Vibrovanie: Vypnuté</item>
+</array>
+<array name="spinner_text_texture">
+<item>cement</item>
+<item>tráva</item>
+<item>rock</item>
+<item>voda</item>
+<item>skalnatý</item>
+<item>Sneh</item>
+<item>dlaždice</item>
+<item>stena</item>
+<item>mach</item>
+<item>fialový</item>
+<item>slzičkový</item>
+<item>Aqua</item>
+<item>tmavý</item>
+<item>zelená</item>
+<item>vzor</item>
+<item>ružovkastý</item>
+<item>Fialová</item>
+<item>neba</item>
+<item>kameň</item>
+<item>tyrkysová</item>
+</array>
+<array name="spinner_text_background">
+<item>Modrá</item>
+<item>multi</item>
+<item>pruh</item>
+<item>Stripes</item>
+<item>Tmavomodrá</item>
+<item>oranžový</item>
+<item>titán</item>
+<item>dúha</item>
+<item>drevo</item>
+<item>farby</item>
+<item>červená</item>
+<item>hnedý</item>
+<item>stúpanie</item>
+<item>cestné</item>
+<item>galaxie</item>
+<item>spadnúť</item>
+<item>Mesto</item>
+<item>farma</item>
+<item>uhlopriečka</item>
+<item>les</item>
+</array>
+</resources>

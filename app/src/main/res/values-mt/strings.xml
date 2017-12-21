@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Agħżel Livell</string>
+<string name="game_over_text">Completed</string>
+<string name="exit_level_confirm">Ikkonferma l-Ħruġ?</string>
+<string name="exit_app_prompt">Erġa 'stampa għall-ħruġ</string>
+<string name="exit_game_prompt">Erġa 'stampa biex tmur lura</string>
+<string name="button_start">Ibda</string>
+<string name="button_options">Għażliet</string>
+<string name="button_tutorial">Tutorja</string>
+<string name="button_rate">Rata</string>
+<string name="button_achievement">Kisbiet</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Iktar</string>
+<string name="tutorialTextPage1">Żomm il-blokka fuq l-għan aħdar biex tlesti kull livell</string>
+<string name="tutorialTextPage2">Tista 'ddawwar il-blokka fl-erba' direzzjonijiet</string>
+<string name="tutorialTextPage3">Beware inti ma tistax toqgħod fuq blokki ħomor</string>
+<string name="tutorialTextPage4">Tista 'tirtira fuq blokki ħomor għalkemm</string>
+<string name="tutorialTextPage5">Jekk toqgħod fuq blokka ħamra se tinqasam u taqa 'fuq l-art</string>
+<string name="tutorialTextPage6">L-iswiċċijiet jattivaw blokok moħbija</string>
+<string name="tutorialTextPage7">Meta tmiss dan il-qlib il-blokki moħbija jidhru</string>
+<string name="tutorialTextPage8">Dan is-swiċċ trid toqgħod fuq sabiex tattiva</string>
+<string name="tutorialTextPage9">Ċerti swiċċijiet jistgħu jaħbu biss blokki. </string>
+<string name="turorialTextPage10">Oqgħod attent li ma taqax. </string>
+<string name="achievement_unlocked_prompt">Kisba Jinfetaħ</string>
+<string name="signin_success_welcome">Hi</string>
+<string name="not_signed_in_default_message">Mhux iffirmat</string>
+<string name="signin_other_error">Kien hemm kwistjoni bis-sinjal. Jekk jogħġbok erġa 'pprova aktar tard.</string>
+<string name="achievements_exception">Kien hemm kwistjoni li tikkomunika mal-kisbiet.</string>
+<string name="status_exception_error">% 1 $ s (stat% 2 $ d). </string>
+<string name="leaderboards_exception">Kien hemm kwistjoni li tikkomunika mal-leaderboards.</string>
+<string name="players_exception">Kien hemm kwistjoni li tikkomunika mal-plejers.</string>
+<array name="custom_button_text_login">
+<item>Auto Login: Fuq</item>
+<item>Auto Login: Mitfi</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Sound: Fuq</item>
+<item>Sound: Mitfi</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibra: Fuq</item>
+<item>Ibiddel: Mitfi</item>
+</array>
+<array name="spinner_text_texture">
+<item>Siment</item>
+<item>Grass</item>
+<item>Rock</item>
+<item>Ilma</item>
+<item>Rocky</item>
+<item>Snow</item>
+<item>Tile</item>
+<item>Wall</item>
+<item>Moss</item>
+<item>Vjola</item>
+<item>Mittiekla</item>
+<item>Aqua</item>
+<item>Dlam</item>
+<item>Aħdar</item>
+<item>Disinn</item>
+<item>Pinkish</item>
+<item>Vjola</item>
+<item>Sema</item>
+<item>Stone</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Blu</item>
+<item>Multi</item>
+<item>Streak</item>
+<item>Strixxi</item>
+<item>Dark Blue</item>
+<item>Orange</item>
+<item>Titan</item>
+<item>Rainbow</item>
+<item>Injam</item>
+<item>Kuluri</item>
+<item>aħmar</item>
+<item>Kannella</item>
+<item>Gradjent</item>
+<item>Triq</item>
+<item>Galaxy</item>
+<item>Fall</item>
+<item>Belt</item>
+<item>Farm</item>
+<item>Diagonali</item>
+<item>Foresti</item>
+</array>
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Select Level</string>
+<string name="game_over_text">Completed</string>
+<string name="exit_level_confirm">Confirm Exit?</string>
+<string name="exit_app_prompt">Press again to exit</string>
+<string name="exit_game_prompt">Press again to go back</string>
+<string name="button_start">Start</string>
+<string name="button_options">Options</string>
+<string name="button_tutorial">Tutorial</string>
+<string name="button_rate">Rate</string>
+<string name="button_achievement">Achievements</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">More</string>
+<string name="tutorialTextPage1">Stand the block on the green goal to complete each level</string>
+<string name="tutorialTextPage2">You can rotate the block in all four directions</string>
+<string name="tutorialTextPage3">Beware you can\\'t stand on red blocks</string>
+<string name="tutorialTextPage4">You can lay down on red blocks though</string>
+<string name="tutorialTextPage5">If you stand on a red block it will break and you will fall through the floor</string>
+<string name="tutorialTextPage6">Switches activate hidden blocks</string>
+<string name="tutorialTextPage7">When you touch this switch the hidden blocks appear</string>
+<string name="tutorialTextPage8">This switch you must stand on in order to activate</string>
+<string name="tutorialTextPage9">Some switches may only hide blocks. You will have to play to figure out</string>
+<string name="turorialTextPage10">Be careful not to fall off. That\\'s it enjoy the game</string>
+<string name="achievement_unlocked_prompt">Achievement Unlocked</string>
+<string name="signin_success_welcome">Hi</string>
+<string name="not_signed_in_default_message">Not signed in</string>
+<string name="signin_other_error">There was an issue with sign in. Please try again later.</string>
+<string name="achievements_exception">There was an issue communicating with achievements.</string>
+<string name="status_exception_error">%1$s (status %2$d). %3$s.</string>
+<string name="leaderboards_exception">There was an issue communicating with leaderboards.</string>
+<string name="players_exception">There was an issue communicating with players.</string>
+<array name="custom_button_text_login">
+<item>Auto Login: On</item>
+<item>Auto Login: Off</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Sound: On</item>
+<item>Sound: Off</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrate: On</item>
+<item>Vibrate: Off</item>
+</array>
+<array name="spinner_text_texture">
+<item>Cement</item>
+<item>Grass</item>
+<item>Rock</item>
+<item>Water</item>
+<item>Rocky</item>
+<item>Snow</item>
+<item>Tile</item>
+<item>Wall</item>
+<item>Moss</item>
+<item>Violet</item>
+<item>Speckled</item>
+<item>Aqua</item>
+<item>Dark</item>
+<item>Green</item>
+<item>Pattern</item>
+<item>Pinkish</item>
+<item>Purple</item>
+<item>Sky</item>
+<item>Stone</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Blue</item>
+<item>Multi</item>
+<item>Streak</item>
+<item>Stripes</item>
+<item>Dark Blue</item>
+<item>Orange</item>
+<item>Titan</item>
+<item>Rainbow</item>
+<item>Wood</item>
+<item>Colors</item>
+<item>Red</item>
+<item>Brown</item>
+<item>Gradient</item>
+<item>Road</item>
+<item>Galaxy</item>
+<item>Fall</item>
+<item>Town</item>
+<item>Farm</item>
+<item>Diagonal</item>
+<item>Forest</item>
+</array>
+</resources>

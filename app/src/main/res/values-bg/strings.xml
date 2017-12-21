@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Изберете Ниво</string>
+<string name="game_over_text">завършен</string>
+<string name="exit_level_confirm">Потвърдете изхода?</string>
+<string name="exit_app_prompt">Натиснете отново, за да излезете</string>
+<string name="exit_game_prompt">Натиснете отново, за да се върнете</string>
+<string name="button_start">начало</string>
+<string name="button_options">Настроики</string>
+<string name="button_tutorial">настойнически</string>
+<string name="button_rate">скорост</string>
+<string name="button_achievement">Постижения</string>
+<string name="button_leaderboard">Табло</string>
+<string name="button_more">| Повече ▼</string>
+<string name="tutorialTextPage1">Застанете върху зелената цел, за да завършите всяко ниво</string>
+<string name="tutorialTextPage2">Можете да завъртите блока във всичките четири посоки</string>
+<string name="tutorialTextPage3">Пазете се, че не можете да застанете на червени блокове</string>
+<string name="tutorialTextPage4">Можете да легнете на червени блокове все пак</string>
+<string name="tutorialTextPage5">Ако стоите на червен блок, той ще се счупи и ще падне през пода</string>
+<string name="tutorialTextPage6">Превключвателите активират скритите блокове</string>
+<string name="tutorialTextPage7">Когато докоснете този ключ, се появяват скритите блокове</string>
+<string name="tutorialTextPage8">Този ключ трябва да стои настрана, за да се активира</string>
+<string name="tutorialTextPage9">Някои ключове могат да скриват само блокове. </string>
+<string name="turorialTextPage10">Внимавайте да не падне. </string>
+<string name="achievement_unlocked_prompt">Постигнато отключване</string>
+<string name="signin_success_welcome">Здрасти</string>
+<string name="not_signed_in_default_message">Не сте влезли</string>
+<string name="signin_other_error">Възникна проблем при влизане в профила. Моля, опитайте отново по-късно.</string>
+<string name="achievements_exception">Имаше проблем, свързан с постиженията.</string>
+<string name="status_exception_error">% 1 $ s (състояние% 2 $ d). </string>
+<string name="leaderboards_exception">Имаше проблем с комуникацията с класациите.</string>
+<string name="players_exception">Имаше проблем с комуникацията с играчите.</string>
+<array name="custom_button_text_login">
+<item>Автоматично влизане: включено</item>
+<item>Автоматично влизане: Изключено</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Звук: Вкл</item>
+<item>Изключен звук</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Вибриране: Вкл</item>
+<item>Вибриране: Изключено</item>
+</array>
+<array name="spinner_text_texture">
+<item>цимент</item>
+<item>трева</item>
+<item>рок</item>
+<item>вода</item>
+<item>скалист</item>
+<item>сняг</item>
+<item>плочка</item>
+<item>стена</item>
+<item>мъх</item>
+<item>виолетов</item>
+<item>на петна</item>
+<item>Aqua</item>
+<item>тъмен</item>
+<item>зелен</item>
+<item>модел</item>
+<item>възрозов</item>
+<item>Лилаво</item>
+<item>небе</item>
+<item>камък</item>
+<item>тюркоаз</item>
+</array>
+<array name="spinner_text_background">
+<item>Син</item>
+<item>Multi</item>
+<item>жилка</item>
+<item>Stripes</item>
+<item>Тъмно синьо</item>
+<item>оранжев</item>
+<item>Титан</item>
+<item>дъга</item>
+<item>дърво</item>
+<item>Цветове</item>
+<item>червен</item>
+<item>кафяв</item>
+<item>градиент</item>
+<item>път</item>
+<item>галактика</item>
+<item>падане</item>
+<item>град</item>
+<item>ферма</item>
+<item>диагонал</item>
+<item>гора</item>
+</array>
+</resources>

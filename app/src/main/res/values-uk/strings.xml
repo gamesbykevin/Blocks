@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Виберіть рівень</string>
+<string name="game_over_text">Завершено</string>
+<string name="exit_level_confirm">Підтвердити вихід?</string>
+<string name="exit_app_prompt">Натисніть ще раз, щоб вийти</string>
+<string name="exit_game_prompt">Натисніть ще раз, щоб повернутися</string>
+<string name="button_start">Почати</string>
+<string name="button_options">Параметри</string>
+<string name="button_tutorial">Підручник</string>
+<string name="button_rate">Оцінити</string>
+<string name="button_achievement">Досягнення</string>
+<string name="button_leaderboard">Лідерський план</string>
+<string name="button_more">Більше</string>
+<string name="tutorialTextPage1">Підніміть блок на зелену ціль, щоб завершити кожен рівень</string>
+<string name="tutorialTextPage2">Ви можете обертати блок у всіх чотирьох напрямках</string>
+<string name="tutorialTextPage3">Остерігайтеся, що ви не можете стояти на червоних блоках</string>
+<string name="tutorialTextPage4">Ви можете лягти на червоні блоки, хоча</string>
+<string name="tutorialTextPage5">Якщо ви будете стояти на червоному блоці, це зламається, і ти впадеш підлогою</string>
+<string name="tutorialTextPage6">Перемикачі активують приховані блоки</string>
+<string name="tutorialTextPage7">Коли ви торкаєтеся цього перемикача, з'являються приховані блоки</string>
+<string name="tutorialTextPage8">Цей вимикач ви повинні стояти, щоб активувати його</string>
+<string name="tutorialTextPage9">Деякі вимикачі можуть лише приховувати блоки. </string>
+<string name="turorialTextPage10">Будьте обережні, щоб не впасти. </string>
+<string name="achievement_unlocked_prompt">Досягнення розблоковано</string>
+<string name="signin_success_welcome">Привіт</string>
+<string name="not_signed_in_default_message">Не ввійшов</string>
+<string name="signin_other_error">Виникла проблема з входом. Будь ласка, спробуйте пізніше.</string>
+<string name="achievements_exception">Виникла проблема спілкування з досягненнями.</string>
+<string name="status_exception_error">% 1 $ s (статус% 2 $ d). </string>
+<string name="leaderboards_exception">З'явилася проблема спілкування з лідерами.</string>
+<string name="players_exception">Виникла проблема спілкування з гравцями.</string>
+<array name="custom_button_text_login">
+<item>Авто Авторизація: Увімк</item>
+<item>Авто вхід: вимкнено</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Звук: увімкнено</item>
+<item>Звук: вимкнено</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Вібросигнал: Увімкнено</item>
+<item>Вібросигнал: вимкнено</item>
+</array>
+<array name="spinner_text_texture">
+<item>Цемент</item>
+<item>Трава</item>
+<item>Рок</item>
+<item>Вода</item>
+<item>Скелястий</item>
+<item>Сніг</item>
+<item>Плитка</item>
+<item>Стіни</item>
+<item>Мосс</item>
+<item>Фіолетовий</item>
+<item>Пісчастий</item>
+<item>Аква</item>
+<item>Темно</item>
+<item>Зелений</item>
+<item>Візерунок</item>
+<item>Рожевий</item>
+<item>Фіолетовий</item>
+<item>Небо</item>
+<item>Камінь</item>
+<item>Бірюза</item>
+</array>
+<array name="spinner_text_background">
+<item>Синій</item>
+<item>Мульти</item>
+<item>Смуга</item>
+<item>Смужки</item>
+<item>Темно-синій</item>
+<item>Апельсин</item>
+<item>Титан</item>
+<item>Веселка</item>
+<item>Деревина</item>
+<item>Кольори</item>
+<item>Червоний</item>
+<item>Коричневий</item>
+<item>Градієнт</item>
+<item>Дорога</item>
+<item>Галактика</item>
+<item>Осінь</item>
+<item>Місто</item>
+<item>Ферма</item>
+<item>Діагональ</item>
+<item>Ліс</item>
+</array>
+</resources>

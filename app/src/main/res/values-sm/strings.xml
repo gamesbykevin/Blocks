@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Filifili Fua</string>
+<string name="game_over_text">Maea</string>
+<string name="exit_level_confirm">Faʻamaonia le Maea?</string>
+<string name="exit_app_prompt">Toe oomi e toe alu</string>
+<string name="exit_game_prompt">Toe oomi e toe foi i tua</string>
+<string name="button_start">Amata</string>
+<string name="button_options">Filifiliga</string>
+<string name="button_tutorial">Tutorial</string>
+<string name="button_rate">Tau</string>
+<string name="button_achievement">Ausia</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Faʻatele</string>
+<string name="tutorialTextPage1">Tu le poloka i luga o le mea lanu meamata e faamaea tulaga taʻitasi</string>
+<string name="tutorialTextPage2">E mafai ona e suia le poloka i itu uma e fa</string>
+<string name="tutorialTextPage3">Faʻaeteete e le mafai ona e tu i luga o poloka mumu</string>
+<string name="tutorialTextPage4">E mafai ona e taoto i poloka mumu ae</string>
+<string name="tutorialTextPage5">Afai e te tu i luga o se mumu mumu o le a malepe ma o le ae paʻu i le fola</string>
+<string name="tutorialTextPage6">Feauai poloka poloka natia</string>
+<string name="tutorialTextPage7">A e paʻi atu i lenei ki o poloka natia e aliali mai</string>
+<string name="tutorialTextPage8">O lenei ki e tatau ona e tu ai ina ia mafai ona faʻagaoioia</string>
+<string name="tutorialTextPage9">O nisi suiga e na o le nana ai poloka. </string>
+<string name="turorialTextPage10">Ia faaeteete aua nei e pauu. </string>
+<string name="achievement_unlocked_prompt">Ausia Faailoaina</string>
+<string name="signin_success_welcome">Malo</string>
+<string name="not_signed_in_default_message">E leʻi sainia</string>
+<string name="signin_other_error">Sa i ai se mataupu e iai le saini. Faamolemole toe taumafai mulimuli ane.</string>
+<string name="achievements_exception">Sa i ai se mataupu e fesoʻotai ma taunuʻuga.</string>
+<string name="status_exception_error">% 1 $ s (tulaga% 2 $ d). </string>
+<string name="leaderboards_exception">Sa i ai se mataupu e fesootai ma taʻiala.</string>
+<string name="players_exception">Sa i ai se mataupu e fesootai ma tagata taaalo.</string>
+<array name="custom_button_text_login">
+<item>Sini Aunoa: On</item>
+<item>Sini Aunoa: Ave</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Leo: On</item>
+<item>Leo: Ave</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Viivili: On</item>
+<item>Viivili: Ave</item>
+</array>
+<array name="spinner_text_texture">
+<item>Sima</item>
+<item>Fuga</item>
+<item>Papa</item>
+<item>Suavai</item>
+<item>Papa</item>
+<item>Snow</item>
+<item>Tile</item>
+<item>Pa puipui</item>
+<item>Moss</item>
+<item>Violet</item>
+<item>Faʻamatalaina</item>
+<item>Ava</item>
+<item>Pogisa</item>
+<item>Lanu meamata</item>
+<item>Mamanu</item>
+<item>Pinkish</item>
+<item>Lanu viole</item>
+<item>Sky</item>
+<item>Maʻa</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Lanu moaga</item>
+<item>Tele</item>
+<item>Faamalosi</item>
+<item>Faʻailoga</item>
+<item>Pogisa Blue</item>
+<item>Lanu moli</item>
+<item>Titan</item>
+<item>Rainbow</item>
+<item>Wood</item>
+<item>Lanu</item>
+<item>Lanu mumu</item>
+<item>Lanu enaena</item>
+<item>Maualalo</item>
+<item>Auala</item>
+<item>Galaxy</item>
+<item>Pau</item>
+<item>Town</item>
+<item>Faatoaga</item>
+<item>Faʻatonu</item>
+<item>Vaomatua</item>
+</array>
+</resources>

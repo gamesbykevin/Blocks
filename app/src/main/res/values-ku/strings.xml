@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Hilbijêre Hilbijêre</string>
+<string name="game_over_text">Temam kirin</string>
+<string name="exit_level_confirm">Pevçûn</string>
+<string name="exit_app_prompt">Dîsa vekin</string>
+<string name="exit_game_prompt">Dîsa vekin bike ku vekişin</string>
+<string name="button_start">Destpêkirin</string>
+<string name="button_options">Vebijêrkên</string>
+<string name="button_tutorial">Tutorial</string>
+<string name="button_rate">Qûrs</string>
+<string name="button_achievement">Serkeftin</string>
+<string name="button_leaderboard">Leaderboard</string>
+<string name="button_more">Zêde</string>
+<string name="tutorialTextPage1">Asta asta li ser armanca her kesî tije bikin</string>
+<string name="tutorialTextPage2">Hûn dikarin di çar alîgiran de bloyan veguherînin</string>
+<string name="tutorialTextPage3">Bawer bikî hûn li ser blokên sor têne rawestandin</string>
+<string name="tutorialTextPage4">Hûn dikarin li ser bloyên sor ên ku sor bikin</string>
+<string name="tutorialTextPage5">Heke hûn li ser bloka sor ve radiwestin, wê dê bibe û hûnê li erdê bibin</string>
+<string name="tutorialTextPage6">Guherînên veşartî yên veşartî veguherînin</string>
+<string name="tutorialTextPage7">Dema ku hûn veguhestin veguherîna blokên veşartî nîşan dikin</string>
+<string name="tutorialTextPage8">Vê gavê divê hûn çalak bikin ku ji bo çalak bikin</string>
+<string name="tutorialTextPage9">Hin guhertin dikarin tenê blokên veşartî. </string>
+<string name="turorialTextPage10">Hişyar bim nakin nebin. </string>
+<string name="achievement_unlocked_prompt">Achievement Unlock</string>
+<string name="signin_success_welcome">Merheba</string>
+<string name="not_signed_in_default_message">Nehatin îmze kirin</string>
+<string name="signin_other_error">Pirsgirêka bi sign-in bû. Ji kerema xwe dîsa dîsa biceribînin.</string>
+<string name="achievements_exception">Pirsgirêka bi serkeftinên peywendîdar bû.</string>
+<string name="status_exception_error">% 1 $ s (stateya% 2 $ d). </string>
+<string name="leaderboards_exception">Pirsgirêka bi rêberî re peywendîdar bû.</string>
+<string name="players_exception">Pirsgirêka ku bi lîstikvanan re peywendîdar bû.</string>
+<array name="custom_button_text_login">
+<item>Têketina Auto: On</item>
+<item>Têketina Auto:: Ji</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Deng: Li ser</item>
+<item>Deng: Off</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Vibrate: On</item>
+<item>Vibrate: Off</item>
+</array>
+<array name="spinner_text_texture">
+<item>Çîmento</item>
+<item>Gîha</item>
+<item>Teht</item>
+<item>Av</item>
+<item>Kevirî</item>
+<item>Berf</item>
+<item>Tile</item>
+<item>Dîwar</item>
+<item>Kefz</item>
+<item>Violet</item>
+<item>Bişkojk</item>
+<item>Aqua</item>
+<item>Tarî</item>
+<item>Kesk</item>
+<item>Mînak</item>
+<item>Pinkish</item>
+<item>Mor</item>
+<item>Asûman</item>
+<item>Kevir</item>
+<item>Turquoise</item>
+</array>
+<array name="spinner_text_background">
+<item>Şîn</item>
+<item>Pir</item>
+<item>Streak</item>
+<item>Stripes</item>
+<item>Şînê tarî</item>
+<item>Porteqalî</item>
+<item>Titan</item>
+<item>Keskesor</item>
+<item>Text</item>
+<item>Rengên</item>
+<item>Sor</item>
+<item>Qehweyî</item>
+<item>Gradent</item>
+<item>Rê</item>
+<item>Galaxy</item>
+<item>Ketin</item>
+<item>Bajar</item>
+<item>Malgûndî</item>
+<item>Diagonal</item>
+<item>Daristan</item>
+</array>
+</resources>

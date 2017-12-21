@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Ընտրեք մակարդակը</string>
+<string name="game_over_text">Ավարտվեց</string>
+<string name="exit_level_confirm">Հաստատեք ելքը:</string>
+<string name="exit_app_prompt">Սեղմեք կրկին դուրս գալու համար</string>
+<string name="exit_game_prompt">Կրկին կրկին վերադառնալ</string>
+<string name="button_start">Սկսեք</string>
+<string name="button_options">Ընտրանքներ</string>
+<string name="button_tutorial">Ուսուցողական</string>
+<string name="button_rate">Գնահատել</string>
+<string name="button_achievement">Ձեռքբերումներ</string>
+<string name="button_leaderboard">Առաջատար սեղան</string>
+<string name="button_more">Ավելին</string>
+<string name="tutorialTextPage1">Կանգնեք բլոկը կանաչ նպատակին `յուրաքանչյուր մակարդակի ավարտելու համար</string>
+<string name="tutorialTextPage2">Դուք կարող եք պտտել բլոկը բոլոր չորս ուղղություններով</string>
+<string name="tutorialTextPage3">Զգուշացեք, չեք կարող կանգնել կարմիր բլոկների վրա</string>
+<string name="tutorialTextPage4">Թեեւ կարող եք դնել կարմիր բլոկների վրա</string>
+<string name="tutorialTextPage5">Եթե ​​դուք կանգնած եք կարմիր բլոկի վրա, այն կընկնի, եւ դուք կընկնեք հատակից</string>
+<string name="tutorialTextPage6">Անջատիչները ակտիվացնում են թաքնված բլոկները</string>
+<string name="tutorialTextPage7">Երբ անջատեք այս անջատիչը, հայտնվում են թաքնված բլոկները</string>
+<string name="tutorialTextPage8">Այս անջատիչը պետք է ակտիվանա, որպեսզի ակտիվացնեք</string>
+<string name="tutorialTextPage9">Որոշ կապուղիներ կարող են թաքցնել բլոկները: </string>
+<string name="turorialTextPage10">Ուշադիր եղեք, որ չընկնեք: </string>
+<string name="achievement_unlocked_prompt">Հաջողության բացումը</string>
+<string name="signin_success_welcome">Ողջու՜յն</string>
+<string name="not_signed_in_default_message">Չստորագրված է</string>
+<string name="signin_other_error">Մուտք գործելու հետ կապված խնդիր առաջացավ: Խնդրում ենք կրկին փորձել ավելի ուշ:</string>
+<string name="achievements_exception">Ձեռքբերումներ հաղորդող խնդիր կար:</string>
+<string name="status_exception_error">% 1 $ s (կարգավիճակ% 2 $ d): </string>
+<string name="leaderboards_exception">Առաջնորդների հետ հաղորդակցվելու խնդիր առաջացավ:</string>
+<string name="players_exception">Խաղացողների հետ հաղորդակցվելու խնդիր առաջացավ:</string>
+<array name="custom_button_text_login">
+<item>Ավտոմատ մուտք</item>
+<item>Auto Login: Off</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Ձայն</item>
+<item>Ձայն</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Թրթռում: On</item>
+<item>Թրթռանք `Off</item>
+</array>
+<array name="spinner_text_texture">
+<item>Ցեմենտ</item>
+<item>Խոտ</item>
+<item>Ռոք</item>
+<item>Ջուր</item>
+<item>Rocky</item>
+<item>Ձյունը</item>
+<item>Կղմինդր</item>
+<item>Wall</item>
+<item>Moss</item>
+<item>Մանուշակ</item>
+<item>Հատկորոշված</item>
+<item>Aqua- ն</item>
+<item>Dark</item>
+<item>Կանաչ</item>
+<item>Կաղապար</item>
+<item>Pinkish</item>
+<item>Մանուշակագույն</item>
+<item>Sky</item>
+<item>Քարե</item>
+<item>Փիրուզագույն</item>
+</array>
+<array name="spinner_text_background">
+<item>Կապույտ</item>
+<item>Մուլտի</item>
+<item>Շերտ</item>
+<item>Շերտերը</item>
+<item>Մուգ կապույտ</item>
+<item>Orange- ը</item>
+<item>Տիտան</item>
+<item>Ծիածան</item>
+<item>Wood</item>
+<item>Գույներ</item>
+<item>Կարմիր</item>
+<item>Բրաունը</item>
+<item>Գրադիենտ</item>
+<item>Ճանապարհը</item>
+<item>Գալակտիկայում</item>
+<item>Աշնանը</item>
+<item>Քաղաքը</item>
+<item>Ֆարմ</item>
+<item>Դիոգենալ</item>
+<item>Անտառ</item>
+</array>
+</resources>

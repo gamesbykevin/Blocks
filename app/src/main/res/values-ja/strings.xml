@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">レベルの選択</string>
+<string name="game_over_text">完了しました</string>
+<string name="exit_level_confirm">出口を確認しますか？</string>
+<string name="exit_app_prompt">終了するにはもう一度押す</string>
+<string name="exit_game_prompt">もう一度押すと戻る</string>
+<string name="button_start">開始</string>
+<string name="button_options">オプション</string>
+<string name="button_tutorial">チュートリアル</string>
+<string name="button_rate">レート</string>
+<string name="button_achievement">実績</string>
+<string name="button_leaderboard">リーダーボード</string>
+<string name="button_more">もっと</string>
+<string name="tutorialTextPage1">緑のゴールにブロックを立て、各レベルを完了してください</string>
+<string name="tutorialTextPage2">ブロックを4方向すべてに回転させることができます</string>
+<string name="tutorialTextPage3">あなたは赤いブロックに立つことはできません</string>
+<string name="tutorialTextPage4">赤いブロックには</string>
+<string name="tutorialTextPage5">あなたが赤いブロックに立っていると、それは壊れ、あなたは床に落ちるでしょう</string>
+<string name="tutorialTextPage6">隠しブロックを有効にするスイッチ</string>
+<string name="tutorialTextPage7">このスイッチをタッチすると隠れブロックが表示されます</string>
+<string name="tutorialTextPage8">このスイッチをオンにする必要があります</string>
+<string name="tutorialTextPage9">スイッチによっては、ブロックを隠すだけのものもあります。</string>
+<string name="turorialTextPage10">落ちないように注意してください。</string>
+<string name="achievement_unlocked_prompt">アチーブメントロック解除</string>
+<string name="signin_success_welcome">こんにちは</string>
+<string name="not_signed_in_default_message">サインインしていません</string>
+<string name="signin_other_error">ログインに問題がありました。後でもう一度お試しください。</string>
+<string name="achievements_exception">業績とのコミュニケーションに問題がありました。</string>
+<string name="status_exception_error">％1 $ s（ステータス％2 $ d） </string>
+<string name="leaderboards_exception">リーダーボードと通信する際に問題が発生しました。</string>
+<string name="players_exception">プレーヤーと通信する際に問題が発生しました。</string>
+<array name="custom_button_text_login">
+<item>自動ログイン：オン</item>
+<item>自動ログイン：オフ</item>
+</array>
+<array name="custom_button_text_sound">
+<item>サウンド：オン</item>
+<item>サウンド：オフ</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>振動：オン</item>
+<item>振動：オフ</item>
+</array>
+<array name="spinner_text_texture">
+<item>セメント</item>
+<item>草</item>
+<item>岩</item>
+<item>水</item>
+<item>ロッキー</item>
+<item>雪</item>
+<item>タイル</item>
+<item>壁</item>
+<item>モス</item>
+<item>バイオレット</item>
+<item>スペックルド</item>
+<item>アクア</item>
+<item>ダーク</item>
+<item>緑</item>
+<item>パターン</item>
+<item>ピンク色</item>
+<item>紫の</item>
+<item>空</item>
+<item>石</item>
+<item>ターコイズ</item>
+</array>
+<array name="spinner_text_background">
+<item>青</item>
+<item>マルチ</item>
+<item>ストリーク</item>
+<item>ストライプ</item>
+<item>濃紺</item>
+<item>オレンジ</item>
+<item>タイタン</item>
+<item>虹</item>
+<item>木材</item>
+<item>色</item>
+<item>赤</item>
+<item>褐色</item>
+<item>勾配</item>
+<item>道路</item>
+<item>銀河</item>
+<item>秋</item>
+<item>タウン</item>
+<item>ファーム</item>
+<item>対角線</item>
+<item>森林</item>
+</array>
+</resources>

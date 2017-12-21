@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">레벨 선택</string>
+<string name="game_over_text">완료 됨</string>
+<string name="exit_level_confirm">종료를 확인 하시겠습니까?</string>
+<string name="exit_app_prompt">종료하려면 다시 누릅니다.</string>
+<string name="exit_game_prompt">뒤로 이동하려면 다시 누릅니다.</string>
+<string name="button_start">스타트</string>
+<string name="button_options">옵션</string>
+<string name="button_tutorial">지도 시간</string>
+<string name="button_rate">율</string>
+<string name="button_achievement">업적</string>
+<string name="button_leaderboard">리더 보드</string>
+<string name="button_more">더</string>
+<string name="tutorialTextPage1">각 단계를 완료하기 위해 녹색 목표에 블록을 세우십시오.</string>
+<string name="tutorialTextPage2">블록을 네 방향으로 모두 회전 할 수 있습니다.</string>
+<string name="tutorialTextPage3">빨간색 블록에 서서 사용할 수 없으므로주의하십시오.</string>
+<string name="tutorialTextPage4">빨간 블록을 놓을 수 있습니다.</string>
+<string name="tutorialTextPage5">당신이 빨간 블록에 서 있다면 그것은 끊을 것이고 당신은 바닥을 빠져 나올 것입니다.</string>
+<string name="tutorialTextPage6">숨겨진 블록을 활성화하는 스위치</string>
+<string name="tutorialTextPage7">이 스위치를 누르면 숨겨진 블록이 나타납니다.</string>
+<string name="tutorialTextPage8">활성화하려면이 스위치를 켜야합니다.</string>
+<string name="tutorialTextPage9">일부 스위치는 블록을 숨길 수 있습니다. </string>
+<string name="turorialTextPage10">떨어지지 않도록주의하십시오. </string>
+<string name="achievement_unlocked_prompt">잠금 해제 업적</string>
+<string name="signin_success_welcome">안녕</string>
+<string name="not_signed_in_default_message">로그인하지 않았습니다.</string>
+<string name="signin_other_error">로그인하는 데 문제가 있습니다. 잠시 후 다시 시도하십시오.</string>
+<string name="achievements_exception">업적과 통신하는 데 문제가있었습니다.</string>
+<string name="status_exception_error">% 1 $ s (상태 % 2 $ d) </string>
+<string name="leaderboards_exception">리더 보드와 통신하는 중에 문제가 발생했습니다.</string>
+<string name="players_exception">플레이어와 통신하는 데 문제가있었습니다.</string>
+<array name="custom_button_text_login">
+<item>자동 로그인 : 켜기</item>
+<item>자동 로그인 : 꺼짐</item>
+</array>
+<array name="custom_button_text_sound">
+<item>소리 : 켜기</item>
+<item>음소거</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>진동 : 켜기</item>
+<item>진동 : 꺼짐</item>
+</array>
+<array name="spinner_text_texture">
+<item>시멘트</item>
+<item>잔디</item>
+<item>록</item>
+<item>물</item>
+<item>불안정한</item>
+<item>눈</item>
+<item>타일</item>
+<item>벽</item>
+<item>이끼</item>
+<item>제비꽃</item>
+<item>얼룩덜룩 한</item>
+<item>아쿠아</item>
+<item>어두운</item>
+<item>녹색</item>
+<item>무늬</item>
+<item>뾰족한</item>
+<item>자</item>
+<item>하늘</item>
+<item>돌</item>
+<item>터키 옥</item>
+</array>
+<array name="spinner_text_background">
+<item>푸른</item>
+<item>멀티</item>
+<item>줄</item>
+<item>문</item>
+<item>진한 파란색</item>
+<item>주황색</item>
+<item>타이탄</item>
+<item>무지개</item>
+<item>목재</item>
+<item>그림 물감</item>
+<item>빨간</item>
+<item>갈색</item>
+<item>구배</item>
+<item>도로</item>
+<item>은하</item>
+<item>가을</item>
+<item>도시</item>
+<item>농장</item>
+<item>대각선</item>
+<item>숲</item>
+</array>
+</resources>

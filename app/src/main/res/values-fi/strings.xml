@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="level_select_title_text">Valitse taso</string>
+<string name="game_over_text">valmistunut</string>
+<string name="exit_level_confirm">Vahvista poistuminen?</string>
+<string name="exit_app_prompt">Poistu painamalla uudelleen</string>
+<string name="exit_game_prompt">Palaa takaisin painamalla uudelleen</string>
+<string name="button_start">alkaa</string>
+<string name="button_options">vaihtoehdot</string>
+<string name="button_tutorial">oppitunti</string>
+<string name="button_rate">nopeus</string>
+<string name="button_achievement">saavutukset</string>
+<string name="button_leaderboard">leaderboard</string>
+<string name="button_more">Lisää</string>
+<string name="tutorialTextPage1">Aseta lohko vihreällä tavoite loppuun kunkin tason</string>
+<string name="tutorialTextPage2">Voit kiertää lohkoa kaikissa neljässä suunnassa</string>
+<string name="tutorialTextPage3">Varo ettet voi seistä punaisia ​​lohkoja</string>
+<string name="tutorialTextPage4">Voit kuitenkin asettaa punaiset lohkot</string>
+<string name="tutorialTextPage5">Jos pysyt punaisella lohkolla, se murtaa ja putoat lattian läpi</string>
+<string name="tutorialTextPage6">Kytkimet aktivoivat piilotetut lohkot</string>
+<string name="tutorialTextPage7">Kun kosketat tätä kytkintä, näkyvät piilotetut lohkot</string>
+<string name="tutorialTextPage8">Tämän kytkimen pitää olla paikallaan aktivoimiseksi</string>
+<string name="tutorialTextPage9">Jotkin kytkimet voivat vain piilottaa kortteja. </string>
+<string name="turorialTextPage10">Älä pudota. </string>
+<string name="achievement_unlocked_prompt">Saavutus avattu</string>
+<string name="signin_success_welcome">Moi</string>
+<string name="not_signed_in_default_message">Et ole kirjautunut sisään</string>
+<string name="signin_other_error">Kirjautumisessa oli ongelma. Yritä myöhemmin uudelleen.</string>
+<string name="achievements_exception">Oli kysymys, joka oli yhteydessä saavutuksiin.</string>
+<string name="status_exception_error">% 1 $ s (tila% 2 $ d). </string>
+<string name="leaderboards_exception">Vuorospeleissä oli viestiä.</string>
+<string name="players_exception">Siellä oli viesti pelaajien kanssa.</string>
+<array name="custom_button_text_login">
+<item>Auto Login: On</item>
+<item>Automaattinen kirjautuminen: Ei käytössä</item>
+</array>
+<array name="custom_button_text_sound">
+<item>Ääni: Käytössä</item>
+<item>Ääni: Pois</item>
+</array>
+<array name="custom_button_text_vibrate">
+<item>Värähtele: On</item>
+<item>Värinä: Ei käytössä</item>
+</array>
+<array name="spinner_text_texture">
+<item>Sementti</item>
+<item>Ruoho</item>
+<item>Rock</item>
+<item>vesi</item>
+<item>kallioinen</item>
+<item>Lumi</item>
+<item>Laatta</item>
+<item>seinä</item>
+<item>sammal</item>
+<item>Violetti</item>
+<item>Pilkullinen</item>
+<item>aqua</item>
+<item>Tumma</item>
+<item>Vihreä</item>
+<item>Kuvio</item>
+<item>vaaleanpunerva</item>
+<item>Violetti</item>
+<item>Taivas</item>
+<item>Kivi</item>
+<item>Turkoosi</item>
+</array>
+<array name="spinner_text_background">
+<item>Sininen</item>
+<item>Multi</item>
+<item>viiru</item>
+<item>raidat</item>
+<item>Tummansininen</item>
+<item>Oranssi</item>
+<item>Titaani</item>
+<item>Sateenkaari</item>
+<item>Puu</item>
+<item>värit</item>
+<item>Punainen</item>
+<item>Ruskea</item>
+<item>Kaltevuus</item>
+<item>tie</item>
+<item>Galaxy</item>
+<item>pudota</item>
+<item>Kaupunki</item>
+<item>Maatila</item>
+<item>diagonaalinen</item>
+<item>Metsä</item>
+</array>
+</resources>
