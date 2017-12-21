@@ -100,7 +100,12 @@
     <string name="tutorialTextPage9">Some switches may only hide blocks. You will have to play to figure out</string>
     <string name="turorialTextPage10">Be careful not to fall off. That\'s it enjoy the game</string>
 
+    <string name="achievement_unlocked_prompt">Achievement Unlocked</string>
     <string name="signin_success_welcome">Hi</string>
     <string name="not_signed_in_default_message">Not signed in</string>
     <string name="signin_other_error">There was an issue with sign in. Please try again later.</string>
+    <string name="achievements_exception">There was an issue communicating with achievements.</string>
+    <string name="status_exception_error">%1$s (status %2$d). %3$s.</string>
+    <string name="leaderboards_exception">There was an issue communicating with leaderboards.</string>
+    <string name="players_exception">There was an issue communicating with players.</string>
 </resources>

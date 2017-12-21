@@ -1,4 +1,314 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Google Play game services IDs.
+Save this file as res/values/games-ids.xml in your project.
+-->
 <resources>
-    <string translatable="false" name="app_id">827038426243</string>
+
+    <!-- app_id -->
+    <string name="app_id" translatable="false">827038426243</string>
+
+    <!-- package_name -->
+    <string name="package_name" translatable="false">com.gamesbykevin.blocks</string>
+
+    <!-- achievement Level 1 -->
+    <string name="achievement_level_1" translatable="false">CgkIg8nT-ogYEAIQAQ</string>
+
+    <!-- achievement Level 2 -->
+    <string name="achievement_level_2" translatable="false">CgkIg8nT-ogYEAIQAg</string>
+
+    <!-- achievement Level 3 -->
+    <string name="achievement_level_3" translatable="false">CgkIg8nT-ogYEAIQAw</string>
+
+    <!-- achievement Level 4 -->
+    <string name="achievement_level_4" translatable="false">CgkIg8nT-ogYEAIQBA</string>
+
+    <!-- achievement Level 5 -->
+    <string name="achievement_level_5" translatable="false">CgkIg8nT-ogYEAIQBQ</string>
+
+    <!-- achievement Level 6 -->
+    <string name="achievement_level_6" translatable="false">CgkIg8nT-ogYEAIQBg</string>
+
+    <!-- achievement Level 7 -->
+    <string name="achievement_level_7" translatable="false">CgkIg8nT-ogYEAIQBw</string>
+
+    <!-- achievement Level 8 -->
+    <string name="achievement_level_8" translatable="false">CgkIg8nT-ogYEAIQCA</string>
+
+    <!-- achievement Level 9 -->
+    <string name="achievement_level_9" translatable="false">CgkIg8nT-ogYEAIQCQ</string>
+
+    <!-- achievement Level 10 -->
+    <string name="achievement_level_10" translatable="false">CgkIg8nT-ogYEAIQCg</string>
+
+    <!-- achievement Level 11 -->
+    <string name="achievement_level_11" translatable="false">CgkIg8nT-ogYEAIQCw</string>
+
+    <!-- achievement Level 12 -->
+    <string name="achievement_level_12" translatable="false">CgkIg8nT-ogYEAIQDA</string>
+
+    <!-- achievement Level 13 -->
+    <string name="achievement_level_13" translatable="false">CgkIg8nT-ogYEAIQDQ</string>
+
+    <!-- achievement Level 14 -->
+    <string name="achievement_level_14" translatable="false">CgkIg8nT-ogYEAIQDg</string>
+
+    <!-- achievement Level 15 -->
+    <string name="achievement_level_15" translatable="false">CgkIg8nT-ogYEAIQDw</string>
+
+    <!-- achievement Level 16 -->
+    <string name="achievement_level_16" translatable="false">CgkIg8nT-ogYEAIQEA</string>
+
+    <!-- achievement Level 17 -->
+    <string name="achievement_level_17" translatable="false">CgkIg8nT-ogYEAIQEQ</string>
+
+    <!-- achievement Level 18 -->
+    <string name="achievement_level_18" translatable="false">CgkIg8nT-ogYEAIQEg</string>
+
+    <!-- achievement Level 19 -->
+    <string name="achievement_level_19" translatable="false">CgkIg8nT-ogYEAIQEw</string>
+
+    <!-- achievement Level 20 -->
+    <string name="achievement_level_20" translatable="false">CgkIg8nT-ogYEAIQFA</string>
+
+    <!-- achievement Level 21 -->
+    <string name="achievement_level_21" translatable="false">CgkIg8nT-ogYEAIQFQ</string>
+
+    <!-- achievement Level 22 -->
+    <string name="achievement_level_22" translatable="false">CgkIg8nT-ogYEAIQFg</string>
+
+    <!-- achievement Level 23 -->
+    <string name="achievement_level_23" translatable="false">CgkIg8nT-ogYEAIQFw</string>
+
+    <!-- achievement Level 24 -->
+    <string name="achievement_level_24" translatable="false">CgkIg8nT-ogYEAIQGA</string>
+
+    <!-- achievement Level 25 -->
+    <string name="achievement_level_25" translatable="false">CgkIg8nT-ogYEAIQGQ</string>
+
+    <!-- achievement Level 26 -->
+    <string name="achievement_level_26" translatable="false">CgkIg8nT-ogYEAIQGg</string>
+
+    <!-- achievement Level 27 -->
+    <string name="achievement_level_27" translatable="false">CgkIg8nT-ogYEAIQGw</string>
+
+    <!-- achievement Level 28 -->
+    <string name="achievement_level_28" translatable="false">CgkIg8nT-ogYEAIQHA</string>
+
+    <!-- achievement Level 29 -->
+    <string name="achievement_level_29" translatable="false">CgkIg8nT-ogYEAIQHQ</string>
+
+    <!-- achievement Level 30 -->
+    <string name="achievement_level_30" translatable="false">CgkIg8nT-ogYEAIQHg</string>
+
+    <!-- achievement Level 31 -->
+    <string name="achievement_level_31" translatable="false">CgkIg8nT-ogYEAIQHw</string>
+
+    <!-- achievement Level 32 -->
+    <string name="achievement_level_32" translatable="false">CgkIg8nT-ogYEAIQIA</string>
+
+    <!-- achievement Level 33 -->
+    <string name="achievement_level_33" translatable="false">CgkIg8nT-ogYEAIQIQ</string>
+
+    <!-- achievement Level 34 -->
+    <string name="achievement_level_34" translatable="false">CgkIg8nT-ogYEAIQIg</string>
+
+    <!-- achievement Level 35 -->
+    <string name="achievement_level_35" translatable="false">CgkIg8nT-ogYEAIQIw</string>
+
+    <!-- achievement Level 36 -->
+    <string name="achievement_level_36" translatable="false">CgkIg8nT-ogYEAIQJA</string>
+
+    <!-- achievement Level 37 -->
+    <string name="achievement_level_37" translatable="false">CgkIg8nT-ogYEAIQJQ</string>
+
+    <!-- achievement Level 38 -->
+    <string name="achievement_level_38" translatable="false">CgkIg8nT-ogYEAIQJg</string>
+
+    <!-- achievement Level 39 -->
+    <string name="achievement_level_39" translatable="false">CgkIg8nT-ogYEAIQJw</string>
+
+    <!-- achievement Level 40 -->
+    <string name="achievement_level_40" translatable="false">CgkIg8nT-ogYEAIQKA</string>
+
+    <!-- achievement Level 41 -->
+    <string name="achievement_level_41" translatable="false">CgkIg8nT-ogYEAIQKQ</string>
+
+    <!-- achievement Level 42 -->
+    <string name="achievement_level_42" translatable="false">CgkIg8nT-ogYEAIQKg</string>
+
+    <!-- achievement Level 43 -->
+    <string name="achievement_level_43" translatable="false">CgkIg8nT-ogYEAIQKw</string>
+
+    <!-- achievement Level 44 -->
+    <string name="achievement_level_44" translatable="false">CgkIg8nT-ogYEAIQLA</string>
+
+    <!-- achievement Level 45 -->
+    <string name="achievement_level_45" translatable="false">CgkIg8nT-ogYEAIQLQ</string>
+
+    <!-- achievement Level 46 -->
+    <string name="achievement_level_46" translatable="false">CgkIg8nT-ogYEAIQLg</string>
+
+    <!-- achievement Level 47 -->
+    <string name="achievement_level_47" translatable="false">CgkIg8nT-ogYEAIQLw</string>
+
+    <!-- achievement Level 48 -->
+    <string name="achievement_level_48" translatable="false">CgkIg8nT-ogYEAIQMA</string>
+
+    <!-- achievement Level 49 -->
+    <string name="achievement_level_49" translatable="false">CgkIg8nT-ogYEAIQMQ</string>
+
+    <!-- achievement Level 50 -->
+    <string name="achievement_level_50" translatable="false">CgkIg8nT-ogYEAIQMg</string>
+
+
+    <!-- leaderboard Level 1 -->
+    <string name="leaderboard_level_1" translatable="false">CgkIg8nT-ogYEAIQMw</string>
+
+    <!-- leaderboard Level 2 -->
+    <string name="leaderboard_level_2" translatable="false">CgkIg8nT-ogYEAIQNA</string>
+
+    <!-- leaderboard Level 3 -->
+    <string name="leaderboard_level_3" translatable="false">CgkIg8nT-ogYEAIQNQ</string>
+
+    <!-- leaderboard Level 4 -->
+    <string name="leaderboard_level_4" translatable="false">CgkIg8nT-ogYEAIQNg</string>
+
+    <!-- leaderboard Level 5 -->
+    <string name="leaderboard_level_5" translatable="false">CgkIg8nT-ogYEAIQNw</string>
+
+    <!-- leaderboard Level 6 -->
+    <string name="leaderboard_level_6" translatable="false">CgkIg8nT-ogYEAIQOA</string>
+
+    <!-- leaderboard Level 7 -->
+    <string name="leaderboard_level_7" translatable="false">CgkIg8nT-ogYEAIQOQ</string>
+
+    <!-- leaderboard Level 8 -->
+    <string name="leaderboard_level_8" translatable="false">CgkIg8nT-ogYEAIQOg</string>
+
+    <!-- leaderboard Level 9 -->
+    <string name="leaderboard_level_9" translatable="false">CgkIg8nT-ogYEAIQOw</string>
+
+    <!-- leaderboard Level 10 -->
+    <string name="leaderboard_level_10" translatable="false">CgkIg8nT-ogYEAIQPA</string>
+
+    <!-- leaderboard Level 11 -->
+    <string name="leaderboard_level_11" translatable="false">CgkIg8nT-ogYEAIQPQ</string>
+
+    <!-- leaderboard Level 12 -->
+    <string name="leaderboard_level_12" translatable="false">CgkIg8nT-ogYEAIQPg</string>
+
+    <!-- leaderboard Level 13 -->
+    <string name="leaderboard_level_13" translatable="false">CgkIg8nT-ogYEAIQPw</string>
+
+    <!-- leaderboard Level 14 -->
+    <string name="leaderboard_level_14" translatable="false">CgkIg8nT-ogYEAIQQA</string>
+
+    <!-- leaderboard Level 15 -->
+    <string name="leaderboard_level_15" translatable="false">CgkIg8nT-ogYEAIQQQ</string>
+
+    <!-- leaderboard Level 16 -->
+    <string name="leaderboard_level_16" translatable="false">CgkIg8nT-ogYEAIQQg</string>
+
+    <!-- leaderboard Level 17 -->
+    <string name="leaderboard_level_17" translatable="false">CgkIg8nT-ogYEAIQQw</string>
+
+    <!-- leaderboard Level 18 -->
+    <string name="leaderboard_level_18" translatable="false">CgkIg8nT-ogYEAIQRA</string>
+
+    <!-- leaderboard Level 19 -->
+    <string name="leaderboard_level_19" translatable="false">CgkIg8nT-ogYEAIQRQ</string>
+
+    <!-- leaderboard Level 20 -->
+    <string name="leaderboard_level_20" translatable="false">CgkIg8nT-ogYEAIQRg</string>
+
+    <!-- leaderboard Level 21 -->
+    <string name="leaderboard_level_21" translatable="false">CgkIg8nT-ogYEAIQRw</string>
+
+    <!-- leaderboard Level 22 -->
+    <string name="leaderboard_level_22" translatable="false">CgkIg8nT-ogYEAIQSA</string>
+
+    <!-- leaderboard Level 23 -->
+    <string name="leaderboard_level_23" translatable="false">CgkIg8nT-ogYEAIQSQ</string>
+
+    <!-- leaderboard Level 24 -->
+    <string name="leaderboard_level_24" translatable="false">CgkIg8nT-ogYEAIQSg</string>
+
+    <!-- leaderboard Level 25 -->
+    <string name="leaderboard_level_25" translatable="false">CgkIg8nT-ogYEAIQSw</string>
+
+    <!-- leaderboard Level 26 -->
+    <string name="leaderboard_level_26" translatable="false">CgkIg8nT-ogYEAIQTA</string>
+
+    <!-- leaderboard Level 27 -->
+    <string name="leaderboard_level_27" translatable="false">CgkIg8nT-ogYEAIQTQ</string>
+
+    <!-- leaderboard Level 28 -->
+    <string name="leaderboard_level_28" translatable="false">CgkIg8nT-ogYEAIQTg</string>
+
+    <!-- leaderboard Level 29 -->
+    <string name="leaderboard_level_29" translatable="false">CgkIg8nT-ogYEAIQTw</string>
+
+    <!-- leaderboard Level 30 -->
+    <string name="leaderboard_level_30" translatable="false">CgkIg8nT-ogYEAIQUA</string>
+
+    <!-- leaderboard Level 31 -->
+    <string name="leaderboard_level_31" translatable="false">CgkIg8nT-ogYEAIQUQ</string>
+
+    <!-- leaderboard Level 32 -->
+    <string name="leaderboard_level_32" translatable="false">CgkIg8nT-ogYEAIQUg</string>
+
+    <!-- leaderboard Level 33 -->
+    <string name="leaderboard_level_33" translatable="false">CgkIg8nT-ogYEAIQUw</string>
+
+    <!-- leaderboard Level 34 -->
+    <string name="leaderboard_level_34" translatable="false">CgkIg8nT-ogYEAIQVA</string>
+
+    <!-- leaderboard Level 35 -->
+    <string name="leaderboard_level_35" translatable="false">CgkIg8nT-ogYEAIQVQ</string>
+
+    <!-- leaderboard Level 36 -->
+    <string name="leaderboard_level_36" translatable="false">CgkIg8nT-ogYEAIQVg</string>
+
+    <!-- leaderboard Level 37 -->
+    <string name="leaderboard_level_37" translatable="false">CgkIg8nT-ogYEAIQVw</string>
+
+    <!-- leaderboard Level 38 -->
+    <string name="leaderboard_level_38" translatable="false">CgkIg8nT-ogYEAIQWA</string>
+
+    <!-- leaderboard Level 39 -->
+    <string name="leaderboard_level_39" translatable="false">CgkIg8nT-ogYEAIQWQ</string>
+
+    <!-- leaderboard Level 40 -->
+    <string name="leaderboard_level_40" translatable="false">CgkIg8nT-ogYEAIQWg</string>
+
+    <!-- leaderboard Level 41 -->
+    <string name="leaderboard_level_41" translatable="false">CgkIg8nT-ogYEAIQWw</string>
+
+    <!-- leaderboard Level 42 -->
+    <string name="leaderboard_level_42" translatable="false">CgkIg8nT-ogYEAIQXA</string>
+
+    <!-- leaderboard Level 43 -->
+    <string name="leaderboard_level_43" translatable="false">CgkIg8nT-ogYEAIQXQ</string>
+
+    <!-- leaderboard Level 44 -->
+    <string name="leaderboard_level_44" translatable="false">CgkIg8nT-ogYEAIQXg</string>
+
+    <!-- leaderboard Level 45 -->
+    <string name="leaderboard_level_45" translatable="false">CgkIg8nT-ogYEAIQXw</string>
+
+    <!-- leaderboard Level 46 -->
+    <string name="leaderboard_level_46" translatable="false">CgkIg8nT-ogYEAIQYA</string>
+
+    <!-- leaderboard Level 47 -->
+    <string name="leaderboard_level_47" translatable="false">CgkIg8nT-ogYEAIQYQ</string>
+
+    <!-- leaderboard Level 48 -->
+    <string name="leaderboard_level_48" translatable="false">CgkIg8nT-ogYEAIQYg</string>
+
+    <!-- leaderboard Level 49 -->
+    <string name="leaderboard_level_49" translatable="false">CgkIg8nT-ogYEAIQYw</string>
+
+    <!-- leaderboard Level 50 -->
+    <string name="leaderboard_level_50" translatable="false">CgkIg8nT-ogYEAIQZA</string>
 </resources>

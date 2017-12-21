@@ -30,7 +30,7 @@ import static com.gamesbykevin.blocks.activity.BaseActivityHelper.stopSound;
 import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.CURRENT_BACKGROUND;
 import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.RESOURCE_BACKGROUND;
 
-public class BaseActivity extends GooglePlayActivity {
+public abstract class BaseActivity extends GooglePlayActivity {
 
     /**
      * Global tag for logcat events
@@ -67,7 +67,7 @@ public class BaseActivity extends GooglePlayActivity {
     protected static final String URL_TWITTER = "https://twitter.com/gamesbykevin";
     protected static final String URL_INSTAGRAM = "https://www.instagram.com/gamesbykevin";
     protected static final String URL_WEBSITE = "http://gamesbykevin.com";
-    protected static final String URL_RATE = "https://play.google.com/store/apps/details?id=com.gamesbykevin.block";
+    protected static final String URL_RATE = "https://play.google.com/store/apps/details?id=com.gamesbykevin.blocks";
 
     //our intent to access our social media urls
     private Intent intent;
@@ -180,23 +180,6 @@ public class BaseActivity extends GooglePlayActivity {
 
     public static SharedPreferences getPreferences() {
         return preferences;
-    }
-
-    public void displayMessage(final String message) {
-
-        //create our layout view for the toast text
-        LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup)findViewById(R.id.custom_toast_container));
-
-        //update our text view object with the desired text
-        TextView text = layout.findViewById(R.id.text);
-        text.setText(message);
-
-        //create our toast text and assign the inflated layout
-        Toast toast = new Toast(getApplicationContext());
-        toast.setDuration(Toast.LENGTH_SHORT);
-        toast.setView(layout);
-        toast.show();
     }
 
     public static Random getRandom() {

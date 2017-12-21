@@ -18,6 +18,7 @@ import static android.view.View.VISIBLE;
 import static com.gamesbykevin.blocks.activity.BaseActivityHelper.RESOURCE_SOUNDS;
 import static com.gamesbykevin.blocks.activity.BaseActivityHelper.SOUND_KEY;
 import static com.gamesbykevin.blocks.activity.BaseActivityHelper.stopSound;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.displayMessage;
 import static com.gamesbykevin.blocks.activity.MainActivityHelper.updateSharedPreferences;
 import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.CURRENT_BACKGROUND;
 import static com.gamesbykevin.blocks.opengl.MainActivityRenderer.CURRENT_TEXTURE;
@@ -139,7 +140,7 @@ public class MainActivity extends BaseActivity {
                 if (!exit) {
 
                     //prompt user for exit
-                    super.displayMessage(getString(R.string.exit_app_prompt));
+                    displayMessage(this, getString(R.string.exit_app_prompt));
 
                     //flag exit prompt
                     this.exit = true;

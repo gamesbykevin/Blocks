@@ -16,7 +16,7 @@ import com.gamesbykevin.blocks.fragment.PageFragment;
 /**
  * Created by Kevin on 12/19/2017.
  */
-public class PagerActivity extends BaseActivity {
+public abstract class PagerActivity extends BaseActivity {
 
     //our pager object that allows horizontal swiping
     private ViewPager customPager;

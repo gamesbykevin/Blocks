@@ -258,17 +258,17 @@ public class LevelSelectActivity extends BaseActivity {
             tableLayout.setBackgroundResource(resId);
 
             //we won't be able to select if this is locked
-            BaseActivityHelper.setEnabled((ViewGroup)convertView, resId != R.drawable.level_locked);
+            BaseActivityHelper.setEnabled((ViewGroup) convertView, resId != R.drawable.level_locked);
 
             //display the level # only if we can play the level
             if (tableLayout.isEnabled()) {
                 if (position < 9) {
-                    ((TextView)convertView.findViewById(R.id.textView)).setText("0" + (position + 1));
+                    ((TextView) convertView.findViewById(R.id.textView)).setText("0" + (position + 1));
                 } else {
-                    ((TextView)convertView.findViewById(R.id.textView)).setText("" + (position + 1));
+                    ((TextView) convertView.findViewById(R.id.textView)).setText("" + (position + 1));
                 }
             } else {
-                ((TextView)convertView.findViewById(R.id.textView)).setText("");
+                ((TextView) convertView.findViewById(R.id.textView)).setText("");
             }
 
             //return our view

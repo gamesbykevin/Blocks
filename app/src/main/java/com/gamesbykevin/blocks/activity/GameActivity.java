@@ -3,12 +3,9 @@ package com.gamesbykevin.blocks.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.game.Game;
-import com.gamesbykevin.blocks.levels.Level;
 import com.gamesbykevin.blocks.opengl.Renderer;
 
 import org.rajawali3d.view.SurfaceView;
@@ -17,10 +14,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static android.view.View.INVISIBLE;
-import static android.view.View.VISIBLE;
 import static com.gamesbykevin.blocks.activity.GameActivityHelper.setupControlListener;
-import static com.gamesbykevin.blocks.activity.GameOverActivity.PARAM_NAME;
+import static com.gamesbykevin.blocks.activity.GameOverActivity.PARAM_NAME_DURATION;
+import static com.gamesbykevin.blocks.activity.GameOverActivity.PARAM_NAME_DURATION_DESC;
+import static com.gamesbykevin.blocks.activity.GameOverActivity.PARAM_NAME_LEVEL_INDEX;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.displayMessage;
+import static com.gamesbykevin.blocks.activity.LevelSelectActivity.LEVELS;
 
 public class GameActivity extends BaseActivity implements Runnable {
 
@@ -144,7 +143,7 @@ public class GameActivity extends BaseActivity implements Runnable {
         if (!exit) {
 
             //prompt user for exit
-            super.displayMessage(getString(R.string.exit_game_prompt));
+            displayMessage(this, getString(R.string.exit_game_prompt));
 
             //flag exit prompt
             this.exit = true;
@@ -239,8 +238,14 @@ public class GameActivity extends BaseActivity implements Runnable {
                 DateFormat formatter = new SimpleDateFormat(GameOverActivity.TIME_FORMAT);
                 String dateFormatted = formatter.format(new Date(getGame().getTimer().getLapsed()));
 
-                //add the time parameter to the intent so we can display the time to beat the level
-                intent.putExtra(PARAM_NAME, dateFormatted);
+                //add the time duration description
+                intent.putExtra(PARAM_NAME_DURATION_DESC, dateFormatted);
+
+                //add the time duration
+                intent.putExtra(PARAM_NAME_DURATION, getGame().getTimer().getLapsed());
+
+                //add the level index
+                intent.putExtra(PARAM_NAME_LEVEL_INDEX, LEVELS.getIndex());
 
                 //start the activity
                 startActivity(intent);

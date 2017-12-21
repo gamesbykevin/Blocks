@@ -17,46 +17,67 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.games.AchievementsClient;
-import com.google.android.gms.games.EventsClient;
+import com.google.android.gms.games.AnnotatedData;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.LeaderboardsClient;
 import com.google.android.gms.games.Player;
 import com.google.android.gms.games.PlayersClient;
+import com.google.android.gms.games.achievement.Achievement;
+import com.google.android.gms.games.achievement.AchievementBuffer;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
+
+import java.util.HashMap;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static com.gamesbykevin.blocks.activity.BaseActivity.TAG;
+import static com.gamesbykevin.blocks.activity.BaseActivity.getActivity;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.checkPendingAchievements;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.checkPendingScores;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.displayAchievements;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.displayLeaderboard;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.displayMessage;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.handleException;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.trackAchievement;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.trackLeaderboard;
+import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.trackLogin;
 
 /**
  * Created by Kevin on 12/19/2017.
  */
-public class GooglePlayActivity extends AppCompatActivity {
+public abstract class GooglePlayActivity extends AppCompatActivity {
 
     //client used to sign in with Google APIs
-    private static GoogleSignInClient mGoogleSignInClient;
+    private GoogleSignInClient googleSignInClient;
 
     // Client variables
-    private AchievementsClient mAchievementsClient;
-    private LeaderboardsClient mLeaderboardsClient;
-    private EventsClient mEventsClient;
-    private PlayersClient mPlayersClient;
+    private static AchievementsClient achievementsClient;
+    private LeaderboardsClient leaderboardsClient;
+    private PlayersClient playersClient;
 
     // request codes we use when invoking an external activity
-    private static final int RC_UNUSED = 5001;
     private static final int RC_SIGN_IN = 9001;
 
     //name of the google user logged in
     private String displayName;
 
     //are we attempting to access while not logged in
-    private boolean achievements = false;
+    protected boolean achievements = false;
 
     //are we attempting to access while not logged in
-    private boolean leaderboard = false;
+    protected boolean leaderboard = false;
+
+    //the desired leader board
+    protected int resourceIdLeaderboard = -1;
+
+    //our fire base analytics object
+    protected FirebaseAnalytics firebaseAnalytics;
+
+    //the hash map containing our players achievements
+    private HashMap<String, Achievement> achievementHashMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +86,26 @@ public class GooglePlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Create the client used to sign in to Google services.
-        this.mGoogleSignInClient = GoogleSignIn.getClient(this, new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN).build());
+        this.googleSignInClient = GoogleSignIn.getClient(this, new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN).build());
+
+        //obtain our fire base analytics object reference
+        this.firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+    }
+
+    protected GoogleSignInClient getGoogleSignInClient() {
+        return this.googleSignInClient;
+    }
+
+    protected LeaderboardsClient getLeaderboardsClient() {
+        return this.leaderboardsClient;
+    }
+
+    protected static AchievementsClient getAchievementsClient() {
+        return achievementsClient;
+    }
+
+    protected PlayersClient getPlayersClient() {
+        return this.playersClient;
     }
 
     @Override
@@ -103,42 +143,72 @@ public class GooglePlayActivity extends AppCompatActivity {
     private void signInSilently() {
         Log.d(TAG, "signInSilently()");
 
-        try {
-            this.mGoogleSignInClient.silentSignIn().addOnCompleteListener(this,
-                    new OnCompleteListener<GoogleSignInAccount>() {
-                        @Override
-                        public void onComplete(@NonNull Task<GoogleSignInAccount> task) {
-                            if (task.isSuccessful()) {
-                                Log.d(TAG, "signInSilently(): success");
-                                onConnected(task.getResult());
-                            } else {
-                                Log.d(TAG, "signInSilently(): failure", task.getException());
-                                onDisconnected();
-                            }
-                        }
+        getGoogleSignInClient().silentSignIn().addOnCompleteListener(this,
+            new OnCompleteListener<GoogleSignInAccount>() {
+                @Override
+                public void onComplete(@NonNull Task<GoogleSignInAccount> task) {
+                    if (task.isSuccessful()) {
+                        Log.d(TAG, "signInSilently(): success");
+                        onConnected(task.getResult());
+                    } else {
+                        Log.d(TAG, "signInSilently(): failure", task.getException());
+                        onDisconnected();
                     }
-            );
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+                }
+            }
+        );
     }
 
-    private void onConnected(GoogleSignInAccount googleSignInAccount) {
+    protected void onConnected(GoogleSignInAccount googleSignInAccount) {
         Log.d(TAG, "onConnected(): connected to Google APIs");
 
-        mAchievementsClient = Games.getAchievementsClient(this, googleSignInAccount);
-        mLeaderboardsClient = Games.getLeaderboardsClient(this, googleSignInAccount);
-        mEventsClient = Games.getEventsClient(this, googleSignInAccount);
-        mPlayersClient = Games.getPlayersClient(this, googleSignInAccount);
+        this.achievementsClient = Games.getAchievementsClient(this, googleSignInAccount);
+        this.leaderboardsClient = Games.getLeaderboardsClient(this, googleSignInAccount);
+        this.playersClient = Games.getPlayersClient(this, googleSignInAccount);
+
+        //are there pending scores to submit?
+        checkPendingScores(this);
+
+        //get a list of game achievements
+        getAchievementsClient().load(false).addOnSuccessListener(new OnSuccessListener<AnnotatedData<AchievementBuffer>>() {
+
+            @Override
+            public void onSuccess(AnnotatedData<AchievementBuffer> achievementBufferAnnotatedData) {
+
+                //create new list if null
+                if (achievementHashMap == null)
+                    achievementHashMap = new HashMap<>();
+
+                //clear the list before we update
+                achievementHashMap.clear();
+
+                //get the list of achievements
+                AchievementBuffer buffer = achievementBufferAnnotatedData.get();
+
+                //loop through the list of achievements
+                for (int i = 0; i < buffer.getCount(); i++) {
+
+                    //obtain the current achievement
+                    Achievement achievement = buffer.get(i);
+
+                    //update hash map with status of achievement
+                    achievementHashMap.put(achievement.getAchievementId(), achievement);
+                }
+
+                //compare hash map to our pending list of achievements (if any)
+                checkPendingAchievements(getActivity(), achievementHashMap);
+            }
+        });
 
         // Set the greeting appropriately on main menu
-        mPlayersClient.getCurrentPlayer().addOnCompleteListener(new OnCompleteListener<Player>() {
+        getPlayersClient().getCurrentPlayer().addOnCompleteListener(new OnCompleteListener<Player>() {
+
             @Override
             public void onComplete(@NonNull Task<Player> task) {
                 if (task.isSuccessful()) {
                     displayName = task.getResult().getDisplayName();
                 } else {
-                    task.getException().printStackTrace();
+                    handleException(getActivity(), task.getException(), getString(R.string.players_exception));
                     displayName = "???";
                 }
 
@@ -149,7 +219,7 @@ public class GooglePlayActivity extends AppCompatActivity {
             }
         });
 
-        //if we wanted to access the achievements/leaderboard do so now
+        //if we wanted to access the achievements / leader board do so now
         if (achievements) {
             onClickAchievements(null);
         } else if (leaderboard) {
@@ -160,18 +230,25 @@ public class GooglePlayActivity extends AppCompatActivity {
     private void onDisconnected() {
         Log.d(TAG, "onDisconnected()");
 
-        mAchievementsClient = null;
-        mLeaderboardsClient = null;
-        mEventsClient = null;
-        mPlayersClient = null;
+        achievementsClient = null;
+        leaderboardsClient = null;
+        playersClient = null;
 
         //update the ui
         updateUI();
     }
 
     protected void startSignInIntent() {
-        if (!isSignedIn())
-            startActivityForResult(mGoogleSignInClient.getSignInIntent(), RC_SIGN_IN);
+
+        //only sign in if we aren't signed in already
+        if (!isSignedIn()) {
+
+            //start google's login activity
+            startActivityForResult(getGoogleSignInClient().getSignInIntent(), RC_SIGN_IN);
+
+            //log our login attempt
+            trackLogin(this);
+        }
     }
 
     protected void signOut() {
@@ -182,21 +259,16 @@ public class GooglePlayActivity extends AppCompatActivity {
             return;
         }
 
-        try {
-            mGoogleSignInClient.signOut().addOnCompleteListener(this,
-                    new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            boolean successful = task.isSuccessful();
-                            Log.d(TAG, "signOut(): " + (successful ? "success" : "failed"));
-
-                            onDisconnected();
-                        }
-                    }
-            );
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        getGoogleSignInClient().signOut().addOnCompleteListener(this,
+            new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    boolean successful = task.isSuccessful();
+                    Log.d(TAG, "signOut(): " + (successful ? "success" : "failed"));
+                    onDisconnected();
+                }
+            }
+        );
     }
 
     protected boolean isSignedIn() {
@@ -213,13 +285,7 @@ public class GooglePlayActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 onConnected(account);
             } catch (ApiException apiException) {
-                String message = apiException.getMessage();
-                if (message == null || message.isEmpty()) {
-                    message = getString(R.string.signin_other_error);
-                }
-
                 onDisconnected();
-                //new AlertDialog.Builder(this).setMessage(message).setNeutralButton(android.R.string.ok, null).show();
             }
         }
     }
@@ -250,70 +316,70 @@ public class GooglePlayActivity extends AppCompatActivity {
 
         TableLayout tableLayout = findViewById(R.id.table_layout_main_menu);
 
+        //hide and show view again so the text is aligned correctly
         if (tableLayout != null) {
-            //hide and show again so the text is aligned correct
             tableLayout.setVisibility(GONE);
             tableLayout.setVisibility(VISIBLE);
+
+            //hide the other table if it exists
+            TableLayout tableLayoutOptions = findViewById(R.id.table_layout_options_menu);
+
+            //hide the other table if it exists
+            if (tableLayoutOptions != null)
+                tableLayoutOptions.setVisibility(GONE);
         }
     }
 
     public void onClickAchievements(View view) {
 
-        //if we want to access and are not logged in
-        if (!isSignedIn()) {
+        Log.d(TAG, "onClickAchievements()");
 
-            //flag we want to access after login
-            achievements = true;
-
-            //begin google login
-            startSignInIntent();
-
-        } else {
-
-            //we no longer are attempting to access
-            achievements = false;
-
-            mAchievementsClient.getAchievementsIntent().addOnSuccessListener(new OnSuccessListener<Intent>() {
-                @Override
-                public void onSuccess(Intent intent) {
-                    startActivityForResult(intent, RC_UNUSED);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    e.printStackTrace();
-                }
-            });
-        }
+        //display the achievements ui
+        displayAchievements(this);
     }
 
     public void onClickLeaderboard(View view) {
 
-        //if we want to access and are not logged in
-        if (!isSignedIn()) {
+        Log.d(TAG, "onClickLeaderboard() - " + resourceIdLeaderboard);
 
-            //flag we want to access after login
-            leaderboard = true;
+        //display the leader board
+        displayLeaderboard(this);
+    }
 
-            //begin google login
-            startSignInIntent();
+    protected void unlockAchievement(final int resId, final String achievementName) {
 
-        } else {
+        //we can't continue if our object is null or we aren't signed in
+        if (!isSignedIn())
+            return;
+        if (getAchievementsClient() == null)
+            return;
 
-            //we no longer are attemping to access
-            leaderboard = false;
+        Log.d(TAG, "unlockAchievement() - " + getString(resId));
 
-            mLeaderboardsClient.getAllLeaderboardsIntent().addOnSuccessListener(new OnSuccessListener<Intent>() {
-                @Override
-                public void onSuccess(Intent intent) {
-                    startActivityForResult(intent, RC_UNUSED);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    e.printStackTrace();
-                }
-            });
-        }
+        //unlock the specified achievement
+        getAchievementsClient().unlock(getString(resId));
+
+        //track the event
+        trackAchievement(this, getString(resId));
+
+        //display message to the user after call to unlock achievement
+        displayMessage(this, getString(R.string.achievement_unlocked_prompt) + " - " + achievementName);
+    }
+
+    protected void updateLeaderboard(final int resId, final long duration) {
+
+        //we can't continue if our object is null or we aren't signed in
+        if (!isSignedIn())
+            return;
+        if (getLeaderboardsClient() == null)
+            return;
+
+        Log.d(TAG, "updateLeaderboard() - " + getString(resId) + " : duration = " + duration);
+
+        //submit our score to the leader board
+        getLeaderboardsClient().submitScore(getString(resId), duration);
+
+        //track the event
+        trackLeaderboard(this, getString(resId), duration);
     }
 }
