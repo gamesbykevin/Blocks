@@ -108,4 +108,6 @@
     <string name="status_exception_error">%1$s (status %2$d). %3$s.</string>
     <string name="leaderboards_exception">There was an issue communicating with leaderboards.</string>
     <string name="players_exception">There was an issue communicating with players.</string>
+
+    <string name="google_play_not_supported">This is not supported on amazon devices.</string>
 </resources>

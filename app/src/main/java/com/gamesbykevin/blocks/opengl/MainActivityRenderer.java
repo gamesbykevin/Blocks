@@ -1,7 +1,6 @@
 package com.gamesbykevin.blocks.opengl;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.MotionEvent;
 

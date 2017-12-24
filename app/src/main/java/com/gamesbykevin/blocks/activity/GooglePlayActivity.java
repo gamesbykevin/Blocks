@@ -50,6 +50,11 @@ import static com.gamesbykevin.blocks.activity.GooglePlayActivityHelper.trackLog
  */
 public abstract class GooglePlayActivity extends AppCompatActivity {
 
+    /**
+     * We ignore google play for amazon products
+     */
+    public static boolean AMAZON = true;
+
     //client used to sign in with Google APIs
     private GoogleSignInClient googleSignInClient;
 
@@ -117,6 +122,10 @@ public abstract class GooglePlayActivity extends AppCompatActivity {
         // Since the state of the signed in user can change when the activity is not active
         // it is recommended to try and sign in silently from when the app resumes.
         signInSilently();
+
+        //if amazon product, update ui so google play services buttons are disabled
+        if (AMAZON)
+            updateUI();
     }
 
     @Override
@@ -141,6 +150,11 @@ public abstract class GooglePlayActivity extends AppCompatActivity {
     }
 
     private void signInSilently() {
+
+        //don't continue if this is an amazon app
+        if (AMAZON)
+            return;
+
         Log.d(TAG, "signInSilently()");
 
         getGoogleSignInClient().silentSignIn().addOnCompleteListener(this,
@@ -240,6 +254,11 @@ public abstract class GooglePlayActivity extends AppCompatActivity {
 
     protected void startSignInIntent() {
 
+        if (AMAZON) {
+            displayMessage(this, getString(R.string.google_play_not_supported));
+            return;
+        }
+
         //only sign in if we aren't signed in already
         if (!isSignedIn()) {
 
@@ -334,6 +353,11 @@ public abstract class GooglePlayActivity extends AppCompatActivity {
 
         Log.d(TAG, "onClickAchievements()");
 
+        if (AMAZON) {
+            displayMessage(this, getString(R.string.google_play_not_supported));
+            return;
+        }
+
         //display the achievements ui
         displayAchievements(this);
     }
@@ -341,6 +365,11 @@ public abstract class GooglePlayActivity extends AppCompatActivity {
     public void onClickLeaderboard(View view) {
 
         Log.d(TAG, "onClickLeaderboard() - " + resourceIdLeaderboard);
+
+        if (AMAZON) {
+            displayMessage(this, getString(R.string.google_play_not_supported));
+            return;
+        }
 
         //display the leader board
         displayLeaderboard(this);

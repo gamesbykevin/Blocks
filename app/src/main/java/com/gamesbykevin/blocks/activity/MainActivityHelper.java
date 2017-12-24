@@ -8,6 +8,8 @@ import com.gamesbykevin.blocks.R;
 import com.gamesbykevin.blocks.opengl.MainActivityRenderer;
 import com.gamesbykevin.blocks.ui.CustomButton;
 
+import static com.gamesbykevin.blocks.activity.GooglePlayActivity.AMAZON;
+
 /**
  * Created by Kevin on 12/15/2017.
  */
@@ -23,6 +25,12 @@ public class MainActivityHelper {
 
         //retrieve our texture setting
         MainActivityRenderer.CURRENT_TEXTURE = preferences.getInt(activity.getString(R.string.file_key_texture), 0);
+
+        //if this is an amazon device turn google play login  off
+        if (AMAZON) {
+            Editor edit = preferences.edit();
+            edit.putInt(activity.getString(R.string.file_key_login), 1);
+        }
     }
 
     protected static void updateSharedPreferences(MainActivity activity) {
@@ -64,8 +72,12 @@ public class MainActivityHelper {
         edit.putInt(activity.getString(R.string.file_key_vibrate), button.getIndex());
 
         //update login setting
-        button = activity.findViewById(R.id.customButtonLogin);
-        edit.putInt(activity.getString(R.string.file_key_login), button.getIndex());
+        if (!AMAZON) {
+            button = activity.findViewById(R.id.customButtonLogin);
+            edit.putInt(activity.getString(R.string.file_key_login), button.getIndex());
+        } else {
+            edit.putInt(activity.getString(R.string.file_key_login), 1);
+        }
 
         //update desired block texture
         Spinner spinner = activity.findViewById(R.id.spinner_texture);

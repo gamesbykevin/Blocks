@@ -30,7 +30,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile 'org.rajawali3d:rajawali:1.1.970@aar'
+
+    //compile 'org.rajawali3d:rajawali:1.1.970@aar'
+    //compile 'org.rajawali3d:rajawali:1.1.346-SNAPSHOT@aar'
+    //compile 'org.rajawali3d:rajawali:1.1.400-SNAPSHOT@aar'
+    //compile 'org.rajawali3d:rajawali:1.1.465-SNAPSHOT@aar'
+    //compile 'org.rajawali3d:rajawali:1.1.501-SNAPSHOT@aar'
+    //compile 'org.rajawali3d:rajawali:1.1.507-SNAPSHOT@aar'
+    compile 'org.rajawali3d:rajawali:1.1.517-SNAPSHOT@aar'
 
     //adding support library for text font support
     implementation 'com.android.support:appcompat-v7:26.0.1'

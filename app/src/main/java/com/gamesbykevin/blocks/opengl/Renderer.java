@@ -199,6 +199,7 @@ public class Renderer extends org.rajawali3d.renderer.Renderer implements IDispo
     @Override
     public void onRender(final long elapsedTime, final double deltaTime) {
 
+        //objects are null, we can't render
         if (this.misc == null || this.textures == null || this.containers == null)
             return;
 

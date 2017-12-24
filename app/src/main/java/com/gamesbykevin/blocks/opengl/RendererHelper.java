@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.opengl.GLES20;
 
 import com.gamesbykevin.blocks.R;
+import com.gamesbykevin.blocks.activity.BaseActivity;
 
 import org.rajawali3d.loader.LoaderSTL;
 import org.rajawali3d.materials.Material;
