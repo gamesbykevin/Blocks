@@ -30,6 +30,7 @@
 <string name="status_exception_error">% 1 $ s (statut% 2 $ d). </string>
 <string name="leaderboards_exception">Il y avait un problème de communication avec les classements.</string>
 <string name="players_exception">Il y avait un problème de communication avec les joueurs.</string>
+<string name="google_play_not_supported">Ce n'est pas pris en charge sur les appareils Amazon.</string>
 <array name="custom_button_text_login">
 <item>Connexion automatique: Oui</item>
 <item>Connexion automatique: désactivée</item>

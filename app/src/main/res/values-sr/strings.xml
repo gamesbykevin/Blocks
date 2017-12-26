@@ -30,6 +30,7 @@
 <string name="status_exception_error">% 1 $ с (статус% 2 $ д). </string>
 <string name="leaderboards_exception">Било је проблема у комуникацији са лидерима.</string>
 <string name="players_exception">Било је проблема у комуникацији са играчима.</string>
+<string name="google_play_not_supported">Ово није подржано на амазон уређајима.</string>
 <array name="custom_button_text_login">
 <item>Ауто Логин: Он</item>
 <item>Ауто Логин: Искључено</item>

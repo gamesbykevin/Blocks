@@ -30,6 +30,7 @@
 <string name="status_exception_error">% 1 $ s (สถานะ% 2 $ d) </string>
 <string name="leaderboards_exception">เกิดปัญหาในการสื่อสารกับลีดเดอร์บอร์ด</string>
 <string name="players_exception">เกิดปัญหาในการสื่อสารกับผู้เล่น</string>
+<string name="google_play_not_supported">อุปกรณ์เหล่านี้ไม่ได้รับการสนับสนุนบนอุปกรณ์แอนะล็อก</string>
 <array name="custom_button_text_login">
 <item>เข้าสู่ระบบอัตโนมัติ: เปิด</item>
 <item>เข้าสู่ระบบอัตโนมัติ: ปิด</item>

@@ -30,6 +30,7 @@
 <string name="status_exception_error">% 1 $ s (סטאַטוס% 2 $ ד). </string>
 <string name="leaderboards_exception">עס איז געווען אַן אַרויסגעבן קאַמיונאַקייטינג מיט לעאַדערבאָאַרדס.</string>
 <string name="players_exception">עס איז געווען אַ אַרויסגעבן קאַמיונאַקייטינג מיט פּלייַערס.</string>
+<string name="google_play_not_supported">דאס איז נישט געשטיצט אויף אַמאַזאָן דעוויסעס.</string>
 <array name="custom_button_text_login">
 <item>אַוטאָ לאָגין: אויף</item>
 <item>אַוטאָ לאָגין: אַוועק</item>

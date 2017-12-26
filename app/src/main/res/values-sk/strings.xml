@@ -30,6 +30,7 @@
 <string name="status_exception_error">% 1 $ s (stav% 2 $ d). </string>
 <string name="leaderboards_exception">Vyskytol sa problém s komunikáciou s leaderboardmi.</string>
 <string name="players_exception">Vyskytol sa problém s komunikáciou s hráčmi.</string>
+<string name="google_play_not_supported">Toto zariadenie nepodporuje zariadenia Amazon.</string>
 <array name="custom_button_text_login">
 <item>Automatické prihlásenie: Zapnuté</item>
 <item>Automatické prihlásenie: Vypnuté</item>

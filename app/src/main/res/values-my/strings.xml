@@ -30,6 +30,7 @@
 <string name="status_exception_error">% 1 $ s ကို (status ကို% 2 $ ဃ) ။ </string>
 <string name="leaderboards_exception">ဦးဆောင်နှငျ့ဆကျသှယျပြဿနာတစ်ခုရှိခဲ့ပါသည်။</string>
 <string name="players_exception">ကစားသမားများနှင့်အတူဆက်သွယ်ပြဿနာတစ်ခုရှိခဲ့ပါသည်။</string>
+<string name="google_play_not_supported">ဒါဟာအမေဇုန်ကိရိယာများပေါ်တွင်မပံ့ပိုးပါ။</string>
 <array name="custom_button_text_login">
 <item>အော်တိုဝင်မည်: ဒါဟာဖြစ်ပါသည်</item>
 <item>အော်တိုဝင်မည်: ပိတ်</item>

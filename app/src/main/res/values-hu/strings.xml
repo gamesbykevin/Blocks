@@ -30,6 +30,7 @@
 <string name="status_exception_error">% 1 $ s (% 2 $ d állapota). </string>
 <string name="leaderboards_exception">Volt olyan kérdés, amely kommunikál a ranglistákkal.</string>
 <string name="players_exception">A játékosokkal kommunikáltak.</string>
+<string name="google_play_not_supported">Ez nem támogatott amazon eszközökön.</string>
 <array name="custom_button_text_login">
 <item>Automatikus bejelentkezés: Be</item>
 <item>Automatikus bejelentkezés: Ki</item>

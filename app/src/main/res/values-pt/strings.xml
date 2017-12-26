@@ -30,6 +30,7 @@
 <string name="status_exception_error">% 1 $ s (status% 2 $ d). </string>
 <string name="leaderboards_exception">Houve uma questão de comunicação com os quadros de classificação.</string>
 <string name="players_exception">Houve uma questão de comunicação com os jogadores.</string>
+<string name="google_play_not_supported">Isso não é suportado nos dispositivos amazon.</string>
 <array name="custom_button_text_login">
 <item>Login automático: ligado</item>
 <item>Login automático: Desativado</item>

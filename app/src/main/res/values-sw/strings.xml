@@ -30,6 +30,7 @@
 <string name="status_exception_error">% 1 $ s (hali% 2 $ d). </string>
 <string name="leaderboards_exception">Kulikuwa na suala la kuzungumza na ubao wa kiongozi.</string>
 <string name="players_exception">Kulikuwa na suala la kuwasiliana na wachezaji.</string>
+<string name="google_play_not_supported">Hii haijaungwa mkono kwenye vifaa vya amazon.</string>
 <array name="custom_button_text_login">
 <item>Kuingia kwa Auto: On</item>
 <item>Kuingia kwa Auto: Huru</item>

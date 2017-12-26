@@ -30,6 +30,7 @@
 <string name="status_exception_error">٪ 1 $ s (الحالة٪ 2 $ d). </string>
 <string name="leaderboards_exception">كانت هناك مشكلة في التواصل مع المتصدرين.</string>
 <string name="players_exception">كانت هناك مشكلة التواصل مع اللاعبين.</string>
+<string name="google_play_not_supported">هذا غير معتمد على أجهزة الأمازون.</string>
 <array name="custom_button_text_login">
 <item>تسجيل الدخول التلقائي: تشغيل</item>
 <item>تسجيل الدخول التلقائي: إيقاف</item>
